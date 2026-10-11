@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-mandal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#16181d"/>
+      <stop offset="50%" stop-color="#1b1e24"/>
+      <stop offset="100%" stop-color="#121417"/>
+    </linearGradient>
+    <linearGradient id="accent-grad-1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#C4B5FD" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#818cf8" stop-opacity="0.1"/>
+    </linearGradient>
+    <radialGradient id="glow-1" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#C4B5FD" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#C4B5FD" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1600" height="1000" fill="url(#bg-mandal)"/>
+  <rect width="1600" height="1000" fill="url(#glow-1)"/>
+  
+  <!-- Subtle Grid Pattern -->
+  <g opacity="0.06" stroke="#FFFFFF" stroke-width="1">
+    <line x1="0" y1="200" x2="1600" y2="200"/>
+    <line x1="0" y1="400" x2="1600" y2="400"/>
+    <line x1="0" y1="600" x2="1600" y2="600"/>
+    <line x1="0" y1="800" x2="1600" y2="800"/>
+    <line x1="320" y1="0" x2="320" y2="1000"/>
+    <line x1="640" y1="0" x2="640" y2="1000"/>
+    <line x1="960" y1="0" x2="960" y2="1000"/>
+    <line x1="1280" y1="0" x2="1280" y2="1000"/>
+  </g>
+
+  <!-- Dashboard UI Wireframe Shell -->
+  <g transform="translate(240, 150)">
+    <rect width="1120" height="700" rx="14" fill="#181a20" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" filter="drop-shadow(0 25px 50px rgba(0,0,0,0.6))"/>
+    
+    <!-- App Window Header Bar -->
+    <rect width="1120" height="54" rx="14" fill="#20232b"/>
+    <rect y="40" width="1120" height="14" fill="#20232b"/>
+    <line x1="0" y1="54" x2="1120" y2="54" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+    
+    <!-- Window Dots -->
+    <circle cx="34" cy="27" r="6" fill="#ff5f56" opacity="0.8"/>
+    <circle cx="56" cy="27" r="6" fill="#ffbd2e" opacity="0.8"/>
+    <circle cx="78" cy="27" r="6" fill="#27c93f" opacity="0.8"/>
+    
+    <rect x="130" y="18" width="220" height="18" rx="9" fill="rgba(255,255,255,0.06)"/>
+
+    <!-- App Sidebar -->
+    <rect x="0" y="54" width="220" height="646" fill="#15171d"/>
+    <line x1="220" y1="54" x2="220" y2="700" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+    <rect x="28" y="90" width="120" height="12" rx="4" fill="rgba(196, 181, 253, 0.5)"/>
+    <rect x="28" y="125" width="164" height="32" rx="6" fill="rgba(196, 181, 253, 0.12)"/>
+    <rect x="28" y="172" width="140" height="10" rx="4" fill="rgba(255,255,255,0.1)"/>
+    <rect x="28" y="200" width="110" height="10" rx="4" fill="rgba(255,255,255,0.1)"/>
+    <rect x="28" y="228" width="130" height="10" rx="4" fill="rgba(255,255,255,0.1)"/>
+
+    <!-- Main Content Area -->
+    <rect x="260" y="90" width="280" height="24" rx="6" fill="rgba(255,255,255,0.15)"/>
+    <rect x="260" y="128" width="420" height="12" rx="4" fill="rgba(255,255,255,0.07)"/>
+
+    <!-- Cards Row -->
+    <rect x="260" y="175" width="250" height="130" rx="8" fill="#1f222a" stroke="rgba(255,255,255,0.05)"/>
+    <rect x="285" y="200" width="90" height="10" rx="4" fill="rgba(255,255,255,0.1)"/>
+    <rect x="285" y="225" width="140" height="26" rx="4" fill="rgba(196, 181, 253, 0.6)"/>
+
+    <rect x="535" y="175" width="250" height="130" rx="8" fill="#1f222a" stroke="rgba(255,255,255,0.05)"/>
+    <rect x="560" y="200" width="90" height="10" rx="4" fill="rgba(255,255,255,0.1)"/>
+    <rect x="560" y="225" width="140" height="26" rx="4" fill="rgba(129, 140, 248, 0.6)"/>
+
+    <rect x="810" y="175" width="250" height="130" rx="8" fill="#1f222a" stroke="rgba(255,255,255,0.05)"/>
+    <rect x="835" y="200" width="90" height="10" rx="4" fill="rgba(255,255,255,0.1)"/>
+    <rect x="835" y="225" width="140" height="26" rx="4" fill="rgba(255, 255, 255, 0.5)"/>
+
+    <!-- Chart / Table Area -->
+    <rect x="260" y="335" width="800" height="310" rx="8" fill="#1c1f26" stroke="rgba(255,255,255,0.05)"/>
+    
+    <!-- Sparkline / chart mock -->
+    <path d="M 300 580 Q 400 460, 520 510 T 740 420 T 960 480 L 1020 380" fill="none" stroke="#C4B5FD" stroke-width="3" opacity="0.75"/>
+    <path d="M 300 580 Q 400 460, 520 510 T 740 420 T 960 480 L 1020 380 L 1020 620 L 300 620 Z" fill="url(#accent-grad-1)" opacity="0.4"/>
+  </g>
+
+  <!-- Center Watermark Badge -->
+  <g transform="translate(800, 520)">
+    <rect x="-140" y="-24" width="280" height="48" rx="24" fill="rgba(18, 20, 23, 0.85)" stroke="rgba(196, 181, 253, 0.3)" stroke-width="1"/>
+    <text x="0" y="6" fill="#C4B5FD" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="15" font-weight="600" text-anchor="middle" letter-spacing="0.05em">MANDAL APP</text>
+  </g>
+</svg>

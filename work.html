@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work — Digambar Patil | Digital Product Designer</title>
+  <meta name="description" content="A closer look at the work I've helped shape. Selected projects across product design, websites, systems and brand-led experiences.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Background Particle Field -->
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <!-- Cursor Follow Arrow Badge -->
+  <div id="cursor-badge" class="cursor-arrow-badge" aria-hidden="true">
+    <svg viewBox="0 0 24 24">
+      <line x1="7" y1="17" x2="17" y2="7"></line>
+      <polyline points="7 7 17 7 17 17"></polyline>
+    </svg>
+  </div>
+
+  <!-- NAVIGATION -->
+  <header class="site-nav" id="top">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-brand" id="nav-brand">
+          <span class="brand-name">Digambar Patil</span>
+          <span class="brand-title">Digital Product Designer</span>
+        </a>
+        <nav class="nav-links" aria-label="Main Navigation">
+          <a href="work.html" class="nav-link active" id="nav-work">Work</a>
+          <a href="about.html" class="nav-link" id="nav-about">About</a>
+          <a href="assets/Digambar_Patil_Resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link" id="nav-resume">Resume</a>
+          <a href="mailto:contact@digambarpatil.com" class="btn-pill-solid btn-expand-icon" id="nav-contact">
+            <span class="btn-expand-text">Get in touch</span>
+            <span class="btn-expand-circle" aria-hidden="true">
+              <svg class="btn-expand-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </span>
+          </a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- WORK HEADER -->
+    <section class="work-header-section">
+      <div class="container">
+        <div class="work-header-content reveal-on-scroll">
+          <h1 class="work-headline">
+            A closer look at the work<br>I've helped shape
+          </h1>
+          <p class="work-subheading">
+            Selected projects across product design, websites, systems and brand-led experiences — independently and as part of agency teams.
+          </p>
+
+          <!-- Filter Tabs (Left-aligned) -->
+          <div class="work-filter-tabs" role="tablist" aria-label="Filter projects">
+            <button class="work-filter-btn active" data-filter="all" role="tab" aria-selected="true" id="tab-all" tabindex="0">All</button>
+            <button class="work-filter-btn" data-filter="websites" role="tab" aria-selected="false" id="tab-websites" tabindex="0">Websites</button>
+            <button class="work-filter-btn" data-filter="web-applications" role="tab" aria-selected="false" id="tab-web-applications" tabindex="0">Web Applications</button>
+            <button class="work-filter-btn" data-filter="mobile-apps" role="tab" aria-selected="false" id="tab-mobile-apps" tabindex="0">Mobile Apps</button>
+          </div>
+        </div>
+
+        <!-- PROJECT GRID (2-column, full bleed images, no border-radius) -->
+        <div class="work-projects-grid reveal-on-scroll delay-1" id="work-projects-grid">
+          
+          <!-- Row 0, Item 1: Before Two (Flagship UX Case Study) -->
+          <article class="work-project-card" data-category="mobile-apps web-applications">
+            <a href="before-two.html" class="work-project-link" aria-label="Read Before Two UX Case Study">
+              <div class="work-project-image-wrap aspect-16-10">
+                <img src="assets/images/before_two_hero.svg" alt="Before Two — Housekeeping &amp; Operations App" loading="lazy" class="work-project-img">
+              </div>
+            </a>
+            <div class="project-meta-line">
+              <div class="project-title-category">
+                <h2 class="work-project-title"><a href="before-two.html" style="color: inherit; text-decoration: none;">Before Two</a></h2>
+                <span class="work-project-sep">—</span>
+                <span class="work-project-category">Mobile App · UX Case Study</span>
+              </div>
+              <span class="work-project-year">2026</span>
+            </div>
+          </article>
+
+          <!-- Row 0, Item 2: Copper Chocs (Flagship UX Case Study) -->
+          <article class="work-project-card" data-category="websites web-applications">
+            <a href="copper-chocs.html" class="work-project-link" aria-label="Read Copper Chocs E-Commerce UX Case Study">
+              <div class="work-project-image-wrap aspect-16-10">
+                <img src="assets/images/copper_chocs_hero.svg" alt="Copper Chocs — Pune Bakery Shopify Store" loading="lazy" class="work-project-img">
+              </div>
+            </a>
+            <div class="project-meta-line">
+              <div class="project-title-category">
+                <h2 class="work-project-title"><a href="copper-chocs.html" style="color: inherit; text-decoration: none;">Copper Chocs</a></h2>
+                <span class="work-project-sep">—</span>
+                <span class="work-project-category">Website · UX Case Study</span>
+              </div>
+              <span class="work-project-year">2025</span>
+            </div>
+          </article>
+
+          <!-- Row 1, Item 1: Mitra -->
+          <article class="work-project-card" data-category="mobile-apps">
+            <div class="work-project-image-wrap aspect-16-10">
+              <img src="assets/images/eqvista.jpg" alt="Mitra — Mobile App" loading="lazy" class="work-project-img">
+            </div>
+            <div class="project-meta-line">
+              <div class="project-title-category">
+                <h2 class="work-project-title">Mitra</h2>
+                <span class="work-project-sep">—</span>
+                <span class="work-project-category">Mobile App</span>
+              </div>
+              <span class="work-project-year">2025–2026</span>
+            </div>
+          </article>
+
+          <!-- Row 1, Item 2: The Power point coworking -->
+          <article class="work-project-card" data-category="websites">
+            <div class="work-project-image-wrap aspect-16-10">
+              <img src="assets/images/about_hero.jpg" alt="The Power point coworking — Website" loading="lazy" class="work-project-img">
+            </div>
+            <div class="project-meta-line">
+              <div class="project-title-category">
+                <h2 class="work-project-title">The Power point coworking</h2>
+                <span class="work-project-sep">—</span>
+                <span class="work-project-category">Website</span>
+              </div>
+              <span class="work-project-year">2025–2026</span>
+            </div>
+          </article>
+
+          <!-- Row 2, Item 1: Elixir Helps (UX Case Study) -->
+          <article class="work-project-card" data-category="web-applications websites">
+            <a href="elixir-helps.html" class="work-project-link" aria-label="Read Elixir Helps UX Case Study">
+              <div class="work-project-image-wrap aspect-4-3">
+                <img src="assets/images/elixirhelps.jpg" alt="Elixir Helps — Mental Health Platform UI/UX Case Study" loading="lazy" class="work-project-img">
+              </div>
+            </a>
+            <div class="project-meta-line">
+              <div class="project-title-category">
+                <h2 class="work-project-title"><a href="elixir-helps.html" style="color: inherit; text-decoration: none;">Elixir Helps</a></h2>
+                <span class="work-project-sep">—</span>
+                <span class="work-project-category">Web Application · UX Case Study</span>
+              </div>
+              <span class="work-project-year">Oct 2025 – Feb 2026</span>
+            </div>
+          </article>
+
+          <!-- Row 2, Item 2: Homyfyd -->
+          <article class="work-project-card" data-category="web-applications">
+            <div class="work-project-image-wrap aspect-4-3">
+              <img src="assets/images/veevoy.jpg" alt="Homyfyd — Web Application" loading="lazy" class="work-project-img">
+            </div>
+            <div class="project-meta-line">
+              <div class="project-title-category">
+                <h2 class="work-project-title">Homyfyd</h2>
+                <span class="work-project-sep">—</span>
+                <span class="work-project-category">Web Application</span>
+              </div>
+              <span class="work-project-year">2026</span>
+            </div>
+          </article>
+
+          <!-- Row 3, Item 1: Rayafit -->
+          <article class="work-project-card" data-category="mobile-apps">
+            <div class="work-project-image-wrap aspect-16-10">
+              <img src="assets/images/sportelo.jpg" alt="Rayafit — Mobile App" loading="lazy" class="work-project-img">
+            </div>
+            <div class="project-meta-line">
+              <div class="project-title-category">
+                <h2 class="work-project-title">Rayafit</h2>
+                <span class="work-project-sep">—</span>
+                <span class="work-project-category">Mobile App</span>
+              </div>
+              <span class="work-project-year">2025–2026</span>
+            </div>
+          </article>
+
+          <!-- Row 3, Item 2: Soche -->
+          <article class="work-project-card" data-category="websites">
+            <div class="work-project-image-wrap aspect-16-10">
+              <img src="assets/images/soche.jpg" alt="Soche — Website" loading="lazy" class="work-project-img">
+            </div>
+            <div class="project-meta-line">
+              <div class="project-title-category">
+                <h2 class="work-project-title">Soche</h2>
+                <span class="work-project-sep">—</span>
+                <span class="work-project-category">Website</span>
+              </div>
+              <span class="work-project-year">2025–2026</span>
+            </div>
+          </article>
+
+          <!-- Row 4, Item 1: Bespoke solu. -->
+          <article class="work-project-card" data-category="websites">
+            <div class="work-project-image-wrap aspect-4-3">
+              <img src="assets/images/about_workspace.jpg" alt="Bespoke solu. — Website" loading="lazy" class="work-project-img">
+            </div>
+            <div class="project-meta-line">
+              <div class="project-title-category">
+                <h2 class="work-project-title">Bespoke solu.</h2>
+                <span class="work-project-sep">—</span>
+                <span class="work-project-category">Website</span>
+              </div>
+              <span class="work-project-year">2025–2026</span>
+            </div>
+          </article>
+
+          <!-- Row 4, Item 2: Trrip -->
+          <article class="work-project-card" data-category="mobile-apps">
+            <div class="work-project-image-wrap aspect-4-3">
+              <img src="assets/images/featured_hero.jpg" alt="Trrip — Mobile App" loading="lazy" class="work-project-img">
+            </div>
+            <div class="project-meta-line">
+              <div class="project-title-category">
+                <h2 class="work-project-title">Trrip</h2>
+                <span class="work-project-sep">—</span>
+                <span class="work-project-category">Mobile App</span>
+              </div>
+              <span class="work-project-year">2026</span>
+            </div>
+          </article>
+
+          <!-- Row 5, Item 1: Mandal App -->
+          <article class="work-project-card" data-category="web-applications">
+            <div class="work-project-image-wrap aspect-16-10">
+              <img src="assets/images/placeholder_mandal.svg" alt="Mandal App — Web Application" loading="lazy" class="work-project-img">
+            </div>
+            <div class="project-meta-line">
+              <div class="project-title-category">
+                <h2 class="work-project-title">Mandal App</h2>
+                <span class="work-project-sep">—</span>
+                <span class="work-project-category">Web Application</span>
+              </div>
+              <span class="work-project-year">2026</span>
+            </div>
+          </article>
+
+          <!-- Row 5, Item 2: Tythas Central Control -->
+          <article class="work-project-card" data-category="web-applications">
+            <div class="work-project-image-wrap aspect-16-10">
+              <img src="assets/images/placeholder_tythas.svg" alt="Tythas Central Control — Web Application" loading="lazy" class="work-project-img">
+            </div>
+            <div class="project-meta-line">
+              <div class="project-title-category">
+                <h2 class="work-project-title">Tythas Central Control</h2>
+                <span class="work-project-sep">—</span>
+                <span class="work-project-category">Web Application</span>
+              </div>
+              <span class="work-project-year">2026</span>
+            </div>
+          </article>
+
+          <!-- Row 6, Item 1: S&A Creations App -->
+          <article class="work-project-card" data-category="web-applications">
+            <div class="work-project-image-wrap aspect-4-3">
+              <img src="assets/images/placeholder_sa_creations.svg" alt="S&A Creations App — Web Application" loading="lazy" class="work-project-img">
+            </div>
+            <div class="project-meta-line">
+              <div class="project-title-category">
+                <h2 class="work-project-title">S&A Creations App</h2>
+                <span class="work-project-sep">—</span>
+                <span class="work-project-category">Web Application</span>
+              </div>
+              <span class="work-project-year">2026</span>
+            </div>
+          </article>
+
+          <!-- Empty state when zero projects match -->
+          <div class="filter-empty-state" id="filter-empty-state" style="display: none;" aria-live="polite">
+            <p>No projects in this category yet.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER / CONTACT SECTION -->
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <div class="footer-contact-block reveal-on-scroll">
+        <div class="footer-eyebrow">LET'S WORK TOGETHER</div>
+        <div class="email-interactive-wrapper">
+          <a href="mailto:contact@digambarpatil.com" class="email-display-link" id="footer-email">
+            contact@digambarpatil.com
+          </a>
+          <div class="email-full-underline" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <div class="footer-bottom reveal-on-scroll delay-1">
+        <div class="footer-bottom-left">
+          Designed and built by Digambar Patil
+        </div>
+
+        <div class="footer-bottom-center">
+          <span class="live-dot" aria-hidden="true"></span>
+          <span id="live-time">Pune, --:--</span>
+          <span class="footer-dot-sep">•</span>
+          <a href="#" class="footer-privacy-link">Privacy</a>
+        </div>
+
+        <div class="footer-bottom-right">
+          <div class="footer-socials" aria-label="Social Profiles">
+            <a href="https://www.linkedin.com/in/digambar-patil-6847081aa/" target="_blank" rel="noopener noreferrer" class="social-pill" aria-label="Digambar Patil on LinkedIn">
+              <svg viewBox="0 0 24 24" class="social-icon"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64c-.95 0-1.66.71-1.66 1.66 0 .93.71 1.64 1.66 1.64.92 0 1.63-.71 1.63-1.64 0-.95-.71-1.66-1.63-1.66z"></path></svg>
+              <span>LinkedIn</span>
+            </a>
+            <a href="https://www.behance.net/digambarpatil2" target="_blank" rel="noopener noreferrer" class="social-pill" aria-label="Digambar Patil on Behance">
+              <svg viewBox="0 0 24 24" class="social-icon"><path d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-4.085 0-6.625-2.748-6.625-6.84 0-4.225 2.684-6.892 6.471-6.892 4.103 0 6.136 2.924 5.753 6.944h-9.351c.143 2.087 1.664 3.656 3.753 3.656 1.848 0 2.879-.824 3.324-1.868h1.776zm-8.854-5.352h6.586c-.161-1.802-1.399-3.08-3.264-3.08-1.954 0-3.136 1.294-3.322 3.08zm-14.872-6.648h5.922c3.154 0 4.908 1.492 4.908 3.781 0 1.611-.871 2.766-2.28 3.27 1.778.508 2.802 1.879 2.802 3.736 0 2.569-1.977 4.213-5.316 4.213h-6.036v-15zm3.02 6.096h2.49c1.242 0 2.05-.623 2.05-1.637 0-.964-.784-1.579-2.026-1.579h-2.514v3.216zm0 5.864h2.723c1.455 0 2.378-.711 2.378-1.815 0-1.127-.923-1.801-2.454-1.801h-2.647v3.616z"></path></svg>
+              <span>Behance</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

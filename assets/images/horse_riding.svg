@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e1828"/>
+      <stop offset="60%" stop-color="#3b2d4a"/>
+      <stop offset="100%" stop-color="#7c5279"/>
+    </linearGradient>
+    <linearGradient id="sunGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fed7aa" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#f472b6" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="groundGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2d1f30"/>
+      <stop offset="100%" stop-color="#121417"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#skyGrad)"/>
+  <circle cx="480" cy="320" r="140" fill="url(#sunGrad)"/>
+  <ellipse cx="400" cy="560" rx="600" ry="160" fill="url(#groundGrad)"/>
+  
+  <!-- Stylized Horse & Rider Silhouette -->
+  <g fill="#0e0f12" opacity="0.95" transform="translate(180, 160) scale(0.9)">
+    <!-- Horse Body -->
+    <path d="M180,240 C170,210 190,170 230,165 C260,160 310,165 350,190 C380,210 400,245 400,285 C370,305 320,310 270,310 C210,310 185,280 180,240 Z"/>
+    <!-- Horse Neck & Head -->
+    <path d="M200,210 C190,160 170,110 140,80 C135,75 125,70 120,75 C115,80 118,95 110,105 C100,115 80,120 75,130 C70,140 85,150 95,155 C115,165 140,210 160,250 Z"/>
+    <!-- Ears -->
+    <polygon points="120,70 125,50 132,68"/>
+    <polygon points="128,68 135,48 142,66"/>
+    <!-- Mane & Tail -->
+    <path d="M140,85 C145,110 160,150 175,190 C165,180 150,150 138,110 Z" fill="#08090a"/>
+    <path d="M390,250 C430,280 460,350 470,420 C450,400 430,340 395,290 Z" fill="#08090a"/>
+    <!-- Legs -->
+    <path d="M190,280 L180,450 L165,470 L175,475 L195,455 L210,290 Z"/>
+    <path d="M220,290 L235,430 L220,460 L235,465 L255,430 L245,295 Z"/>
+    <path d="M340,290 L360,420 L350,465 L365,470 L385,425 L370,280 Z"/>
+    <path d="M375,280 L400,410 L415,445 L430,440 L415,405 L395,275 Z"/>
+    <!-- Rider -->
+    <circle cx="265" cy="115" r="18"/>
+    <!-- Rider Hat -->
+    <path d="M245,108 C255,95 285,95 295,108 C305,110 240,112 245,108 Z"/>
+    <!-- Rider Torso -->
+    <path d="M250,130 C250,130 270,128 285,135 C295,160 290,195 285,225 C265,225 250,210 248,170 Z"/>
+    <!-- Rider Arms & Reins -->
+    <path d="M265,145 L220,180 L170,165" stroke="#0e0f12" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <path d="M220,180 L110,135" stroke="#C4B5FD" stroke-width="1.5" fill="none" opacity="0.6"/>
+    <!-- Rider Legs -->
+    <path d="M275,220 L290,290 L260,330 L270,335 L305,290 L290,220 Z"/>
+  </g>
+  
+  <text x="50" y="550" fill="#E2E4E9" font-family="'Newsreader', serif" font-size="28" font-style="italic" opacity="0.6">Horse Riding &amp; Mindful Focus</text>
+</svg>

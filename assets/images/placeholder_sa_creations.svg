@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-sa" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#181a20"/>
+      <stop offset="50%" stop-color="#14161b"/>
+      <stop offset="100%" stop-color="#111317"/>
+    </linearGradient>
+    <linearGradient id="purple-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C4B5FD"/>
+      <stop offset="100%" stop-color="#a78bfa"/>
+    </linearGradient>
+    <radialGradient id="glow-3" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#C4B5FD" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#C4B5FD" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1600" height="1200" fill="url(#bg-sa)"/>
+  <rect width="1600" height="1200" fill="url(#glow-3)"/>
+
+  <!-- Subtle Creative Grid Pattern -->
+  <g opacity="0.04" stroke="#FFFFFF" stroke-width="1">
+    <line x1="0" y1="300" x2="1600" y2="300"/>
+    <line x1="0" y1="600" x2="1600" y2="600"/>
+    <line x1="0" y1="900" x2="1600" y2="900"/>
+    <line x1="400" y1="0" x2="400" y2="1200"/>
+    <line x1="800" y1="0" x2="800" y2="1200"/>
+    <line x1="1200" y1="0" x2="1200" y2="1200"/>
+  </g>
+
+  <!-- Creative Studio UI Frame (4:3 aspect ratio representation) -->
+  <g transform="translate(200, 160)">
+    <rect width="1200" height="880" rx="16" fill="#171922" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" filter="drop-shadow(0 30px 60px rgba(0,0,0,0.65))"/>
+
+    <!-- App Header -->
+    <rect width="1200" height="60" rx="16" fill="#1f222b"/>
+    <rect y="40" width="1200" height="20" fill="#1f222b"/>
+    <line x1="0" y1="60" x2="1200" y2="60" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+
+    <circle cx="38" cy="30" r="6" fill="#ff5f56" opacity="0.8"/>
+    <circle cx="60" cy="30" r="6" fill="#ffbd2e" opacity="0.8"/>
+    <circle cx="82" cy="30" r="6" fill="#27c93f" opacity="0.8"/>
+
+    <rect x="140" y="20" width="200" height="20" rx="10" fill="rgba(255,255,255,0.06)"/>
+
+    <!-- Canvas / Gallery Grid -->
+    <g transform="translate(40, 95)">
+      <!-- Item 1 -->
+      <rect width="350" height="340" rx="10" fill="#20242e" stroke="rgba(255,255,255,0.05)"/>
+      <rect x="30" y="30" width="290" height="200" rx="8" fill="rgba(196,181,253,0.15)"/>
+      <rect x="30" y="255" width="160" height="14" rx="4" fill="rgba(255,255,255,0.2)"/>
+      <rect x="30" y="285" width="220" height="10" rx="4" fill="rgba(255,255,255,0.08)"/>
+
+      <!-- Item 2 -->
+      <rect x="385" width="350" height="340" rx="10" fill="#20242e" stroke="rgba(255,255,255,0.05)"/>
+      <rect x="415" y="30" width="290" height="200" rx="8" fill="rgba(129,140,248,0.15)"/>
+      <rect x="415" y="255" width="160" height="14" rx="4" fill="rgba(255,255,255,0.2)"/>
+      <rect x="415" y="285" width="220" height="10" rx="4" fill="rgba(255,255,255,0.08)"/>
+
+      <!-- Item 3 -->
+      <rect x="770" width="350" height="340" rx="10" fill="#20242e" stroke="rgba(255,255,255,0.05)"/>
+      <rect x="800" y="30" width="290" height="200" rx="8" fill="rgba(56,189,248,0.15)"/>
+      <rect x="800" y="255" width="160" height="14" rx="4" fill="rgba(255,255,255,0.2)"/>
+      <rect x="800" y="285" width="220" height="10" rx="4" fill="rgba(255,255,255,0.08)"/>
+
+      <!-- Row 2 -->
+      <rect y="375" width="540" height="340" rx="10" fill="#20242e" stroke="rgba(255,255,255,0.05)"/>
+      <rect x="30" y="405" width="480" height="200" rx="8" fill="rgba(196,181,253,0.12)"/>
+      <rect x="30" y="630" width="220" height="14" rx="4" fill="rgba(255,255,255,0.2)"/>
+      <rect x="30" y="660" width="300" height="10" rx="4" fill="rgba(255,255,255,0.08)"/>
+
+      <rect x="580" y="375" width="540" height="340" rx="10" fill="#20242e" stroke="rgba(255,255,255,0.05)"/>
+      <rect x="610" y="405" width="480" height="200" rx="8" fill="rgba(244,114,182,0.12)"/>
+      <rect x="610" y="630" width="220" height="14" rx="4" fill="rgba(255,255,255,0.2)"/>
+      <rect x="610" y="660" width="300" height="10" rx="4" fill="rgba(255,255,255,0.08)"/>
+    </g>
+  </g>
+
+  <!-- Center Watermark Badge -->
+  <g transform="translate(800, 600)">
+    <rect x="-160" y="-24" width="320" height="48" rx="24" fill="rgba(18, 20, 23, 0.85)" stroke="rgba(196, 181, 253, 0.3)" stroke-width="1"/>
+    <text x="0" y="6" fill="#C4B5FD" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="15" font-weight="600" text-anchor="middle" letter-spacing="0.05em">S&amp;A CREATIONS APP</text>
+  </g>
+</svg>

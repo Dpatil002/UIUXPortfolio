@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-tythas" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#12151b"/>
+      <stop offset="50%" stop-color="#181a22"/>
+      <stop offset="100%" stop-color="#101216"/>
+    </linearGradient>
+    <radialGradient id="glow-2" cx="60%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#818cf8" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#818cf8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1600" height="1000" fill="url(#bg-tythas)"/>
+  <rect width="1600" height="1000" fill="url(#glow-2)"/>
+
+  <!-- Subtle Radial/Grid overlay -->
+  <g opacity="0.05" stroke="#FFFFFF" stroke-width="1">
+    <circle cx="800" cy="500" r="200" fill="none"/>
+    <circle cx="800" cy="500" r="400" fill="none"/>
+    <circle cx="800" cy="500" r="600" fill="none"/>
+  </g>
+
+  <!-- Control Panel UI Frame -->
+  <g transform="translate(240, 150)">
+    <rect width="1120" height="700" rx="14" fill="#171922" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" filter="drop-shadow(0 25px 50px rgba(0,0,0,0.6))"/>
+
+    <!-- Top Navigation Bar -->
+    <rect width="1120" height="54" rx="14" fill="#1e212b"/>
+    <rect y="40" width="1120" height="14" fill="#1e212b"/>
+    <line x1="0" y1="54" x2="1120" y2="54" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+
+    <!-- Status indicator pills -->
+    <circle cx="34" cy="27" r="5" fill="#34d399" opacity="0.9"/>
+    <rect x="52" y="21" width="90" height="12" rx="6" fill="rgba(255,255,255,0.15)"/>
+    
+    <rect x="920" y="16" width="80" height="22" rx="11" fill="rgba(196,181,253,0.15)" stroke="rgba(196,181,253,0.3)" stroke-width="1"/>
+    <rect x="1016" y="16" width="70" height="22" rx="11" fill="rgba(255,255,255,0.08)"/>
+
+    <!-- Central Control Grid Modules -->
+    <g transform="translate(50, 85)">
+      <!-- Left Panel: Live Nodes -->
+      <rect width="480" height="260" rx="10" fill="#13151c" stroke="rgba(255,255,255,0.05)"/>
+      <rect x="25" y="25" width="140" height="16" rx="4" fill="rgba(255,255,255,0.2)"/>
+      <rect x="25" y="60" width="430" height="40" rx="6" fill="rgba(255,255,255,0.04)"/>
+      <rect x="25" y="112" width="430" height="40" rx="6" fill="rgba(255,255,255,0.04)"/>
+      <rect x="25" y="164" width="430" height="40" rx="6" fill="rgba(255,255,255,0.04)"/>
+
+      <!-- Right Panel: Telemetry -->
+      <rect x="510" width="510" height="260" rx="10" fill="#13151c" stroke="rgba(255,255,255,0.05)"/>
+      <rect x="535" y="25" width="160" height="16" rx="4" fill="rgba(196,181,253,0.5)"/>
+      
+      <!-- Telemetry bars -->
+      <rect x="535" y="70" width="460" height="12" rx="6" fill="rgba(255,255,255,0.06)"/>
+      <rect x="535" y="70" width="340" height="12" rx="6" fill="#C4B5FD" opacity="0.7"/>
+
+      <rect x="535" y="110" width="460" height="12" rx="6" fill="rgba(255,255,255,0.06)"/>
+      <rect x="535" y="110" width="280" height="12" rx="6" fill="#818cf8" opacity="0.7"/>
+
+      <rect x="535" y="150" width="460" height="12" rx="6" fill="rgba(255,255,255,0.06)"/>
+      <rect x="535" y="150" width="410" height="12" rx="6" fill="#38bdf8" opacity="0.7"/>
+
+      <!-- Bottom Panel: System Matrix -->
+      <rect y="285" width="1020" height="260" rx="10" fill="#13151c" stroke="rgba(255,255,255,0.05)"/>
+      <rect x="25" y="310" width="180" height="16" rx="4" fill="rgba(255,255,255,0.2)"/>
+      
+      <!-- Nodes visual -->
+      <circle cx="150" cy="420" r="18" fill="rgba(196,181,253,0.2)" stroke="#C4B5FD" stroke-width="2"/>
+      <circle cx="380" cy="380" r="18" fill="rgba(129,140,248,0.2)" stroke="#818cf8" stroke-width="2"/>
+      <circle cx="620" cy="440" r="18" fill="rgba(56,189,248,0.2)" stroke="#38bdf8" stroke-width="2"/>
+      <circle cx="860" cy="400" r="18" fill="rgba(196,181,253,0.2)" stroke="#C4B5FD" stroke-width="2"/>
+      <line x1="168" y1="416" x2="362" y2="384" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-dasharray="4 4"/>
+      <line x1="398" y1="384" x2="602" y2="436" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-dasharray="4 4"/>
+      <line x1="638" y1="436" x2="842" y2="404" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-dasharray="4 4"/>
+    </g>
+  </g>
+
+  <!-- Center Watermark Badge -->
+  <g transform="translate(800, 520)">
+    <rect x="-170" y="-24" width="340" height="48" rx="24" fill="rgba(18, 20, 23, 0.85)" stroke="rgba(196, 181, 253, 0.3)" stroke-width="1"/>
+    <text x="0" y="6" fill="#C4B5FD" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="15" font-weight="600" text-anchor="middle" letter-spacing="0.05em">TYTHAS CENTRAL CONTROL</text>
+  </g>
+</svg>
