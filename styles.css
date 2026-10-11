@@ -6622,3 +6622,399 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* ==========================================================================
+   SOCHÉ UX CASE STUDY (Luxury D2C & B2B Wholesale Spices)
+   ========================================================================== */
+:root {
+  --soche-bg: #0f090b;
+  --soche-surface: #180f13;
+  --soche-card-bg: rgba(26, 15, 20, 0.78);
+  --soche-card-border: rgba(186, 75, 90, 0.22);
+  --soche-card-border-hover: rgba(212, 175, 55, 0.55);
+  --soche-maroon: #39141A;
+  --soche-cream: #F5F1EA;
+  --soche-sand: #ECE3D5;
+  --soche-gold: #d4af37;
+  --soche-forest: #1A3B2A;
+  --soche-deep-forest: #10251A;
+  --soche-green: #4ade80;
+  --soche-rose: #f43f5e;
+  --soche-pill: rgba(212, 175, 55, 0.15);
+}
+
+.soche-case-study {
+  background-color: var(--soche-bg);
+  color: var(--soche-cream);
+}
+
+.soche-case-study h1,
+.soche-case-study h2,
+.soche-case-study h3,
+.soche-case-study .cs-section-num,
+.soche-case-study .cs-brand-eyebrow .cs-app-name {
+  font-family: 'Newsreader', Georgia, serif;
+}
+
+.soche-case-study .cs-section-num {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--soche-gold);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  font-size: 0.85rem;
+}
+
+.soche-case-study .cs-section-heading {
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.soche-em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--soche-gold);
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+.soche-tag {
+  background: var(--soche-pill);
+  border-color: rgba(212, 175, 55, 0.35);
+  color: #fef08a;
+}
+
+.soche-pill {
+  background: var(--soche-gold);
+  color: #140a0d;
+  font-weight: 800;
+}
+
+/* Two Front Doors Architecture Banner */
+.soche-dual-register {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.soche-register-card {
+  border-radius: 16px;
+  padding: 1.75rem;
+  transition: all 0.25s ease;
+}
+
+.soche-register-retail {
+  background: linear-gradient(145deg, rgba(57, 20, 26, 0.75), rgba(28, 12, 16, 0.9));
+  border: 1px solid rgba(244, 63, 94, 0.25);
+}
+
+.soche-register-wholesale {
+  background: linear-gradient(145deg, rgba(26, 59, 42, 0.75), rgba(16, 37, 26, 0.9));
+  border: 1px solid rgba(74, 222, 128, 0.3);
+}
+
+.soche-register-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+}
+
+.soche-badge-retail {
+  background: rgba(244, 63, 94, 0.2);
+  color: #fecdd3;
+  border: 1px solid rgba(244, 63, 94, 0.4);
+}
+
+.soche-badge-wholesale {
+  background: rgba(74, 222, 128, 0.2);
+  color: #86efac;
+  border: 1px solid rgba(74, 222, 128, 0.4);
+}
+
+/* Proto-Personas Grid */
+.soche-personas-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin: 2rem 0;
+}
+
+.soche-persona-card {
+  background: var(--soche-card-bg);
+  border: 1px solid var(--soche-card-border);
+  border-radius: 16px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.soche-persona-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.soche-quote-box {
+  background: rgba(245, 241, 234, 0.04);
+  border-left: 2px solid var(--soche-gold);
+  padding: 0.85rem 1rem;
+  font-style: italic;
+  font-size: 0.92rem;
+  color: #fff;
+  border-radius: 0 8px 8px 0;
+  margin: 0.75rem 0 1.25rem;
+}
+
+/* 9-Chapter Narrative Grid */
+.soche-chapters-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.soche-chapter-item {
+  background: rgba(245, 241, 234, 0.03);
+  border: 1px solid rgba(245, 241, 234, 0.08);
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+
+.soche-chapter-num {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--soche-gold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.soche-chapter-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.soche-chapter-desc {
+  font-size: 0.85rem;
+  color: rgba(245, 241, 234, 0.7);
+  line-height: 1.5;
+}
+
+/* Wholesale Iteration 3-Column Progression */
+.soche-iterations-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin: 2rem 0;
+}
+
+.soche-iteration-card {
+  background: var(--soche-card-bg);
+  border: 1px solid var(--soche-card-border);
+  border-radius: 14px;
+  padding: 1.5rem;
+}
+
+.soche-iteration-card.final {
+  background: linear-gradient(160deg, rgba(26, 59, 42, 0.8), rgba(16, 37, 26, 0.95));
+  border-color: rgba(74, 222, 128, 0.5);
+}
+
+/* Clean Responsive Tables */
+.soche-table-wrap {
+  overflow-x: auto;
+  margin: 1.75rem 0;
+  border-radius: 14px;
+  border: 1px solid rgba(245, 241, 234, 0.1);
+  background: rgba(20, 10, 14, 0.6);
+}
+
+.soche-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.88rem;
+}
+
+.soche-table th {
+  background: rgba(245, 241, 234, 0.06);
+  padding: 0.9rem 1.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  border-bottom: 1px solid rgba(245, 241, 234, 0.12);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+.soche-table td {
+  padding: 1rem 1.2rem;
+  border-bottom: 1px solid rgba(245, 241, 234, 0.06);
+  color: rgba(245, 241, 234, 0.85);
+  line-height: 1.5;
+}
+
+.soche-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Laws of UX Grid */
+.soche-laws-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.15rem;
+  margin: 2rem 0;
+}
+
+.soche-law-card {
+  background: rgba(245, 241, 234, 0.03);
+  border: 1px solid rgba(245, 241, 234, 0.08);
+  border-radius: 14px;
+  padding: 1.35rem;
+  position: relative;
+}
+
+.soche-law-num {
+  position: absolute;
+  top: 1rem;
+  right: 1.2rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: rgba(245, 241, 234, 0.3);
+}
+
+.soche-law-name {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.45rem;
+}
+
+.soche-law-theory {
+  font-size: 0.82rem;
+  color: rgba(245, 241, 234, 0.6);
+  margin-bottom: 0.85rem;
+  line-height: 1.45;
+}
+
+.soche-law-applied {
+  font-size: 0.82rem;
+  background: rgba(245, 241, 234, 0.04);
+  padding: 0.65rem 0.85rem;
+  border-radius: 8px;
+  border-left: 2px solid var(--soche-gold);
+  color: #F5F1EA;
+}
+
+/* Palette Swatches */
+.soche-palette-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 1.75rem 0;
+}
+
+.soche-palette-box {
+  background: var(--soche-card-bg);
+  border: 1px solid var(--soche-card-border);
+  border-radius: 14px;
+  padding: 1.5rem;
+}
+
+.soche-swatches {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.soche-swatch {
+  flex: 1;
+  min-width: 90px;
+  border-radius: 10px;
+  padding: 1rem 0.75rem;
+  font-size: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 90px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Roadmap List in Outcomes */
+.soche-roadmap-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.soche-roadmap-item {
+  background: rgba(245, 241, 234, 0.03);
+  border: 1px solid rgba(245, 241, 234, 0.08);
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+
+/* ATS Skills Matrix Banner */
+.soche-ats-banner {
+  background: rgba(212, 175, 55, 0.07);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-top: 2.5rem;
+}
+
+.soche-ats-header {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.soche-ats-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 1rem;
+}
+
+.soche-ats-pill {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.35rem 0.8rem;
+  border-radius: 8px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: #fef08a;
+}
+
+@media (max-width: 1024px) {
+  .soche-dual-register,
+  .soche-personas-grid,
+  .soche-chapters-grid,
+  .soche-iterations-grid,
+  .soche-palette-grid,
+  .soche-roadmap-list {
+    grid-template-columns: 1fr;
+  }
+}
+

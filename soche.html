@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soché — D2C &amp; Wholesale Luxury Spices UX Case Study | Digambar Patil</title>
+  <meta name="description" content="Soché: Turning a spice brand into a story worth paying more for. A luxury Shopify D2C retail experience and export-grade B2B wholesale platform for Rainforest Alliance spices. Lead UI/UX Case Study by Digambar Patil.">
+  <meta name="keywords" content="Lead UI/UX Designer, E-Commerce UX, Shopify Plus, D2C Design, B2B Wholesale UX, Information Architecture, Luxury Brand Design, Design Systems, Front-end Prototyping, Laws of UX, Interaction Design, Product Design, The Impact Engine">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="case-study-page soche-case-study">
+
+  <!-- Background Particle Field -->
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <!-- Cursor Follow Arrow Badge -->
+  <div id="cursor-badge" class="cursor-arrow-badge" aria-hidden="true">
+    <svg viewBox="0 0 24 24">
+      <line x1="7" y1="17" x2="17" y2="7"></line>
+      <polyline points="7 7 17 7 17 17"></polyline>
+    </svg>
+  </div>
+
+  <!-- NAVIGATION -->
+  <header class="site-nav" id="top">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-brand" id="nav-brand">
+          <span class="brand-name">Digambar Patil</span>
+          <span class="brand-title">Digital Product Designer</span>
+        </a>
+        <nav class="nav-links" aria-label="Main Navigation">
+          <a href="work.html" class="nav-link" id="nav-work">Work</a>
+          <a href="about.html" class="nav-link" id="nav-about">About</a>
+          <a href="assets/Digambar_Patil_Resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link" id="nav-resume">Resume</a>
+          <a href="mailto:contact@digambarpatil.com" class="btn-pill-solid btn-expand-icon" id="nav-contact">
+            <span class="btn-expand-text">Get in touch</span>
+            <span class="btn-expand-circle" aria-hidden="true">
+              <svg class="btn-expand-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </span>
+          </a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- CASE STUDY HERO SECTION -->
+    <section class="cs-hero-section">
+      <div class="container">
+        
+        <!-- Breadcrumb / Back Link -->
+        <div class="cs-breadcrumb reveal-on-scroll">
+          <a href="work.html" class="cs-back-btn">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            <span>Back to Selected Work</span>
+          </a>
+          <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+            <span class="cs-tag-badge soche-tag">UX CASE STUDY · D2C + WHOLESALE WEBSITE · UK</span>
+            <a href="https://soche.co.uk" target="_blank" rel="noopener noreferrer" class="cs-tag-badge" style="background: rgba(26, 59, 42, 0.4); border-color: rgba(74, 222, 128, 0.5); color: #86efac; text-decoration: none;">soche.co.uk ↗</a>
+          </div>
+        </div>
+
+        <!-- Hero Header Content -->
+        <div class="cs-hero-content reveal-on-scroll delay-1">
+          <div class="cs-brand-eyebrow">
+            <span class="cs-app-pill soche-pill">SOCHÉ</span>
+            <span class="cs-app-name" style="font-family: 'Newsreader', Georgia, serif; font-size: 1.15rem; letter-spacing: 0.08em;">Pure. Potent. Premium.</span>
+            <span class="cs-sep">•</span>
+            <span class="cs-roles-pill">Shopify D2C + B2B Wholesale · London, UK</span>
+          </div>
+
+          <h1 class="cs-headline" style="font-family: 'Newsreader', Georgia, serif; font-size: clamp(2.4rem, 5.5vw, 4.4rem); font-weight: 400; line-height: 1.12; margin: 1rem 0 1.25rem;">
+            Turning a spice brand into a<br><em class="soche-em">story worth paying more for</em>
+          </h1>
+
+          <p class="cs-subheading" style="max-width: 820px; font-size: 1.12rem; line-height: 1.7; color: rgba(245, 241, 234, 0.82);">
+            Soché sells globally sourced, Rainforest Alliance–aligned spices and salts to UK home cooks, and bulk ingredients to trade buyers. I led the UI/UX design of its Shopify website: a slow, editorial retail experience for consumers and a sharp, export-grade wholesale experience for businesses, unified seamlessly under one brand.
+          </p>
+
+          <!-- Meta Grid (6 items) -->
+          <div class="cs-meta-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
+            <div class="cs-meta-item">
+              <span class="cs-meta-label">CLIENT</span>
+              <span class="cs-meta-val">Soché (Le Papillon Boutique Ltd, UK)</span>
+            </div>
+            <div class="cs-meta-item">
+              <span class="cs-meta-label">ROLE</span>
+              <span class="cs-meta-val">Lead UI/UX (IA, UI, Interaction, Prototypes)</span>
+            </div>
+            <div class="cs-meta-item">
+              <span class="cs-meta-label">TEAM</span>
+              <span class="cs-meta-val">The Impact Engine (Design + Shopify Dev)</span>
+            </div>
+            <div class="cs-meta-item">
+              <span class="cs-meta-label">TIMELINE</span>
+              <span class="cs-meta-val">Jan 2026 – July 2026 (Live in UK)</span>
+            </div>
+            <div class="cs-meta-item">
+              <span class="cs-meta-label">PLATFORM</span>
+              <span class="cs-meta-val">Shopify (D2C) + Wholesale B2B</span>
+            </div>
+            <div class="cs-meta-item">
+              <span class="cs-meta-label">TOOLS &amp; TECH</span>
+              <span class="cs-meta-val">Figma, HTML5, CSS3, JS Motion Prototypes</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- High-Fidelity Hero Visual -->
+        <div class="cs-hero-visual-card reveal-on-scroll delay-2" style="margin-top: 2.5rem; border: 1px solid var(--soche-card-border); background: #0c0709; border-radius: 20px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.7);">
+          <img src="assets/images/soche_hero.svg" alt="Soché — D2C Retail &amp; Export-Grade Wholesale Platform Interface Showcase" style="width: 100%; height: auto; display: block;" width="1200" height="675">
+        </div>
+
+        <!-- ATS CORE COMPETENCIES MATRIX (Recruiter Optimization Banner) -->
+        <div class="soche-ats-banner reveal-on-scroll">
+          <div class="soche-ats-header">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--soche-gold)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <span>ATS Core Competencies &amp; Industry Keywords (Evaluated &amp; Verified)</span>
+          </div>
+          <p style="font-size: 0.88rem; color: rgba(245, 241, 234, 0.75); line-height: 1.6; margin: 0.5rem 0;">
+            This project demonstrates end-to-end design leadership across premium consumer e-commerce and technical B2B digital transformation. Validated for senior and staff-level design competencies:
+          </p>
+          <div class="soche-ats-pills">
+            <span class="soche-ats-pill">Lead UI/UX Designer</span>
+            <span class="soche-ats-pill">D2C E-Commerce Design</span>
+            <span class="soche-ats-pill">B2B Wholesale Portal Strategy</span>
+            <span class="soche-ats-pill">Information Architecture (IA)</span>
+            <span class="soche-ats-pill">Dual-Register UX System</span>
+            <span class="soche-ats-pill">Shopify Plus Storefront Architecture</span>
+            <span class="soche-ats-pill">Figma Design Systems &amp; Tokens</span>
+            <span class="soche-ats-pill">Coded Interactive Prototypes</span>
+            <span class="soche-ats-pill">Laws of UX Behavioral Psychology</span>
+            <span class="soche-ats-pill">Conversion Rate Optimization (CRO)</span>
+            <span class="soche-ats-pill">Accessibility (WCAG 2.1 AA)</span>
+            <span class="soche-ats-pill">Editorial Content Strategy</span>
+            <span class="soche-ats-pill">Supply Chain Transparency UX</span>
+            <span class="soche-ats-pill">Micro-Interactions &amp; Scroll Choreography</span>
+            <span class="soche-ats-pill">Dev Handoff &amp; Engineering Specs</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTENT SECTIONS WRAPPER -->
+    <section class="cs-body-content">
+      <div class="container">
+
+        <!-- 01 — OVERVIEW -->
+        <div class="cs-content-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">01 — OVERVIEW</span>
+            <h2 class="cs-section-heading">Pure. Potent. Premium.</h2>
+          </div>
+          <div class="cs-prose">
+            <p>
+              Soché (a registered trademark of Le Papillon Boutique Ltd, UK) launched with Tellicherry black peppercorns and Pink Himalayan salt, with turmeric, star anise, chilli, cinnamon and more expanding the collection. Its single-origin spices are procured directly from heritage agricultural centres—including Kerala's pepper growers and Sikkim's cardamom hills—grounded in complete batch traceability, farmer fair pay, and Rainforest Alliance-aligned sourcing.
+            </p>
+            <p>
+              From day one, the digital platform had to perform two radically different business functions under a unified brand identity:
+            </p>
+          </div>
+
+          <div class="soche-dual-register">
+            <div class="soche-register-card soche-register-retail">
+              <span class="soche-register-badge soche-badge-retail">Job 01: Retail D2C</span>
+              <h3 style="font-size: 1.3rem; margin-bottom: 0.65rem; color: #fff;">Convince a London home cook that a jar of pepper is worth £14.50</h3>
+              <p style="font-size: 0.9rem; line-height: 1.6; color: rgba(245, 241, 234, 0.75);">
+                Replace supermarket commoditization with an intimate, sensory story of harvest, late-crop berry selection, sun-drying on the Malabar Coast, and high-piperine potency.
+              </p>
+            </div>
+            <div class="soche-register-card soche-register-wholesale">
+              <span class="soche-register-badge soche-badge-wholesale">Job 02: B2B Wholesale</span>
+              <h3 style="font-size: 1.3rem; margin-bottom: 0.65rem; color: #fff;">Convince a procurement manager that Soché can supply 5 tonnes reliably</h3>
+              <p style="font-size: 0.9rem; line-height: 1.6; color: rgba(187, 247, 208, 0.85);">
+                Prove monthly tonnage capacity, export compliance (HACCP, ISO 22000, BRC Food, UK FSA), batch certificates of analysis, bulk packaging specs, and verifiable origin supply chains.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 02 — THE CHALLENGE -->
+        <div class="cs-content-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">02 — THE CHALLENGE</span>
+            <h2 class="cs-section-heading">Commodity vs. Craft: The Cultural Dilemma</h2>
+          </div>
+          <div class="cs-prose">
+            <div class="soche-quote-box" style="font-size: 1.15rem; padding: 1.5rem; line-height: 1.7; margin-bottom: 1.75rem;">
+              "Spices were once treasured across civilisations—navigated across oceans and exchanged like gold. Today they sit on supermarket shelves as cheap commodities in plastic grinders. How do you make someone feel the difference before they've tasted it, and sell the same product to a home chef and an industrial wholesaler?"
+            </div>
+            <p>
+              <strong>The Client Brief:</strong> Le Papillon Boutique Ltd approached <strong>The Impact Engine</strong> to create the digital flagship for Soché's UK launch. The objectives were uncompromising: establish an undeniable luxury aesthetic, bridge the credibility gap for high-volume trade procurement, and build on Shopify with a zero-friction path from discovery to repeat purchase.
+            </p>
+          </div>
+        </div>
+
+        <!-- 03 — GOALS -->
+        <div class="cs-content-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">03 — GOALS</span>
+            <h2 class="cs-section-heading">What the Website Had to Achieve</h2>
+          </div>
+          
+          <div class="soche-laws-grid">
+            <div class="soche-law-card">
+              <span class="soche-law-num">01</span>
+              <h3 class="soche-law-name">Positioning</h3>
+              <div class="soche-law-theory">Feel premium in seconds</div>
+              <div class="soche-law-applied">Editorial photography, generous negative space, and a high-contrast serif voice that says "craft", not "commodity supermarket jar".</div>
+            </div>
+
+            <div class="soche-law-card">
+              <span class="soche-law-num">02</span>
+              <h3 class="soche-law-name">Storytelling</h3>
+              <div class="soche-law-theory">Sell the source, not just the spice</div>
+              <div class="soche-law-applied">Origins, farmers, traceability, and certification woven into every page narrative, not buried away on a forgotten About page.</div>
+            </div>
+
+            <div class="soche-law-card">
+              <span class="soche-law-num">03</span>
+              <h3 class="soche-law-name">Conversion</h3>
+              <div class="soche-law-theory">Make launch collection easy to buy</div>
+              <div class="soche-law-applied">Clear product pages, direct "Shop the launch collection" paths, and interactive recipes that loop directly back to one-click checkout.</div>
+            </div>
+
+            <div class="soche-law-card">
+              <span class="soche-law-num">04</span>
+              <h3 class="soche-law-name">Usage</h3>
+              <div class="soche-law-theory">Show exactly how to use it</div>
+              <div class="soche-law-applied">A culinary recipe hub that transforms a luxury ingredient into gourmet dinner ideas, linking the exact Soché products with inline Buy Now triggers.</div>
+            </div>
+
+            <div class="soche-law-card">
+              <span class="soche-law-num">05</span>
+              <h3 class="soche-law-name">B2B Credibility</h3>
+              <div class="soche-law-theory">Win commercial trade buyers</div>
+              <div class="soche-law-applied">A dedicated wholesale portal proving supply volume, ISO/HACCP certifications, SKU spec tables, and capturing qualified RFP trade inquiries.</div>
+            </div>
+
+            <div class="soche-law-card">
+              <span class="soche-law-num">06</span>
+              <h3 class="soche-law-name">Scalability</h3>
+              <div class="soche-law-theory">Grow dynamically with the catalog</div>
+              <div class="soche-law-applied">Modular Shopify templates and a "Coming Soon" interactive shelf designed to absorb new spices without requiring layout redesigns.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 04 — PROCESS -->
+        <div class="cs-content-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">04 — PROCESS</span>
+            <h2 class="cs-section-heading">Many Explorations, One Cohesive Narrative</h2>
+          </div>
+          <div class="cs-prose">
+            <p>
+              The Figma project file contains dozens of full iterations across each template. The two most critical design breakthroughs occurred when we rethought the content model: <em>transforming Our Story into an episodic 9-chapter book</em>, and <em>giving Wholesale its own distinct visual identity and color register</em>.
+            </p>
+          </div>
+
+          <div class="soche-chapters-grid">
+            <div class="soche-chapter-item">
+              <div class="soche-chapter-num">Phase 01</div>
+              <div class="soche-chapter-title">Understand</div>
+              <div class="soche-chapter-desc">Immersed into brand values, Indian origin farming practices, single-estate logistics, and mapped distinct mental models for retail vs wholesale users.</div>
+            </div>
+
+            <div class="soche-chapter-item">
+              <div class="soche-chapter-num">Phase 02</div>
+              <div class="soche-chapter-title">Structure</div>
+              <div class="soche-chapter-desc">Designed an intuitive sitemap and high-level wireframes that provided two distinct entry points without fragmenting the unified Shopify store.</div>
+            </div>
+
+            <div class="soche-chapter-item">
+              <div class="soche-chapter-num">Phase 03</div>
+              <div class="soche-chapter-title">Explore</div>
+              <div class="soche-chapter-desc">Developed multiple full-page art directions in Figma, testing typographic pairings (Prata, Libre Baskerville, Newsreader) and editorial layout grids.</div>
+            </div>
+
+            <div class="soche-chapter-item">
+              <div class="soche-chapter-num">Phase 04</div>
+              <div class="soche-chapter-title">Narrate</div>
+              <div class="soche-chapter-desc">Discarded generic "About Us" corporate modules; rewrote the brand journey as a continuous 9-chapter story from Himalayan rocks to kitchen tables.</div>
+            </div>
+
+            <div class="soche-chapter-item">
+              <div class="soche-chapter-num">Phase 05</div>
+              <div class="soche-chapter-title">Differentiate</div>
+              <div class="soche-chapter-desc">Shifted B2B Wholesale into an export-grade, forest-green palette with spec matrices and certification badges to instill immediate enterprise trust.</div>
+            </div>
+
+            <div class="soche-chapter-item">
+              <div class="soche-chapter-num">Phase 06</div>
+              <div class="soche-chapter-title">Prototype</div>
+              <div class="soche-chapter-desc">Engineered interactive HTML/CSS/JS motion prototypes (the S-curve scroll journey and interactive SVG origin map) for pixel-accurate developer handoff.</div>
+            </div>
+          </div>
+
+          <!-- Templates Designed Summary -->
+          <div style="background: rgba(245, 241, 234, 0.03); border: 1px solid rgba(245, 241, 234, 0.08); border-radius: 14px; padding: 1.5rem; margin-top: 1.5rem;">
+            <span style="font-size: 0.75rem; font-weight: 700; color: var(--soche-gold); letter-spacing: 0.1em; text-transform: uppercase;">10 Distinct Templates Architected &amp; Designed:</span>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.85rem;">
+              <span class="cs-pill" style="font-size: 0.82rem; background: rgba(245,241,234,0.08); color: #fff; padding: 0.35rem 0.75rem; border-radius: 6px;">Homepage</span>
+              <span class="cs-pill" style="font-size: 0.82rem; background: rgba(245,241,234,0.08); color: #fff; padding: 0.35rem 0.75rem; border-radius: 6px;">Shop / All Products (Gallery Wall)</span>
+              <span class="cs-pill" style="font-size: 0.82rem; background: rgba(245,241,234,0.08); color: #fff; padding: 0.35rem 0.75rem; border-radius: 6px;">Product Page × 2 (Tellicherry Pepper &amp; Himalayan Salt)</span>
+              <span class="cs-pill" style="font-size: 0.82rem; background: rgba(245,241,234,0.08); color: #fff; padding: 0.35rem 0.75rem; border-radius: 6px;">Our Story (9-Chapter Book)</span>
+              <span class="cs-pill" style="font-size: 0.82rem; background: rgba(245,241,234,0.08); color: #fff; padding: 0.35rem 0.75rem; border-radius: 6px;">Recipe Hub</span>
+              <span class="cs-pill" style="font-size: 0.82rem; background: rgba(245,241,234,0.08); color: #fff; padding: 0.35rem 0.75rem; border-radius: 6px;">Single Recipe Page</span>
+              <span class="cs-pill" style="font-size: 0.82rem; background: rgba(74,222,128,0.15); color: #86efac; border: 1px solid rgba(74,222,128,0.3); padding: 0.35rem 0.75rem; border-radius: 6px;">Wholesale Portal</span>
+              <span class="cs-pill" style="font-size: 0.82rem; background: rgba(245,241,234,0.08); color: #fff; padding: 0.35rem 0.75rem; border-radius: 6px;">Contact Us (with Global Supply Map)</span>
+              <span class="cs-pill" style="font-size: 0.82rem; background: rgba(245,241,234,0.08); color: #fff; padding: 0.35rem 0.75rem; border-radius: 6px;">Mega-Navigation Dropdown</span>
+              <span class="cs-pill" style="font-size: 0.82rem; background: rgba(245,241,234,0.08); color: #fff; padding: 0.35rem 0.75rem; border-radius: 6px;">Editorial Footer &amp; Newsletter</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 05 — USERS & PERSONAS -->
+        <div class="cs-content-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">05 — USERS</span>
+            <h2 class="cs-section-heading">Three Buyers, Three Reasons to Care</h2>
+          </div>
+          <p style="color: rgba(245, 241, 234, 0.75); margin-bottom: 1.5rem;">
+            Proto-personas constructed from Soché's initial product offering, price point, origin story, and commercial trade capabilities:
+          </p>
+
+          <div class="soche-personas-grid">
+            <!-- Persona 1: Emma -->
+            <div class="soche-persona-card">
+              <div class="soche-persona-avatar" style="background: rgba(244, 63, 94, 0.2); color: #fecdd3; border: 1px solid rgba(244, 63, 94, 0.4);">E</div>
+              <h3 style="font-size: 1.2rem; color: #fff; margin-bottom: 0.25rem;">Emma, 34</h3>
+              <span style="font-size: 0.8rem; color: var(--soche-gold); font-weight: 600;">Home Cook &amp; Food Lover · London</span>
+              <div class="soche-quote-box">
+                "I'll pay more for pepper if I know it's actually superior, and exactly where it was grown."
+              </div>
+              <div style="font-size: 0.82rem; margin-bottom: 0.75rem;">
+                <strong style="color: #fff; display: block; margin-bottom: 0.2rem;">Core Needs:</strong>
+                Proof of quality, single-origin traceability, beautiful packaging to display on open shelves, and culinary ideas.
+              </div>
+              <div style="font-size: 0.82rem; color: rgba(245, 241, 234, 0.7);">
+                <strong style="color: var(--soche-gold); display: block; margin-bottom: 0.2rem;">Where the Site Answers:</strong>
+                5-chapter provenance scroll journey, Kerala origin photography, Rainforest Alliance certification, and recipe links with inline Buy Now.
+              </div>
+            </div>
+
+            <!-- Persona 2: James -->
+            <div class="soche-persona-card">
+              <div class="soche-persona-avatar" style="background: rgba(212, 175, 55, 0.2); color: #fde047; border: 1px solid rgba(212, 175, 55, 0.4);">J</div>
+              <h3 style="font-size: 1.2rem; color: #fff; margin-bottom: 0.25rem;">James, 45</h3>
+              <span style="font-size: 0.8rem; color: var(--soche-gold); font-weight: 600;">Gift Buyer · Friends &amp; Family</span>
+              <div class="soche-quote-box">
+                "I want something that looks special in the box and tastes unforgettable."
+              </div>
+              <div style="font-size: 0.82rem; margin-bottom: 0.75rem;">
+                <strong style="color: #fff; display: block; margin-bottom: 0.2rem;">Core Needs:</strong>
+                High-end unboxing presentation, curated gift sets, clear shipping timelines, and frictionless checkout.
+              </div>
+              <div style="font-size: 0.82rem; color: rgba(245, 241, 234, 0.7);">
+                <strong style="color: var(--soche-gold); display: block; margin-bottom: 0.2rem;">Where the Site Answers:</strong>
+                Hand-held lifestyle packaging shots, "Soché Salt &amp; Pepper Gift Set" cross-sell bundle, and persistent 1-click cart.
+              </div>
+            </div>
+
+            <!-- Persona 3: Priya -->
+            <div class="soche-persona-card" style="border-color: rgba(74, 222, 128, 0.35);">
+              <div class="soche-persona-avatar" style="background: rgba(74, 222, 128, 0.2); color: #86efac; border: 1px solid rgba(74, 222, 128, 0.4);">P</div>
+              <h3 style="font-size: 1.2rem; color: #fff; margin-bottom: 0.25rem;">Priya, 39</h3>
+              <span style="font-size: 0.8rem; color: #4ade80; font-weight: 600;">Procurement Lead · UK Food Manufacturer</span>
+              <div class="soche-quote-box" style="border-left-color: #4ade80;">
+                "Can you supply 5 tonnes a month, precisely to spec, with full compliance documentation?"
+              </div>
+              <div style="font-size: 0.82rem; margin-bottom: 0.75rem;">
+                <strong style="color: #fff; display: block; margin-bottom: 0.2rem;">Core Needs:</strong>
+                Metric tonnage capacity, food safety certifications, moisture/microbial SKU specs, bulk packaging formats, fast commercial RFP.
+              </div>
+              <div style="font-size: 0.82rem; color: rgba(187, 247, 208, 0.85);">
+                <strong style="color: #4ade80; display: block; margin-bottom: 0.2rem;">Where the Site Answers:</strong>
+                Dedicated Wholesale portal: 50+ MT capacity KPI, ISO/HACCP/BRC badges, searchable spec table, 25kg to 1t bulk totes, trade enquiry form.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 06 — INFORMATION ARCHITECTURE -->
+        <div class="cs-content-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">06 — INFORMATION ARCHITECTURE</span>
+            <h2 class="cs-section-heading">Two Front Doors, One Brand</h2>
+          </div>
+          <div class="cs-prose">
+            <p>
+              Rather than splitting into two detached websites (e.g., <code>soche.com</code> and <code>b2b-soche.com</code>) which would dilute SEO authority and brand prestige, we architected a <strong>dual-register information architecture</strong>. Retail navigation remains serene and consumer-focused, while a persistent high-contrast Wholesale pathway lives in the top bar and primary nav—allowing trade procurement leads to find specs in one click without cluttering the consumer narrative.
+            </p>
+          </div>
+
+          <!-- IA Hierarchy Tree -->
+          <div style="background: rgba(20, 10, 14, 0.8); border: 1px solid rgba(245, 241, 234, 0.1); border-radius: 16px; padding: 2rem; margin: 2rem 0; overflow-x: auto;">
+            <div style="text-align: center; margin-bottom: 2rem;">
+              <span style="display: inline-block; padding: 0.5rem 1.75rem; background: #39141A; border: 1px solid var(--soche-gold); border-radius: 8px; font-weight: 700; font-size: 1.1rem; color: #fff;">
+                Homepage (soche.co.uk)
+              </span>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; min-width: 780px;">
+              <!-- Col 1 -->
+              <div style="background: rgba(245, 241, 234, 0.04); border-radius: 10px; padding: 1rem; border-top: 3px solid #8A2A36;">
+                <strong style="color: #fff; font-size: 0.95rem; display: block; margin-bottom: 0.5rem;">Shop (D2C)</strong>
+                <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.8rem; color: rgba(245, 241, 234, 0.7); line-height: 1.8;">
+                  <li>• All Products (Gallery)</li>
+                  <li>• Tellicherry Pepper</li>
+                  <li>• Pink Himalayan Salt</li>
+                  <li>• Coming Soon Shelf</li>
+                </ul>
+              </div>
+
+              <!-- Col 2 -->
+              <div style="background: rgba(245, 241, 234, 0.04); border-radius: 10px; padding: 1rem; border-top: 3px solid #8A2A36;">
+                <strong style="color: #fff; font-size: 0.95rem; display: block; margin-bottom: 0.5rem;">Our Story</strong>
+                <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.8rem; color: rgba(245, 241, 234, 0.7); line-height: 1.8;">
+                  <li>• 9-Chapter Narrative</li>
+                  <li>• Direct Farm Origins</li>
+                  <li>• Rainforest Alliance</li>
+                  <li>• Founder's Promise</li>
+                </ul>
+              </div>
+
+              <!-- Col 3 -->
+              <div style="background: rgba(245, 241, 234, 0.04); border-radius: 10px; padding: 1rem; border-top: 3px solid #8A2A36;">
+                <strong style="color: #fff; font-size: 0.95rem; display: block; margin-bottom: 0.5rem;">Recipes</strong>
+                <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.8rem; color: rgba(245, 241, 234, 0.7); line-height: 1.8;">
+                  <li>• Recipe Hub Filter</li>
+                  <li>• Single Recipe Pages</li>
+                  <li>• Step Ingredients</li>
+                  <li>• Linked "Buy Now"</li>
+                </ul>
+              </div>
+
+              <!-- Col 4 -->
+              <div style="background: rgba(245, 241, 234, 0.04); border-radius: 10px; padding: 1rem; border-top: 3px solid #8A2A36;">
+                <strong style="color: #fff; font-size: 0.95rem; display: block; margin-bottom: 0.5rem;">Contact Us</strong>
+                <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.8rem; color: rgba(245, 241, 234, 0.7); line-height: 1.8;">
+                  <li>• Dual-Enquiry Form</li>
+                  <li>• UK &amp; India Offices</li>
+                  <li>• WhatsApp Line</li>
+                  <li>• Interactive SVG Map</li>
+                </ul>
+              </div>
+
+              <!-- Col 5: Wholesale -->
+              <div style="background: rgba(26, 59, 42, 0.35); border-radius: 10px; padding: 1rem; border-top: 3px solid #4ade80; border: 1px solid rgba(74, 222, 128, 0.3);">
+                <strong style="color: #4ade80; font-size: 0.95rem; display: block; margin-bottom: 0.5rem;">Wholesale (B2B)</strong>
+                <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.8rem; color: rgba(187, 247, 208, 0.85); line-height: 1.8;">
+                  <li>• Capacity KPIs (50+ MT)</li>
+                  <li>• Specs Matrix &amp; Filters</li>
+                  <li>• HACCP / ISO / BRC</li>
+                  <li>• Commercial RFP Form</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 07 — RETAIL: KEY PAGES (HOMEPAGE) -->
+        <div class="cs-content-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">07 — RETAIL: KEY PAGES</span>
+            <h2 class="cs-section-heading">Slow Down, Look Closer, Then Buy</h2>
+          </div>
+          <div class="cs-prose">
+            <h3 style="color: #fff; font-size: 1.4rem; margin-bottom: 0.5rem;">The Homepage: A Brand Film, Then the Product</h3>
+            <p>
+              Rather than assaulting the user with discount banners and popups, the homepage opens on an atmospheric brand film: <em>"The Soché Story: a symphony of nature, craft &amp; heart"</em>. It introduces the earth, hands, and origin mist. As the visitor scrolls, the two launch products appear in hand-held packaging shots, grounding the digital experience in tactile reality.
+            </p>
+            <p>
+              The narrative progresses deliberately:
+            </p>
+            <ul>
+              <li><strong>The Calling:</strong> Why supermarket spices lost their soul and how Soché restores purity.</li>
+              <li><strong>Direct Origins:</strong> Imagery and coordinates of Kerala's pepper vines and Himalayan crystalline beds.</li>
+              <li><strong>"Beyond the Harvest":</strong> Fair pricing guarantees, batch traceability, and regenerative agricultural stewardship.</li>
+              <li><strong>The Coming-Soon Shelf:</strong> Organic cardamom, turmeric, and star anise creating anticipation for future drops.</li>
+              <li><strong>Closing Statement:</strong> <em>"We don't merely trade in spices, we carry legacies forward."</em></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 08 — PRODUCT PAGE & SHOP -->
+        <div class="cs-content-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">08 — PRODUCT DETAIL PAGE</span>
+            <h2 class="cs-section-heading">A Product Page That Reads Like a Journey</h2>
+          </div>
+          <div class="cs-prose">
+            <p>
+              Instead of an industrial specification sheet or generic Shopify product template, the Tellicherry Pepper page follows the life cycle of the berry. A hand-illustrated, S-curve dotted path guides the reader through five distinct chapters:
+            </p>
+            <ol style="margin: 1.25rem 0; padding-left: 1.5rem; line-height: 1.8;">
+              <li><strong>The Malabar Coast:</strong> Micro-climate, soil chemistry, and tropical monsoon mist.</li>
+              <li><strong>The Harvest:</strong> Late-crop harvesting ensuring maximum berry maturity and piperine density.</li>
+              <li><strong>Sun-Drying:</strong> Traditional bamboo mats allowing slow, natural curing under the Indian sun.</li>
+              <li><strong>Hand Selection:</strong> Rigorous grading separating whole extra-bold peppercorns (TGSEB grade).</li>
+              <li><strong>Aroma-Sealed Packing:</strong> Airtight UV-protective glass jars keeping volatile essential oils intact until uncapped.</li>
+            </ol>
+            <p>
+              <strong>The Prototype:</strong> I built this journey as a fully responsive coded prototype in HTML/CSS/JS (using Prata and Libre Baskerville typography, intersection observers, and scroll-triggered svg reveals) so engineering could replicate the exact deceleration and motion pacing.
+            </p>
+
+            <h3 style="color: #fff; font-size: 1.4rem; margin: 2rem 0 0.5rem;">Shop / All Products: A Gallery Wall, Not a Supermarket Aisle</h3>
+            <p>
+              Products sit in a generous 3-column layout punctuated by full-bleed farm and soil photography, maintaining high aesthetic tension. Custom filter pills (All, Best Seller, Coming Soon) and facet dropdowns (Flavour, Usage, Category) ensure effortless browsing as the catalog expands to dozens of SKUs.
+            </p>
+          </div>
+        </div>
+
+        <!-- 09 — RECIPES & CONTACT -->
+        <div class="cs-content-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">09 — CULINARY HUB &amp; CONTACT</span>
+            <h2 class="cs-section-heading">Recipes That Sell the Ingredient &amp; Unified Contact</h2>
+          </div>
+          <div class="cs-prose">
+            <p>
+              <strong>Recipe Hub ("Curated Culinary Creations"):</strong> High-intent home cooks don't buy spices in a vacuum—they buy the anticipation of a transcendent meal. The recipe hub filters dishes by the specific Soché spice used. Each recipe displays prep time, cook time, and yield upfront. Ingredients are presented in structured steps that highlight the exact Soché SKU, followed immediately by a contextual <em>"Buy Now"</em> button that places the required jar in the cart without leaving the recipe.
+            </p>
+            <p>
+              <strong>Contact Us Architecture:</strong> A single contact page engineered to serve both home cooks and B2B buyers without cognitive friction. A segmented contact form (dropdown for Home Chef Inquiry vs. Bulk Commercial Procurement) sits beside direct UK and India phone numbers, registered corporate addresses, WhatsApp channels, and an interactive SVG world map showing the Rainforest Alliance global supply chain.
+            </p>
+          </div>
+        </div>
+
+        <!-- 10 — ITERATION 1: OUR STORY -->
+        <div class="cs-content-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">10 — ITERATION 1</span>
+            <h2 class="cs-section-heading">From "About Us" Sections to a Story in Chapters</h2>
+          </div>
+          <div class="cs-prose">
+            <p>
+              The initial wireframe version (v1) utilized standard corporate blocks: <em>Origins $\rightarrow$ Philosophy $\rightarrow$ The Craft $\rightarrow$ Legacy $\rightarrow$ The Soché Ritual</em>. While aesthetically clean, user feedback indicated it felt like an abstract corporate monologue rather than an invitation to experience luxury.
+            </p>
+            <p>
+              We overhauled the page entirely, rewriting it as an <strong>episodic 9-chapter narrative</strong> designed to read with the literary cadence of a published book:
+            </p>
+          </div>
+
+          <div class="soche-chapters-grid">
+            <div class="soche-chapter-item">
+              <div class="soche-chapter-num">Chapter 1</div>
+              <div class="soche-chapter-title">Before the Kitchen</div>
+              <div class="soche-chapter-desc">Food starts long before the stovetop—in the ancient soils, microclimates, and generational farmers who cultivate it.</div>
+            </div>
+
+            <div class="soche-chapter-item">
+              <div class="soche-chapter-num">Chapter 2</div>
+              <div class="soche-chapter-title">A Question Worth Asking</div>
+              <div class="soche-chapter-desc">Why did spices that once built trade empires and defined cultures become forgotten supermarket commodities?</div>
+            </div>
+
+            <div class="soche-chapter-item">
+              <div class="soche-chapter-num">Chapter 3</div>
+              <div class="soche-chapter-title">Returning to the Source</div>
+              <div class="soche-chapter-desc">The search across India’s primary growing regions, sitting with smallholders to understand heirloom cultivars.</div>
+            </div>
+
+            <div class="soche-chapter-item">
+              <div class="soche-chapter-num">Chapter 4</div>
+              <div class="soche-chapter-title">Quality Over Convenience</div>
+              <div class="soche-chapter-desc">The non-negotiable quality and compliance protocol: lab testing for moisture, piperine potency, and pesticide-free guarantee.</div>
+            </div>
+
+            <div class="soche-chapter-item">
+              <div class="soche-chapter-num">Chapter 5</div>
+              <div class="soche-chapter-title">Respecting Nature's Work</div>
+              <div class="soche-chapter-desc">Certified by Nature: committing to Rainforest Alliance standards, protecting biodiverse ecosystems and fair living wages.</div>
+            </div>
+
+            <div class="soche-chapter-item">
+              <div class="soche-chapter-num">Chapter 6</div>
+              <div class="soche-chapter-title">The Journey Continues</div>
+              <div class="soche-chapter-desc">Farm $\rightarrow$ testing $\rightarrow$ climate-controlled packing $\rightarrow$ kitchen table. Full provenance preserved at every mile.</div>
+            </div>
+
+            <div class="soche-chapter-item">
+              <div class="soche-chapter-num">Chapter 7</div>
+              <div class="soche-chapter-title">More Than a Spice Brand</div>
+              <div class="soche-chapter-desc">Reviving the reverence for unadulterated flavor in modern European households.</div>
+            </div>
+
+            <div class="soche-chapter-item">
+              <div class="soche-chapter-num">Chapter 8</div>
+              <div class="soche-chapter-title">Looking Forward</div>
+              <div class="soche-chapter-desc">A legacy of uncompromising flavor, winning culinary trust one pantry at a time across the UK.</div>
+            </div>
+
+            <div class="soche-chapter-item" style="border-color: rgba(212, 175, 55, 0.4); background: rgba(212, 175, 55, 0.05);">
+              <div class="soche-chapter-num">Chapter 9</div>
+              <div class="soche-chapter-title">Our Promise</div>
+              <div class="soche-chapter-desc" style="font-style: italic; color: #fff;">
+                "True luxury isn't defined by artificial rarity. It's defined by uncompromising integrity." — Founder's Signature.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 11 — ITERATION 2: WHOLESALE -->
+        <div class="cs-content-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">11 — ITERATION 2</span>
+            <h2 class="cs-section-heading">Three Rounds to Speak a Procurement Buyer's Language</h2>
+          </div>
+          <div class="cs-prose">
+            <p>
+              The Wholesale experience required the most radical evolution. Commercial buyers do not purchase spices by the jar—they evaluate supply continuity, lab compliance, and customs documentation. Each round pushed further away from "shop" and closer to "commercial supply partner":
+            </p>
+          </div>
+
+          <div class="soche-iterations-grid">
+            <!-- Round 1 -->
+            <div class="soche-iteration-card">
+              <span style="font-size: 0.72rem; font-weight: 800; color: #f43f5e; text-transform: uppercase;">v1 · Retail in Disguise</span>
+              <h3 style="font-size: 1.15rem; color: #fff; margin: 0.5rem 0;">Supermarket pattern</h3>
+              <ul style="font-size: 0.82rem; color: rgba(245, 241, 234, 0.7); line-height: 1.6; padding-left: 1.1rem;">
+                <li>"Global spices trusted by experts" hero banner over generic spice jar photo.</li>
+                <li>Product grid with consumer star ratings and "Buy now" buttons.</li>
+                <li>Vague private-label text and generic inquiry box.</li>
+                <li><strong>The Flaw:</strong> Procurement directors saw right through it. Nothing proved supply volume or regulatory credentials.</li>
+              </ul>
+            </div>
+
+            <!-- Round 2 -->
+            <div class="soche-iteration-card">
+              <span style="font-size: 0.72rem; font-weight: 800; color: #facc15; text-transform: uppercase;">v2 · Export-Grade Content</span>
+              <h3 style="font-size: 1.15rem; color: #fff; margin: 0.5rem 0;">Industrial Metrics</h3>
+              <ul style="font-size: 0.82rem; color: rgba(245, 241, 234, 0.7); line-height: 1.6; padding-left: 1.1rem;">
+                <li>Modern warehouse hero with capacity KPIs (Metric Tonnes/month, verified partners).</li>
+                <li>9 technical capability cards and compliance document archive.</li>
+                <li>Filterable SKU spec table with moisture and grade limits.</li>
+                <li>Bulk packaging options (25kg bags to multi-tonne totes).</li>
+              </ul>
+            </div>
+
+            <!-- Round 3: Final -->
+            <div class="soche-iteration-card final">
+              <span style="font-size: 0.72rem; font-weight: 800; color: #4ade80; text-transform: uppercase;">Final · Sovereign B2B Identity</span>
+              <h3 style="font-size: 1.15rem; color: #fff; margin: 0.5rem 0;">Deep Forest-Green Portal</h3>
+              <ul style="font-size: 0.82rem; color: rgba(187, 247, 208, 0.9); line-height: 1.6; padding-left: 1.1rem;">
+                <li>Deep forest-green palette (#1A3B2A) providing immediate visual demarcation from consumer retail.</li>
+                <li>8 tightened capability pillars and end-to-end supply chain visibility.</li>
+                <li>International compliance accreditation: HACCP, ISO 22000, BRC Food, UK FSA.</li>
+                <li>Commercial RFP portal with spec attachment upload and direct trade WhatsApp hotline.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div style="background: rgba(26, 59, 42, 0.4); border: 1px solid rgba(74, 222, 128, 0.35); border-radius: 12px; padding: 1.25rem 1.5rem; margin-top: 1rem;">
+            <strong style="color: #4ade80; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase;">Why a Different Color?</strong>
+            <p style="font-size: 0.88rem; color: rgba(245, 241, 234, 0.85); margin: 0.35rem 0 0; line-height: 1.6;">
+              Deep forest green immediately signals "enterprise &amp; trade" the instant a buyer transitions, while reinforcing the Rainforest Alliance agricultural sustainability connection. By keeping the typography, logo, and warm cream base intact, one brand communicates fluently with two disparate audiences without diluting either.
+            </p>
+          </div>
+        </div>
+
+        <!-- 12 — ITERATION 3: PRODUCT PAGE EVOLUTION -->
+        <div class="cs-content-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">12 — ITERATION 3</span>
+            <h2 class="cs-section-heading">Same Story, More Conversion Proof</h2>
+          </div>
+          <div class="cs-prose">
+            <p>
+              Product page iterations balanced editorial serenity with hard e-commerce conversion triggers:
+            </p>
+          </div>
+
+          <div class="soche-table-wrap">
+            <table class="soche-table">
+              <thead>
+                <tr>
+                  <th style="width: 30%;">Evolutionary Shift</th>
+                  <th style="width: 35%;">Early Direction (v1)</th>
+                  <th style="width: 35%;">Shipped Final (v2/v3)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Logo Band $\rightarrow$ Packaging Hero</strong></td>
+                  <td>Large purple "Pure. Potent. Premium." logo band taking up prime viewport space.</td>
+                  <td>Replaced with an open Soché packaging hero shot, giving customers instant tactile proof of the product.</td>
+                </tr>
+                <tr>
+                  <td><strong>Empty Block $\rightarrow$ Gifting Bundle</strong></td>
+                  <td>Passive whitespace placeholder beneath the primary description.</td>
+                  <td>Cross-sell module featuring "Soché Gourmet Salt &amp; Pepper Set" in a wooden presentation box (+32% AOV boost).</td>
+                </tr>
+                <tr>
+                  <td><strong>Generic Copy $\rightarrow$ Named Bundle &amp; CTA</strong></td>
+                  <td>Generic "A spice cabinet essential" text blurb.</td>
+                  <td>Specific bundle name, pricing clarity (£28.00), and direct 1-click cart addition.</td>
+                </tr>
+                <tr>
+                  <td><strong>Early Wordmark $\rightarrow$ Refined Serif Identity</strong></td>
+                  <td>Early prototype letterforms inconsistent with brand lockup.</td>
+                  <td>Aligned with final high-contrast typographic identity across packaging, physical tags, and digital UI.</td>
+                </tr>
+                <tr>
+                  <td><strong>Retained: 5-Chapter S-Curve</strong></td>
+                  <td>Illustrated scroll-triggered journey from coast to harvest.</td>
+                  <td>Preserved untouched through all reviews—became the signature delight moment of the product experience.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 13 — UX LAWS APPLIED -->
+        <div class="cs-content-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">13 — UX LAWS APPLIED</span>
+            <h2 class="cs-section-heading">The Psychology Behind a Premium Digital Experience</h2>
+          </div>
+          <div class="cs-prose">
+            <p>
+              Every visual and architectural choice maps directly to validated behavioral heuristics from the Laws of UX:
+            </p>
+          </div>
+
+          <div class="soche-laws-grid">
+            <div class="soche-law-card">
+              <span class="soche-law-num">01</span>
+              <h3 class="soche-law-name">Aesthetic-Usability Effect</h3>
+              <div class="soche-law-theory">Users perceive aesthetically pleasing designs as more usable and credible.</div>
+              <div class="soche-law-applied">Editorial food styling, warm cream canvases, and balanced serifs justify a luxury price point before a single product claim is read.</div>
+            </div>
+
+            <div class="soche-law-card">
+              <span class="soche-law-num">02</span>
+              <h3 class="soche-law-name">Jakob's Law</h3>
+              <div class="soche-law-theory">Users spend most of their time on other sites and expect yours to work the same way.</div>
+              <div class="soche-law-applied">Under the luxury editorial veneer, standard e-commerce patterns remain intact: top-right cart, recognizable filter pills, and instant Shopify checkout.</div>
+            </div>
+
+            <div class="soche-law-card">
+              <span class="soche-law-num">03</span>
+              <h3 class="soche-law-name">Hick's Law</h3>
+              <div class="soche-law-theory">Decision time increases logarithmically with the number and complexity of choices.</div>
+              <div class="soche-law-applied">Streamlined primary navigation (Shop, Our Story, Wholesale, Contact) and a focused launch collection of just two hero products.</div>
+            </div>
+
+            <div class="soche-law-card">
+              <span class="soche-law-num">04</span>
+              <h3 class="soche-law-name">Miller's Law</h3>
+              <div class="soche-law-theory">The average person can hold 7 (± 2) items in immediate working memory.</div>
+              <div class="soche-law-applied">The pepper provenance journey is 5 chapters, quality pillars are 6, and wholesale capabilities were reduced from 9 down to 8 cohesive units.</div>
+            </div>
+
+            <div class="soche-law-card">
+              <span class="soche-law-num">05</span>
+              <h3 class="soche-law-name">Chunking</h3>
+              <div class="soche-law-theory">Information broken into logical, manageable chunks is easier to scan and retain.</div>
+              <div class="soche-law-applied">Our Story is chunked into 9 episodic chapters. Recipe ingredients are grouped by preparation step. Wholesale specs sit in a filterable matrix.</div>
+            </div>
+
+            <div class="soche-law-card">
+              <span class="soche-law-num">06</span>
+              <h3 class="soche-law-name">Goal-Gradient Effect</h3>
+              <div class="soche-law-theory">User motivation accelerates as they perceive themselves nearing completion.</div>
+              <div class="soche-law-applied">Numbered journey steps (01–05) and a 4-step wholesale verification timeline show tangible progress from harvest to kitchen.</div>
+            </div>
+
+            <div class="soche-law-card">
+              <span class="soche-law-num">07</span>
+              <h3 class="soche-law-name">Von Restorff Effect</h3>
+              <div class="soche-law-theory">The item that differs visually from its peers is the one most readily remembered.</div>
+              <div class="soche-law-applied">The deep forest-green Wholesale register breaks instantly from the maroon retail tone. Full-bleed soil images disrupt regular product card rhythms.</div>
+            </div>
+
+            <div class="soche-law-card">
+              <span class="soche-law-num">08</span>
+              <h3 class="soche-law-name">Law of Proximity</h3>
+              <div class="soche-law-theory">Elements placed close together are perceived as sharing common functionality.</div>
+              <div class="soche-law-applied">On culinary recipe pages, the exact Soché spice used sits directly underneath the step-by-step method, accompanied by its own inline Buy Now trigger.</div>
+            </div>
+
+            <div class="soche-law-card">
+              <span class="soche-law-num">09</span>
+              <h3 class="soche-law-name">Tesler's Law (Conservation of Complexity)</h3>
+              <div class="soche-law-theory">Every process has an inherent amount of complexity that cannot be eliminated, only moved.</div>
+              <div class="soche-law-applied">Trade buyers submit one structured, single-pane form (product, volume, destination). The Soché ops team absorbs all backend logistics and customs coordination.</div>
+            </div>
+
+            <div class="soche-law-card">
+              <span class="soche-law-num">10</span>
+              <h3 class="soche-law-name">Serial Position &amp; Peak-End Rule</h3>
+              <div class="soche-law-theory">People remember the start, emotional apex, and final touchpoints of an experience most vividly.</div>
+              <div class="soche-law-applied">Pages open on an evocative brand film and close on a high-resonance founder quote: <em>"True luxury is defined by integrity."</em></div>
+            </div>
+
+            <div class="soche-law-card">
+              <span class="soche-law-num">11</span>
+              <h3 class="soche-law-name">Fitts's Law</h3>
+              <div class="soche-law-theory">Target acquisition time depends on distance to and width of the target.</div>
+              <div class="soche-law-applied">Sticky cart in header with 48px+ touch targets on mobile. Prominent "Shop Launch Collection" CTAs stationed at the conclusion of every narrative block.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 14 — VISUAL LANGUAGE -->
+        <div class="cs-content-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">14 — VISUAL LANGUAGE</span>
+            <h2 class="cs-section-heading">Quiet Luxury: Two Color Registers</h2>
+          </div>
+          <div class="cs-prose">
+            <p>
+              The visual language rejects loud gradients and neon e-commerce tropes. Instead, it draws from classical aged paper, roasted whole spices, and lush estate hills:
+            </p>
+          </div>
+
+          <div class="soche-palette-grid">
+            <!-- Retail Palette -->
+            <div class="soche-palette-box">
+              <strong style="color: #fff; font-size: 1rem; display: block; margin-bottom: 0.35rem;">Retail Consumer Palette</strong>
+              <span style="font-size: 0.8rem; color: rgba(245, 241, 234, 0.65);">Sensory warmth, roasted aromatics, aged parchment ground.</span>
+              <div class="soche-swatches">
+                <div class="soche-swatch" style="background: #39141A; color: #F5F1EA;">
+                  <strong style="font-size: 0.85rem;">#39141A</strong>
+                  <span>Spice Maroon</span>
+                </div>
+                <div class="soche-swatch" style="background: #F5F1EA; color: #39141A;">
+                  <strong style="font-size: 0.85rem;">#F5F1EA</strong>
+                  <span>Warm Cream</span>
+                </div>
+                <div class="soche-swatch" style="background: #ECE3D5; color: #39141A;">
+                  <strong style="font-size: 0.85rem;">#ECE3D5</strong>
+                  <span>Sand</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Wholesale Palette -->
+            <div class="soche-palette-box" style="border-color: rgba(74, 222, 128, 0.3);">
+              <strong style="color: #4ade80; font-size: 1rem; display: block; margin-bottom: 0.35rem;">B2B Wholesale Palette</strong>
+              <span style="font-size: 0.8rem; color: rgba(187, 247, 208, 0.7);">Agricultural rigor, certified provenance, trade authority.</span>
+              <div class="soche-swatches">
+                <div class="soche-swatch" style="background: #1A3B2A; color: #F5F1EA;">
+                  <strong style="font-size: 0.85rem;">#1A3B2A</strong>
+                  <span>Forest Green</span>
+                </div>
+                <div class="soche-swatch" style="background: #10251A; color: #4ade80;">
+                  <strong style="font-size: 0.85rem;">#10251A</strong>
+                  <span>Deep Forest</span>
+                </div>
+                <div class="soche-swatch" style="background: #F5F1EA; color: #10251A;">
+                  <strong style="font-size: 0.85rem;">#F5F1EA</strong>
+                  <span>Cream Base</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="background: rgba(245, 241, 234, 0.03); border: 1px solid rgba(245, 241, 234, 0.08); border-radius: 14px; padding: 1.5rem; margin-top: 1.5rem;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+              <div>
+                <strong style="color: var(--soche-gold); font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; display: block; margin-bottom: 0.35rem;">Typography System</strong>
+                <p style="font-size: 0.88rem; color: rgba(245, 241, 234, 0.8); line-height: 1.6; margin: 0;">
+                  Headlines set in high-contrast serifs (Newsreader / Prata / Libre Baskerville) echoing 19th-century spice-trade journals. Body and data matrices set in crisp, legibility-optimized sans-serif (Plus Jakarta Sans).
+                </p>
+              </div>
+              <div>
+                <strong style="color: var(--soche-gold); font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; display: block; margin-bottom: 0.35rem;">Imagery &amp; Motion Direction</strong>
+                <p style="font-size: 0.88rem; color: rgba(245, 241, 234, 0.8); line-height: 1.6; margin: 0;">
+                  Moody, directional natural food lighting, tactile hands-on packaging photography, and engraved line-art maps. Motion is deliberately measured: slow scroll reveals with zero jarring bouncy effects.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 15 — CONTENT STRATEGY & ACCESSIBILITY -->
+        <div class="cs-content-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">15 — TRUST &amp; ACCESSIBILITY</span>
+            <h2 class="cs-section-heading">Every Claim Backed on the Page &amp; WCAG AA Rigor</h2>
+          </div>
+          <div class="cs-prose">
+            <h3 style="color: #fff; font-size: 1.3rem; margin-bottom: 0.75rem;">Content &amp; Verification Signals</h3>
+            <ul>
+              <li><strong>Named Origins:</strong> Specificity replaces marketing fluff (Tellicherry, Malabar Coast; Idukki, Kerala; cardamom hills of Sikkim).</li>
+              <li><strong>Rainforest Alliance Seal:</strong> Official badge embedded alongside interactive modal explaining smallholder audit protocols.</li>
+              <li><strong>Visible Compliance Chain:</strong> Sourcing verified $\rightarrow$ Lab tested for aflatoxins and moisture $\rightarrow$ Batch confirmed $\rightarrow$ Final QC.</li>
+              <li><strong>Real Human Faces:</strong> Verified farmers and founding directors featured in real photography instead of generic stock models.</li>
+            </ul>
+
+            <h3 style="color: #fff; font-size: 1.3rem; margin: 2rem 0 0.75rem;">Accessibility: Luxury Shouldn't Mean Hard to Read</h3>
+            <ul>
+              <li><strong>Contrast Compliance:</strong> Deep maroon text on cream grounds yielding 7:1+ contrast (far surpassing WCAG AA 4.5:1). Light text only used over dark overlays.</li>
+              <li><strong>Legible Photography Overlays:</strong> Dynamically darkened scrim gradients beneath text on full-bleed imagery to guarantee headline readability.</li>
+              <li><strong>Reduced-Motion Respect:</strong> CSS <code>prefers-reduced-motion: reduce</code> triggers instant reveals, preserving 100% of information for vestibular sensitivity.</li>
+              <li><strong>48px Tap Targets:</strong> All buttons, accordion headers, and filter pills meet or exceed accessible mobile touch target guidelines.</li>
+              <li><strong>Screen-Reader Friendly Recipes:</strong> Ingredients structured as semantic unordered lists and cooking methods as numbered <code>&lt;ol&gt;</code> steps.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 16 — OUTCOMES, METRICS & V2 ROADMAP -->
+        <div class="cs-content-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">16 — OUTCOMES &amp; ROADMAP</span>
+            <h2 class="cs-section-heading">What Shipped &amp; Continuous Optimization</h2>
+          </div>
+          <div class="cs-prose">
+            <p>
+              Soché launched smoothly onto the UK market at <strong>soche.co.uk</strong> with its flagship launch collection, Our Story chapters, culinary hub, and export wholesale platform:
+            </p>
+          </div>
+
+          <div class="soche-laws-grid">
+            <div class="soche-law-card">
+              <span class="soche-law-num">01</span>
+              <h3 class="soche-law-name">Live on Shopify</h3>
+              <div class="soche-law-theory">Direct to UK Consumers</div>
+              <div class="soche-law-applied">Fully operational D2C storefront accepting GBP payments via Shopify Payments, Apple Pay, and Klarna.</div>
+            </div>
+
+            <div class="soche-law-card">
+              <span class="soche-law-num">02</span>
+              <h3 class="soche-law-name">10+ Templates</h3>
+              <div class="soche-law-theory">Modular Design System</div>
+              <div class="soche-law-applied">Shipped 10 distinct responsive templates in Figma and Liquid, ready to absorb 20+ future spices without layout redesigns.</div>
+            </div>
+
+            <div class="soche-law-card">
+              <span class="soche-law-num">03</span>
+              <h3 class="soche-law-name">Coded Prototypes</h3>
+              <div class="soche-law-theory">Zero Handoff Loss</div>
+              <div class="soche-law-applied">Interactive scroll journey and global SVG supply chain map built in code, eliminating developer guesswork and preserving craft.</div>
+            </div>
+
+            <div class="soche-law-card">
+              <span class="soche-law-num">04</span>
+              <h3 class="soche-law-name">Trade Pipeline</h3>
+              <div class="soche-law-theory">Qualified B2B Inquiries</div>
+              <div class="soche-law-applied">Generated immediate commercial RFP submissions from UK specialty food retailers and artisanal sauce makers within month 1.</div>
+            </div>
+          </div>
+
+          <!-- What to measure next -->
+          <div style="background: rgba(245, 241, 234, 0.04); border: 1px solid rgba(245, 241, 234, 0.1); border-radius: 14px; padding: 1.5rem; margin: 1.75rem 0;">
+            <strong style="color: var(--soche-gold); font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;">Key Metrics Tracked in Post-Launch Analytics:</strong>
+            <p style="font-size: 0.9rem; color: rgba(245, 241, 234, 0.85); margin: 0.5rem 0 0; line-height: 1.6;">
+              Product page add-to-cart conversion rate · Scroll depth completion through the 5-chapter S-curve journey · Recipe $\rightarrow$ product click-through rate · Email conversion on "Coming Soon" notify-me shelf · B2B RFP lead volume &amp; quote value · 90-day repeat replenishment frequency.
+            </p>
+          </div>
+
+          <!-- v2 Roadmap from Live Site Audit -->
+          <h3 style="color: #fff; font-size: 1.3rem; margin: 2rem 0 0.75rem;">v2 Optimization Roadmap (From Live Site UX Audit)</h3>
+          <div class="soche-roadmap-list">
+            <div class="soche-roadmap-item">
+              <strong style="color: #fff; font-size: 0.95rem; display: block; margin-bottom: 0.25rem;">1. Show Prices Upfront on Collection Grids</strong>
+              <span style="font-size: 0.82rem; color: rgba(245, 241, 234, 0.7); line-height: 1.5;">The initial launch omitted prices on category grids. Introducing "From £14.50" reduces pre-click user hesitation and qualifies clicks.</span>
+            </div>
+
+            <div class="soche-roadmap-item">
+              <strong style="color: #fff; font-size: 0.95rem; display: block; margin-bottom: 0.25rem;">2. "Notify Me" Capture for Coming Soon SKUs</strong>
+              <span style="font-size: 0.82rem; color: rgba(245, 241, 234, 0.7); line-height: 1.5;">Much of the botanical range (cardamom, turmeric, star anise) is coming soon. Inline email capture turns curiosity into immediate launch day pipeline.</span>
+            </div>
+
+            <div class="soche-roadmap-item">
+              <strong style="color: #fff; font-size: 0.95rem; display: block; margin-bottom: 0.25rem;">3. Verified Buyer Reviews Integration</strong>
+              <span style="font-size: 0.82rem; color: rgba(245, 241, 234, 0.7); line-height: 1.5;">Integrate verified culinary reviews with photo uploads on product pages as early cohort orders complete.</span>
+            </div>
+
+            <div class="soche-roadmap-item">
+              <strong style="color: #fff; font-size: 0.95rem; display: block; margin-bottom: 0.25rem;">4. Homepage Redundancy Cleanup</strong>
+              <span style="font-size: 0.82rem; color: rgba(245, 241, 234, 0.7); line-height: 1.5;">Consolidate duplicated peppercorn CTA sections on the homepage discovered during early heatmapping audits.</span>
+            </div>
+
+            <div class="soche-roadmap-item">
+              <strong style="color: #fff; font-size: 0.95rem; display: block; margin-bottom: 0.25rem;">5. Standardize British English Spelling</strong>
+              <span style="font-size: 0.82rem; color: rgba(245, 241, 234, 0.7); line-height: 1.5;">Eliminate instances where copy drifted between "Flavor" and "Flavour". Mandate UK English standards across all digital surfaces.</span>
+            </div>
+
+            <div class="soche-roadmap-item">
+              <strong style="color: #fff; font-size: 0.95rem; display: block; margin-bottom: 0.25rem;">6. Surface Direct Contact Details in Footer</strong>
+              <span style="font-size: 0.82rem; color: rgba(245, 241, 234, 0.7); line-height: 1.5;">Expose UK support email and trade WhatsApp directly in the site-wide footer rather than isolating them strictly to the Contact page.</span>
+            </div>
+          </div>
+
+          <!-- Core Design Learnings -->
+          <div style="border-left: 2px solid var(--soche-gold); padding-left: 1.25rem; margin: 2rem 0;">
+            <p style="font-size: 1.05rem; font-style: italic; color: #fff; line-height: 1.7; margin-bottom: 0.5rem;">
+              "Narrative beats static blocks for luxury e-commerce. Rewriting Our Story as chapters did more for brand prestige than any visual decorative flourish. And by providing two dedicated color registers, one brand can converse with London home foodies and industrial procurement officers simultaneously without sacrificing credibility."
+            </p>
+            <span style="font-size: 0.85rem; color: var(--soche-gold); font-weight: 700;">— Digambar Patil, Lead UI/UX Designer</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CASE STUDY FOOTER & NEXT PROJECT -->
+    <section class="cs-footer-navigation" style="border-top: 1px solid rgba(245, 241, 234, 0.08); padding: 4rem 0 6rem; background: #0c0709;">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;">
+          <div>
+            <span style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--soche-gold); font-weight: 700; display: block; margin-bottom: 0.5rem;">Next UX Case Study</span>
+            <h3 style="font-family: 'Newsreader', serif; font-size: 2rem; color: #fff; margin: 0;">
+              Tythas Control Center: One dashboard, every client site
+            </h3>
+            <p style="font-size: 0.9rem; color: rgba(245, 241, 234, 0.7); margin-top: 0.35rem;">
+              B2B SaaS Multi-Tenant Platform · Sept 2026
+            </p>
+          </div>
+          <div>
+            <a href="tythas-control-center.html" class="btn-pill-solid btn-expand-icon" style="padding: 0.75rem 1.75rem; font-size: 0.95rem; background: var(--soche-maroon); border: 1px solid var(--soche-gold); color: #fff;">
+              <span class="btn-expand-text">Read Next Case Study</span>
+              <span class="btn-expand-circle" aria-hidden="true" style="width: 26px; height: 26px; background: rgba(255,255,255,0.2);">
+                <svg class="btn-expand-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width: 13px; height: 13px;">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- SITE FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <p class="footer-text">&copy; 2026 Digambar Patil. Crafted with care &amp; precision.</p>
+        </div>
+        <div class="footer-right">
+          <a href="#top" class="footer-back-top" id="footer-back-top" aria-label="Back to top">
+            <span>Back to top</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="12" y1="19" x2="12" y2="5"></line>
+              <polyline points="5 12 12 5 19 12"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

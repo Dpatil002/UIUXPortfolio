@@ -1,0 +1,329 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <!-- Background Canvas Gradient -->
+    <linearGradient id="soche-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#140a0d"/>
+      <stop offset="50%" stop-color="#240f14"/>
+      <stop offset="100%" stop-color="#0d1812"/>
+    </linearGradient>
+
+    <!-- Warm Amber & Cream Radial Glows -->
+    <radialGradient id="glow-maroon" cx="25%" cy="30%" r="55%">
+      <stop offset="0%" stop-color="#8a2a36" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#8a2a36" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow-forest" cx="80%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#1f5438" stop-opacity="0.32"/>
+      <stop offset="100%" stop-color="#1f5438" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Shadows -->
+    <filter id="card-shadow" x="-10%" y="-10%" width="125%" height="130%">
+      <feDropShadow dx="0" dy="24" stdDeviation="32" flood-color="#000000" flood-opacity="0.65"/>
+    </filter>
+    <filter id="subtle-shadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+
+    <linearGradient id="gold-accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#d4af37"/>
+      <stop offset="100%" stop-color="#f5e6b3"/>
+    </linearGradient>
+
+    <linearGradient id="cream-fade" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F5F1EA"/>
+      <stop offset="100%" stop-color="#ECE3D5"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="1200" height="675" fill="url(#soche-bg)"/>
+  <rect width="1200" height="675" fill="url(#glow-maroon)"/>
+  <rect width="1200" height="675" fill="url(#glow-forest)"/>
+
+  <!-- Subtle Top Decorative Grid & Lines -->
+  <g stroke="rgba(245,241,234,0.04)" stroke-width="1">
+    <line x1="60" y1="0" x2="60" y2="675"/>
+    <line x1="600" y1="0" x2="600" y2="675" stroke-dasharray="4 8"/>
+    <line x1="1140" y1="0" x2="1140" y2="675"/>
+    <line x1="0" y1="70" x2="1200" y2="70"/>
+    <line x1="0" y1="600" x2="1200" y2="600"/>
+  </g>
+
+  <!-- TOP HEADER / BRAND NAVIGATION BAR -->
+  <g transform="translate(60, 24)">
+    <!-- Brand Wordmark -->
+    <text x="0" y="32" fill="#F5F1EA" font-family="'Newsreader', Georgia, serif" font-size="28" font-weight="500" letter-spacing="0.12em">SOCHÉ</text>
+    <text x="110" y="24" fill="#d4af37" font-family="'Plus Jakarta Sans', sans-serif" font-size="8.5" font-weight="700" letter-spacing="0.25em">PURE · POTENT · PREMIUM</text>
+    <text x="110" y="36" fill="rgba(245,241,234,0.5)" font-family="'Plus Jakarta Sans', sans-serif" font-size="8" font-weight="500">Shopify D2C + B2B Wholesale Portal</text>
+
+    <!-- Navigation Pills -->
+    <g transform="translate(480, 14)">
+      <rect width="70" height="26" rx="13" fill="rgba(245,241,234,0.08)"/>
+      <text x="35" y="17" fill="#F5F1EA" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="500" text-anchor="middle">Shop</text>
+
+      <rect x="80" width="85" height="26" rx="13" fill="rgba(245,241,234,0.05)"/>
+      <text x="122" y="17" fill="rgba(245,241,234,0.7)" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="500" text-anchor="middle">Our Story</text>
+
+      <rect x="175" width="75" height="26" rx="13" fill="rgba(245,241,234,0.05)"/>
+      <text x="212" y="17" fill="rgba(245,241,234,0.7)" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="500" text-anchor="middle">Recipes</text>
+
+      <!-- Wholesale Register Trigger -->
+      <rect x="260" width="105" height="26" rx="13" fill="#1A3B2A" stroke="rgba(74,222,128,0.3)" stroke-width="1"/>
+      <circle cx="273" cy="13" r="3.5" fill="#4ade80"/>
+      <text x="320" y="17" fill="#bbf7d0" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="600" text-anchor="middle">Wholesale ↗</text>
+    </g>
+
+    <!-- Right Live Site Badge -->
+    <g transform="translate(940, 14)">
+      <rect width="140" height="26" rx="13" fill="rgba(212,175,55,0.12)" stroke="rgba(212,175,55,0.4)" stroke-width="1"/>
+      <circle cx="16" cy="13" r="3.5" fill="#d4af37"/>
+      <text x="76" y="17" fill="#f5e6b3" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="600" text-anchor="middle">soche.co.uk · UK</text>
+    </g>
+  </g>
+
+  <!-- MAIN DUAL-REGISTER SHOWCASE -->
+  <!-- LEFT PANEL: RETAIL LUXURY D2C STOREFRONT (Spice Maroon & Warm Cream) -->
+  <g transform="translate(60, 95)" filter="url(#card-shadow)">
+    <!-- Browser Window Card -->
+    <rect width="610" height="485" rx="16" fill="#1d0d12" stroke="rgba(245,241,234,0.12)" stroke-width="1.5"/>
+    
+    <!-- Window Bar -->
+    <rect width="610" height="42" rx="16" fill="#291218"/>
+    <rect y="26" width="610" height="16" fill="#291218"/>
+    <circle cx="24" cy="21" r="5" fill="#ff5f56"/>
+    <circle cx="40" cy="21" r="5" fill="#ffbd2e"/>
+    <circle cx="56" cy="21" r="5" fill="#27c93f"/>
+    <rect x="80" y="10" width="220" height="22" rx="11" fill="rgba(0,0,0,0.3)"/>
+    <text x="190" y="24" fill="rgba(245,241,234,0.6)" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" text-anchor="middle">soche.co.uk/products/tellicherry-peppercorn</text>
+    
+    <!-- Register Badge -->
+    <rect x="475" y="11" width="115" height="20" rx="10" fill="rgba(138,42,54,0.4)" stroke="rgba(255,255,255,0.15)"/>
+    <text x="532" y="24" fill="#fecdd3" font-family="'Plus Jakarta Sans', sans-serif" font-size="8.5" font-weight="700" text-anchor="middle">RETAIL REGISTER</text>
+
+    <!-- Product Hero Content Area -->
+    <!-- Background Hero Media Simulation -->
+    <g transform="translate(24, 60)">
+      <!-- Left: Hand-held Packaging / Glass Jar visual -->
+      <g transform="translate(0, 0)">
+        <rect width="240" height="270" rx="12" fill="#2b141b" stroke="rgba(245,241,234,0.08)"/>
+        <!-- Stylized Jar Illustration -->
+        <g transform="translate(50, 25)">
+          <!-- Glass Jar Body -->
+          <rect x="15" y="30" width="110" height="165" rx="18" fill="rgba(255,255,255,0.03)" stroke="rgba(245,241,234,0.2)" stroke-width="2"/>
+          <!-- Lid -->
+          <rect x="25" y="12" width="90" height="20" rx="4" fill="#d4af37"/>
+          <line x1="25" y1="22" x2="115" y2="22" stroke="#b89326" stroke-width="1"/>
+          <!-- Pepper grains inside -->
+          <g fill="#1a1215" opacity="0.9">
+            <circle cx="45" cy="140" r="12"/><circle cx="70" cy="150" r="14"/><circle cx="95" cy="138" r="11"/>
+            <circle cx="55" cy="115" r="13"/><circle cx="85" cy="118" r="14"/><circle cx="70" cy="90" r="12"/>
+            <circle cx="50" cy="70" r="10"/><circle cx="88" cy="75" r="11"/>
+          </g>
+          <!-- Label on Jar -->
+          <rect x="25" y="65" width="90" height="75" rx="4" fill="#F5F1EA" stroke="#ECE3D5"/>
+          <text x="70" y="85" fill="#39141A" font-family="'Newsreader', serif" font-size="11" font-weight="600" text-anchor="middle" letter-spacing="0.1em">SOCHÉ</text>
+          <line x1="45" y1="91" x2="95" y2="91" stroke="#39141A" stroke-width="0.8"/>
+          <text x="70" y="103" fill="#39141A" font-family="'Plus Jakarta Sans', sans-serif" font-size="6.5" font-weight="700" text-anchor="middle">TELLICHERRY</text>
+          <text x="70" y="112" fill="#78350f" font-family="'Plus Jakarta Sans', sans-serif" font-size="5.5" text-anchor="middle">BLACK PEPPERCORNS</text>
+          <text x="70" y="127" fill="#8A2A36" font-family="'Plus Jakarta Sans', sans-serif" font-size="5" font-weight="700" text-anchor="middle">MALABAR COAST · 100g</text>
+        </g>
+        <!-- Rainforest Alliance Badge -->
+        <g transform="translate(14, 215)">
+          <rect width="212" height="42" rx="8" fill="rgba(245,241,234,0.06)" stroke="rgba(245,241,234,0.1)"/>
+          <circle cx="26" cy="21" r="12" fill="#15803d"/>
+          <path d="M 20 21 L 24 25 L 32 17" fill="none" stroke="#ffffff" stroke-width="2"/>
+          <text x="46" y="18" fill="#F5F1EA" font-family="'Plus Jakarta Sans', sans-serif" font-size="8" font-weight="700">Rainforest Alliance Sourced</text>
+          <text x="46" y="29" fill="rgba(245,241,234,0.6)" font-family="'Plus Jakarta Sans', sans-serif" font-size="7">Direct Kerala smallholder fair-pay</text>
+        </g>
+      </g>
+
+      <!-- Right: Narrative Product Details -->
+      <g transform="translate(260, 0)">
+        <text x="0" y="16" fill="#f43f5e" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="700" letter-spacing="0.15em">SINGLE-ESTATE SPICES</text>
+        <text x="0" y="44" fill="#F5F1EA" font-family="'Newsreader', serif" font-size="24" font-weight="400">Tellicherry Gourmet</text>
+        <text x="0" y="68" fill="#F5F1EA" font-family="'Newsreader', serif" font-size="24" font-weight="400" font-style="italic">Whole Black Peppercorns</text>
+        
+        <text x="0" y="96" fill="rgba(245,241,234,0.7)" font-family="'Plus Jakarta Sans', sans-serif" font-size="9.5" font-weight="400">
+          Sun-dried on the Malabar Coast of Kerala. High-piperine,
+        </text>
+        <text x="0" y="110" fill="rgba(245,241,234,0.7)" font-family="'Plus Jakarta Sans', sans-serif" font-size="9.5" font-weight="400">
+          hand-harvested late harvest berries with wood &amp; citrus aromatics.
+        </text>
+
+        <!-- Price & Action -->
+        <g transform="translate(0, 130)">
+          <text x="0" y="22" fill="#F5F1EA" font-family="'Newsreader', serif" font-size="20" font-weight="600">£14.50</text>
+          <text x="65" y="20" fill="rgba(245,241,234,0.4)" font-family="'Plus Jakarta Sans', sans-serif" font-size="9">100g glass jar</text>
+          
+          <!-- Buy Now CTA -->
+          <rect x="155" y="2" width="145" height="34" rx="17" fill="#F5F1EA"/>
+          <text x="227" y="23" fill="#39141A" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" text-anchor="middle">Add to Cart — £14.50</text>
+        </g>
+
+        <!-- S-Curve 5-Chapter Journey Preview Banner -->
+        <g transform="translate(0, 185)">
+          <rect width="302" height="75" rx="10" fill="rgba(245,241,234,0.05)" stroke="rgba(212,175,55,0.25)"/>
+          <text x="14" y="20" fill="#d4af37" font-family="'Plus Jakarta Sans', sans-serif" font-size="8.5" font-weight="700" letter-spacing="0.1em">5-CHAPTER S-CURVE PROVENANCE JOURNEY</text>
+          
+          <!-- Step icons & path -->
+          <line x1="20" y1="46" x2="280" y2="46" stroke="rgba(245,241,234,0.2)" stroke-dasharray="3 3"/>
+          <g transform="translate(20, 36)">
+            <circle cx="10" cy="10" r="8" fill="#d4af37"/>
+            <text x="10" y="13" fill="#1d0d12" font-family="'Plus Jakarta Sans'" font-size="7" font-weight="800" text-anchor="middle">1</text>
+            <text x="10" y="28" fill="rgba(245,241,234,0.7)" font-family="'Plus Jakarta Sans'" font-size="6.5" text-anchor="middle">Coast</text>
+          </g>
+          <g transform="translate(75, 36)">
+            <circle cx="10" cy="10" r="8" fill="#d4af37"/>
+            <text x="10" y="13" fill="#1d0d12" font-family="'Plus Jakarta Sans'" font-size="7" font-weight="800" text-anchor="middle">2</text>
+            <text x="10" y="28" fill="rgba(245,241,234,0.7)" font-family="'Plus Jakarta Sans'" font-size="6.5" text-anchor="middle">Harvest</text>
+          </g>
+          <g transform="translate(135, 36)">
+            <circle cx="10" cy="10" r="8" fill="#d4af37"/>
+            <text x="10" y="13" fill="#1d0d12" font-family="'Plus Jakarta Sans'" font-size="7" font-weight="800" text-anchor="middle">3</text>
+            <text x="10" y="28" fill="rgba(245,241,234,0.7)" font-family="'Plus Jakarta Sans'" font-size="6.5" text-anchor="middle">Sun-Dry</text>
+          </g>
+          <g transform="translate(195, 36)">
+            <circle cx="10" cy="10" r="8" fill="#d4af37"/>
+            <text x="10" y="13" fill="#1d0d12" font-family="'Plus Jakarta Sans'" font-size="7" font-weight="800" text-anchor="middle">4</text>
+            <text x="10" y="28" fill="rgba(245,241,234,0.7)" font-family="'Plus Jakarta Sans'" font-size="6.5" text-anchor="middle">Select</text>
+          </g>
+          <g transform="translate(255, 36)">
+            <circle cx="10" cy="10" r="8" fill="#d4af37"/>
+            <text x="10" y="13" fill="#1d0d12" font-family="'Plus Jakarta Sans'" font-size="7" font-weight="800" text-anchor="middle">5</text>
+            <text x="10" y="28" fill="rgba(245,241,234,0.7)" font-family="'Plus Jakarta Sans'" font-size="6.5" text-anchor="middle">Pack</text>
+          </g>
+        </g>
+      </g>
+    </g>
+
+    <!-- Bottom Strip: Gifting Bundle & Recipe Hub Link -->
+    <g transform="translate(24, 395)">
+      <rect width="562" height="66" rx="10" fill="#240f16" stroke="rgba(245,241,234,0.06)"/>
+      <rect x="14" y="12" width="42" height="42" rx="6" fill="#F5F1EA"/>
+      <!-- Salt & Pepper Icon -->
+      <text x="35" y="38" fill="#39141A" font-family="'Newsreader'" font-size="20" text-anchor="middle">✦</text>
+      <text x="68" y="28" fill="#F5F1EA" font-family="'Newsreader', serif" font-size="13">Soché Gourmet Salt &amp; Pepper Gift Set</text>
+      <text x="68" y="44" fill="rgba(245,241,234,0.6)" font-family="'Plus Jakarta Sans', sans-serif" font-size="8">Tellicherry Peppercorns + Pink Himalayan Salt in embossed wooden keepsake box · £28.00</text>
+      
+      <rect x="475" y="18" width="75" height="28" rx="14" fill="rgba(245,241,234,0.15)"/>
+      <text x="512" y="36" fill="#F5F1EA" font-family="'Plus Jakarta Sans', sans-serif" font-size="8.5" font-weight="700" text-anchor="middle">Bundle ↗</text>
+    </g>
+  </g>
+
+  <!-- RIGHT PANEL: EXPORT-GRADE B2B WHOLESALE PORTAL (Deep Forest Green) -->
+  <g transform="translate(690, 95)" filter="url(#card-shadow)">
+    <!-- Browser Window Card -->
+    <rect width="450" height="485" rx="16" fill="#10251A" stroke="rgba(74,222,128,0.25)" stroke-width="1.5"/>
+    
+    <!-- Window Bar -->
+    <rect width="450" height="42" rx="16" fill="#173424"/>
+    <rect y="26" width="450" height="16" fill="#173424"/>
+    <circle cx="24" cy="21" r="5" fill="#ff5f56"/>
+    <circle cx="40" cy="21" r="5" fill="#ffbd2e"/>
+    <circle cx="56" cy="21" r="5" fill="#27c93f"/>
+    <rect x="80" y="10" width="170" height="22" rx="11" fill="rgba(0,0,0,0.3)"/>
+    <text x="165" y="24" fill="rgba(187,247,208,0.7)" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" text-anchor="middle">soche.co.uk/wholesale</text>
+    
+    <!-- Register Badge -->
+    <rect x="315" y="11" width="120" height="20" rx="10" fill="#1f4f33" stroke="rgba(74,222,128,0.4)"/>
+    <text x="375" y="24" fill="#4ade80" font-family="'Plus Jakarta Sans', sans-serif" font-size="8.5" font-weight="800" text-anchor="middle">EXPORT B2B</text>
+
+    <!-- Content: B2B Procurement Hub -->
+    <g transform="translate(24, 60)">
+      <text x="0" y="14" fill="#4ade80" font-family="'Plus Jakarta Sans', sans-serif" font-size="8.5" font-weight="800" letter-spacing="0.15em">WHOLESALE &amp; COMMERCIAL SUPPLY</text>
+      <text x="0" y="38" fill="#F5F1EA" font-family="'Newsreader', serif" font-size="20">Export-Grade Bulk Ingredients</text>
+      <text x="0" y="55" fill="rgba(187,247,208,0.75)" font-family="'Plus Jakarta Sans', sans-serif" font-size="8.5">Verified Sourcing · Full Compliance · Container-Load Logistics</text>
+
+      <!-- KPI Metrics Strip -->
+      <g transform="translate(0, 70)">
+        <!-- KPI 1 -->
+        <rect width="126" height="52" rx="8" fill="#163c27" stroke="rgba(74,222,128,0.2)"/>
+        <text x="14" y="25" fill="#4ade80" font-family="'Space Grotesk', sans-serif" font-size="16" font-weight="700">50+ MT</text>
+        <text x="14" y="40" fill="rgba(245,241,234,0.6)" font-family="'Plus Jakarta Sans', sans-serif" font-size="7">Monthly Capacity</text>
+
+        <!-- KPI 2 -->
+        <rect x="136" width="126" height="52" rx="8" fill="#163c27" stroke="rgba(74,222,128,0.2)"/>
+        <text x="150" y="25" fill="#4ade80" font-family="'Space Grotesk', sans-serif" font-size="16" font-weight="700">100%</text>
+        <text x="150" y="40" fill="rgba(245,241,234,0.6)" font-family="'Plus Jakarta Sans', sans-serif" font-size="7">Batch Traceable</text>
+
+        <!-- KPI 3 -->
+        <rect x="272" width="126" height="52" rx="8" fill="#163c27" stroke="rgba(74,222,128,0.2)"/>
+        <text x="286" y="25" fill="#4ade80" font-family="'Space Grotesk', sans-serif" font-size="16" font-weight="700">25kg – 1t</text>
+        <text x="286" y="40" fill="rgba(245,241,234,0.6)" font-family="'Plus Jakarta Sans', sans-serif" font-size="7">Sacks to Bulk Totes</text>
+      </g>
+
+      <!-- Compliance & Certification Badges -->
+      <g transform="translate(0, 134)">
+        <text x="0" y="12" fill="rgba(245,241,234,0.5)" font-family="'Plus Jakarta Sans', sans-serif" font-size="7.5" font-weight="700" letter-spacing="0.1em">COMPLIANCE &amp; ACCREDITATION</text>
+        <g transform="translate(0, 20)">
+          <!-- Badges -->
+          <rect width="65" height="24" rx="4" fill="rgba(245,241,234,0.08)" stroke="rgba(245,241,234,0.15)"/>
+          <text x="32" y="16" fill="#F5F1EA" font-family="'Plus Jakarta Sans'" font-size="8.5" font-weight="700" text-anchor="middle">HACCP</text>
+
+          <rect x="75" width="55" height="24" rx="4" fill="rgba(245,241,234,0.08)" stroke="rgba(245,241,234,0.15)"/>
+          <text x="102" y="16" fill="#F5F1EA" font-family="'Plus Jakarta Sans'" font-size="8.5" font-weight="700" text-anchor="middle">ISO 22000</text>
+
+          <rect x="140" width="55" height="24" rx="4" fill="rgba(245,241,234,0.08)" stroke="rgba(245,241,234,0.15)"/>
+          <text x="167" y="16" fill="#F5F1EA" font-family="'Plus Jakarta Sans'" font-size="8.5" font-weight="700" text-anchor="middle">BRC FOOD</text>
+
+          <rect x="205" width="55" height="24" rx="4" fill="rgba(245,241,234,0.08)" stroke="rgba(245,241,234,0.15)"/>
+          <text x="232" y="16" fill="#F5F1EA" font-family="'Plus Jakarta Sans'" font-size="8.5" font-weight="700" text-anchor="middle">UK FSA</text>
+
+          <rect x="270" width="128" height="24" rx="4" fill="#15803d"/>
+          <text x="334" y="16" fill="#ffffff" font-family="'Plus Jakarta Sans'" font-size="7.5" font-weight="700" text-anchor="middle">Rainforest Alliance</text>
+        </g>
+      </g>
+
+      <!-- Spec Table Snapshot -->
+      <g transform="translate(0, 195)">
+        <rect width="402" height="120" rx="8" fill="#132c1e" stroke="rgba(245,241,234,0.08)"/>
+        <!-- Header -->
+        <rect width="402" height="26" rx="8" fill="#193d29"/>
+        <text x="12" y="17" fill="#86efac" font-family="'Plus Jakarta Sans'" font-size="8" font-weight="700">SPECIFICATION MATRIX</text>
+        <text x="160" y="17" fill="rgba(245,241,234,0.6)" font-family="'Plus Jakarta Sans'" font-size="7.5">GRADE</text>
+        <text x="260" y="17" fill="rgba(245,241,234,0.6)" font-family="'Plus Jakarta Sans'" font-size="7.5">MOISTURE</text>
+        <text x="340" y="17" fill="rgba(245,241,234,0.6)" font-family="'Plus Jakarta Sans'" font-size="7.5">BULK PACK</text>
+
+        <!-- Row 1 -->
+        <text x="12" y="48" fill="#F5F1EA" font-family="'Plus Jakarta Sans'" font-size="8.5" font-weight="600">Tellicherry Garbled (TGSEB)</text>
+        <text x="160" y="48" fill="#bbf7d0" font-family="'Plus Jakarta Sans'" font-size="8">Extra Bold (4.75mm+)</text>
+        <text x="260" y="48" fill="rgba(245,241,234,0.7)" font-family="'Plus Jakarta Sans'" font-size="8">&lt; 11.5%</text>
+        <text x="340" y="48" fill="#F5F1EA" font-family="'Plus Jakarta Sans'" font-size="8">25kg multi-wall</text>
+        <line x1="10" y1="58" x2="392" y2="58" stroke="rgba(245,241,234,0.06)"/>
+
+        <!-- Row 2 -->
+        <text x="12" y="78" fill="#F5F1EA" font-family="'Plus Jakarta Sans'" font-size="8.5" font-weight="600">Pink Himalayan Coarse Salt</text>
+        <text x="160" y="78" fill="#bbf7d0" font-family="'Plus Jakarta Sans'" font-size="8">Food Grade (2-5mm)</text>
+        <text x="260" y="78" fill="rgba(245,241,234,0.7)" font-family="'Plus Jakarta Sans'" font-size="8">&lt; 0.2%</text>
+        <text x="340" y="78" fill="#F5F1EA" font-family="'Plus Jakarta Sans'" font-size="8">1,000kg totes</text>
+        <line x1="10" y1="88" x2="392" y2="88" stroke="rgba(245,241,234,0.06)"/>
+
+        <!-- Row 3 -->
+        <text x="12" y="108" fill="#F5F1EA" font-family="'Plus Jakarta Sans'" font-size="8.5" font-weight="600">Alleppey Finger Turmeric</text>
+        <text x="160" y="108" fill="#bbf7d0" font-family="'Plus Jakarta Sans'" font-size="8">Curcumin &gt; 5.2%</text>
+        <text x="260" y="108" fill="rgba(245,241,234,0.7)" font-family="'Plus Jakarta Sans'" font-size="8">&lt; 10.0%</text>
+        <text x="340" y="108" fill="#F5F1EA" font-family="'Plus Jakarta Sans'" font-size="8">25kg jute lined</text>
+      </g>
+
+      <!-- Trade Enquiry CTA Button -->
+      <g transform="translate(0, 332)">
+        <rect width="402" height="42" rx="8" fill="#4ade80"/>
+        <text x="201" y="26" fill="#052e16" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="800" text-anchor="middle">
+          Submit Commercial RFP / Spec Request ↗
+        </text>
+      </g>
+    </g>
+  </g>
+
+  <!-- BOTTOM CALLOUT BANNER -->
+  <g transform="translate(60, 608)">
+    <text x="0" y="18" fill="rgba(245,241,234,0.5)" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="600" letter-spacing="0.08em">DESIGN PHILOSOPHY</text>
+    <text x="135" y="18" fill="#F5F1EA" font-family="'Newsreader', Georgia, serif" font-size="13" font-style="italic">
+      "Two front doors, one brand — quiet luxury for the home cook, export-grade rigor for the procurement manager."
+    </text>
+    <text x="1080" y="18" fill="#d4af37" font-family="'Plus Jakarta Sans', sans-serif" font-size="9.5" font-weight="700" text-anchor="end">
+      Jan – July 2026 · The Impact Engine
+    </text>
+  </g>
+</svg>
