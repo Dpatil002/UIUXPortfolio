@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tythas Control Center — Multi-Tenant SaaS Platform UX Case Study | Digambar Patil</title>
+  <meta name="description" content="A multi-tenant website management platform I designed and built for Tythas Digital — one dashboard to run every client site's pages, blog, SEO, forms, leads and uptime. Product Design, UI/UX Architecture, and AI-assisted development by Digambar Patil (Sept 2026).">
+  <meta name="keywords" content="Product Design, UI/UX Design, Multi-Tenant SaaS, Design System, Information Architecture, Next.js, Full-Stack Prototyping, Tailored CMS, Design to Code, AI-Assisted Engineering, B2B Platform">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="case-study-page tcc-case-study">
+
+  <!-- Background Particle Field -->
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <!-- Cursor Follow Arrow Badge -->
+  <div id="cursor-badge" class="cursor-arrow-badge" aria-hidden="true">
+    <svg viewBox="0 0 24 24">
+      <line x1="7" y1="17" x2="17" y2="7"></line>
+      <polyline points="7 7 17 7 17 17"></polyline>
+    </svg>
+  </div>
+
+  <!-- NAVIGATION -->
+  <header class="site-nav" id="top">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-brand" id="nav-brand">
+          <span class="brand-name">Digambar Patil</span>
+          <span class="brand-title">Digital Product Designer</span>
+        </a>
+        <nav class="nav-links" aria-label="Main Navigation">
+          <a href="work.html" class="nav-link" id="nav-work">Work</a>
+          <a href="about.html" class="nav-link" id="nav-about">About</a>
+          <a href="assets/Digambar_Patil_Resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link" id="nav-resume">Resume</a>
+          <a href="mailto:patildigambarr@gmail.com" class="btn-pill-solid btn-expand-icon" id="nav-contact">
+            <span class="btn-expand-text">Get in touch</span>
+            <span class="btn-expand-circle" aria-hidden="true">
+              <svg class="btn-expand-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </span>
+          </a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- CASE STUDY HERO SECTION -->
+    <section class="cs-hero-section">
+      <div class="container">
+        
+        <!-- Breadcrumb / Back Link -->
+        <div class="cs-breadcrumb reveal-on-scroll">
+          <a href="work.html" class="cs-back-btn">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            <span>Back to Selected Work</span>
+          </a>
+          <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+            <span class="cs-tag-badge tcc-tag">UX CASE STUDY · B2B SAAS PLATFORM</span>
+            <span class="cs-tag-badge" style="background: rgba(99, 102, 241, 0.15); border-color: rgba(99, 102, 241, 0.4); color: #c7d2fe;">TYTHAS DIGITAL · SEPT 2026</span>
+          </div>
+        </div>
+
+        <!-- Hero Header Content -->
+        <div class="cs-hero-content reveal-on-scroll delay-1">
+          <div class="cs-brand-eyebrow">
+            <span class="cs-app-pill tcc-pill">TC</span>
+            <span class="cs-app-name">Tythas Control Center</span>
+            <span class="cs-sep">•</span>
+            <span class="cs-roles-pill">Multi-Tenant Website Management Platform</span>
+          </div>
+
+          <h1 class="cs-headline" style="font-family: 'Space Grotesk', sans-serif;">
+            Tythas Control Center:<br><em class="tcc-em">One dashboard, every client site</em>
+          </h1>
+
+          <p class="cs-subheading">
+            A multi-tenant website management platform I designed and built for my own agency — one dashboard to run every client site's pages, blog, SEO, forms, leads and uptime, instead of a different login and plugin per client.
+          </p>
+
+          <!-- Meta Grid -->
+          <div class="cs-meta-grid" style="background: var(--tcc-card-bg); border-color: var(--tcc-card-border);">
+            <div class="cs-meta-item">
+              <span class="cs-meta-label">ROLE &amp; FOCUS</span>
+              <span class="cs-meta-val">UI/UX Designer + AI-Assisted Developer</span>
+            </div>
+            <div class="cs-meta-item">
+              <span class="cs-meta-label">CLIENT / CONTEXT</span>
+              <span class="cs-meta-val">Tythas Digital (In-House SaaS Product)</span>
+            </div>
+            <div class="cs-meta-item">
+              <span class="cs-meta-label">DATE &amp; STATUS</span>
+              <span class="cs-meta-val">Sept 2026 · Phases 1–7 Shipped, Phase 8 Active</span>
+            </div>
+            <div class="cs-meta-item">
+              <span class="cs-meta-label">ENGINEERING STACK</span>
+              <span class="cs-meta-val">Next.js 14 · Prisma · PostgreSQL · Tailwind · Vercel</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visual Hero Showcase -->
+        <div class="cs-hero-visual-card reveal-on-scroll delay-2" style="background: var(--tcc-card-bg); border-color: var(--tcc-card-border); margin-top: 3.5rem;">
+          <img src="assets/images/tythas_control_center_hero.svg" alt="Tythas Control Center — Multi-Tenant Web Platform Architecture and UI Showcase" class="cs-hero-img" width="1200" height="675">
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTENT SECTIONS -->
+    <section class="cs-body-section">
+      <div class="container cs-body-container">
+
+        <!-- 01 PROBLEM STATEMENT -->
+        <div class="cs-section-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">01</span>
+            <h2 class="cs-section-heading">Problem Statement: Every Client Site Was Its Own Island</h2>
+          </div>
+          <div class="cs-text-content">
+            <p class="cs-lead-para">
+              Tythas is the digital agency I run. The moment a client site shipped, it became its own disconnected island — a different WordPress admin, a separate hosting cPanel, sometimes just an ad-hoc script I'd written once and never documented anywhere.
+            </p>
+            <div class="ry-inference-banner" style="background: rgba(99, 102, 241, 0.08); border-left: 3px solid var(--tcc-indigo); color: #e0e7ff;">
+              There was no single place to see which sites needed attention, no consistent way to publish a page or a post across different tech stacks, and nothing watching for SEO gaps, lead capture failure, or server uptime. A five-minute content change often became an urgent ticket for me personally, and more than once I heard about a broken form or an expired SSL certificate directly from the client — not from an automated system.
+            </div>
+          </div>
+        </div>
+
+        <!-- 02 OBJECTIVES & GOALS -->
+        <div class="cs-section-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">02</span>
+            <h2 class="cs-section-heading">Objectives &amp; Goals: No Broken Promises</h2>
+            <p class="cs-section-sub">Four ironclad guarantees the platform had to deliver for agency operations</p>
+          </div>
+          <div class="tcc-objectives-grid">
+            <div class="tcc-obj-card">
+              <span class="tcc-obj-badge">CONSOLIDATE</span>
+              <h3 class="tcc-obj-title">Replace N Logins With One</h3>
+              <p class="tcc-obj-desc">
+                Every client site — whether running standard WordPress or a custom Next.js/Node stack — must be editable from the same administrative console, under unified roles and role-based access control (RBAC).
+              </p>
+            </div>
+
+            <div class="tcc-obj-card">
+              <span class="tcc-obj-badge">NEVER LIE</span>
+              <h3 class="tcc-obj-title">No Control That Silently Fails</h3>
+              <p class="tcc-obj-desc">
+                A write action only ever renders active once the platform has verified live API capability. Never present a save button that looks functional but isn't wired to live infrastructure.
+              </p>
+            </div>
+
+            <div class="tcc-obj-card">
+              <span class="tcc-obj-badge">REDUCE</span>
+              <h3 class="tcc-obj-title">Content Work I Don't Have to Do Myself</h3>
+              <p class="tcc-obj-desc">
+                Publishing a page, authoring a blog post, setting up a 301 redirect, or embedding a lead capture form should never require opening VS Code or deploying code manually.
+              </p>
+            </div>
+
+            <div class="tcc-obj-card">
+              <span class="tcc-obj-badge">SURFACE</span>
+              <h3 class="tcc-obj-title">Problems Before the Client Finds Them</h3>
+              <p class="tcc-obj-desc">
+                Uptime outages, missing canonical tags, structured data gaps, and inbound leads land in one central attention list rather than staying invisible until something breaks.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 03 OUR PROCESS & BUILD ROADMAP -->
+        <div class="cs-section-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">03</span>
+            <h2 class="cs-section-heading">Our Process: Discover, Define, Ideate, Design — Then Build for Real</h2>
+            <p class="cs-section-sub">Iterative 4-stage loop executed across 8 consecutive production build phases</p>
+          </div>
+          
+          <div class="ry-process-grid">
+            <div class="ry-process-card">
+              <span class="ry-process-phase">Stage 01</span>
+              <h3 class="ry-process-title">Discover</h3>
+              <p class="ry-process-desc">
+                Map the actual workflow: watch where a real content update, redirect, or client handoff currently breaks down in daily operations.
+              </p>
+            </div>
+            <div class="ry-process-card">
+              <span class="ry-process-phase">Stage 02</span>
+              <h3 class="ry-process-title">Define</h3>
+              <p class="ry-process-desc">
+                Name the module's job: specify what one area of the platform (CMS, SEO, Forms, Health) must make true with zero ambiguity.
+              </p>
+            </div>
+            <div class="ry-process-card">
+              <span class="ry-process-phase">Stage 03</span>
+              <h3 class="ry-process-title">Ideate</h3>
+              <p class="ry-process-desc">
+                Design the screen: wireframe-level layout rigorously tested against the token system and component library patterns already established.
+              </p>
+            </div>
+            <div class="ry-process-card">
+              <span class="ry-process-phase">Stage 04</span>
+              <h3 class="ry-process-title">Design &amp; Build</h3>
+              <p class="ry-process-desc">
+                Ship, then verify: write acceptance criteria and full-stack implementation using AI-assisted engineering that I can click through end-to-end.
+              </p>
+            </div>
+          </div>
+
+          <div style="margin-top: 2.5rem;">
+            <div class="cs-section-sub" style="margin-bottom: 0.75rem;">Build Roadmap (8 Iterative Milestones):</div>
+            <div class="tcc-roadmap-track">
+              <span class="tcc-roadmap-pill shipped">Phase 1 · Foundation ✓</span>
+              <span class="tcc-roadmap-pill shipped">Phase 2 · Website Connection ✓</span>
+              <span class="tcc-roadmap-pill shipped">Phase 3 · CMS ✓</span>
+              <span class="tcc-roadmap-pill shipped">Phase 4 · SEO ✓</span>
+              <span class="tcc-roadmap-pill shipped">Phase 5 · Forms &amp; Leads ✓</span>
+              <span class="tcc-roadmap-pill shipped">Phase 6 · Integrations ✓</span>
+              <span class="tcc-roadmap-pill shipped">Phase 7 · Monitoring &amp; Polish ✓</span>
+              <span class="tcc-roadmap-pill in-progress">Phase 8 · Production Launch (In Progress)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 04 BUSINESS CHALLENGES -->
+        <div class="cs-section-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">04</span>
+            <h2 class="cs-section-heading">Business Challenges: What Was Costing Agency Time</h2>
+            <p class="cs-section-sub">Operational friction that capped client scalability</p>
+          </div>
+          <div class="ry-biz-grid">
+            <div class="ry-biz-card">
+              <h3 class="ry-biz-label" style="color: #fff;">Fragmented Access</h3>
+              <p class="ry-biz-text">A different WordPress admin, hosting panel, or FTP credential per client, with no unified audit trail of who modified content.</p>
+            </div>
+            <div class="ry-biz-card">
+              <h3 class="ry-biz-label" style="color: #fff;">Manual SEO &amp; Schema</h3>
+              <p class="ry-biz-text">Structured data (JSON-LD) and meta tags added by hand per page, with nothing enforcing consistent sitewide coverage.</p>
+            </div>
+            <div class="ry-biz-card">
+              <h3 class="ry-biz-label" style="color: #fff;">Ad Hoc Lead Capture</h3>
+              <p class="ry-biz-text">Forms commissioned per project without a standardized submission pipeline, conversion tracking, or source attribution.</p>
+            </div>
+            <div class="ry-biz-card">
+              <h3 class="ry-biz-label" style="color: #fff;">Invisible Downtime</h3>
+              <p class="ry-biz-text">Zero automated observability for server outages, SSL expiration, or broken indexability between scheduled client visits.</p>
+            </div>
+            <div class="ry-biz-card">
+              <h3 class="ry-biz-label" style="color: #fff;">Tribal Knowledge</h3>
+              <p class="ry-biz-text">Critical deployment access and DNS settings living solely in my head rather than in a standardized SaaS system anyone could operate.</p>
+            </div>
+            <div class="ry-biz-card">
+              <h3 class="ry-biz-label" style="color: #fff;">Demonstrating Value</h3>
+              <p class="ry-biz-text">Inability to show prospective clients real-time publishing without provisioning costly dedicated staging environments.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 05 PRODUCT USERS -->
+        <div class="cs-section-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">05</span>
+            <h2 class="cs-section-heading">Product Users: Two Roles Inside, One Outside</h2>
+            <p class="cs-section-sub">Defining user access, responsibilities, and emotional expectations</p>
+          </div>
+          <div class="ry-goals-grid">
+            <div class="ry-goal-card" style="border-color: var(--tcc-indigo);">
+              <span class="ry-need-badge" style="background: var(--tcc-indigo); color: #fff;">INTERNAL ROLE</span>
+              <h3 class="ry-goal-title">Agency Owner</h3>
+              <p class="ry-goal-desc">
+                Runs the entire agency, not just one client. Switches seamlessly between all tenant sites, invites/revokes Manager access, and holds sole control over org-wide billing, API keys, and security settings.
+              </p>
+            </div>
+
+            <div class="ry-goal-card">
+              <span class="ry-need-badge">DELEGATED ROLE</span>
+              <h3 class="ry-goal-title">Content Manager</h3>
+              <p class="ry-goal-desc">
+                Performs daily content publishing. Enjoys full read/write access to assigned client sites with zero organization-level access and no ability to create new client instances. Designed for future collaborators and team hires.
+              </p>
+            </div>
+
+            <div class="ry-goal-card">
+              <span class="ry-need-badge">INDIRECT BENEFICIARY</span>
+              <h3 class="ry-goal-title">The Client</h3>
+              <p class="ry-goal-desc">
+                Never logs into the backend, but experiences the benefits directly: 10x faster turnaround on content updates and proactive resolution of bugs before they ever notice.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 06 RESEARCH & OBSERVATIONS -->
+        <div class="cs-section-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">06</span>
+            <h2 class="cs-section-heading">Research &amp; Observations: Built by Its Own Primary User</h2>
+            <p class="cs-section-sub">Self-ethnography and empirical observation of recurring agency bottlenecks</p>
+          </div>
+          <div class="ry-why-grid">
+            <div class="ry-why-card">
+              <h3 class="ry-why-problem" style="color: #fff;"><span style="color: var(--tcc-purple);">01 ·</span> Data Model Bottleneck</h3>
+              <p class="ry-why-text">
+                Every new client project meant re-deciding where SEO fields, redirects, and schema would live — demonstrating that the underlying data schema, rather than the content itself, was the true recurring barrier.
+              </p>
+            </div>
+
+            <div class="ry-why-card">
+              <h3 class="ry-why-problem" style="color: #fff;"><span style="color: var(--tcc-purple);">02 ·</span> Sales Demo Friction</h3>
+              <p class="ry-why-text">
+                The Custom connector's "publish live" promise had no way to be demonstrated to a prospective client without a live backend already in place — a major sales blocker only discovered during real client pitching.
+              </p>
+            </div>
+
+            <div class="ry-why-card">
+              <h3 class="ry-why-problem" style="color: #fff;"><span style="color: var(--tcc-purple);">03 ·</span> Editor Complexity Rejection</h3>
+              <p class="ry-why-text">
+                An early screenshot of my custom block-based editor received immediate feedback: <em>"Very complex — we just need a simple writing box like classic WordPress."</em> This sparked a total UX pivot toward familiar WYSIWYG patterns.
+              </p>
+            </div>
+
+            <div class="ry-why-card">
+              <h3 class="ry-why-problem" style="color: #fff;"><span style="color: var(--tcc-purple);">04 ·</span> Silent Token Defect</h3>
+              <p class="ry-why-text">
+                One undefined CSS variable surfaced as invisible white-on-white input text in a single modal — proving the Tailwind token system itself required a systemwide audit across all 99 usage points.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 07 & 08 USER NEEDS & FEATURE MAPPING -->
+        <div class="cs-section-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">07 &amp; 08</span>
+            <h2 class="cs-section-heading">User Needs &amp; Feature Resolution</h2>
+            <p class="cs-section-sub">Direct mapping between operational requirements and implemented architectural features</p>
+          </div>
+          <div class="ry-table-scroll">
+            <table class="ry-task-table">
+              <thead>
+                <tr>
+                  <th style="background: rgba(99, 102, 241, 0.15); color: #c7d2fe;">User Need</th>
+                  <th style="background: rgba(99, 102, 241, 0.15); color: #c7d2fe;">Implemented Feature</th>
+                  <th style="background: rgba(99, 102, 241, 0.15); color: #c7d2fe;">System Architecture &amp; UX Impact</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="ry-task-dim-col" style="color: #818cf8;">Confidence Before Publishing</td>
+                  <td>Desktop, Tablet &amp; Mobile Live Preview</td>
+                  <td>Instant viewport emulation iframe verifying styling across all form factors prior to live production commit.</td>
+                </tr>
+                <tr>
+                  <td class="ry-task-dim-col" style="color: #818cf8;">No Stack Awareness Required</td>
+                  <td>Universal Connector Layer</td>
+                  <td>Abstracts WordPress REST API and Custom Next.js webhooks behind a single consistent writing interface.</td>
+                </tr>
+                <tr>
+                  <td class="ry-task-dim-col" style="color: #818cf8;">Single Source of Truth for Leads</td>
+                  <td>Unified Leads Inbox &amp; Pipeline</td>
+                  <td>Consolidates form submissions across all tenant domains with UTM attribution, timestamps, and stage statuses.</td>
+                </tr>
+                <tr>
+                  <td class="ry-task-dim-col" style="color: #818cf8;">Early Warning Observability</td>
+                  <td>Site Health &amp; Attention List</td>
+                  <td>Automated cron checks for HTTP status, SSL certificate validity, and XML sitemap crawlability in one triage list.</td>
+                </tr>
+                <tr>
+                  <td class="ry-task-dim-col" style="color: #818cf8;">Safe Reversibility</td>
+                  <td>Feature Flags &amp; Connection Gating</td>
+                  <td>In-progress components (such as Form Builder) remain safely gated; write controls never render unless verified.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 09 & 10 COMPETITOR ANALYSIS -->
+        <div class="cs-section-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">09 &amp; 10</span>
+            <h2 class="cs-section-heading">Competitor Analysis: What Agencies Use Today</h2>
+            <p class="cs-section-sub">Evaluating conventional approaches vs. Tythas Control Center</p>
+          </div>
+          <div class="ry-comp-grid">
+            <div class="ry-comp-card">
+              <div class="ry-comp-title">
+                <span>WordPress Multisite (WPMU)</span>
+                <span class="ry-pbadge">Network Install</span>
+              </div>
+              <div class="ry-comp-section-label">Capabilities</div>
+              <ul class="ry-comp-list">
+                <li>Single super-admin login for a network of WordPress sites</li>
+                <li>Centralized plugin and theme updates</li>
+              </ul>
+              <div class="ry-comp-gap" style="background: rgba(239, 68, 68, 0.08); border-color: rgba(239, 68, 68, 0.3); color: #fca5a5;">
+                <strong>Fatal Gap:</strong> Only supports WordPress. Completely unusable for modern headless custom stacks (Next.js, Astro, Shopify storefronts), with no built-in lead CRM, uptime tracking, or automated schema builder.
+              </div>
+            </div>
+
+            <div class="ry-comp-card">
+              <div class="ry-comp-title">
+                <span>Stitched Point-Solution Stack</span>
+                <span class="ry-pbadge">ManageWP + Typeform + UptimeRobot</span>
+              </div>
+              <div class="ry-comp-section-label">Capabilities</div>
+              <ul class="ry-comp-list">
+                <li>Mature standalone tools with deep vertical specialisation</li>
+                <li>Granular alerting and form submission handling</li>
+              </ul>
+              <div class="ry-comp-gap" style="background: rgba(239, 68, 68, 0.08); border-color: rgba(239, 68, 68, 0.3); color: #fca5a5;">
+                <strong>Fatal Gap:</strong> Severe fragmentation. Three different subscription bills, three separate logins, and disjointed client data. The agency owner remains the human glue stitching CSV exports together.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 11 UNIQUE FEATURES -->
+        <div class="cs-section-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">11</span>
+            <h2 class="cs-section-heading">Unique Features: The Architectural Moat</h2>
+            <p class="cs-section-sub">Key design decisions separating Tythas Control Center from conventional tooling</p>
+          </div>
+          <div class="ry-goals-grid">
+            <div class="ry-goal-card">
+              <span class="ry-need-badge" style="background: var(--tcc-indigo); color: #fff;">INNOVATION 01</span>
+              <h3 class="ry-goal-title">Connector Abstraction</h3>
+              <p class="ry-goal-desc">
+                Custom-built Next.js and static web apps are first-class citizens alongside WordPress instances, writing through a standardized platform API bridge rather than requiring bespoke client plugins.
+              </p>
+            </div>
+
+            <div class="ry-goal-card">
+              <span class="ry-need-badge" style="background: var(--tcc-indigo); color: #fff;">INNOVATION 02</span>
+              <h3 class="ry-goal-title">Connection-State Gating</h3>
+              <p class="ry-goal-desc">
+                A site progresses through 4 explicit states: <em>Disconnected</em> → <em>Audit Only</em> → <em>Analyzing</em> → <em>Connected</em>. No write action ever renders unless the system verifies end-to-end write capabilities.
+              </p>
+            </div>
+
+            <div class="ry-goal-card">
+              <span class="ry-need-badge" style="background: var(--tcc-indigo); color: #fff;">INNOVATION 03</span>
+              <h3 class="ry-goal-title">One Attention List</h3>
+              <p class="ry-goal-desc">
+                Instead of dispersing warnings across separate inboxes, technical SEO flaws, critical uptime drops, and incoming lead opportunities converge into a single prioritized operational triage queue.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 12 USER PERSONAS & NEEDS HIERARCHY -->
+        <div class="cs-section-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">12</span>
+            <h2 class="cs-section-heading">User Personas &amp; Hierarchy of Needs</h2>
+            <p class="cs-section-sub">Human-centered requirements grounded in day-to-day agency reality</p>
+          </div>
+          <div class="ry-persona-layout">
+            
+            <!-- Persona 1: Agency Owner -->
+            <div class="ry-persona-card">
+              <div class="ry-persona-header">
+                <div class="ry-persona-avatar" style="background: linear-gradient(135deg, #6366f1, #06b6d4);">DP</div>
+                <div>
+                  <h3 class="ry-persona-name">Digambar (Agency Owner)</h3>
+                  <p class="ry-persona-sub">Principal &amp; Solo Founder · Pune, India</p>
+                </div>
+              </div>
+              <div class="ry-persona-badges">
+                <span class="ry-pbadge">Role: Product Architect</span>
+                <span class="ry-pbadge">Daily: Figma, Code, Client Triage</span>
+              </div>
+              <div class="cs-text-content" style="font-size: 0.92rem; line-height: 1.6;">
+                <p><strong>A Day in My Life:</strong> Opens the Control Center attention list first thing in the morning, triages urgent client tickets, and transitions between client instances without logging into multiple dashboards.</p>
+                <p><strong>Core Need:</strong> Scale client volume without scaling headcount or introducing single points of failure in technical operations.</p>
+              </div>
+
+              <div class="ry-maslow-container" style="padding: 1.25rem; margin-top: 1.5rem; background: rgba(0,0,0,0.3);">
+                <div class="ry-maslow-title" style="font-size: 0.95rem;">Owner's Needs Hierarchy:</div>
+                <div class="ry-maslow-levels">
+                  <div class="ry-maslow-tier tier-5" style="padding: 0.5rem 0.8rem; font-size: 0.8rem; background: rgba(99,102,241,0.25); border-color: var(--tcc-indigo);">
+                    <strong>Growth:</strong> Scale clients without hiring faster than agency revenue.
+                  </div>
+                  <div class="ry-maslow-tier tier-4" style="padding: 0.5rem 0.8rem; font-size: 0.8rem; background: rgba(99,102,241,0.18);">
+                    <strong>Esteem:</strong> Resolve a client issue before the client ever realizes it happened.
+                  </div>
+                  <div class="ry-maslow-tier tier-3" style="padding: 0.5rem 0.8rem; font-size: 0.8rem;">
+                    <strong>Belonging:</strong> Every client repository conforms to one unified mental model.
+                  </div>
+                  <div class="ry-maslow-tier tier-2" style="padding: 0.5rem 0.8rem; font-size: 0.8rem;">
+                    <strong>Safety:</strong> No destructive action can execute without backend verification.
+                  </div>
+                  <div class="ry-maslow-tier tier-1" style="padding: 0.5rem 0.8rem; font-size: 0.8rem;">
+                    <strong>Foundational:</strong> 100% uptime and reachability for all connected tenant domains.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Persona 2: Content Manager -->
+            <div class="ry-persona-card">
+              <div class="ry-persona-header">
+                <div class="ry-persona-avatar" style="background: linear-gradient(135deg, #10b981, #06b6d4);">CM</div>
+                <div>
+                  <h3 class="ry-persona-name">Content Manager</h3>
+                  <p class="ry-persona-sub">Marketing Operator / Agency Collaborator</p>
+                </div>
+              </div>
+              <div class="ry-persona-badges">
+                <span class="ry-pbadge">Role: Content Writer &amp; SEO Editor</span>
+                <span class="ry-pbadge">Scope: Assigned Sites Only</span>
+              </div>
+              <div class="cs-text-content" style="font-size: 0.92rem; line-height: 1.6;">
+                <p><strong>A Day in Their Life:</strong> Drafts blog posts, updates service pages, inputs meta descriptions, and reviews inbound form leads across assigned client websites.</p>
+                <p><strong>Pain Point Solved:</strong> Avoids complex multi-block CMS builders that fight natural top-to-bottom writing flow; inline FAQ schema prompts ensure structured data is never forgotten.</p>
+                <p><strong>Key Interaction:</strong> One continuous writing surface with a familiar formatting toolbar and instant mobile preview toggle.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- 13 TASK MAPPING -->
+        <div class="cs-section-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">13</span>
+            <h2 class="cs-section-heading">Task Mapping: Publishing a Blog Post</h2>
+            <p class="cs-section-sub">Step-by-step cognitive and emotional journey through content publishing</p>
+          </div>
+          <div class="ry-table-scroll">
+            <table class="ry-task-table">
+              <thead>
+                <tr>
+                  <th style="background: rgba(99, 102, 241, 0.15); color: #c7d2fe;">Dimension</th>
+                  <th style="background: rgba(99, 102, 241, 0.15); color: #c7d2fe;">Step 1: Draft</th>
+                  <th style="background: rgba(99, 102, 241, 0.15); color: #c7d2fe;">Step 2: Format &amp; Media</th>
+                  <th style="background: rgba(99, 102, 241, 0.15); color: #c7d2fe;">Step 3: SEO &amp; Schema</th>
+                  <th style="background: rgba(99, 102, 241, 0.15); color: #c7d2fe;">Step 4: Live Preview &amp; Publish</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="ry-task-dim-col" style="color: #818cf8;">Environment</td>
+                  <td>Blog editor, blank canvas</td>
+                  <td>Classic toolbar + article body</td>
+                  <td>Collapsible SEO side panel</td>
+                  <td>Multi-viewport preview modal</td>
+                </tr>
+                <tr>
+                  <td class="ry-task-dim-col" style="color: #818cf8;">Challenges</td>
+                  <td>Friction starting from empty state</td>
+                  <td>Avoiding block-picker popups</td>
+                  <td>Remembering FAQ schema rules</td>
+                  <td>Ensuring typography matches live site</td>
+                </tr>
+                <tr>
+                  <td class="ry-task-dim-col" style="color: #818cf8;">Emotions</td>
+                  <td>Neutral, focused</td>
+                  <td>Impatient if editor interrupts</td>
+                  <td>Slight uncertainty</td>
+                  <td>Confident, relieved</td>
+                </tr>
+                <tr>
+                  <td class="ry-task-dim-col" style="color: #818cf8;">Internal Monologue</td>
+                  <td><em>"Let me just start writing immediately."</em></td>
+                  <td><em>"I don't want to fiddle with blocks."</em></td>
+                  <td><em>"Did I format the schema tags correctly?"</em></td>
+                  <td><em>"Looks flawless across mobile and desktop!"</em></td>
+                </tr>
+                <tr>
+                  <td class="ry-task-dim-col" style="color: #818cf8;">Design Opportunity</td>
+                  <td>Autofocused cursor on clean canvas</td>
+                  <td>10-icon persistent formatting bar</td>
+                  <td>Automated inline FAQ schema generator</td>
+                  <td>Instant dual-viewport preview + verified publish</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 14 EISENHOWER MATRIX & PRIORITISATION -->
+        <div class="cs-section-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">14</span>
+            <h2 class="cs-section-heading">Eisenhower Matrix: Prioritising Fixes</h2>
+            <p class="cs-section-sub">Balancing critical product usability against roadmap momentum</p>
+          </div>
+          <div class="ry-eisenhower-grid">
+            <div class="ry-matrix-card">
+              <span class="ry-matrix-badge do-first" style="background: rgba(239, 68, 68, 0.18); border-color: #ef4444; color: #fca5a5;">URGENT · IMPORTANT (DO FIRST)</span>
+              <h3 class="ry-matrix-title">Critical System Defect</h3>
+              <p class="ry-matrix-desc" style="color: #e5e7eb; font-size: 0.92rem; line-height: 1.6;">
+                Fix the invisible input text bug blocking the Create Form modal from being usable at all across all 7 affected files.
+              </p>
+            </div>
+
+            <div class="ry-matrix-card">
+              <span class="ry-matrix-badge schedule" style="background: rgba(99, 102, 241, 0.18); border-color: var(--tcc-indigo); color: #c7d2fe;">NOT URGENT · IMPORTANT (SCHEDULE)</span>
+              <h3 class="ry-matrix-title">Strategic Sales Capability</h3>
+              <p class="ry-matrix-desc" style="color: #e5e7eb; font-size: 0.92rem; line-height: 1.6;">
+                Build Test / Demo Mode so prospective agency clients can witness live publishing without requiring dedicated server infrastructure.
+              </p>
+            </div>
+
+            <div class="ry-matrix-card">
+              <span class="ry-matrix-badge delegate" style="background: rgba(234, 179, 8, 0.18); border-color: #eab308; color: #fde047;">URGENT · NOT IMPORTANT (DELEGATE/HOTFIX)</span>
+              <h3 class="ry-matrix-title">Temporary Product Safeguard</h3>
+              <p class="ry-matrix-desc" style="color: #e5e7eb; font-size: 0.92rem; line-height: 1.6;">
+                Feature-flag the Create Form entry button during a live stakeholder call, preventing premature client exposure without code deletion.
+              </p>
+            </div>
+
+            <div class="ry-matrix-card">
+              <span class="ry-matrix-badge eliminate" style="background: rgba(107, 114, 128, 0.18); border-color: #6b7280; color: #d1d5db;">NOT URGENT · NOT IMPORTANT (ELIMINATE)</span>
+              <h3 class="ry-matrix-title">Unnecessary Visual Churn</h3>
+              <p class="ry-matrix-desc" style="color: #e5e7eb; font-size: 0.92rem; line-height: 1.6;">
+                Avoid arbitrary editor restyling beyond matching the familiar, tested WordPress interaction paradigm.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 15 5 WHYS & ROOT CAUSE ANALYSIS -->
+        <div class="cs-section-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">15</span>
+            <h2 class="cs-section-heading">5 Whys &amp; Root Cause Analysis: The Invisible-Text Defect</h2>
+            <p class="cs-section-sub">Investigating how a silent design token failure escaped into production</p>
+          </div>
+          <div class="ry-why-card" style="border-color: var(--tcc-indigo);">
+            <h3 class="ry-why-problem" style="color: #fff;">
+              <span style="color: var(--tcc-purple);">Problem:</span> Why was modal form input text invisible to users?
+            </h3>
+            
+            <div class="ry-why-step">
+              <span class="ry-why-num" style="background: rgba(99, 102, 241, 0.2); color: var(--tcc-purple);">1</span>
+              <span class="ry-why-text"><strong>Why?</strong> The input element's background color and text font color were completely identical.</span>
+            </div>
+
+            <div class="ry-why-step">
+              <span class="ry-why-num" style="background: rgba(99, 102, 241, 0.2); color: var(--tcc-purple);">2</span>
+              <span class="ry-why-text"><strong>Why?</strong> The component was using a <code>bg-surface-hover</code> custom Tailwind utility class.</span>
+            </div>
+
+            <div class="ry-why-step">
+              <span class="ry-why-num" style="background: rgba(99, 102, 241, 0.2); color: var(--tcc-purple);">3</span>
+              <span class="ry-why-text"><strong>Why?</strong> That utility referenced a CSS custom variable, <code>--color-surface-hover</code>.</span>
+            </div>
+
+            <div class="ry-why-step">
+              <span class="ry-why-num" style="background: rgba(99, 102, 241, 0.2); color: var(--tcc-purple);">4</span>
+              <span class="ry-why-text"><strong>Why?</strong> That custom property was never defined in any of the four theme blocks inside <code>globals.css</code>.</span>
+            </div>
+
+            <div class="ry-why-step">
+              <span class="ry-why-num" style="background: rgba(99, 102, 241, 0.2); color: var(--tcc-purple);">5</span>
+              <span class="ry-why-text"><strong>Root Cause:</strong> Tailwind CSS silently drops unrecognized utility classes with zero build-time warnings — allowing a missing token to persist unnoticed across 7 files and 99 usages until visually caught.</span>
+            </div>
+
+            <div class="ry-root-pill" style="background: rgba(99, 102, 241, 0.15); border-color: var(--tcc-indigo); color: #c7d2fe;">
+              <strong>Fix Applied:</strong> Declared the CSS custom token once at its single source of truth in <code>globals.css</code>, instantly remediating all 99 defective UI instances in a single two-line commit.
+            </div>
+          </div>
+        </div>
+
+        <!-- 16 TASKFLOWS -->
+        <div class="cs-section-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">16</span>
+            <h2 class="cs-section-heading">Taskflows: Critical System Pathways</h2>
+            <p class="cs-section-sub">Diagramming core user execution across creation and onboarding</p>
+          </div>
+          
+          <div class="ry-taskflow-wrap" style="border-color: var(--tcc-card-border);">
+            <div class="ry-taskflow-header">Scenario 1: Publishing a New Blog Post (Content Flow)</div>
+            <div class="ry-flow-steps">
+              <span class="ry-step-pill">Blog List</span>
+              <span class="ry-step-arrow">→</span>
+              <span class="ry-step-pill">New Post</span>
+              <span class="ry-step-arrow">→</span>
+              <span class="ry-step-pill highlight" style="background: rgba(99, 102, 241, 0.2); border-color: var(--tcc-indigo);">Write in WYSIWYG Editor</span>
+              <span class="ry-step-arrow">→</span>
+              <span class="ry-step-pill">Add SEO &amp; FAQ Schema</span>
+              <span class="ry-step-arrow">→</span>
+              <span class="ry-step-pill">Live Preview Toggle</span>
+              <span class="ry-step-arrow">→</span>
+              <span class="ry-step-pill highlight" style="background: rgba(16, 185, 129, 0.2); border-color: #10b981; color: #6ee7b7;">Verified Live Publish</span>
+            </div>
+          </div>
+
+          <div class="ry-taskflow-wrap" style="border-color: var(--tcc-card-border);">
+            <div class="ry-taskflow-header">Scenario 2: Onboard a New Client Website (Platform Setup)</div>
+            <div class="ry-flow-steps">
+              <span class="ry-step-pill">Add Website</span>
+              <span class="ry-step-arrow">→</span>
+              <span class="ry-step-pill">Enter Client URL</span>
+              <span class="ry-step-arrow">→</span>
+              <span class="ry-step-pill">Automated Crawl &amp; Analysis</span>
+              <span class="ry-step-arrow">→</span>
+              <span class="ry-step-pill">Verify Domain Ownership</span>
+              <span class="ry-step-arrow">→</span>
+              <span class="ry-step-pill highlight" style="background: rgba(99, 102, 241, 0.2); border-color: var(--tcc-indigo);">Connected Status Granted</span>
+              <span class="ry-step-arrow">→</span>
+              <span class="ry-step-pill">First CMS Page Edit</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 17 INFORMATION ARCHITECTURE -->
+        <div class="cs-section-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">17</span>
+            <h2 class="cs-section-heading">Information Architecture: Nine Scoped Areas</h2>
+            <p class="cs-section-sub">Modular hierarchy strictly scoped to one verified tenant website at a time</p>
+          </div>
+
+          <div class="tcc-ia-section">
+            <div class="tcc-ia-group">
+              <div class="tcc-ia-label">Overview</div>
+              <div class="tcc-ia-pills">
+                <span class="tcc-ia-pill">Multi-Site Dashboard</span>
+                <span class="tcc-ia-pill">Website Health &amp; Analysis</span>
+                <span class="tcc-ia-pill">Attention List</span>
+              </div>
+            </div>
+
+            <div class="tcc-ia-group">
+              <div class="tcc-ia-label">Website &amp; CMS Content</div>
+              <div class="tcc-ia-pills">
+                <span class="tcc-ia-pill">Pages</span>
+                <span class="tcc-ia-pill">Page Visual Editor</span>
+                <span class="tcc-ia-pill">Blog Manager</span>
+                <span class="tcc-ia-pill">Blog Editor (WYSIWYG)</span>
+                <span class="tcc-ia-pill">Media Library</span>
+                <span class="tcc-ia-pill">Navigation Menus</span>
+                <span class="tcc-ia-pill">Forms &amp; Lead Capture</span>
+                <span class="tcc-ia-pill">Form Builder</span>
+                <span class="tcc-ia-pill">Unified Leads Inbox</span>
+                <span class="tcc-ia-pill">Lead Detail &amp; Attribution</span>
+              </div>
+            </div>
+
+            <div class="tcc-ia-group">
+              <div class="tcc-ia-label">SEO &amp; Structured Data</div>
+              <div class="tcc-ia-pills">
+                <span class="tcc-ia-pill">SEO Overview Panel</span>
+                <span class="tcc-ia-pill">Schema Builder (JSON-LD)</span>
+                <span class="tcc-ia-pill">Technical SEO Audit</span>
+                <span class="tcc-ia-pill">301 Redirects Manager</span>
+              </div>
+            </div>
+
+            <div class="tcc-ia-group">
+              <div class="tcc-ia-label">Integrations &amp; Telemetry</div>
+              <div class="tcc-ia-pills">
+                <span class="tcc-ia-pill">Connector Layer</span>
+                <span class="tcc-ia-pill">Conversion Events</span>
+                <span class="tcc-ia-pill">Local SEO (Google Business)</span>
+                <span class="tcc-ia-pill">Custom Scripts Injection</span>
+              </div>
+            </div>
+
+            <div class="tcc-ia-group">
+              <div class="tcc-ia-label">Settings &amp; Monitoring</div>
+              <div class="tcc-ia-pills">
+                <span class="tcc-ia-pill">Site Settings</span>
+                <span class="tcc-ia-pill">Business Metadata</span>
+                <span class="tcc-ia-pill">SEO Defaults</span>
+                <span class="tcc-ia-pill">Organization &amp; RBAC</span>
+                <span class="tcc-ia-pill">Security &amp; API Keys</span>
+                <span class="tcc-ia-pill">Uptime Notifications</span>
+                <span class="tcc-ia-pill">Live Site Health</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 18 ENGINEERING & ARCHITECTURE -->
+        <div class="cs-section-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">18</span>
+            <h2 class="cs-section-heading">Engineering &amp; Architecture: Universal Connector Bridge</h2>
+            <p class="cs-section-sub">A decoupled adapter layer rather than a vulnerable client plugin</p>
+          </div>
+
+          <div class="tcc-arch-diagram">
+            <p style="font-size: 0.95rem; line-height: 1.65; color: #d1d5db;">
+              One Next.js application serves every tenant. What allows it to interface with fundamentally different backends — without the UI needing to know WordPress from a custom Node.js application — is an abstracted connector bridge:
+            </p>
+
+            <div class="tcc-arch-flow">
+              <div class="tcc-arch-node">
+                <div class="tcc-arch-node-title">Dashboard UI</div>
+                <div class="tcc-arch-node-desc">Unified React Editor</div>
+              </div>
+              <div class="tcc-arch-arrow">→</div>
+              <div class="tcc-arch-node">
+                <div class="tcc-arch-node-title">Platform API</div>
+                <div class="tcc-arch-node-desc">Next.js Server Actions</div>
+              </div>
+              <div class="tcc-arch-arrow">→</div>
+              <div class="tcc-arch-node highlight-node">
+                <div class="tcc-arch-node-title" style="color: #818cf8;">Universal Connector</div>
+                <div class="tcc-arch-node-desc">Capability Verification</div>
+              </div>
+              <div class="tcc-arch-arrow">→</div>
+              <div class="tcc-arch-node">
+                <div class="tcc-arch-node-title">Client Target</div>
+                <div class="tcc-arch-node-desc">WordPress / Custom Next.js</div>
+              </div>
+            </div>
+
+            <div class="ry-stats-row" style="margin-top: 1.5rem;">
+              <div class="ry-stat-card" style="border-color: rgba(99, 102, 241, 0.3);">
+                <div class="ry-stat-num" style="color: var(--tcc-purple);">4</div>
+                <p class="ry-stat-text">Connection states per site</p>
+              </div>
+              <div class="ry-stat-card" style="border-color: rgba(99, 102, 241, 0.3);">
+                <div class="ry-stat-num" style="color: var(--tcc-purple);">2</div>
+                <p class="ry-stat-text">Connector types (WordPress &amp; Custom)</p>
+              </div>
+              <div class="ry-stat-card" style="border-color: rgba(99, 102, 241, 0.3);">
+                <div class="ry-stat-num" style="color: #10b981;">99→1</div>
+                <p class="ry-stat-text">Usages fixed by one root token declaration</p>
+              </div>
+              <div class="ry-stat-card" style="border-color: rgba(99, 102, 241, 0.3);">
+                <div class="ry-stat-num" style="color: var(--tcc-purple);">0</div>
+                <p class="ry-stat-text">Client plugins required to install</p>
+              </div>
+              <div class="ry-stat-card" style="border-color: rgba(99, 102, 241, 0.3);">
+                <div class="ry-stat-num" style="color: #10b981;">100%</div>
+                <p class="ry-stat-text">Verified write protection</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 19 UI/UX LAWS APPLIED -->
+        <div class="cs-section-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">19</span>
+            <h2 class="cs-section-heading">UI/UX Laws Applied: Cognitive Principles in Action</h2>
+            <p class="cs-section-sub">Grounding interface decisions in established behavioral psychology</p>
+          </div>
+          <div class="tcc-objectives-grid">
+            <div class="tcc-obj-card">
+              <span class="tcc-obj-badge">JAKOB'S LAW</span>
+              <h3 class="tcc-obj-title">Familiar Mental Models</h3>
+              <p class="tcc-obj-desc">
+                The blog editor was pivoted from an experimental multi-block picker back into a continuous writing canvas with a top formatting bar — the exact interaction model familiar to millions of WordPress users.
+              </p>
+            </div>
+
+            <div class="tcc-obj-card">
+              <span class="tcc-obj-badge">HICK'S LAW</span>
+              <h3 class="tcc-obj-title">Minimising Decision Time</h3>
+              <p class="tcc-obj-desc">
+                Formatting options are consolidated into 10 persistent toolbar icons rather than deep nested menus, ensuring writing never requires pausing to configure block formats.
+              </p>
+            </div>
+
+            <div class="tcc-obj-card">
+              <span class="tcc-obj-badge">MILLER'S LAW</span>
+              <h3 class="tcc-obj-title">Information Chunking</h3>
+              <p class="tcc-obj-desc">
+                The complex Site Health dashboard groups dozens of telemetry signals into 6 logical category tiles instead of presenting an intimidating, unmanageable wall of raw metrics.
+              </p>
+            </div>
+
+            <div class="tcc-obj-card">
+              <span class="tcc-obj-badge">POSTEL'S LAW &amp; ERROR PREVENTION</span>
+              <h3 class="tcc-obj-title">Defensive State Gating</h3>
+              <p class="tcc-obj-desc">
+                Connection-state gating prevents user error by never exposing write actions unless the domain's webhook authenticity and server readiness are cryptographically verified.
+              </p>
+            </div>
+
+            <div class="tcc-obj-card">
+              <span class="tcc-obj-badge">DOHERTY THRESHOLD</span>
+              <h3 class="tcc-obj-title">Sub-400ms Feedback</h3>
+              <p class="tcc-obj-desc">
+                The rich-text editor autosaves inline in the background without modal loaders or UI freezing, maintaining immediate perceived responsiveness that protects writer flow state.
+              </p>
+            </div>
+
+            <div class="tcc-obj-card">
+              <span class="tcc-obj-badge">VON RESTORFF EFFECT</span>
+              <h3 class="tcc-obj-title">Visual Isolation of Primary Actions</h3>
+              <p class="tcc-obj-desc">
+                Irreversible actions like <em>"Publish Live"</em> use the solitary vibrant indigo-to-purple gradient in an otherwise neutral dark UI, ensuring the critical write trigger is visually unmistakable.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 20 DESIGN & TECHNICAL CHALLENGES -->
+        <div class="cs-section-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">20</span>
+            <h2 class="cs-section-heading">Design &amp; Technical Challenges: Three Bugs, Three Lessons</h2>
+            <p class="cs-section-sub">Reflections from full-stack implementation and design system audits</p>
+          </div>
+          <div class="ry-goals-grid">
+            <div class="ry-goal-card">
+              <span class="ry-need-badge" style="background: rgba(239, 68, 68, 0.2); color: #fca5a5;">CHALLENGE 01</span>
+              <h3 class="ry-goal-title">Invisible Text Across 99 Places</h3>
+              <p class="ry-goal-desc">
+                <strong>Cause:</strong> Missing CSS custom token <code>--color-surface-hover</code> silently dropped by Tailwind.<br>
+                <strong>Lesson:</strong> Design tokens must be audited with automated linting rules rather than assumed valid.
+              </p>
+            </div>
+
+            <div class="ry-goal-card">
+              <span class="ry-need-badge" style="background: rgba(234, 179, 8, 0.2); color: #fde047;">CHALLENGE 02</span>
+              <h3 class="ry-goal-title">Modal Trapped Under Ancestor Blur</h3>
+              <p class="ry-goal-desc">
+                <strong>Cause:</strong> A <code>backdrop-filter</code> CSS property created a new stacking context, clipping a <code>position: fixed</code> modal.<br>
+                <strong>Lesson:</strong> Render all overlay modals using React Portal pinned directly to <code>document.body</code>.
+              </p>
+            </div>
+
+            <div class="ry-goal-card">
+              <span class="ry-need-badge" style="background: rgba(99, 102, 241, 0.2); color: #c7d2fe;">CHALLENGE 03</span>
+              <h3 class="ry-goal-title">Overcomplicated Block Editor</h3>
+              <p class="ry-goal-desc">
+                <strong>Cause:</strong> The initial editor closely matched the CMS database schema at the expense of writing ergonomics.<br>
+                <strong>Lesson:</strong> UX simplicity must be designed as an intentional abstraction layer over complex data schemas.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 21 & 22 OUTCOMES & IMPACT -->
+        <div class="cs-section-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">21 &amp; 22</span>
+            <h2 class="cs-section-heading">Outcomes, Impact &amp; What's Next</h2>
+            <p class="cs-section-sub">Measuring success by tasks that no longer require code or developer intervention</p>
+          </div>
+          <div class="ry-unique-grid">
+            <div class="ry-unique-card">
+              <span class="ry-unique-pill" style="background: rgba(16, 185, 129, 0.15); color: #6ee7b7;">IMPACT 01</span>
+              <h3 class="ry-unique-title">6 Workflows Consolidated into 1</h3>
+              <p class="ry-unique-desc">
+                Page publishing, blog writing, technical SEO, lead capture, conversion tracking, and uptime monitoring now operate under a single unified sign-on across all managed agency domains.
+              </p>
+            </div>
+
+            <div class="ry-unique-card">
+              <span class="ry-unique-pill" style="background: rgba(16, 185, 129, 0.15); color: #6ee7b7;">IMPACT 02</span>
+              <h3 class="ry-unique-title">Democratised Client Publishing</h3>
+              <p class="ry-unique-desc">
+                Routine copy adjustments and blog articles no longer generate developer tickets. Non-technical operators safely author and preview content without risk of breaking live page layouts.
+              </p>
+            </div>
+
+            <div class="ry-unique-card">
+              <span class="ry-unique-pill" style="background: rgba(99, 102, 241, 0.15); color: #c7d2fe;">IMPACT 03</span>
+              <h3 class="ry-unique-title">Sales-Ready Test / Demo Mode</h3>
+              <p class="ry-unique-desc">
+                Prospective clients experience interactive publishing during sales consultations without requiring live server staging, substantially shortening agency sales closing cycles.
+              </p>
+            </div>
+
+            <div class="ry-unique-card">
+              <span class="ry-unique-pill" style="background: rgba(99, 102, 241, 0.15); color: #c7d2fe;">WHAT'S NEXT</span>
+              <h3 class="ry-unique-title">Phase 8: Production Rollout</h3>
+              <p class="ry-unique-desc">
+                Phase 8 is finalizing multi-tenant production migration on Vercel and PostgreSQL, onboarding the first live batch of client domains onto the unified connector layer.
+              </p>
+            </div>
+          </div>
+
+          <!-- ATS COMPETENCY & SKILLS MATRIX -->
+          <div class="tcc-ats-banner">
+            <div class="tcc-ats-header">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#818cf8" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <span>Skills &amp; Industry Competencies Applied</span>
+            </div>
+            <p style="font-size: 0.88rem; color: #9ca3af; line-height: 1.6;">
+              Demonstrated skills in end-to-end product design, technical problem solving, and modern full-stack SaaS engineering:
+            </p>
+            <div class="tcc-ats-pills">
+              <span class="tcc-ats-pill">Product Design (B2B SaaS)</span>
+              <span class="tcc-ats-pill">UI/UX Architecture</span>
+              <span class="tcc-ats-pill">Design Systems &amp; Tokens</span>
+              <span class="tcc-ats-pill">Information Architecture (IA)</span>
+              <span class="tcc-ats-pill">Multi-Tenant CMS Strategy</span>
+              <span class="tcc-ats-pill">Design-to-Code Engineering</span>
+              <span class="tcc-ats-pill">Next.js 14 App Router</span>
+              <span class="tcc-ats-pill">TypeScript &amp; React</span>
+              <span class="tcc-ats-pill">Prisma ORM &amp; PostgreSQL</span>
+              <span class="tcc-ats-pill">Tailwind CSS Architecture</span>
+              <span class="tcc-ats-pill">Root Cause Analysis (5-Whys)</span>
+              <span class="tcc-ats-pill">Heuristic Evaluation</span>
+              <span class="tcc-ats-pill">Responsive Design &amp; Viewport Emulation</span>
+              <span class="tcc-ats-pill">SEO &amp; JSON-LD Schema Automation</span>
+              <span class="tcc-ats-pill">REST API Integration</span>
+              <span class="tcc-ats-pill">AI-Assisted Development</span>
+              <span class="tcc-ats-pill">Vercel Cloud Deployment</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Case Study Nav / Next Project -->
+        <div class="cs-footer-nav reveal-on-scroll delay-1" style="margin-top: 4rem; background: var(--tcc-card-bg); border-color: var(--tcc-card-border);">
+          <a href="raya.html" class="cs-footer-nav-btn">
+            <span class="cs-fnav-sub">← PREVIOUS CASE STUDY</span>
+            <span class="cs-fnav-title" style="color: #ffffff;">Raya (AI Fitness Coach)</span>
+          </a>
+          
+          <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+            <a href="before-two.html" class="btn-pill-solid" style="background: var(--tcc-indigo); color: #fff; padding: 0.6rem 1.25rem;">
+              <span>Before Two App →</span>
+            </a>
+            <a href="work.html" class="cs-footer-nav-btn" style="text-align: right;">
+              <span class="cs-fnav-sub">VIEW ALL WORK →</span>
+              <span class="cs-fnav-title" style="color: #ffffff;">Selected Projects</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER / CONTACT SECTION -->
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <div class="footer-top-row reveal-on-scroll">
+        <div class="footer-cta-col">
+          <p class="footer-subheading">HAVE A PRODUCT IN MIND?</p>
+          <a href="mailto:patildigambarr@gmail.com" class="footer-huge-link" id="footer-email-link">
+            <span>Let's talk</span>
+            <svg class="footer-huge-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+        </div>
+        <div class="footer-meta-col">
+          <p class="footer-loc-time">Pune, India (IST) · Available for Design Roles</p>
+          <div class="footer-socials">
+            <a href="https://www.linkedin.com/in/digambar-patil-6847081aa/" target="_blank" rel="noopener noreferrer" class="footer-social-link">LinkedIn ↗</a>
+            <a href="https://www.behance.net/digambarpatil2" target="_blank" rel="noopener noreferrer" class="footer-social-link">Behance ↗</a>
+            <a href="assets/Digambar_Patil_Resume.pdf" target="_blank" rel="noopener noreferrer" class="footer-social-link">Resume ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom-row">
+        <p class="footer-copyright">© 2026 Digambar Patil. Crafted with care.</p>
+        <a href="#top" class="footer-back-to-top">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

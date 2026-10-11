@@ -6353,3 +6353,272 @@ body {
   }
 }
 
+/* ==========================================================================
+   TYTHAS CONTROL CENTER — UX CASE STUDY STYLES
+   ========================================================================== */
+
+:root {
+  --tcc-bg: #090b10;
+  --tcc-surface: #111420;
+  --tcc-card-bg: rgba(18, 22, 34, 0.78);
+  --tcc-card-border: rgba(99, 102, 241, 0.22);
+  --tcc-card-border-hover: rgba(99, 102, 241, 0.55);
+  --tcc-indigo: #6366f1;
+  --tcc-indigo-glow: rgba(99, 102, 241, 0.35);
+  --tcc-lavender: #c7d2fe;
+  --tcc-purple: #818cf8;
+  --tcc-cyan: #06b6d4;
+  --tcc-emerald: #10b981;
+  --tcc-pill: rgba(99, 102, 241, 0.15);
+}
+
+.tcc-case-study {
+  background-color: var(--tcc-bg);
+}
+
+.tcc-case-study h1,
+.tcc-case-study h2,
+.tcc-case-study h3,
+.tcc-case-study .cs-section-num,
+.tcc-case-study .cs-brand-eyebrow .cs-app-name {
+  font-family: 'Space Grotesk', -apple-system, sans-serif;
+}
+
+.tcc-em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--tcc-purple);
+  text-shadow: 0 0 24px rgba(99, 102, 241, 0.35);
+}
+
+.tcc-tag {
+  background: var(--tcc-pill);
+  border-color: rgba(99, 102, 241, 0.4);
+  color: #c7d2fe;
+}
+
+.tcc-pill {
+  background: var(--tcc-indigo);
+  color: #ffffff;
+}
+
+.tcc-case-study .cs-section-num {
+  color: var(--tcc-purple);
+}
+
+.tcc-case-study .cs-section-heading {
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+/* Roadmap horizontal track */
+.tcc-roadmap-track {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin: 1.75rem 0 2rem;
+}
+
+.tcc-roadmap-pill {
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.45rem 0.95rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #d1d5db;
+  transition: all 0.25s ease;
+}
+
+.tcc-roadmap-pill.shipped {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.35);
+  color: #6ee7b7;
+}
+
+.tcc-roadmap-pill.in-progress {
+  background: rgba(99, 102, 241, 0.2);
+  border-color: var(--tcc-indigo);
+  color: #ffffff;
+  box-shadow: 0 0 14px rgba(99, 102, 241, 0.3);
+}
+
+/* 4 Core Principles / Objectives Grid */
+.tcc-objectives-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.tcc-obj-card {
+  background: var(--tcc-card-bg);
+  border: 1px solid var(--tcc-card-border);
+  border-radius: 20px;
+  padding: 2.25rem 2rem;
+  transition: all 0.35s var(--transition-smooth);
+}
+
+.tcc-obj-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--tcc-card-border-hover);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 24px rgba(99, 102, 241, 0.2);
+}
+
+.tcc-obj-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tcc-purple);
+  margin-bottom: 0.75rem;
+}
+
+.tcc-obj-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.65rem;
+}
+
+.tcc-obj-desc {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+/* IA Categories & Modules Flow */
+.tcc-ia-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.tcc-ia-group {
+  background: var(--tcc-card-bg);
+  border: 1px solid var(--tcc-card-border);
+  border-radius: 18px;
+  padding: 1.5rem 1.75rem;
+}
+
+.tcc-ia-label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--tcc-lavender);
+  margin-bottom: 0.85rem;
+}
+
+.tcc-ia-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.tcc-ia-pill {
+  font-size: 0.84rem;
+  font-weight: 600;
+  padding: 0.4rem 0.85rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e2e8f0;
+}
+
+/* Connector Architecture Flow Visual */
+.tcc-arch-diagram {
+  background: var(--tcc-card-bg);
+  border: 1px solid var(--tcc-card-border);
+  border-radius: 20px;
+  padding: 2.25rem;
+  margin-top: 2rem;
+}
+
+.tcc-arch-flow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 1.5rem 0;
+}
+
+.tcc-arch-node {
+  background: #151a28;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  padding: 1.25rem 1.5rem;
+  flex: 1;
+  min-width: 170px;
+  text-align: center;
+}
+
+.tcc-arch-node.highlight-node {
+  background: rgba(99, 102, 241, 0.18);
+  border-color: var(--tcc-indigo);
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.25);
+}
+
+.tcc-arch-node-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.35rem;
+}
+
+.tcc-arch-node-desc {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.tcc-arch-arrow {
+  color: var(--tcc-purple);
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+/* ATS Skills Matrix Section */
+.tcc-ats-banner {
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-top: 2.5rem;
+}
+
+.tcc-ats-header {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.tcc-ats-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 1rem;
+}
+
+.tcc-ats-pill {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.35rem 0.8rem;
+  border-radius: 8px;
+  background: rgba(99, 102, 241, 0.15);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  color: #e0e7ff;
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+  .tcc-objectives-grid {
+    grid-template-columns: 1fr;
+  }
+}
