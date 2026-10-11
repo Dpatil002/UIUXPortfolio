@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raya — AI Fitness Coach UX Case Study | Digambar Patil</title>
+  <meta name="description" content="Raya: The AI coach who won't let you quit. Personalised workout and Indian diet plans in the voice of a trusted big brother. UX Case Study by Digambar Patil.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="case-study-page raya-case-study">
+
+  <!-- Background Particle Field -->
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <!-- Cursor Follow Arrow Badge -->
+  <div id="cursor-badge" class="cursor-arrow-badge" aria-hidden="true">
+    <svg viewBox="0 0 24 24">
+      <line x1="7" y1="17" x2="17" y2="7"></line>
+      <polyline points="7 7 17 7 17 17"></polyline>
+    </svg>
+  </div>
+
+  <!-- NAVIGATION -->
+  <header class="site-nav" id="top">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-brand" id="nav-brand">
+          <span class="brand-name">Digambar Patil</span>
+          <span class="brand-title">Digital Product Designer</span>
+        </a>
+        <nav class="nav-links" aria-label="Main Navigation">
+          <a href="work.html" class="nav-link" id="nav-work">Work</a>
+          <a href="about.html" class="nav-link" id="nav-about">About</a>
+          <a href="assets/Digambar_Patil_Resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link" id="nav-resume">Resume</a>
+          <a href="mailto:patildigambarr@gmail.com" class="btn-pill-solid btn-expand-icon" id="nav-contact">
+            <span class="btn-expand-text">Get in touch</span>
+            <span class="btn-expand-circle" aria-hidden="true">
+              <svg class="btn-expand-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </span>
+          </a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- CASE STUDY HERO SECTION -->
+    <section class="cs-hero-section">
+      <div class="container">
+        
+        <!-- Breadcrumb / Back Link -->
+        <div class="cs-breadcrumb reveal-on-scroll">
+          <a href="work.html" class="cs-back-btn">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            <span>Back to Selected Work</span>
+          </a>
+          <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+            <span class="cs-tag-badge ry-tag">UX CASE STUDY · AI FITNESS · MOBILE APP</span>
+            <span class="cs-tag-badge" style="background: rgba(255, 87, 34, 0.15); border-color: rgba(255, 87, 34, 0.4); color: #ffab91;">INDIA-FIRST · 2026</span>
+          </div>
+        </div>
+
+        <!-- Hero Header Content -->
+        <div class="cs-hero-content reveal-on-scroll delay-1">
+          <div class="cs-brand-eyebrow">
+            <span class="cs-app-pill ry-pill">RY</span>
+            <span class="cs-app-name">Raya.</span>
+            <span class="cs-sep">•</span>
+            <span class="cs-roles-pill">AI Coach for Indian Gym Beginners</span>
+          </div>
+
+          <h1 class="cs-headline" style="font-family: 'Space Grotesk', sans-serif;">
+            Raya. The coach who<br><em class="ry-em">won't let you quit.</em>
+          </h1>
+
+          <p class="cs-subheading">
+            An AI fitness coach for Indian gym beginners. Personalised workout and Indian diet plans, built with the empathetic voice of a trusted big brother who protects your consistency when life gets in the way.
+          </p>
+
+          <!-- Meta Grid -->
+          <div class="cs-meta-grid" style="background: var(--ry-card-bg); border-color: var(--ry-card-border);">
+            <div class="cs-meta-item">
+              <span class="cs-meta-label">ROLE &amp; FOCUS</span>
+              <span class="cs-meta-val">UI/UX Designer · End to End</span>
+            </div>
+            <div class="cs-meta-item">
+              <span class="cs-meta-label">TIMELINE</span>
+              <span class="cs-meta-val">2026 · Concept &amp; System</span>
+            </div>
+            <div class="cs-meta-item">
+              <span class="cs-meta-label">TARGET AUDIENCE</span>
+              <span class="cs-meta-val">Indian Gym Beginners (Tier 1 &amp; 2)</span>
+            </div>
+            <div class="cs-meta-item">
+              <span class="cs-meta-label">PLATFORM &amp; STYLE</span>
+              <span class="cs-meta-val">Mobile App · Dark Neon-Glass</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visual Hero Showcase -->
+        <div class="cs-hero-visual-card reveal-on-scroll delay-2" style="background: var(--ry-card-bg); border-color: var(--ry-card-border); margin-top: 3.5rem;">
+          <img src="assets/images/raya_hero.svg" alt="Raya AI Fitness Coach — Mobile Interface Showcase" class="cs-hero-img" width="1200" height="675">
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTENT SECTIONS -->
+    <section class="cs-body-section">
+      <div class="container cs-body-container">
+
+        <!-- 01 PROBLEM STATEMENT -->
+        <div class="cs-section-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">01</span>
+            <h2 class="cs-section-heading">Problem Statement</h2>
+          </div>
+          <div class="cs-text-content">
+            <p class="cs-lead-para">
+              Most beginners who start a fitness journey quit within weeks. Not because the plan was wrong, but because <strong>one missed day becomes a missed week</strong>.
+            </p>
+            <p>
+              They don't know what exercises to perform, what to eat that matches home-cooked Indian meals, or who to ask without feeling intimidated. Generic fitness apps serve static plans with overwhelming configuration, zero empathy, and no one standing in their corner on bad days.
+            </p>
+          </div>
+        </div>
+
+        <!-- 02 OBJECTIVES & GOALS -->
+        <div class="cs-section-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">02</span>
+            <h2 class="cs-section-heading">Objectives &amp; Goals</h2>
+            <p class="cs-section-sub">What Raya must achieve from day one</p>
+          </div>
+          <div class="ry-goals-grid">
+            <div class="ry-goal-card">
+              <div class="ry-goal-num">01</div>
+              <h3 class="ry-goal-title">Start in 3 Minutes</h3>
+              <p class="ry-goal-desc">
+                A first-time user reaches their first personalised workout with zero tutorials, no tooltip tours, and no complex configuration screens.
+              </p>
+            </div>
+            <div class="ry-goal-card">
+              <div class="ry-goal-num">02</div>
+              <h3 class="ry-goal-title">Protect Consistency</h3>
+              <p class="ry-goal-desc">
+                Turn would-be skips into 5-minute micro-sessions so user streaks survive busy, exhausting, and low-energy workdays.
+              </p>
+            </div>
+            <div class="ry-goal-card">
+              <div class="ry-goal-num">03</div>
+              <h3 class="ry-goal-title">100% Practical Plans</h3>
+              <p class="ry-goal-desc">
+                Every exercise and meal traces directly back to the user's specific equipment, dietary preferences, and schedule. No generic templates.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 03 OUR PROCESS -->
+        <div class="cs-section-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">03</span>
+            <h2 class="cs-section-heading">Our Process</h2>
+            <p class="cs-section-sub">Double-diamond methodology, kept lean and outcome-focused</p>
+          </div>
+          <div class="ry-process-grid">
+            <div class="ry-process-card">
+              <span class="ry-process-phase">Phase 01</span>
+              <h3 class="ry-process-title">Discover</h3>
+              <p class="ry-process-desc">
+                Secondary research, competitor benchmarking, and assumption mapping on why beginners drop out within 30 days.
+              </p>
+            </div>
+            <div class="ry-process-card">
+              <span class="ry-process-phase">Phase 02</span>
+              <h3 class="ry-process-title">Define</h3>
+              <p class="ry-process-desc">
+                Persona formulation, task mapping, 5-Why analysis, and Root Cause Analysis (RCA) to isolate the single core problem.
+              </p>
+            </div>
+            <div class="ry-process-card">
+              <span class="ry-process-phase">Phase 03</span>
+              <h3 class="ry-process-title">Ideate</h3>
+              <p class="ry-process-desc">
+                Feature prioritisation via Eisenhower Matrix, user journeys, taskflows, and low-fidelity sketches for core loops.
+              </p>
+            </div>
+            <div class="ry-process-card">
+              <span class="ry-process-phase">Phase 04</span>
+              <h3 class="ry-process-title">Design</h3>
+              <p class="ry-process-desc">
+                Dark neon-glass design system, high-fidelity mobile screens, and zero-guidance usability testing.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 04 BUSINESS CHALLENGES -->
+        <div class="cs-section-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">04</span>
+            <h2 class="cs-section-heading">Business Challenges</h2>
+            <p class="cs-section-sub">Balancing commercial viability with product adoption in India</p>
+          </div>
+          <div class="ry-biz-grid">
+            <div class="ry-biz-card">
+              <h3 class="ry-biz-label">Retention</h3>
+              <p class="ry-biz-text">Fitness apps lose over 70% of new users in the first month. In fitness, daily consistency is the whole game.</p>
+            </div>
+            <div class="ry-biz-card">
+              <h3 class="ry-biz-label">Trust in AI</h3>
+              <p class="ry-biz-text">Beginners must genuinely believe an AI plan is safe, physiologically sound, and tailored specifically to them.</p>
+            </div>
+            <div class="ry-biz-card">
+              <h3 class="ry-biz-label">Coach Care at Scale</h3>
+              <p class="ry-biz-text">Delivering warm, personal attention and accountability for thousands of lifters without hiring 1-on-1 human trainers.</p>
+            </div>
+            <div class="ry-biz-card">
+              <h3 class="ry-biz-label">Local Relevance</h3>
+              <p class="ry-biz-text">Western meal templates (avocado toast, plain chicken breast) fail in Indian households. Diets must be Indian-first.</p>
+            </div>
+            <div class="ry-biz-card">
+              <h3 class="ry-biz-label">Price Sensitivity</h3>
+              <p class="ry-biz-text">Monetisation must feel earned and fair in India's price-conscious market. Deliver undeniable daily value before paywalls.</p>
+            </div>
+            <div class="ry-biz-card">
+              <h3 class="ry-biz-label">Content Cost</h3>
+              <p class="ry-biz-text">Filming hundreds of video demos and recipes is expensive. Version 1 leverages lightweight illustrated motion demos.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 05 PRODUCT USERS -->
+        <div class="cs-section-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">05</span>
+            <h2 class="cs-section-heading">Product Users</h2>
+            <p class="cs-section-sub">User segmentation across the lifting lifecycle</p>
+          </div>
+          <div class="ry-goals-grid">
+            <div class="ry-goal-card" style="border-color: var(--ry-orange);">
+              <span class="ry-need-badge" style="background: var(--ry-orange); color: #fff;">PRIMARY USER</span>
+              <h3 class="ry-goal-title">The Nervous Beginner</h3>
+              <p class="ry-goal-desc">
+                Just joined a gym. Unfamiliar with machine names, proper form, or protein targets. Wants someone trustworthy to say <em>exactly what to do today</em> with no ambiguity.
+              </p>
+            </div>
+            <div class="ry-goal-card">
+              <span class="ry-need-badge">SECONDARY</span>
+              <h3 class="ry-goal-title">The Plateaued Intermediate</h3>
+              <p class="ry-goal-desc">
+                6+ months into training. Initial progress stalled. Needs progressive overload tracking and smarter split programming rather than beginner hand-holding.
+              </p>
+            </div>
+            <div class="ry-goal-card">
+              <span class="ry-need-badge">FUTURE HORIZON</span>
+              <h3 class="ry-goal-title">The Self-Coach</h3>
+              <p class="ry-goal-desc">
+                Experienced lifter who manages their own splits and utilizes an AI assistant to sanity-check volume, fatigue, and log metrics quickly.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 06 QUANTITATIVE RESEARCH -->
+        <div class="cs-section-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">06</span>
+            <h2 class="cs-section-heading">Quantitative Research</h2>
+            <p class="cs-section-sub">Observations and behavioural drop-off patterns from gym beginner cohorts</p>
+          </div>
+          <div class="ry-stats-row">
+            <div class="ry-stat-card">
+              <div class="ry-stat-num">80%</div>
+              <p class="ry-stat-text">Unsure what to do once inside the gym</p>
+            </div>
+            <div class="ry-stat-card">
+              <div class="ry-stat-num">65%</div>
+              <p class="ry-stat-text">Tried an app and stopped within 30 days</p>
+            </div>
+            <div class="ry-stat-card">
+              <div class="ry-stat-num">70%</div>
+              <p class="ry-stat-text">Say one missed day triggers abandoning the week</p>
+            </div>
+            <div class="ry-stat-card">
+              <div class="ry-stat-num">75%</div>
+              <p class="ry-stat-text">Find Western meal plans completely impractical</p>
+            </div>
+            <div class="ry-stat-card">
+              <div class="ry-stat-num">60%</div>
+              <p class="ry-stat-text">Hesitate to ask gym doubts for fear of judgement</p>
+            </div>
+          </div>
+          <div class="ry-inference-banner">
+            <strong>Key Research Inference:</strong> The drop-off is emotional and practical, not informational. Users do not lack workout videos on YouTube; they lack a plan that fits real Indian home life, a safe place to ask beginner questions, and an emergency mechanism to stay in the game on low-energy days.
+          </div>
+        </div>
+
+        <!-- 07 USER NEEDS -->
+        <div class="cs-section-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">07</span>
+            <h2 class="cs-section-heading">User Needs &amp; Problem Solving</h2>
+            <p class="cs-section-sub">6 core human needs synthesized from field research</p>
+          </div>
+          <div class="ry-needs-grid">
+            <div class="ry-need-card">
+              <span class="ry-need-badge">NEED 01</span>
+              <h3 class="ry-need-title">Know Exactly What to Do Today</h3>
+              <p class="ry-need-desc">One clear workout and one clear meal target. Zero decision paralysis on busy mornings.</p>
+              <div class="ry-need-solution">
+                <span class="ry-solution-label">Raya Solution</span>
+                Mandatory Onboarding + Plan Reveal: 8 one-tap questions generates an integrated workout and diet blueprint.
+              </div>
+            </div>
+
+            <div class="ry-need-card">
+              <span class="ry-need-badge">NEED 02</span>
+              <h3 class="ry-need-title">Eat Food They Actually Eat</h3>
+              <p class="ry-need-desc">Roti, dal, paneer, rajma, eggs, idli. Tailored for vegetarian, eggetarian, Jain, and non-veg diets.</p>
+              <div class="ry-need-solution">
+                <span class="ry-solution-label">Raya Solution</span>
+                Indian Diet Engine: Real Indian dishes sized to individual calorie and protein goals without exotic ingredients.
+              </div>
+            </div>
+
+            <div class="ry-need-card">
+              <span class="ry-need-badge">NEED 03</span>
+              <h3 class="ry-need-title">Ask Without Feeling Judged</h3>
+              <p class="ry-need-desc">A safe companion who answers form and nutrition doubts in relatable, non-intimidating plain words.</p>
+              <div class="ry-need-solution">
+                <span class="ry-solution-label">Raya Solution</span>
+                Ask Raya: Big-brother conversational AI with built-in medical safety bounds and zero jargon.
+              </div>
+            </div>
+
+            <div class="ry-need-card">
+              <span class="ry-need-badge">NEED 04</span>
+              <h3 class="ry-need-title">Stay in the Game on Bad Days</h3>
+              <p class="ry-need-desc">A micro-commitment alternative instead of an all-or-nothing guilt-inducing skip.</p>
+              <div class="ry-need-solution">
+                <span class="ry-solution-label">Raya Solution</span>
+                "Can't do it today?": One tap triggers a 5-minute micro-workout that keeps the streak alive.
+              </div>
+            </div>
+
+            <div class="ry-need-card">
+              <span class="ry-need-badge">NEED 05</span>
+              <h3 class="ry-need-title">Understand Form Clearly</h3>
+              <p class="ry-need-desc">Visualise body alignment instantly between sets without reading lengthy anatomical paragraphs.</p>
+              <div class="ry-need-solution">
+                <span class="ry-solution-label">Raya Solution</span>
+                Inline Motion Demos: Lightweight illustrated loops directly beside each movement card.
+              </div>
+            </div>
+
+            <div class="ry-need-card">
+              <span class="ry-need-badge">NEED 06</span>
+              <h3 class="ry-need-title">See Progress &amp; Grow</h3>
+              <p class="ry-need-desc">Plans that progressively evolve alongside their strength without abruptly resetting their routines.</p>
+              <div class="ry-need-solution">
+                <span class="ry-solution-label">Raya Solution</span>
+                Streak &amp; Monthly Progression: Consistency-driven monthly reviews with opt-in plan upgrades.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 08 PRODUCT USER CHALLENGES -->
+        <div class="cs-section-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">08</span>
+            <h2 class="cs-section-heading">Product User Challenges</h2>
+            <p class="cs-section-sub">Friction points that destroy early fitness momentum</p>
+          </div>
+          <div class="ry-process-grid">
+            <div class="ry-process-card">
+              <span class="ry-process-phase">Friction 01</span>
+              <h3 class="ry-process-title">Conflicting Advice</h3>
+              <p class="ry-process-desc">Reels, gym bros, and online forums give contradictory advice on sets, reps, and macros, leaving beginners paralysed.</p>
+            </div>
+            <div class="ry-process-card">
+              <span class="ry-process-phase">Friction 02</span>
+              <h3 class="ry-process-title">Gym Floor Anxiety</h3>
+              <p class="ry-process-desc">Intimidation from crowded barbell racks, unfamiliar cable setups, and fear of looking foolish during execution.</p>
+            </div>
+            <div class="ry-process-card">
+              <span class="ry-process-phase">Friction 03</span>
+              <h3 class="ry-process-title">Irregular Energy</h3>
+              <p class="ry-process-desc">Commutes, exams, and overtime work make standard 60-minute training routines unrealistic multiple days a week.</p>
+            </div>
+            <div class="ry-process-card">
+              <span class="ry-process-phase">Friction 04</span>
+              <h3 class="ry-process-title">Post-Skip Guilt</h3>
+              <p class="ry-process-desc">Traditional apps trigger red error states and notifications that induce shame, speeding up the decision to quit entirely.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 09 COMPETITOR ANALYSIS -->
+        <div class="cs-section-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">09</span>
+            <h2 class="cs-section-heading">Competitor Benchmark</h2>
+            <p class="cs-section-sub">Analysing market leaders in the Indian fitness ecosystem</p>
+          </div>
+          <div class="ry-comp-grid">
+            <div class="ry-comp-card">
+              <div class="ry-comp-title">
+                <span>HealthifyMe</span>
+                <span class="ry-pbadge">Nutrition Heavy</span>
+              </div>
+              <div class="ry-comp-section-label">Strengths</div>
+              <ul class="ry-comp-list">
+                <li>Massive Indian food database with regional dishes</li>
+                <li>Multi-tier coaching ecosystem and calorie logging</li>
+                <li>Strong existing brand trust across urban India</li>
+              </ul>
+              <div class="ry-comp-gap">
+                <strong>Critical Gap:</strong> High logging friction. It functions as a food diary rather than a daily gym mentor. Skip-rescue and gym floor guidance are completely absent.
+              </div>
+            </div>
+
+            <div class="ry-comp-card">
+              <div class="ry-comp-title">
+                <span>Cult.fit</span>
+                <span class="ry-pbadge">Center Focused</span>
+              </div>
+              <div class="ry-comp-section-label">Strengths</div>
+              <ul class="ry-comp-list">
+                <li>Iconic offline fitness brand and energetic group classes</li>
+                <li>Top-tier trainer-led structured video programming</li>
+                <li>High social motivation and gamified attendance</li>
+              </ul>
+              <div class="ry-comp-gap">
+                <strong>Critical Gap:</strong> Heavily tied to its own gyms and proprietary centers. Offers minimal support for independent beginners lifting at local neighbourhood gyms.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10 UNIQUE FEATURES -->
+        <div class="cs-section-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">10</span>
+            <h2 class="cs-section-heading">Unique Features (The Raya Moat)</h2>
+            <p class="cs-section-sub">Four foundational pillars designed specifically for Indian lifters</p>
+          </div>
+          <div class="ry-unique-grid">
+            <div class="ry-unique-card">
+              <span class="ry-unique-pill">Feature 01</span>
+              <h3 class="ry-unique-title">The 5-Minute Skip Rescue</h3>
+              <p class="ry-unique-desc">
+                Tapping <em>"Can't do it today?"</em> converts an impending skip into a 5-minute micro-session tailored to low energy, lack of time, or muscle soreness. The user's streak survives, preventing the snowball drop-off effect.
+              </p>
+            </div>
+            <div class="ry-unique-card">
+              <span class="ry-unique-pill">Feature 02</span>
+              <h3 class="ry-unique-title">Plans That Trace Back to You</h3>
+              <p class="ry-unique-desc">
+                Every exercise and meal generated by Raya explicitly shows its reasoning tied to the user's onboarding answers (available equipment, injury history, and schedule). Users trust the plan because they see why it was chosen.
+              </p>
+            </div>
+            <div class="ry-unique-card">
+              <span class="ry-unique-pill">Feature 03</span>
+              <h3 class="ry-unique-title">Indian-Only Diet by Design</h3>
+              <p class="ry-unique-desc">
+                Strict adherence to Indian dietary categories (Vegetarian, Non-Veg, Egg, Jain). Raya calculates macros around rotis, dal, paneer, and rice without forcing alien Western grocery lists onto family kitchens.
+              </p>
+            </div>
+            <div class="ry-unique-card">
+              <span class="ry-unique-pill">Feature 04</span>
+              <h3 class="ry-unique-title">Opt-in Monthly Progression</h3>
+              <p class="ry-unique-desc">
+                Raya reviews verified monthly adherence before proposing an upgraded training split. It never silently swaps routines without explicit permission, ensuring users feel in complete control of their journey.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 11 USER PERSONA & MASLOW -->
+        <div class="cs-section-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">11</span>
+            <h2 class="cs-section-heading">User Persona &amp; Maslow Pyramid</h2>
+            <p class="cs-section-sub">Grounded in the real life of an early-career Indian professional</p>
+          </div>
+          <div class="ry-persona-layout">
+            
+            <!-- Persona Profile Card -->
+            <div class="ry-persona-card">
+              <div class="ry-persona-header">
+                <div class="ry-persona-avatar">RM</div>
+                <div>
+                  <h3 class="ry-persona-name">Rohan Mehta</h3>
+                  <p class="ry-persona-sub">Junior Financial Analyst · Pune, Maharashtra</p>
+                </div>
+              </div>
+              <div class="ry-persona-badges">
+                <span class="ry-pbadge">Age: 24</span>
+                <span class="ry-pbadge">Education: B.Com</span>
+                <span class="ry-pbadge">Diet: Vegetarian</span>
+                <span class="ry-pbadge">Status: Gym Beginner (Week 2)</span>
+              </div>
+              <div class="cs-text-content" style="font-size: 0.92rem; line-height: 1.6;">
+                <p><strong>Description:</strong> Joined a local gym two weeks ago following friends' encouragement. Highly motivated but anxious. Watches Instagram fitness reels, copies random routines, and eats whatever is cooked at home.</p>
+                <p><strong>A Day in His Life:</strong> 9 to 6 corporate desk job followed by a 45-minute bus commute. Arrives at the gym at 7:15 PM when energy allows. On exhausted evenings, he skips, feels immense guilt, and skips the next 3 days too.</p>
+                <p><strong>Core Pain Points:</strong></p>
+                <ul style="padding-left: 1.25rem; color: #d1d5db; margin-top: 0.5rem;">
+                  <li>Doesn't know what machine to use or what weights are safe.</li>
+                  <li>Online diet charts demand foods his family never prepares.</li>
+                  <li>One missed workout snowballs into a completely abandoned week.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Maslow Fitness Pyramid -->
+            <div class="ry-maslow-container">
+              <h3 class="ry-maslow-title">Maslow's Pyramid: Where Raya Helps</h3>
+              <p class="ry-maslow-subtitle">Mapping product value across human psychological needs</p>
+              <div class="ry-maslow-levels">
+                <div class="ry-maslow-tier tier-5">
+                  <div class="ry-maslow-tier-title">Self-Actualisation</div>
+                  <div class="ry-maslow-tier-text">Becoming someone who trains consistently, month after month.</div>
+                </div>
+                <div class="ry-maslow-tier tier-4">
+                  <div class="ry-maslow-tier-title">Esteem &amp; Confidence</div>
+                  <div class="ry-maslow-tier-text">Visible streaks, monthly progression reports, and celebratory "Done. Streak kept." micro-wins.</div>
+                </div>
+                <div class="ry-maslow-tier tier-3">
+                  <div class="ry-maslow-tier-title">Belonging &amp; Voice</div>
+                  <div class="ry-maslow-tier-text">A warm big-brother coach on his side that never shames or lectures him for bad days.</div>
+                </div>
+                <div class="ry-maslow-tier tier-2">
+                  <div class="ry-maslow-tier-title">Safety &amp; Form</div>
+                  <div class="ry-maslow-tier-text">Injury-aware routines, clear inline movement demos, and medical query protection.</div>
+                </div>
+                <div class="ry-maslow-tier tier-1">
+                  <div class="ry-maslow-tier-title">Physiological</div>
+                  <div class="ry-maslow-tier-text">Accurate daily calories, protein targets, and real Indian home-cooked meals.</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- 12 TASK MAPPING -->
+        <div class="cs-section-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">12</span>
+            <h2 class="cs-section-heading">Task Mapping</h2>
+            <p class="cs-section-sub">End-to-end journey mapping across emotional, physical, and cognitive dimensions</p>
+          </div>
+          <div class="ry-table-scroll">
+            <table class="ry-task-table">
+              <thead>
+                <tr>
+                  <th>Dimension</th>
+                  <th>Step 1: Open App</th>
+                  <th>Step 2: Onboarding</th>
+                  <th>Step 3: First Workout</th>
+                  <th>Step 4: Missed Day</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="ry-task-dim-col">User Task</td>
+                  <td>Install and open Raya</td>
+                  <td>Answer 8 quick questions</td>
+                  <td>Follow today's workout at the gym</td>
+                  <td>Decide whether to skip training</td>
+                </tr>
+                <tr>
+                  <td class="ry-task-dim-col">Environment</td>
+                  <td>At home or during evening commute</td>
+                  <td>On smartphone, one-handed grip</td>
+                  <td>Loud gym floor, resting between sets</td>
+                  <td>Bedroom, exhausted after long workday</td>
+                </tr>
+                <tr>
+                  <td class="ry-task-dim-col">Challenges</td>
+                  <td>"Will this be another generic app?"</td>
+                  <td>Long multi-step forms feel like work</td>
+                  <td>Unsure of exercise form &amp; names</td>
+                  <td>A full 60-minute session feels impossible</td>
+                </tr>
+                <tr>
+                  <td class="ry-task-dim-col">Emotions</td>
+                  <td>Curious, slightly skeptical</td>
+                  <td>Hopeful, slightly impatient</td>
+                  <td>Nervous initially, then proud</td>
+                  <td>Guilty, drained, overwhelmed</td>
+                </tr>
+                <tr>
+                  <td class="ry-task-dim-col">Internal Thoughts</td>
+                  <td><em>"Show me this is built for me."</em></td>
+                  <td><em>"Will this actually fit my Indian home diet?"</em></td>
+                  <td><em>"Am I doing this movement right?"</em></td>
+                  <td><em>"I'll just start fresh on Monday."</em></td>
+                </tr>
+                <tr>
+                  <td class="ry-task-dim-col">Urgency Level</td>
+                  <td><span class="ry-pbadge">Medium</span></td>
+                  <td><span class="ry-pbadge" style="color: #ffab91;">High</span></td>
+                  <td><span class="ry-pbadge" style="color: #ff8a65;">High</span></td>
+                  <td><span class="ry-pbadge" style="color: #ff5722; font-weight: 800;">Critical</span></td>
+                </tr>
+                <tr>
+                  <td class="ry-task-dim-col">Design Opportunity</td>
+                  <td>Empathetic splash with instant value proposition</td>
+                  <td>One question per screen + Plan Reveal payoff</td>
+                  <td>Inline illustrated demos with bold tap targets</td>
+                  <td>"Can't do it today?" 5-min rescue with zero guilt</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 13 EISENHOWER MATRIX -->
+        <div class="cs-section-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">13</span>
+            <h2 class="cs-section-heading">Eisenhower Matrix (MVP Prioritisation)</h2>
+            <p class="cs-section-sub">Scoping the critical features required for proof of concept</p>
+          </div>
+          <div class="ry-eisenhower-grid">
+            <div class="ry-matrix-card">
+              <span class="ry-matrix-badge do-first">DO FIRST · URGENT &amp; IMPORTANT</span>
+              <h3 class="ry-matrix-title">Core MVP Loop</h3>
+              <ul class="ry-matrix-list">
+                <li>Mandatory 8-step onboarding gate with progress tracking</li>
+                <li>Traceable workout and diet generation</li>
+                <li>Indian diet plan matching cultural diet categories</li>
+                <li>Single-card "Today" screen with glowing action</li>
+                <li>"Can't do it today?" 5-minute micro-workout rescue</li>
+              </ul>
+            </div>
+
+            <div class="ry-matrix-card">
+              <span class="ry-matrix-badge schedule">SCHEDULE · NOT URGENT &amp; IMPORTANT</span>
+              <h3 class="ry-matrix-title">Progression &amp; Engagement</h3>
+              <ul class="ry-matrix-list">
+                <li>Monthly consistency report and opt-in upgrade</li>
+                <li>Pre-workout and post-workout quick snack recipes</li>
+                <li>Weekly subjective fatigue check-in</li>
+                <li>Behaviour-aware empathetic push notifications</li>
+              </ul>
+            </div>
+
+            <div class="ry-matrix-card">
+              <span class="ry-matrix-badge delegate">DELEGATE · URGENT &amp; LESS IMPORTANT</span>
+              <h3 class="ry-matrix-title">Brand &amp; Marketing Polish</h3>
+              <ul class="ry-matrix-list">
+                <li>Splash screen audio chime and motion polish</li>
+                <li>App store icon variations and social assets</li>
+                <li>Marketing landing page development</li>
+              </ul>
+            </div>
+
+            <div class="ry-matrix-card">
+              <span class="ry-matrix-badge eliminate">ELIMINATE · OUT OF SCOPE FOR V1</span>
+              <h3 class="ry-matrix-title">Bloat Prevention</h3>
+              <ul class="ry-matrix-list">
+                <li>Social leaderboards (triggers beginner intimidation)</li>
+                <li>Smartwatch / wearable sensor integrations</li>
+                <li>Trainer consultation marketplace</li>
+                <li>Western / exotic culinary cuisines</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 14 5-WHY & ROOT CAUSE ANALYSIS -->
+        <div class="cs-section-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">14</span>
+            <h2 class="cs-section-heading">5-Why Analysis &amp; Root Cause Analysis</h2>
+            <p class="cs-section-sub">Uncovering the psychological truths behind beginner dropout</p>
+          </div>
+          
+          <div class="ry-why-grid">
+            <!-- Problem 1 -->
+            <div class="ry-why-card">
+              <h3 class="ry-why-problem">
+                <span style="color: var(--ry-orange);">Problem 1:</span> Beginners quit within a month
+              </h3>
+              <div class="ry-why-step">
+                <span class="ry-why-num">1</span>
+                <span class="ry-why-text">They skip one training day, which snowballs into another.</span>
+              </div>
+              <div class="ry-why-step">
+                <span class="ry-why-num">2</span>
+                <span class="ry-why-text">A full 60-minute workout feels utterly overwhelming on tired days.</span>
+              </div>
+              <div class="ry-why-step">
+                <span class="ry-why-num">3</span>
+                <span class="ry-why-text">Fitness apps provide an all-or-nothing binary choice.</span>
+              </div>
+              <div class="ry-why-step">
+                <span class="ry-why-num">4</span>
+                <span class="ry-why-text">Plans are static and completely ignore fluctuating human energy.</span>
+              </div>
+              <div class="ry-why-step">
+                <span class="ry-why-num">5</span>
+                <span class="ry-why-text">Apps measure workout volume rather than habit survival.</span>
+              </div>
+              <div class="ry-root-pill">
+                <strong>Root Cause Identified:</strong> Lack of a Minimum-Viable Workout option on low-energy days.
+              </div>
+            </div>
+
+            <!-- Problem 2 -->
+            <div class="ry-why-card">
+              <h3 class="ry-why-problem">
+                <span style="color: var(--ry-orange);">Problem 2:</span> Users don't trust AI fitness plans
+              </h3>
+              <div class="ry-why-step">
+                <span class="ry-why-num">1</span>
+                <span class="ry-why-text">The generated plan feels like a generic template copy-paste.</span>
+              </div>
+              <div class="ry-why-step">
+                <span class="ry-why-num">2</span>
+                <span class="ry-why-text">Exercises don't match the specific machines in their gym.</span>
+              </div>
+              <div class="ry-why-step">
+                <span class="ry-why-num">3</span>
+                <span class="ry-why-text">Suggested meals don't match what their family cooks at home.</span>
+              </div>
+              <div class="ry-why-step">
+                <span class="ry-why-num">4</span>
+                <span class="ry-why-text">No visible link connects their onboarding answers to the output.</span>
+              </div>
+              <div class="ry-why-step">
+                <span class="ry-why-num">5</span>
+                <span class="ry-why-text">The product never proves that it actually listened to the user.</span>
+              </div>
+              <div class="ry-root-pill">
+                <strong>Root Cause Identified:</strong> The generated output fails to visibly prove why it was tailored.
+              </div>
+            </div>
+          </div>
+
+          <!-- RCA Flow Chains -->
+          <div class="ry-rca-chain-card">
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 1.25rem;">Root Cause Analysis (RCA) Mapping</h3>
+            
+            <div class="ry-rca-item">
+              <span class="ry-rca-node">1. No Clear Plan</span>
+              <span class="ry-rca-arrow">→</span>
+              <span class="ry-rca-node">Overwhelming Online Advice</span>
+              <span class="ry-rca-arrow">→</span>
+              <span class="ry-rca-node root-node">Root: No single trusted coach</span>
+            </div>
+
+            <div class="ry-rca-item">
+              <span class="ry-rca-node">2. Missed Days Snowball</span>
+              <span class="ry-rca-arrow">→</span>
+              <span class="ry-rca-node">All-or-Nothing Sessions</span>
+              <span class="ry-rca-arrow">→</span>
+              <span class="ry-rca-node root-node">Root: No 5-minute rescue option</span>
+            </div>
+
+            <div class="ry-rca-item">
+              <span class="ry-rca-node">3. Diet Doesn't Fit</span>
+              <span class="ry-rca-arrow">→</span>
+              <span class="ry-rca-node">Western Meal Templates</span>
+              <span class="ry-rca-arrow">→</span>
+              <span class="ry-rca-node root-node">Root: Not built India-first</span>
+            </div>
+
+            <div class="ry-rca-item">
+              <span class="ry-rca-node">4. Fear of Asking</span>
+              <span class="ry-rca-arrow">→</span>
+              <span class="ry-rca-node">Gym Floor Intimidation</span>
+              <span class="ry-rca-arrow">→</span>
+              <span class="ry-rca-node root-node">Root: No non-judgemental mentor</span>
+            </div>
+
+            <div class="ry-rca-item">
+              <span class="ry-rca-node">5. Plans Go Stale</span>
+              <span class="ry-rca-arrow">→</span>
+              <span class="ry-rca-node">No Natural Progression</span>
+              <span class="ry-rca-arrow">→</span>
+              <span class="ry-rca-node root-node">Root: App ignores consistency</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 15 TASKFLOWS -->
+        <div class="cs-section-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">15</span>
+            <h2 class="cs-section-heading">Taskflows</h2>
+            <p class="cs-section-sub">Mapping the critical path across two primary user scenarios</p>
+          </div>
+
+          <div class="ry-taskflow-wrap">
+            <div class="ry-taskflow-header">Scenario 1: First-time user to first workout (Rohan installs Raya)</div>
+            <div class="ry-flow-steps">
+              <span class="ry-step-pill">Splash Screen</span>
+              <span class="ry-step-arrow">→</span>
+              <span class="ry-step-pill">8-Step Onboarding</span>
+              <span class="ry-step-arrow">→</span>
+              <span class="ry-step-pill">Plan Check</span>
+              <span class="ry-step-arrow">→</span>
+              <span class="ry-step-pill highlight">Plan Reveal Screen</span>
+              <span class="ry-step-arrow">→</span>
+              <span class="ry-step-pill">Today Home</span>
+              <span class="ry-step-arrow">→</span>
+              <span class="ry-step-pill">Workout with Inline Demos</span>
+              <span class="ry-step-arrow">→</span>
+              <span class="ry-step-pill highlight">Workout Done · Streak Starts</span>
+            </div>
+          </div>
+
+          <div class="ry-taskflow-wrap">
+            <div class="ry-taskflow-header">Scenario 2: A tiring day, tempted to skip (Rohan exhausted after commute)</div>
+            <div class="ry-flow-steps">
+              <span class="ry-step-pill">Open Today Screen</span>
+              <span class="ry-step-arrow">→</span>
+              <span class="ry-step-pill highlight">Tap "Can't do it today?"</span>
+              <span class="ry-step-arrow">→</span>
+              <span class="ry-step-pill">Select Reason: "Low Energy"</span>
+              <span class="ry-step-arrow">→</span>
+              <span class="ry-step-pill">5-Min Micro-Workout</span>
+              <span class="ry-step-arrow">→</span>
+              <span class="ry-step-pill highlight">Done. Streak Kept (Day 13)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 16 DESIGN SYSTEM & UX LAWS -->
+        <div class="cs-section-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">16</span>
+            <h2 class="cs-section-heading">Design System &amp; Psychological Laws</h2>
+            <p class="cs-section-sub">The aesthetic and cognitive foundation of Raya</p>
+          </div>
+          
+          <div class="ry-tokens-grid">
+            <div class="ry-token-card">
+              <div class="ry-token-label">Typography</div>
+              <div class="ry-token-val">Space Grotesk + Plus Jakarta Sans</div>
+              <p class="ry-token-desc">Tech-forward headlines with human, legible body type that reads effortlessly under glare and sweat.</p>
+            </div>
+            <div class="ry-token-card">
+              <div class="ry-token-label">Color Architecture</div>
+              <div class="ry-token-val">Obsidian #0B0C10 + Ember #FF5722</div>
+              <p class="ry-token-desc">OLED battery saver dark surfaces punctuated by a single intense neon-coral glow on the primary action.</p>
+            </div>
+            <div class="ry-token-card">
+              <div class="ry-token-label">Glass Cards</div>
+              <div class="ry-token-val">Translucent Fill + Hairline Border</div>
+              <p class="ry-token-desc">22px corner radius, subtle backdrop blurs, and 1px hairline borders that structure data hierarchy.</p>
+            </div>
+            <div class="ry-token-card">
+              <div class="ry-token-label">Psychological Laws</div>
+              <div class="ry-token-val">6 Core UX Laws</div>
+              <p class="ry-token-desc">Hick's Law, Fitts's Law, Jakob's Law, Von Restorff Effect, Zeigarnik Effect, and the Peak-End Rule.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 17 MAJOR SCREENS -->
+        <div class="cs-section-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">17</span>
+            <h2 class="cs-section-heading">Major High-Fidelity Screens</h2>
+            <p class="cs-section-sub">Zero-guidance mobile UI designed for noisy gym environments</p>
+          </div>
+
+          <div class="ry-goals-grid">
+            <!-- Screen 1: Today -->
+            <div class="ry-goal-card" style="padding: 1.5rem;">
+              <div class="ry-mini-phone">
+                <div class="ry-mini-phone-notch"></div>
+                <div class="ry-mini-header">
+                  <span style="font-size: 0.85rem; font-weight: 700; color: #fff;">Hey, Rohan</span>
+                  <span class="ry-mini-streak">🔥 12-day streak</span>
+                </div>
+                <div class="ry-mini-card" style="border-color: var(--ry-orange); background: rgba(255, 87, 34, 0.08);">
+                  <div style="font-size: 0.68rem; font-weight: 700; color: var(--ry-coral); text-transform: uppercase;">Push Day</div>
+                  <div style="font-size: 1rem; font-weight: 800; color: #fff; margin: 0.2rem 0;">Chest &amp; Triceps</div>
+                  <div style="font-size: 0.72rem; color: #9ca3af;">45 min · Beginner · 6 Exercises</div>
+                  <div class="ry-mini-btn" style="margin-top: 0.75rem;">Start workout</div>
+                </div>
+                <div class="ry-mini-card">
+                  <div style="font-size: 0.78rem; font-weight: 700; color: #fff;">Today's diet · Veg</div>
+                  <div style="font-size: 0.72rem; color: #9ca3af;">4 meals · 2,100 kcal · 120g protein</div>
+                </div>
+                <div style="text-align: center; margin-top: auto; padding: 0.5rem; font-size: 0.75rem; color: var(--ry-peach); border: 1px dashed rgba(255,87,34,0.3); border-radius: 8px;">
+                  Can't do it today? →
+                </div>
+              </div>
+              <h3 style="font-size: 1.15rem; font-weight: 700; color: #fff; margin-top: 1.25rem;">1. Today (Home)</h3>
+              <p style="font-size: 0.86rem; color: var(--text-muted); line-height: 1.5; margin-top: 0.4rem;">
+                One focal glowing card. No tabs to search, no complex decisions. The entire day is summarized in two cards with an escape hatch.
+              </p>
+            </div>
+
+            <!-- Screen 2: Workout -->
+            <div class="ry-goal-card" style="padding: 1.5rem;">
+              <div class="ry-mini-phone">
+                <div class="ry-mini-phone-notch"></div>
+                <div class="ry-mini-header">
+                  <span style="font-size: 0.8rem; font-weight: 700; color: #fff;">‹ Push day (3 of 6)</span>
+                  <span style="font-size: 0.72rem; color: #9ca3af;">45 min</span>
+                </div>
+                <div class="ry-mini-card">
+                  <div style="display: flex; justify-content: space-between;">
+                    <span style="font-size: 0.82rem; font-weight: 700; color: #fff;">Incline press</span>
+                    <span style="font-size: 0.68rem; color: var(--ry-coral);">Chest</span>
+                  </div>
+                  <div style="font-size: 0.72rem; color: #9ca3af; margin-top: 0.2rem;">4 × 8-12 · 90s rest</div>
+                </div>
+                <div class="ry-mini-card">
+                  <div style="display: flex; justify-content: space-between;">
+                    <span style="font-size: 0.82rem; font-weight: 700; color: #fff;">Shoulder press</span>
+                    <span style="font-size: 0.68rem; color: var(--ry-coral);">Delts</span>
+                  </div>
+                  <div style="font-size: 0.72rem; color: #9ca3af; margin-top: 0.2rem;">4 × 8-12 · 90s rest</div>
+                </div>
+                <div class="ry-mini-card">
+                  <div style="display: flex; justify-content: space-between;">
+                    <span style="font-size: 0.82rem; font-weight: 700; color: #fff;">Cable fly</span>
+                    <span style="font-size: 0.68rem; color: var(--ry-coral);">Chest</span>
+                  </div>
+                  <div style="font-size: 0.72rem; color: #9ca3af; margin-top: 0.2rem;">3 × 10-12 · 60s rest</div>
+                </div>
+                <div class="ry-mini-btn" style="background: #252836; box-shadow: none;">Finish workout</div>
+              </div>
+              <h3 style="font-size: 1.15rem; font-weight: 700; color: #fff; margin-top: 1.25rem;">2. Active Workout</h3>
+              <p style="font-size: 0.86rem; color: var(--text-muted); line-height: 1.5; margin-top: 0.4rem;">
+                Inline motion demo right beside every lift. Clear set/rep guidance and large tap targets easily reachable with sweaty hands.
+              </p>
+            </div>
+
+            <!-- Screen 3: Skip Rescue -->
+            <div class="ry-goal-card" style="padding: 1.5rem;">
+              <div class="ry-mini-phone">
+                <div class="ry-mini-phone-notch"></div>
+                <div class="ry-mini-header">
+                  <span style="font-size: 0.85rem; font-weight: 700; color: #fff;">What's going on today?</span>
+                </div>
+                <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.85rem;">One tap. I'll sort it for you.</p>
+                <div class="ry-mini-card" style="text-align: center; cursor: pointer; padding: 0.75rem;">
+                  <span style="font-size: 0.82rem; font-weight: 700; color: #fff;">⏱ No time</span>
+                </div>
+                <div class="ry-mini-card" style="text-align: center; cursor: pointer; padding: 0.75rem; border-color: var(--ry-orange); background: rgba(255,87,34,0.12);">
+                  <span style="font-size: 0.82rem; font-weight: 700; color: #ff8a65;">⚡ Low energy</span>
+                </div>
+                <div class="ry-mini-card" style="text-align: center; cursor: pointer; padding: 0.75rem;">
+                  <span style="font-size: 0.82rem; font-weight: 700; color: #fff;">🩹 Sore</span>
+                </div>
+                <div style="text-align: center; margin-top: auto; font-size: 0.75rem; color: #9ca3af;">
+                  ‹ Back to full workout
+                </div>
+              </div>
+              <h3 style="font-size: 1.15rem; font-weight: 700; color: #fff; margin-top: 1.25rem;">3. Can't Do It Today?</h3>
+              <p style="font-size: 0.86rem; color: var(--text-muted); line-height: 1.5; margin-top: 0.4rem;">
+                Zero guilt or judgement. One tap instantly generates a 5-minute home micro-workout (stretches, bodyweight) to keep the streak unbroken.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 18 FULL SCREEN FLOW (12 APP SCREENS) -->
+        <div class="cs-section-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">18</span>
+            <h2 class="cs-section-heading">Screens: The Full Flow in Order</h2>
+            <p class="cs-section-sub">12 key app views covering onboarding, training, rescue, recovery, and chat</p>
+          </div>
+
+          <div class="ry-screens-grid">
+            
+            <!-- Screen 1: Splash -->
+            <div class="ry-screen-card">
+              <span class="ry-screen-badge">01 · Splash</span>
+              <h4 class="ry-screen-title">Welcome</h4>
+              <div class="ry-mini-phone" style="justify-content: center; align-items: center; text-align: center;">
+                <div style="width: 52px; height: 52px; border-radius: 16px; background: linear-gradient(135deg, #ff5722, #ff9800); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; box-shadow: 0 0 20px rgba(255,87,34,0.5);">
+                  <span style="font-weight: 900; color: #fff; font-size: 1.3rem;">RY</span>
+                </div>
+                <div style="font-size: 1.2rem; font-weight: 800; color: #fff;">Raya.</div>
+                <p style="font-size: 0.75rem; color: #ff8a65; margin-top: 0.25rem;">Your coach. Every day.</p>
+              </div>
+            </div>
+
+            <!-- Screen 2: Onboarding -->
+            <div class="ry-screen-card">
+              <span class="ry-screen-badge">02 · Onboarding</span>
+              <h4 class="ry-screen-title">Step 2 of 8</h4>
+              <div class="ry-mini-phone">
+                <div class="ry-mini-phone-notch"></div>
+                <div style="font-size: 0.7rem; color: var(--ry-coral); font-weight: 700;">Step 2 of 8</div>
+                <div style="font-size: 0.95rem; font-weight: 800; color: #fff; margin: 0.35rem 0 0.85rem;">What's your main goal?</div>
+                <div class="ry-mini-card" style="padding: 0.6rem; font-size: 0.75rem; color: #fff;">Fat loss</div>
+                <div class="ry-mini-card" style="padding: 0.6rem; font-size: 0.75rem; color: #ff8a65; border-color: var(--ry-orange); background: rgba(255,87,34,0.15);">Muscle gain ✓</div>
+                <div class="ry-mini-card" style="padding: 0.6rem; font-size: 0.75rem; color: #fff;">General fitness</div>
+                <div class="ry-mini-btn" style="margin-top: auto;">Next →</div>
+              </div>
+            </div>
+
+            <!-- Screen 3: Plan Reveal -->
+            <div class="ry-screen-card">
+              <span class="ry-screen-badge">03 · Plan Reveal</span>
+              <h4 class="ry-screen-title">Blueprint</h4>
+              <div class="ry-mini-phone">
+                <div class="ry-mini-phone-notch"></div>
+                <div style="font-size: 0.95rem; font-weight: 800; color: #fff;">Here's what I've built for you.</div>
+                <div class="ry-mini-card" style="margin-top: 0.75rem;">
+                  <div style="font-size: 0.65rem; color: var(--ry-coral); font-weight: 700;">WORKOUT</div>
+                  <div style="font-size: 0.82rem; font-weight: 700; color: #fff;">Push · Pull · Legs</div>
+                  <div style="font-size: 0.7rem; color: #9ca3af;">5 days/week · Gym</div>
+                </div>
+                <div class="ry-mini-card">
+                  <div style="font-size: 0.65rem; color: var(--ry-coral); font-weight: 700;">DIET · VEG</div>
+                  <div style="font-size: 0.82rem; font-weight: 700; color: #fff;">2,100 kcal</div>
+                  <div style="font-size: 0.7rem; color: #9ca3af;">120g protein · 4 meals</div>
+                </div>
+                <div class="ry-mini-btn" style="margin-top: auto;">Let's start</div>
+              </div>
+            </div>
+
+            <!-- Screen 4: Today -->
+            <div class="ry-screen-card">
+              <span class="ry-screen-badge">04 · Today</span>
+              <h4 class="ry-screen-title">Daily Hub</h4>
+              <div class="ry-mini-phone">
+                <div class="ry-mini-phone-notch"></div>
+                <div class="ry-mini-header">
+                  <span style="font-size: 0.8rem; font-weight: 700; color: #fff;">Hey, Rohan</span>
+                  <span class="ry-mini-streak">🔥 12 days</span>
+                </div>
+                <div class="ry-mini-card" style="border-color: var(--ry-orange);">
+                  <div style="font-size: 0.65rem; color: var(--ry-coral); font-weight: 700;">PUSH DAY</div>
+                  <div style="font-size: 0.85rem; font-weight: 800; color: #fff;">Chest &amp; Triceps</div>
+                  <div style="font-size: 0.7rem; color: #9ca3af;">45 min · Beginner</div>
+                  <div class="ry-mini-btn" style="margin-top: 0.5rem; padding: 0.4rem;">Start</div>
+                </div>
+                <div class="ry-mini-card">
+                  <div style="font-size: 0.75rem; color: #fff; font-weight: 700;">Today's diet</div>
+                  <div style="font-size: 0.68rem; color: #9ca3af;">4 meals · 2,100 kcal</div>
+                </div>
+                <div style="font-size: 0.7rem; color: var(--ry-peach); text-align: center; margin-top: auto;">Can't do it today?</div>
+              </div>
+            </div>
+
+            <!-- Screen 5: Active Workout -->
+            <div class="ry-screen-card">
+              <span class="ry-screen-badge">05 · Workout</span>
+              <h4 class="ry-screen-title">Session Tracking</h4>
+              <div class="ry-mini-phone">
+                <div class="ry-mini-phone-notch"></div>
+                <div style="font-size: 0.75rem; font-weight: 700; color: #fff;">‹ Push day 3 of 6</div>
+                <div class="ry-mini-card" style="margin-top: 0.65rem;">
+                  <div style="font-size: 0.8rem; font-weight: 700; color: #fff;">Incline press</div>
+                  <div style="font-size: 0.68rem; color: #9ca3af;">4 × 8-12 · 90s</div>
+                </div>
+                <div class="ry-mini-card">
+                  <div style="font-size: 0.8rem; font-weight: 700; color: #fff;">Shoulder press</div>
+                  <div style="font-size: 0.68rem; color: #9ca3af;">4 × 8-12 · 90s</div>
+                </div>
+                <div class="ry-mini-card">
+                  <div style="font-size: 0.8rem; font-weight: 700; color: #fff;">Cable fly</div>
+                  <div style="font-size: 0.68rem; color: #9ca3af;">3 × 10-12 · 60s</div>
+                </div>
+                <div class="ry-mini-btn" style="margin-top: auto;">Finish workout</div>
+              </div>
+            </div>
+
+            <!-- Screen 6: Skip Options -->
+            <div class="ry-screen-card">
+              <span class="ry-screen-badge">06 · Rescue</span>
+              <h4 class="ry-screen-title">Reason Select</h4>
+              <div class="ry-mini-phone">
+                <div class="ry-mini-phone-notch"></div>
+                <div style="font-size: 0.85rem; font-weight: 800; color: #fff;">What's going on today?</div>
+                <div style="font-size: 0.7rem; color: var(--text-muted); margin-bottom: 0.75rem;">One tap. I'll sort it.</div>
+                <div class="ry-mini-card" style="padding: 0.55rem; font-size: 0.75rem; color: #fff; text-align: center;">No time</div>
+                <div class="ry-mini-card" style="padding: 0.55rem; font-size: 0.75rem; color: var(--ry-coral); border-color: var(--ry-orange); text-align: center;">Low energy ✓</div>
+                <div class="ry-mini-card" style="padding: 0.55rem; font-size: 0.75rem; color: #fff; text-align: center;">Sore</div>
+                <div style="margin-top: auto; font-size: 0.72rem; color: #9ca3af; text-align: center;">‹ Back</div>
+              </div>
+            </div>
+
+            <!-- Screen 7: 5-min Session -->
+            <div class="ry-screen-card">
+              <span class="ry-screen-badge">07 · Micro Session</span>
+              <h4 class="ry-screen-title">Low Energy Mode</h4>
+              <div class="ry-mini-phone">
+                <div class="ry-mini-phone-notch"></div>
+                <div style="font-size: 0.78rem; font-weight: 700; color: #fff;">‹ 5-min session</div>
+                <div style="font-size: 0.68rem; color: var(--ry-coral); margin-bottom: 0.5rem;">LOW ENERGY</div>
+                <div class="ry-mini-card" style="padding: 0.5rem;">
+                  <div style="font-size: 0.75rem; font-weight: 700; color: #fff;">Incline push-ups</div>
+                  <div style="font-size: 0.65rem; color: #9ca3af;">2 × 10</div>
+                </div>
+                <div class="ry-mini-card" style="padding: 0.5rem;">
+                  <div style="font-size: 0.75rem; font-weight: 700; color: #fff;">Band pull-aparts</div>
+                  <div style="font-size: 0.65rem; color: #9ca3af;">2 × 15</div>
+                </div>
+                <div class="ry-mini-card" style="padding: 0.5rem;">
+                  <div style="font-size: 0.75rem; font-weight: 700; color: #fff;">Plank hold</div>
+                  <div style="font-size: 0.65rem; color: #9ca3af;">2 × 30s</div>
+                </div>
+                <div class="ry-mini-btn" style="margin-top: auto;">Start 5-min session</div>
+              </div>
+            </div>
+
+            <!-- Screen 8: Completion -->
+            <div class="ry-screen-card">
+              <span class="ry-screen-badge">08 · Completion</span>
+              <h4 class="ry-screen-title">Streak Protected</h4>
+              <div class="ry-mini-phone" style="justify-content: center; align-items: center; text-align: center;">
+                <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(52, 211, 153, 0.2); border: 2px solid #34d399; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                  <span style="color: #34d399; font-size: 1.2rem; font-weight: bold;">✓</span>
+                </div>
+                <div style="font-size: 1.15rem; font-weight: 800; color: #fff;">Done.</div>
+                <div style="font-size: 0.9rem; font-weight: 700; color: var(--ry-coral); margin: 0.2rem 0;">Streak kept.</div>
+                <div style="font-size: 0.75rem; color: #9ca3af; margin-bottom: 1.5rem;">13 days in a row</div>
+                <div class="ry-mini-btn" style="width: 100%;">Back to Today</div>
+              </div>
+            </div>
+
+            <!-- Screen 9: Ask Raya -->
+            <div class="ry-screen-card">
+              <span class="ry-screen-badge">09 · AI Chat</span>
+              <h4 class="ry-screen-title">Ask Raya</h4>
+              <div class="ry-mini-phone">
+                <div class="ry-mini-phone-notch"></div>
+                <div style="font-size: 0.8rem; font-weight: 800; color: #fff; margin-bottom: 0.6rem;">Ask Raya</div>
+                <div style="background: #1c1f2b; padding: 0.55rem; border-radius: 10px; font-size: 0.72rem; color: #e5e7eb; margin-bottom: 0.5rem;">
+                  <em>Rohan:</em> Is soreness after legs normal?
+                </div>
+                <div style="background: rgba(255, 87, 34, 0.12); border: 1px solid rgba(255, 87, 34, 0.25); padding: 0.55rem; border-radius: 10px; font-size: 0.72rem; color: #ffccbc; margin-bottom: 0.5rem;">
+                  <em>Raya:</em> Yes, bhai. 24-48h is normal. Walk, stretch, drink water. Can still train chest today!
+                </div>
+                <div style="margin-top: auto; background: #141722; border: 1px solid #222634; padding: 0.5rem; border-radius: 8px; font-size: 0.7rem; color: #6b7280;">
+                  Ask anything…
+                </div>
+              </div>
+            </div>
+
+            <!-- Screen 10: Weekly Check-in -->
+            <div class="ry-screen-card">
+              <span class="ry-screen-badge">10 · Check-in</span>
+              <h4 class="ry-screen-title">Weekly Review</h4>
+              <div class="ry-mini-phone">
+                <div class="ry-mini-phone-notch"></div>
+                <div style="font-size: 0.85rem; font-weight: 800; color: #fff;">How did this week feel?</div>
+                <p style="font-size: 0.7rem; color: #9ca3af; margin: 0.25rem 0 0.85rem;">Calibrating your recovery</p>
+                <div class="ry-mini-card" style="padding: 0.55rem; font-size: 0.75rem; color: #fff; text-align: center;">Too easy</div>
+                <div class="ry-mini-card" style="padding: 0.55rem; font-size: 0.75rem; color: #ff8a65; border-color: var(--ry-orange); text-align: center; background: rgba(255,87,34,0.12);">Just right ✓</div>
+                <div class="ry-mini-card" style="padding: 0.55rem; font-size: 0.75rem; color: #fff; text-align: center;">Too hard</div>
+                <div class="ry-mini-btn" style="margin-top: auto;">Submit</div>
+              </div>
+            </div>
+
+            <!-- Screen 11: Monthly Report -->
+            <div class="ry-screen-card">
+              <span class="ry-screen-badge">11 · Monthly</span>
+              <h4 class="ry-screen-title">Progress Report</h4>
+              <div class="ry-mini-phone">
+                <div class="ry-mini-phone-notch"></div>
+                <div style="font-size: 0.8rem; font-weight: 800; color: #fff;">Your month</div>
+                <div style="font-size: 1.1rem; font-weight: 800; color: var(--ry-coral); margin: 0.2rem 0;">22/26 Sessions</div>
+                <div style="font-size: 0.7rem; color: #34d399; margin-bottom: 0.65rem;">85% consistent</div>
+                <div class="ry-mini-card" style="padding: 0.5rem; font-size: 0.7rem; color: #e5e7eb;">
+                  Last month: 14<br>This month: 22 (+57%)
+                </div>
+                <div style="font-size: 0.7rem; color: #fff; font-weight: 700; margin: 0.4rem 0 0.2rem;">Upgrade to 5-day split?</div>
+                <div class="ry-mini-btn" style="margin-top: auto; padding: 0.45rem;">Switch plan</div>
+              </div>
+            </div>
+
+            <!-- Screen 12: Indian Recipe -->
+            <div class="ry-screen-card">
+              <span class="ry-screen-badge">12 · Nutrition</span>
+              <h4 class="ry-screen-title">Recipe Card</h4>
+              <div class="ry-mini-phone">
+                <div class="ry-mini-phone-notch"></div>
+                <div style="font-size: 0.8rem; font-weight: 800; color: #fff;">‹ Banana oats bowl</div>
+                <div style="font-size: 0.68rem; color: var(--ry-coral); margin: 0.15rem 0 0.5rem;">Pre-workout · 10 min</div>
+                <div class="ry-mini-card" style="padding: 0.5rem; font-size: 0.7rem; color: #e5e7eb;">
+                  <strong>1</strong> Cook oats with milk
+                </div>
+                <div class="ry-mini-card" style="padding: 0.5rem; font-size: 0.7rem; color: #e5e7eb;">
+                  <strong>2</strong> Slice banana, add honey
+                </div>
+                <div class="ry-mini-card" style="padding: 0.5rem; font-size: 0.7rem; color: #e5e7eb;">
+                  <strong>3</strong> Top with soaked almonds
+                </div>
+                <div style="margin-top: auto; font-size: 0.7rem; color: #9ca3af; text-align: center;">
+                  340 kcal · 14g protein
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- 19 KEY LEARNINGS & IMPACT -->
+        <div class="cs-section-block reveal-on-scroll">
+          <div class="cs-section-header">
+            <span class="cs-section-num">19</span>
+            <h2 class="cs-section-heading">Key Design Learnings</h2>
+            <p class="cs-section-sub">Reflections from designing an empathetic fitness ecosystem</p>
+          </div>
+          <div class="ry-unique-grid">
+            <div class="ry-unique-card">
+              <span class="ry-unique-pill">Learning 01</span>
+              <h3 class="ry-unique-title">Consistency is Emotional, Not Logistical</h3>
+              <p class="ry-unique-desc">
+                Beginners do not drop out because they lack complex barbell periodisation. They quit because shame and all-or-nothing binary designs make recovery feel hopeless after a missed day. Giving them a 5-minute win changes everything.
+              </p>
+            </div>
+            <div class="ry-unique-card">
+              <span class="ry-unique-pill">Learning 02</span>
+              <h3 class="ry-unique-title">Cultural Grounding Builds Deep Trust</h3>
+              <p class="ry-unique-desc">
+                AI applications cannot feel generic. By designing specifically around Indian staples (paneer, dal, roti) and writing microcopy in the warm, respectful cadence of an Indian elder brother (<em>"bhai"</em>), the app feels deeply human and local.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case Study Nav / Next Project -->
+        <div class="cs-footer-nav reveal-on-scroll delay-1" style="margin-top: 4rem; background: var(--ry-card-bg); border-color: var(--ry-card-border);">
+          <a href="copper-chocs.html" class="cs-footer-nav-btn">
+            <span class="cs-fnav-sub">← PREVIOUS CASE STUDY</span>
+            <span class="cs-fnav-title" style="color: #ffffff;">Copper Chocs (Shopify Store)</span>
+          </a>
+          
+          <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+            <a href="before-two.html" class="btn-pill-solid" style="background: var(--ry-orange); color: #fff; padding: 0.6rem 1.25rem;">
+              <span>Before Two App →</span>
+            </a>
+            <a href="work.html" class="cs-footer-nav-btn" style="text-align: right;">
+              <span class="cs-fnav-sub">VIEW ALL WORK →</span>
+              <span class="cs-fnav-title" style="color: #ffffff;">Selected Projects</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER / CONTACT SECTION -->
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <div class="footer-top-row reveal-on-scroll">
+        <div class="footer-cta-col">
+          <p class="footer-subheading">HAVE A PRODUCT IN MIND?</p>
+          <a href="mailto:patildigambarr@gmail.com" class="footer-huge-link" id="footer-email-link">
+            <span>Let's talk</span>
+            <svg class="footer-huge-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+        </div>
+        <div class="footer-meta-col">
+          <p class="footer-loc-time">Pune, India (IST) · Available for Design Roles</p>
+          <div class="footer-socials">
+            <a href="https://www.linkedin.com/in/digambar-patil-6847081aa/" target="_blank" rel="noopener noreferrer" class="footer-social-link">LinkedIn ↗</a>
+            <a href="https://www.behance.net/digambarpatil2" target="_blank" rel="noopener noreferrer" class="footer-social-link">Behance ↗</a>
+            <a href="assets/Digambar_Patil_Resume.pdf" target="_blank" rel="noopener noreferrer" class="footer-social-link">Resume ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom-row">
+        <p class="footer-copyright">© 2026 Digambar Patil. Crafted with care.</p>
+        <a href="#top" class="footer-back-to-top">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

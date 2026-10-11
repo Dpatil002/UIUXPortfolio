@@ -5329,8 +5329,1027 @@ body {
   color: var(--text-muted);
   line-height: 1.55;
   margin-bottom: 1.25rem;
+}/* ==========================================================================
+   RAYA AI FITNESS COACH — UX CASE STUDY STYLES
+   ========================================================================== */
+
+:root {
+  --ry-bg: #0b0c10;
+  --ry-surface: #12141c;
+  --ry-card-bg: rgba(20, 23, 33, 0.78);
+  --ry-card-border: rgba(255, 87, 34, 0.2);
+  --ry-card-border-hover: rgba(255, 87, 34, 0.5);
+  --ry-orange: #ff5722;
+  --ry-orange-glow: rgba(255, 87, 34, 0.35);
+  --ry-coral: #ff7043;
+  --ry-peach: #ffab91;
+  --ry-amber: #ffa726;
+  --ry-pill: rgba(255, 87, 34, 0.14);
 }
 
+.raya-case-study {
+  background-color: var(--ry-bg);
+}
 
+.raya-case-study h1,
+.raya-case-study h2,
+.raya-case-study h3,
+.raya-case-study .cs-section-num,
+.raya-case-study .cs-brand-eyebrow .cs-app-name {
+  font-family: 'Space Grotesk', -apple-system, sans-serif;
+}
 
+.ry-em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ry-coral);
+  text-shadow: 0 0 24px rgba(255, 87, 34, 0.35);
+}
+
+.ry-tag {
+  background: var(--ry-pill);
+  border-color: rgba(255, 87, 34, 0.4);
+  color: #ffccbc;
+}
+
+.ry-pill {
+  background: #ff5722;
+  color: #ffffff;
+}
+
+/* Section Numbering & Headers */
+.raya-case-study .cs-section-num {
+  color: var(--ry-orange);
+}
+
+.raya-case-study .cs-section-heading {
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+/* Objectives Grid */
+.ry-goals-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.ry-goal-card {
+  background: var(--ry-card-bg);
+  border: 1px solid var(--ry-card-border);
+  border-radius: 20px;
+  padding: 2.25rem 2rem;
+  position: relative;
+  transition: all 0.35s var(--transition-smooth);
+}
+
+.ry-goal-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--ry-card-border-hover);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 25px rgba(255, 87, 34, 0.15);
+}
+
+.ry-goal-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--ry-orange);
+  margin-bottom: 0.75rem;
+}
+
+.ry-goal-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.65rem;
+}
+
+.ry-goal-desc {
+  font-size: 0.94rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+/* Double Diamond Process Grid */
+.ry-process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.ry-process-card {
+  background: var(--ry-card-bg);
+  border: 1px solid var(--ry-card-border);
+  border-radius: 18px;
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s var(--transition-smooth);
+}
+
+.ry-process-card:hover {
+  border-color: var(--ry-card-border-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+}
+
+.ry-process-phase {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ry-peach);
+  margin-bottom: 0.4rem;
+}
+
+.ry-process-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.85rem;
+}
+
+.ry-process-desc {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* Business Challenges Grid */
+.ry-biz-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.ry-biz-card {
+  background: var(--ry-card-bg);
+  border: 1px solid var(--border-hairline);
+  border-radius: 18px;
+  padding: 1.75rem 1.5rem;
+  transition: all 0.3s var(--transition-smooth);
+}
+
+.ry-biz-card:hover {
+  border-color: var(--ry-card-border);
+  background: rgba(26, 30, 44, 0.8);
+  transform: translateY(-3px);
+}
+
+.ry-biz-label {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.65rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ry-biz-label::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ry-orange);
+  box-shadow: 0 0 10px var(--ry-orange);
+}
+
+.ry-biz-text {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* Quantitative Stats Bar */
+.ry-stats-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  margin: 2.5rem 0 1.5rem;
+}
+
+.ry-stat-card {
+  background: rgba(255, 87, 34, 0.05);
+  border: 1px solid rgba(255, 87, 34, 0.2);
+  border-radius: 18px;
+  padding: 1.5rem 1.25rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.ry-stat-card:hover {
+  background: rgba(255, 87, 34, 0.1);
+  border-color: var(--ry-orange);
+  transform: translateY(-2px);
+}
+
+.ry-stat-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--ry-coral);
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 18px rgba(255, 87, 34, 0.3);
+}
+
+.ry-stat-text {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: #d1d5db;
+}
+
+.ry-inference-banner {
+  background: rgba(255, 87, 34, 0.08);
+  border-left: 3px solid var(--ry-orange);
+  padding: 1.25rem 1.75rem;
+  border-radius: 0 14px 14px 0;
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #ffccbc;
+}
+
+/* User Needs & Features Matrix */
+.ry-needs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.ry-need-card {
+  background: var(--ry-card-bg);
+  border: 1px solid var(--ry-card-border);
+  border-radius: 18px;
+  padding: 1.6rem;
+  position: relative;
+}
+
+.ry-need-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.6rem;
+  border-radius: 8px;
+  background: rgba(255, 87, 34, 0.2);
+  color: var(--ry-peach);
+  margin-bottom: 0.75rem;
+}
+
+.ry-need-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.ry-need-desc {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.ry-need-solution {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 0.85rem;
+  font-size: 0.84rem;
+  color: #d1d5db;
+  line-height: 1.5;
+}
+
+.ry-solution-label {
+  color: var(--ry-coral);
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+/* Competitor Benchmark Cards */
+.ry-comp-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+  margin-top: 2rem;
+}
+
+.ry-comp-card {
+  background: var(--ry-card-bg);
+  border: 1px solid var(--border-hairline);
+  border-radius: 20px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.ry-comp-card:hover {
+  border-color: var(--ry-card-border);
+}
+
+.ry-comp-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ry-comp-section-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #9ca3af;
+  margin-bottom: 0.4rem;
+}
+
+.ry-comp-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.25rem;
+}
+
+.ry-comp-list li {
+  font-size: 0.9rem;
+  color: #e5e7eb;
+  line-height: 1.6;
+  margin-bottom: 0.4rem;
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.ry-comp-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #34d399;
+  font-weight: bold;
+}
+
+.ry-comp-gap {
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  border-radius: 12px;
+  padding: 0.9rem 1.15rem;
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: #fca5a5;
+}
+
+/* Unique Features Grid */
+.ry-unique-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+  margin-top: 2rem;
+}
+
+.ry-unique-card {
+  background: var(--ry-card-bg);
+  border: 1px solid var(--ry-card-border);
+  border-radius: 22px;
+  padding: 2.25rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s var(--transition-smooth);
+}
+
+.ry-unique-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--ry-card-border-hover);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 28px rgba(255, 87, 34, 0.18);
+}
+
+.ry-unique-pill {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ry-orange);
+  background: rgba(255, 87, 34, 0.15);
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.ry-unique-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+}
+
+.ry-unique-desc {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+/* User Persona + Maslow Pyramid Split */
+.ry-persona-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.ry-persona-card {
+  background: var(--ry-card-bg);
+  border: 1px solid var(--ry-card-border);
+  border-radius: 22px;
+  padding: 2.25rem;
+}
+
+.ry-persona-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.ry-persona-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff5722, #ff9800);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #ffffff;
+  box-shadow: 0 0 20px rgba(255, 87, 34, 0.4);
+}
+
+.ry-persona-name {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.ry-persona-sub {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.ry-persona-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.ry-pbadge {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.3rem 0.7rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #e2e8f0;
+}
+
+.ry-maslow-container {
+  background: var(--ry-card-bg);
+  border: 1px solid var(--ry-card-border);
+  border-radius: 22px;
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.ry-maslow-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.ry-maslow-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.ry-maslow-levels {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  flex: 1;
+  justify-content: center;
+}
+
+.ry-maslow-tier {
+  border-radius: 12px;
+  padding: 0.85rem 1.15rem;
+  transition: all 0.25s ease;
+}
+
+.ry-maslow-tier:hover {
+  transform: translateX(4px);
+}
+
+.tier-5 {
+  background: rgba(255, 87, 34, 0.25);
+  border: 1px solid rgba(255, 87, 34, 0.5);
+  color: #ffffff;
+}
+
+.tier-4 {
+  background: rgba(255, 112, 67, 0.2);
+  border: 1px solid rgba(255, 112, 67, 0.4);
+  color: #ffccbc;
+}
+
+.tier-3 {
+  background: rgba(255, 152, 0, 0.15);
+  border: 1px solid rgba(255, 152, 0, 0.35);
+  color: #ffe0b2;
+}
+
+.tier-2 {
+  background: rgba(255, 183, 77, 0.12);
+  border: 1px solid rgba(255, 183, 77, 0.28);
+  color: #fff3e0;
+}
+
+.tier-1 {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #e0e0e0;
+}
+
+.ry-maslow-tier-title {
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.25rem;
+}
+
+.ry-maslow-tier-text {
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+/* Task Mapping Table */
+.ry-table-scroll {
+  overflow-x: auto;
+  border-radius: 20px;
+  border: 1px solid var(--ry-card-border);
+  background: var(--ry-card-bg);
+  margin-top: 2rem;
+}
+
+.ry-task-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 820px;
+}
+
+.ry-task-table th {
+  text-align: left;
+  padding: 1.25rem 1.5rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: rgba(255, 87, 34, 0.12);
+  color: var(--ry-peach);
+  border-bottom: 1px solid var(--ry-card-border);
+}
+
+.ry-task-table td {
+  padding: 1.15rem 1.5rem;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #e5e7eb;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  vertical-align: top;
+}
+
+.ry-task-table tr:hover td {
+  background: rgba(255, 87, 34, 0.04);
+}
+
+.ry-task-dim-col {
+  font-weight: 700;
+  color: var(--ry-coral);
+  width: 160px;
+}
+
+/* Eisenhower Matrix */
+.ry-eisenhower-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.ry-matrix-card {
+  background: var(--ry-card-bg);
+  border: 1px solid var(--ry-card-border);
+  border-radius: 20px;
+  padding: 2rem;
+}
+
+.ry-matrix-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  border-radius: 8px;
+  display: inline-block;
+  margin-bottom: 0.75rem;
+}
+
+.ry-matrix-badge.do-first {
+  background: rgba(255, 87, 34, 0.2);
+  color: #ff8a65;
+  border: 1px solid rgba(255, 87, 34, 0.4);
+}
+
+.ry-matrix-badge.schedule {
+  background: rgba(59, 130, 246, 0.15);
+  color: #93c5fd;
+  border: 1px solid rgba(59, 130, 246, 0.35);
+}
+
+.ry-matrix-badge.delegate {
+  background: rgba(234, 179, 8, 0.15);
+  color: #fde047;
+  border: 1px solid rgba(234, 179, 8, 0.35);
+}
+
+.ry-matrix-badge.eliminate {
+  background: rgba(239, 68, 68, 0.15);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.35);
+}
+
+.ry-matrix-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.ry-matrix-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ry-matrix-list li {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: #d1d5db;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.ry-matrix-list li:last-child {
+  border-bottom: none;
+}
+
+/* 5 Why & RCA Cards */
+.ry-why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.ry-why-card {
+  background: var(--ry-card-bg);
+  border: 1px solid var(--ry-card-border);
+  border-radius: 20px;
+  padding: 2.25rem;
+}
+
+.ry-why-problem {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.ry-why-step {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.9rem;
+  align-items: flex-start;
+}
+
+.ry-why-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--ry-orange);
+  background: rgba(255, 87, 34, 0.12);
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ry-why-text {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: #e5e7eb;
+}
+
+.ry-root-pill {
+  margin-top: 1.25rem;
+  background: rgba(255, 87, 34, 0.15);
+  border: 1px solid var(--ry-orange);
+  border-radius: 12px;
+  padding: 0.9rem 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ffab91;
+}
+
+/* RCA Flow Chains */
+.ry-rca-chain-card {
+  background: var(--ry-card-bg);
+  border: 1px solid var(--ry-card-border);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.ry-rca-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.ry-rca-item:last-child {
+  border-bottom: none;
+}
+
+.ry-rca-node {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.ry-rca-node.root-node {
+  background: rgba(255, 87, 34, 0.2);
+  border-color: var(--ry-orange);
+  color: #ffccbc;
+}
+
+.ry-rca-arrow {
+  color: var(--ry-orange);
+  font-weight: bold;
+}
+
+/* Taskflow Steps */
+.ry-taskflow-wrap {
+  background: var(--ry-card-bg);
+  border: 1px solid var(--ry-card-border);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-top: 1.5rem;
+}
+
+.ry-taskflow-header {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1.25rem;
+}
+
+.ry-flow-steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.ry-step-pill {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 0.55rem 1.15rem;
+  font-size: 0.88rem;
+  color: #e5e7eb;
+  font-weight: 600;
+}
+
+.ry-step-pill.highlight {
+  background: rgba(255, 87, 34, 0.2);
+  border-color: var(--ry-orange);
+  color: #ffffff;
+  box-shadow: 0 0 16px rgba(255, 87, 34, 0.2);
+}
+
+.ry-step-arrow {
+  color: var(--ry-coral);
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Design System Tokens */
+.ry-tokens-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.ry-token-card {
+  background: var(--ry-card-bg);
+  border: 1px solid var(--ry-card-border);
+  border-radius: 18px;
+  padding: 1.75rem 1.5rem;
+}
+
+.ry-token-label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ry-peach);
+  margin-bottom: 0.5rem;
+}
+
+.ry-token-val {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.65rem;
+}
+
+.ry-token-desc {
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+/* 12 Interactive App Screens Grid */
+.ry-screens-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.75rem;
+  margin-top: 2.5rem;
+}
+
+.ry-screen-card {
+  background: var(--ry-card-bg);
+  border: 1px solid var(--ry-card-border);
+  border-radius: 24px;
+  padding: 1.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.35s var(--transition-smooth);
+  position: relative;
+}
+
+.ry-screen-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--ry-card-border-hover);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 87, 34, 0.18);
+}
+
+.ry-screen-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ry-orange);
+  margin-bottom: 0.4rem;
+}
+
+.ry-screen-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1.15rem;
+}
+
+/* Phone Mockup Frame inside Screen Card */
+.ry-mini-phone {
+  background: #090a0f;
+  border: 2px solid #222634;
+  border-radius: 20px;
+  padding: 1rem 0.9rem;
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.ry-mini-phone-notch {
+  width: 50px;
+  height: 12px;
+  background: #000000;
+  border-radius: 6px;
+  margin: 0 auto 0.85rem;
+}
+
+.ry-mini-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.85rem;
+}
+
+.ry-mini-streak {
+  font-size: 0.68rem;
+  font-weight: 700;
+  background: rgba(255, 87, 34, 0.18);
+  border: 1px solid #ff5722;
+  color: #ff8a65;
+  padding: 0.15rem 0.45rem;
+  border-radius: 999px;
+}
+
+.ry-mini-card {
+  background: #141722;
+  border: 1px solid rgba(255, 87, 34, 0.25);
+  border-radius: 14px;
+  padding: 0.85rem;
+  margin-bottom: 0.75rem;
+}
+
+.ry-mini-btn {
+  background: linear-gradient(135deg, #ff5722, #ff7043);
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 0.55rem;
+  border-radius: 10px;
+  margin-top: auto;
+  box-shadow: 0 4px 14px rgba(255, 87, 34, 0.4);
+}
+
+/* Media Queries for Raya Layout */
+@media (max-width: 1024px) {
+  .ry-goals-grid,
+  .ry-biz-grid,
+  .ry-needs-grid,
+  .ry-tokens-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .ry-process-grid,
+  .ry-screens-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .ry-persona-layout,
+  .ry-unique-grid,
+  .ry-why-grid,
+  .ry-eisenhower-grid,
+  .ry-comp-grid {
+    grid-template-columns: 1fr;
+  }
+  .ry-stats-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .ry-goals-grid,
+  .ry-biz-grid,
+  .ry-needs-grid,
+  .ry-tokens-grid,
+  .ry-process-grid,
+  .ry-screens-grid,
+  .ry-stats-row {
+    grid-template-columns: 1fr;
+  }
+}
 
