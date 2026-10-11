@@ -1,6 +1,7 @@
 // Digambar Patil Portfolio - Global Motion & Responsive Interactions
 
 document.addEventListener('DOMContentLoaded', () => {
+  initMobileNavigation();
   initParticleBackground();
   initLiveClock();
   initScrollReveal();
@@ -799,5 +800,50 @@ function initExpandingButtons() {
 
   window.addEventListener('resize', measureWidths, { passive: true });
 }
+
+// 10. Mobile Navigation Drawer & Hamburger Toggle
+function initMobileNavigation() {
+  const hamburger = document.getElementById('nav-hamburger');
+  const navLinks = document.getElementById('nav-links');
+  if (!hamburger || !navLinks) return;
+
+  function toggleMenu(isOpen) {
+    const currentState = hamburger.classList.contains('is-active');
+    const targetState = typeof isOpen === 'boolean' ? isOpen : !currentState;
+
+    hamburger.classList.toggle('is-active', targetState);
+    navLinks.classList.toggle('is-open', targetState);
+    hamburger.setAttribute('aria-expanded', targetState ? 'true' : 'false');
+    document.body.classList.toggle('nav-menu-open', targetState);
+  }
+
+  hamburger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleMenu();
+  });
+
+  // Close when clicking any nav link
+  navLinks.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      toggleMenu(false);
+    });
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && hamburger.classList.contains('is-active')) {
+      toggleMenu(false);
+      hamburger.focus();
+    }
+  });
+
+  // Close if window resized to desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768 && hamburger.classList.contains('is-active')) {
+      toggleMenu(false);
+    }
+  }, { passive: true });
+}
+
 
 
