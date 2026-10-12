@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFeaturedCarousel();
   initProjectFilterTabs();
   initTestimonialCarousel();
+  initStickyTocScrollSpy();
 });
 
 // 1. Ambient Subtle Floating Particles with Cursor Repulsion
@@ -845,5 +846,41 @@ function initMobileNavigation() {
   }, { passive: true });
 }
 
+// 11. Sticky Table of Contents ScrollSpy & Active Link Indicator
+function initStickyTocScrollSpy() {
+  const tocLinks = document.querySelectorAll('.cs-sticky-toc .cs-toc-link');
+  if (!tocLinks.length) return;
 
+  const sections = [];
+  tocLinks.forEach((link) => {
+    const hash = link.getAttribute('href');
+    if (hash && hash.startsWith('#')) {
+      const targetSec = document.querySelector(hash);
+      if (targetSec) {
+        sections.push({ link, targetSec });
+      }
+    }
+  });
 
+  if (!sections.length) return;
+
+  function updateActiveLink() {
+    const scrollPos = window.scrollY + 180;
+    let current = sections[0];
+
+    for (let i = 0; i < sections.length; i++) {
+      const top = sections[i].targetSec.offsetTop;
+      if (scrollPos >= top) {
+        current = sections[i];
+      }
+    }
+
+    sections.forEach(({ link }) => link.classList.remove('active'));
+    if (current && current.link) {
+      current.link.classList.add('active');
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink, { passive: true });
+  updateActiveLink();
+}
