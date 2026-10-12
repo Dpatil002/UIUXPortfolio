@@ -328,10 +328,75 @@ textarea:focus-visible,
 .nav-brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 10px;
   text-decoration: none;
-  color: inherit;
+  color: var(--text-main);
   min-height: 44px;
+  padding: 4px 0;
+  transition: transform 120ms ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Tap (mobile): scale 0.94 for 120ms */
+.nav-brand:active {
+  transform: scale(0.94);
+}
+
+.brand-logo-mark {
+  height: 24px;
+  width: auto;
+  aspect-ratio: 538 / 369;
+  display: block;
+  flex-shrink: 0;
+  color: var(--text-main);
+  transition: transform 300ms ease-out;
+  transform-origin: center center;
+}
+
+@media (min-width: 768px) {
+  .brand-logo-mark {
+    height: 28px;
+  }
+}
+
+/* Hover (desktop): mark rotates -6deg and returns, 300ms ease-out */
+@media (hover: hover) and (pointer: fine) {
+  .nav-brand:hover .brand-logo-mark {
+    transform: rotate(-6deg);
+  }
+}
+
+/* Reduced motion: no rotation */
+@media (prefers-reduced-motion: reduce) {
+  .brand-logo-mark {
+    transition: none !important;
+    transform: none !important;
+  }
+  .nav-brand:hover .brand-logo-mark {
+    transform: none !important;
+  }
+  .footer-logo-mark {
+    transition: none !important;
+    transform: none !important;
+  }
+  .footer-logo-link:hover .footer-logo-mark {
+    transform: none !important;
+  }
+}
+
+/* Layout: [DP mark] + "Digambar Patil" wordmark, 10px gap */
+/* Below 360px show the mark only; the link keeps aria-label="Digambar Patil — home" */
+.brand-wordmark {
+  display: none;
+}
+
+@media (min-width: 360px) {
+  .brand-wordmark {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+  }
 }
 
 .brand-name {
@@ -356,6 +421,96 @@ textarea:focus-visible,
   .brand-title {
     display: inline-block;
   }
+}
+
+/* Footer Mark: 32px above the email */
+.footer-mark-wrapper {
+  margin-bottom: 32px;
+}
+
+.footer-logo-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  min-width: 44px;
+  color: var(--text-main);
+  text-decoration: none;
+  transition: transform 120ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.footer-logo-link:active {
+  transform: scale(0.94);
+}
+
+.footer-logo-mark {
+  height: 32px;
+  width: auto;
+  aspect-ratio: 538 / 369;
+  display: block;
+  color: var(--text-main);
+  transition: transform 300ms ease-out;
+  transform-origin: center center;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .footer-logo-link:hover .footer-logo-mark {
+    transform: rotate(-6deg);
+  }
+}
+
+/* 404 / Error Page Styling */
+.error-page-section {
+  min-height: calc(100dvh - 56px - 140px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--section-y) var(--gutter);
+}
+
+.error-mark {
+  height: 40px;
+  width: auto;
+  aspect-ratio: 538 / 369;
+  display: inline-block;
+  color: var(--text-muted);
+  opacity: 0.65;
+  margin-bottom: var(--s-5);
+  transition: opacity 240ms ease, transform 300ms ease-out;
+  transform-origin: center center;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .error-mark:hover {
+    opacity: 0.95;
+    transform: rotate(-6deg);
+  }
+}
+
+.error-code {
+  font-family: var(--font-display, "Newsreader", serif);
+  font-size: var(--fs-display);
+  font-weight: 400;
+  line-height: var(--lh-tight);
+  color: var(--text-main);
+  margin-bottom: var(--s-3);
+}
+
+.error-message {
+  font-size: var(--fs-body);
+  color: var(--text-muted);
+  max-width: 46ch;
+  margin: 0 auto var(--s-6);
+  line-height: var(--lh-body);
+}
+
+.error-actions {
+  display: flex;
+  gap: var(--s-4);
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 /* 44x44 menu button with icon that morphs hamburger -> X (two lines rotating 45deg, 240ms, cubic-bezier(.2,.8,.2,1)) */
