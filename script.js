@@ -2,6 +2,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initMobileNavigation();
+  initHideOnScrollHeader();
   initParticleBackground();
   initLiveClock();
   initScrollReveal();
@@ -117,7 +118,7 @@ function initParticleBackground() {
   });
 }
 
-// 2. Live Pune Time Clock
+// 2. Live Pune Time Clock (Progressively enhances static "Pune, India · IST")
 function initLiveClock() {
   const timeEl = document.getElementById('live-time');
   if (!timeEl) return;
@@ -132,10 +133,9 @@ function initLiveClock() {
       };
       const formatter = new Intl.DateTimeFormat([], options);
       const timeString = formatter.format(new Date());
-      timeEl.textContent = `Pune, ${timeString}`;
+      timeEl.textContent = `Pune, India · ${timeString} IST`;
     } catch (e) {
-      const now = new Date();
-      timeEl.textContent = `Pune, ${now.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })}`;
+      timeEl.textContent = 'Pune, India · IST';
     }
   }
 
@@ -802,20 +802,82 @@ function initExpandingButtons() {
   window.addEventListener('resize', measureWidths, { passive: true });
 }
 
-// 10. Mobile Navigation Drawer & Hamburger Toggle
+// 10. Mobile Navigation Sheet & Hamburger Toggle
 function initMobileNavigation() {
   const hamburger = document.getElementById('nav-hamburger');
-  const navLinks = document.getElementById('nav-links');
-  if (!hamburger || !navLinks) return;
+  const sheet = document.getElementById('mobile-nav-sheet');
+  const header = document.querySelector('.site-nav');
+  if (!hamburger) return;
+
+  function getFocusableElements() {
+    if (!sheet) return [];
+    return Array.from(
+      sheet.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')
+    ).filter((el) => el.offsetWidth > 0 || el.offsetHeight > 0 || el.getClientRects().length > 0);
+  }
+
+  function handleFocusTrap(e) {
+    if (e.key !== 'Tab') return;
+    const focusables = [hamburger, ...getFocusableElements()];
+    if (focusables.length === 0) return;
+
+    const firstEl = focusables[0];
+    const lastEl = focusables[focusables.length - 1];
+
+    if (e.shiftKey) {
+      if (document.activeElement === firstEl) {
+        e.preventDefault();
+        lastEl.focus();
+      }
+    } else {
+      if (document.activeElement === lastEl) {
+        e.preventDefault();
+        firstEl.focus();
+      }
+    }
+  }
 
   function toggleMenu(isOpen) {
     const currentState = hamburger.classList.contains('is-active');
     const targetState = typeof isOpen === 'boolean' ? isOpen : !currentState;
 
-    hamburger.classList.toggle('is-active', targetState);
-    navLinks.classList.toggle('is-open', targetState);
-    hamburger.setAttribute('aria-expanded', targetState ? 'true' : 'false');
-    document.body.classList.toggle('nav-menu-open', targetState);
+    if (targetState === currentState) return;
+
+    if (targetState) {
+      hamburger.classList.add('is-active');
+      if (sheet) {
+        sheet.classList.add('is-open');
+        sheet.setAttribute('aria-hidden', 'false');
+      }
+      hamburger.setAttribute('aria-expanded', 'true');
+      hamburger.setAttribute('aria-label', 'Close menu');
+      document.body.classList.add('nav-menu-open');
+
+      if (header) {
+        header.classList.remove('nav-hidden');
+      }
+
+      document.addEventListener('keydown', handleFocusTrap);
+
+      const focusables = getFocusableElements();
+      if (focusables.length > 0) {
+        setTimeout(() => focusables[0].focus(), 50);
+      }
+    } else {
+      hamburger.classList.remove('is-active');
+      if (sheet) {
+        sheet.classList.remove('is-open');
+        sheet.setAttribute('aria-hidden', 'true');
+      }
+      hamburger.setAttribute('aria-expanded', 'false');
+      hamburger.setAttribute('aria-label', 'Open menu');
+      document.body.classList.remove('nav-menu-open');
+
+      document.removeEventListener('keydown', handleFocusTrap);
+
+      // Return focus to the menu button on close
+      hamburger.focus();
+    }
   }
 
   hamburger.addEventListener('click', (e) => {
@@ -823,25 +885,83 @@ function initMobileNavigation() {
     toggleMenu();
   });
 
-  // Close when clicking any nav link
-  navLinks.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      toggleMenu(false);
+  // Close on link tap
+  if (sheet) {
+    sheet.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        toggleMenu(false);
+      });
     });
-  });
+  }
 
   // Close on Escape key
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && hamburger.classList.contains('is-active')) {
       toggleMenu(false);
-      hamburger.focus();
+    }
+  });
+
+  // Close on route change
+  window.addEventListener('hashchange', () => {
+    if (hamburger.classList.contains('is-active')) {
+      toggleMenu(false);
+    }
+  });
+  window.addEventListener('popstate', () => {
+    if (hamburger.classList.contains('is-active')) {
+      toggleMenu(false);
     }
   });
 
   // Close if window resized to desktop
   window.addEventListener('resize', () => {
-    if (window.innerWidth > 768 && hamburger.classList.contains('is-active')) {
+    if (window.innerWidth >= 768 && hamburger.classList.contains('is-active')) {
       toggleMenu(false);
+    }
+  }, { passive: true });
+}
+
+// Hide-on-scroll Header
+function initHideOnScrollHeader() {
+  const header = document.querySelector('.site-nav');
+  const hamburger = document.getElementById('nav-hamburger');
+  if (!header) return;
+
+  let lastScrollY = window.scrollY;
+  let isTicking = false;
+
+  function updateHeaderVisibility() {
+    const currentScrollY = window.scrollY;
+    const isMenuOpen = hamburger && (hamburger.getAttribute('aria-expanded') === 'true' || hamburger.classList.contains('is-active'));
+
+    // Never hide while the menu is open
+    if (isMenuOpen) {
+      header.classList.remove('nav-hidden');
+      lastScrollY = currentScrollY;
+      isTicking = false;
+      return;
+    }
+
+    if (currentScrollY > 80 && currentScrollY > lastScrollY) {
+      // User scrolled down more than 80px: slide up
+      header.classList.add('nav-hidden');
+    } else if (currentScrollY < lastScrollY) {
+      // Slide back on any upward scroll
+      header.classList.remove('nav-hidden');
+    }
+
+    if (currentScrollY <= 0) {
+      header.classList.remove('nav-hidden');
+    }
+
+    lastScrollY = currentScrollY;
+    isTicking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!isTicking) {
+      window.requestAnimationFrame(updateHeaderVisibility);
+      isTicking = true;
     }
   }, { passive: true });
 }

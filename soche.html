@@ -15,6 +15,9 @@
 </head>
 <body class="case-study-page soche-case-study">
 
+  <!-- Skip link as first focusable element -->
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
   <!-- Background Particle Field -->
   <canvas id="particle-canvas" aria-hidden="true"></canvas>
 
@@ -32,32 +35,47 @@
       <div class="nav-inner">
         <a href="index.html" class="nav-brand" id="nav-brand">
           <span class="brand-name">Digambar Patil</span>
-          <span class="brand-title">Digital Product Designer</span>
+          <span class="brand-title">Product Designer</span>
         </a>
-        <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
-          <span class="hamburger-bar"></span>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav-sheet">
           <span class="hamburger-bar"></span>
           <span class="hamburger-bar"></span>
         </button>
-        <nav class="nav-links" id="nav-links" aria-label="Main Navigation">
+        <nav class="nav-links desktop-nav" id="nav-links" aria-label="Main Navigation">
           <a href="work.html" class="nav-link" id="nav-work">Work</a>
           <a href="about.html" class="nav-link" id="nav-about">About</a>
-          <a href="assets/Digambar_Patil_Resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link" id="nav-resume">Resume</a>
-          <a href="mailto:contact@digambarpatil.com" class="btn-pill-solid btn-expand-icon" id="nav-contact">
-            <span class="btn-expand-text">Get in touch</span>
-            <span class="btn-expand-circle" aria-hidden="true">
-              <svg class="btn-expand-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="7" y1="17" x2="17" y2="7"></line>
-                <polyline points="7 7 17 7 17 17"></polyline>
-              </svg>
-            </span>
-          </a>
+          <a href="assets/Digambar_Patil_Resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link" id="nav-resume">Resume <span class="nav-external-icon" aria-hidden="true">↗</span></a>
+          <a href="#contact" class="nav-contact-btn" id="nav-contact">Contact</a>
         </nav>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Sheet (<768px) -->
+    <div class="mobile-nav-sheet" id="mobile-nav-sheet" aria-hidden="true">
+      <div class="sheet-inner">
+        <nav class="sheet-nav-list" aria-label="Mobile Navigation">
+          <a href="work.html" class="sheet-nav-link" id="sheet-nav-work">Work</a>
+          <a href="about.html" class="sheet-nav-link" id="sheet-nav-about">About</a>
+          <a href="assets/Digambar_Patil_Resume.pdf" target="_blank" rel="noopener noreferrer" class="sheet-nav-link" id="sheet-nav-resume">Resume <span class="nav-external-icon" aria-hidden="true">↗</span></a>
+          <a href="#contact" class="sheet-nav-link" id="sheet-nav-contact">Contact</a>
+        </nav>
+        <div class="sheet-footer">
+          <a href="mailto:contact@digambarpatil.com" class="sheet-btn-primary">Email me</a>
+          <div class="sheet-social-row">
+            <a href="https://www.linkedin.com/in/digambar-patil-6847081aa/" target="_blank" rel="noopener noreferrer" class="sheet-social-link" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" class="sheet-social-icon" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64c-.95 0-1.66.71-1.66 1.66 0 .93.71 1.64 1.66 1.64.92 0 1.63-.71 1.63-1.64 0-.95-.71-1.66-1.63-1.66z"></path></svg>
+            </a>
+            <a href="https://www.behance.net/digambarpatil2" target="_blank" rel="noopener noreferrer" class="sheet-social-link" aria-label="Behance">
+              <svg viewBox="0 0 24 24" class="sheet-social-icon" aria-hidden="true"><path d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-4.085 0-6.625-2.748-6.625-6.84 0-4.225 2.684-6.892 6.471-6.892 4.103 0 6.136 2.924 5.753 6.944h-9.351c.143 2.087 1.664 3.656 3.753 3.656 1.848 0 2.879-.824 3.324-1.868h1.776zm-8.854-5.352h6.586c-.161-1.802-1.399-3.08-3.264-3.08-1.954 0-3.136 1.294-3.322 3.08zm-14.872-6.648h5.922c3.154 0 4.908 1.492 4.908 3.781 0 1.611-.871 2.766-2.28 3.27 1.778.508 2.802 1.879 2.802 3.736 0 2.569-1.977 4.213-5.316 4.213h-6.036v-15zm3.02 6.096h2.49c1.242 0 2.05-.623 2.05-1.637 0-.964-.784-1.579-2.026-1.579h-2.514v3.216zm0 5.864h2.723c1.455 0 2.378-.711 2.378-1.815 0-1.127-.923-1.801-2.454-1.801h-2.647v3.616z"></path></svg>
+            </a>
+          </div>
+          <p class="sheet-status-text">Open to full-time roles · Pune / Remote</p>
+        </div>
       </div>
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <!-- CASE STUDY HERO SECTION -->
     <section class="cs-hero-section soche-hero">
       <div class="container">
@@ -1227,7 +1245,7 @@
 
         <div class="footer-bottom-center">
           <span class="live-dot" aria-hidden="true"></span>
-          <span id="live-time">Pune, --:--</span>
+          <span id="live-time">Pune, India · IST</span>
           <span class="footer-dot-sep">•</span>
           <a href="https://soche.co.uk" target="_blank" rel="noopener noreferrer" class="footer-privacy-link">soche.co.uk</a>
           <span class="footer-dot-sep">•</span>
