@@ -25,7 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initCaseStudyTOC();
   initDecisionBlockHotspots();
   initScreenGalleryAndLightbox();
-  initEditorialImageAnimations();
+  // Homepage Redesign Initializer
+  initEditorialHomepage();
 });
 
 // 1. Ambient Subtle Floating Particles with Cursor Repulsion
@@ -134,7 +135,8 @@ function initParticleBackground() {
 // 2. Live Pune Time Clock (Progressively enhances static "Pune, India · IST")
 function initLiveClock() {
   const timeEl = document.getElementById('live-time');
-  if (!timeEl) return;
+  const edTimeEl = document.getElementById('ed-live-time');
+  if (!timeEl && !edTimeEl) return;
 
   function updateClock() {
     try {
@@ -146,9 +148,11 @@ function initLiveClock() {
       };
       const formatter = new Intl.DateTimeFormat([], options);
       const timeString = formatter.format(new Date());
-      timeEl.textContent = `Pune, India · ${timeString} IST`;
+      if (timeEl) timeEl.textContent = `Pune, India · ${timeString} IST`;
+      if (edTimeEl) edTimeEl.textContent = `${timeString} IST`;
     } catch (e) {
-      timeEl.textContent = 'Pune, India · IST';
+      if (timeEl) timeEl.textContent = 'Pune, India · IST';
+      if (edTimeEl) edTimeEl.textContent = 'IST';
     }
   }
 
@@ -1378,7 +1382,7 @@ function initCaseStudyTOC() {
 
 // 4.3 DecisionBlock: Hotspots & Notes Synchronization
 function initDecisionBlockHotspots() {
-  const blocks = document.querySelectorAll('.cs-decision-subblock, .cs-decision-block');
+  const blocks = document.querySelectorAll('.cs-decision-block');
   if (!blocks.length) return;
 
   blocks.forEach((block) => {
@@ -1433,7 +1437,7 @@ function initDecisionBlockHotspots() {
 function initScreenGalleryAndLightbox() {
   const galleryContainer = document.getElementById('cs-gallery-container');
   const counterPill = document.getElementById('cs-counter-pill');
-  const galleryItems = document.querySelectorAll('.cs-gallery-item, .cs-screen-figure');
+  const galleryItems = document.querySelectorAll('.cs-gallery-item');
 
   // Mobile Carousel Counter update
   if (galleryContainer && counterPill && galleryItems.length) {
@@ -1452,7 +1456,7 @@ function initScreenGalleryAndLightbox() {
 
   // Fullscreen Lightbox Modal
   const lightbox = document.getElementById('cs-lightbox');
-  if (!lightbox) return;
+  if (!lightbox || !galleryItems.length) return;
 
   const lightboxImg = document.getElementById('cs-lightbox-img');
   const lightboxCounter = document.getElementById('cs-lightbox-counter');
@@ -1466,31 +1470,23 @@ function initScreenGalleryAndLightbox() {
   let currentIndex = 0;
   const screensData = [];
 
-  // Find all zoomable images across figures and decision mats
-  const zoomableImages = document.querySelectorAll('.cs-gallery-img, .cs-annotated-img, [data-lightbox-src]');
+  galleryItems.forEach((item, idx) => {
+    const img = item.querySelector('.cs-gallery-img');
+    const captionEl = item.querySelector('.cs-caption-text');
+    screensData.push({
+      src: img ? img.getAttribute('src') : '',
+      alt: img ? img.getAttribute('alt') : '',
+      caption: captionEl ? captionEl.textContent : ''
+    });
 
-  zoomableImages.forEach((img, idx) => {
-    const src = img.getAttribute('data-lightbox-src') || img.getAttribute('src');
-    const alt = img.getAttribute('alt') || '';
-    const caption = img.getAttribute('data-caption') || alt;
-
-    screensData.push({ src, alt, caption });
-
-    img.style.cursor = 'zoom-in';
-    img.setAttribute('tabindex', '0');
-    img.setAttribute('role', 'button');
-    img.setAttribute('aria-label', `View full size image: ${caption}`);
-
-    img.addEventListener('click', () => openLightbox(idx));
-    img.addEventListener('keydown', (e) => {
+    item.addEventListener('click', () => openLightbox(idx));
+    item.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
         openLightbox(idx);
       }
     });
   });
-
-  if (!screensData.length) return;
 
   function updateLightboxView() {
     const data = screensData[currentIndex];
@@ -1575,32 +1571,393 @@ function initScreenGalleryAndLightbox() {
   }
 }
 
-// 4.5 Editorial Image Fade & Rise IntersectionObserver (15% in view, 500ms once)
-function initEditorialImageAnimations() {
-  const animatedItems = document.querySelectorAll('.cs-fade-rise');
-  if (!animatedItems.length) return;
 
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReduced) return;
 
-  document.body.classList.add('js-animate');
+// ==========================================================================
+// HOMEPAGE REDESIGN — DARK EDITORIAL INTERACTION CONTROLLERS
+// ==========================================================================
 
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.15
-    });
+function initEditorialHomepage() {
+  if (!document.body.classList.contains('home-editorial')) return;
 
-    animatedItems.forEach(el => observer.observe(el));
-  } else {
-    animatedItems.forEach(el => el.classList.add('in-view'));
-  }
+  initEditorialLenis();
+  initEditorialHeaderScroll();
+  initEditorialMobileMenu();
+  initEditorialRotatingSignature();
+  initEditorialParallaxBand();
+  initEditorialWorkCards();
+  initEditorialNumbersCountUp();
+  initEditorialTestimonials();
+  initEditorialContactCopy();
+  initEditorialMobileStickyCTA();
+  initEditorialScrollReveals();
 }
 
+// 1. Lenis Smooth Scrolling (duration 1.1, easing easeOutExpo)
+function initEditorialLenis() {
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  if (prefersReduced || isTouch || typeof window.Lenis === 'undefined') return;
 
+  const lenis = new window.Lenis({
+    duration: 1.1,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    orientation: 'vertical',
+    smoothWheel: true
+  });
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+}
+
+// 2. Header Scroll: fades to opacity 0 (500ms) when scrolling down past 120px, back to 1 on scroll up
+function initEditorialHeaderScroll() {
+  const header = document.querySelector('.ed-header');
+  if (!header) return;
+
+  let lastScrollY = window.scrollY;
+  let ticking = false;
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        const currentY = window.scrollY;
+        if (currentY > 120 && currentY > lastScrollY) {
+          header.classList.add('header-hidden');
+        } else {
+          header.classList.remove('header-hidden');
+        }
+        lastScrollY = Math.max(0, currentY);
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+}
+
+// 3. Mobile Full-Screen Overlay Menu
+function initEditorialMobileMenu() {
+  const toggleBtn = document.getElementById('ed-menu-toggle');
+  const overlay = document.getElementById('ed-mobile-menu');
+  const closeBtn = document.getElementById('ed-mobile-menu-close');
+  if (!toggleBtn || !overlay) return;
+
+  function openMenu() {
+    overlay.classList.add('is-open');
+    overlay.setAttribute('aria-hidden', 'false');
+    toggleBtn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+    if (closeBtn) closeBtn.focus();
+  }
+
+  function closeMenu() {
+    overlay.classList.remove('is-open');
+    overlay.setAttribute('aria-hidden', 'true');
+    toggleBtn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    toggleBtn.focus();
+  }
+
+  toggleBtn.addEventListener('click', openMenu);
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+
+  overlay.querySelectorAll('.ed-mobile-nav-link, .ed-mobile-menu-btn-primary').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('is-open')) {
+      closeMenu();
+    }
+  });
+}
+
+// 4. Rotating Signature Line under H1
+function initEditorialRotatingSignature() {
+  const slot = document.getElementById('ed-rot-slot');
+  const wordEl = document.getElementById('ed-rot-word');
+  if (!slot || !wordEl) return;
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    slot.innerHTML = '<span class="ed-rot-word static">research, design, prototype and ship</span>';
+    return;
+  }
+
+  const words = ['research', 'design', 'prototype', 'ship'];
+  let currentIndex = 0;
+
+  setInterval(() => {
+    const nextIndex = (currentIndex + 1) % words.length;
+    wordEl.classList.remove('rot-active');
+    wordEl.classList.add('rot-exit');
+
+    setTimeout(() => {
+      wordEl.textContent = words[nextIndex];
+      wordEl.classList.remove('rot-exit');
+      wordEl.classList.add('rot-enter');
+
+      // Force reflow
+      void wordEl.offsetWidth;
+
+      wordEl.classList.remove('rot-enter');
+      wordEl.classList.add('rot-active');
+      currentIndex = nextIndex;
+    }, 300);
+  }, 2400);
+}
+
+// 5. Parallax-lite: Featured image band scales from 1.08 to 1.0 as it scrolls through viewport
+function initEditorialParallaxBand() {
+  const frame = document.getElementById('ed-featured-frame');
+  const img = document.getElementById('ed-featured-img');
+  if (!frame || !img) return;
+
+  if (img.complete) {
+    frame.classList.remove('is-loading');
+  } else {
+    frame.classList.add('is-loading');
+    img.addEventListener('load', () => frame.classList.remove('is-loading'));
+  }
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  function updateParallax() {
+    const rect = frame.getBoundingClientRect();
+    const winHeight = window.innerHeight;
+    if (rect.top <= winHeight && rect.bottom >= 0) {
+      const progress = Math.min(Math.max((winHeight - rect.top) / (winHeight + rect.height), 0), 1);
+      const currentScale = 1.08 - (0.08 * progress);
+      img.style.transform = 'scale(' + currentScale.toFixed(4) + ')';
+    }
+  }
+
+  window.addEventListener('scroll', updateParallax, { passive: true });
+  updateParallax();
+}
+
+// 6. Work Cards: Cursor-follow "View case study" pill on pointer devices
+function initEditorialWorkCards() {
+  const isPointerFine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const cards = document.querySelectorAll('.ed-work-card');
+
+  cards.forEach(card => {
+    const media = card.querySelector('.ed-card-media');
+    const pill = card.querySelector('.ed-cursor-pill');
+    if (!media || !pill || !isPointerFine) return;
+
+    let targetX = 0, targetY = 0;
+    let currentX = 0, currentY = 0;
+    let isHovering = false;
+    let animId = null;
+
+    function render() {
+      if (!isHovering) return;
+      currentX += (targetX - currentX) * 0.15;
+      currentY += (targetY - currentY) * 0.15;
+      pill.style.left = currentX + 'px';
+      pill.style.top = currentY + 'px';
+      animId = requestAnimationFrame(render);
+    }
+
+    media.addEventListener('mouseenter', (e) => {
+      isHovering = true;
+      const rect = media.getBoundingClientRect();
+      targetX = currentX = e.clientX - rect.left;
+      targetY = currentY = e.clientY - rect.top;
+      pill.style.left = currentX + 'px';
+      pill.style.top = currentY + 'px';
+      pill.style.opacity = '1';
+      animId = requestAnimationFrame(render);
+    });
+
+    media.addEventListener('mousemove', (e) => {
+      const rect = media.getBoundingClientRect();
+      targetX = e.clientX - rect.left;
+      targetY = e.clientY - rect.top;
+    });
+
+    media.addEventListener('mouseleave', () => {
+      isHovering = false;
+      pill.style.opacity = '0';
+      if (animId) cancelAnimationFrame(animId);
+    });
+  });
+}
+
+// 7. Numbers Count-Up Animation (900ms)
+function initEditorialNumbersCountUp() {
+  const section = document.getElementById('numbers');
+  if (!section) return;
+
+  const countItems = section.querySelectorAll('.ed-stat-item[data-stat-type="counter"]');
+  let hasAnimated = false;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !hasAnimated) {
+        hasAnimated = true;
+        countItems.forEach(item => {
+          const target = parseInt(item.getAttribute('data-target'), 10) || 0;
+          const valEl = item.querySelector('.ed-count-val');
+          if (!valEl) return;
+
+          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            valEl.textContent = target;
+            return;
+          }
+
+          const duration = 900;
+          const startTime = performance.now();
+
+          function step(now) {
+            const progress = Math.min((now - startTime) / duration, 1);
+            const easeVal = 1 - Math.pow(1 - progress, 3);
+            valEl.textContent = Math.floor(easeVal * target);
+            if (progress < 1) {
+              requestAnimationFrame(step);
+            } else {
+              valEl.textContent = target;
+            }
+          }
+          requestAnimationFrame(step);
+        });
+      }
+    });
+  }, { threshold: 0.2 });
+
+  observer.observe(section);
+}
+
+// 8. Testimonials: Mobile carousel with 1 / 2 counter, Desktop crossfade every 8s
+function initEditorialTestimonials() {
+  const carousel = document.getElementById('ed-test-carousel-mobile');
+  const counter = document.getElementById('ed-test-counter-mobile');
+  if (carousel && counter) {
+    const slides = carousel.querySelectorAll('.ed-test-slide-mobile');
+    carousel.addEventListener('scroll', () => {
+      const scrollLeft = carousel.scrollLeft;
+      const width = carousel.offsetWidth || 1;
+      const activeIdx = Math.round(scrollLeft / width) + 1;
+      counter.textContent = activeIdx + ' / ' + slides.length;
+    }, { passive: true });
+  }
+
+  const desktopWrap = document.getElementById('ed-test-desktop-wrap');
+  if (!desktopWrap) return;
+  const desktopSlides = desktopWrap.querySelectorAll('.ed-test-slide-desktop');
+  const prevBtn = document.getElementById('ed-test-prev');
+  const nextBtn = document.getElementById('ed-test-next');
+  if (!desktopSlides.length) return;
+
+  let activeIdx = 0;
+  let timer = null;
+
+  function setSlide(idx) {
+    desktopSlides[activeIdx].classList.remove('is-active');
+    activeIdx = (idx + desktopSlides.length) % desktopSlides.length;
+    desktopSlides[activeIdx].classList.add('is-active');
+  }
+
+  function nextSlide() { setSlide(activeIdx + 1); }
+  function prevSlide() { setSlide(activeIdx - 1); }
+
+  if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); resetTimer(); });
+  if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); resetTimer(); });
+
+  function startTimer() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    timer = setInterval(nextSlide, 8000);
+  }
+
+  function resetTimer() {
+    clearInterval(timer);
+    startTimer();
+  }
+
+  desktopWrap.addEventListener('mouseenter', () => clearInterval(timer));
+  desktopWrap.addEventListener('mouseleave', () => startTimer());
+  startTimer();
+}
+
+// 9. Contact: Copy Email button + Toast
+function initEditorialContactCopy() {
+  const btn = document.getElementById('ed-copy-email-btn');
+  const toast = document.getElementById('email-toast');
+  if (!btn || !toast) return;
+
+  btn.addEventListener('click', () => {
+    navigator.clipboard.writeText('contact@digambarpatil.com').then(() => {
+      toast.classList.add('is-visible');
+      setTimeout(() => {
+        toast.classList.remove('is-visible');
+      }, 2000);
+    }).catch(() => {
+      window.location.href = 'mailto:contact@digambarpatil.com';
+    });
+  });
+}
+
+// 10. Mobile Sticky CTA (<768px only)
+function initEditorialMobileStickyCTA() {
+  const stickyBar = document.getElementById('ed-mobile-sticky-cta');
+  const hero = document.getElementById('hero');
+  const contact = document.getElementById('contact');
+  const overlay = document.getElementById('ed-mobile-menu');
+  if (!stickyBar || !hero) return;
+
+  let heroLeftView = false;
+  let contactInView = false;
+
+  const heroObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      heroLeftView = !entry.isIntersecting;
+      updateVisibility();
+    });
+  }, { threshold: 0.1 });
+
+  const contactObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      contactInView = entry.isIntersecting;
+      updateVisibility();
+    });
+  }, { threshold: 0.1 });
+
+  heroObserver.observe(hero);
+  if (contact) contactObserver.observe(contact);
+
+  function updateVisibility() {
+    const isMenuOpen = overlay && overlay.classList.contains('is-open');
+    if (heroLeftView && !contactInView && !isMenuOpen && window.innerWidth < 768) {
+      stickyBar.classList.add('is-visible');
+      stickyBar.setAttribute('aria-hidden', 'false');
+    } else {
+      stickyBar.classList.remove('is-visible');
+      stickyBar.setAttribute('aria-hidden', 'true');
+    }
+  }
+
+  window.addEventListener('resize', updateVisibility);
+}
+
+// 11. Scroll reveal: fade + rise 32px, 700ms, once, when 15% visible
+function initEditorialScrollReveals() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.ed-reveal').forEach(el => el.classList.add('is-revealed'));
+    return;
+  }
+
+  const revealElements = document.querySelectorAll('.ed-reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-revealed');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  revealElements.forEach(el => observer.observe(el));
+}

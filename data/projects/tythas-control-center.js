@@ -16,17 +16,9 @@ export const project = {
   },
 
   hero: {
-    projectName: "Tythas Control Center",
-    eyebrow: "Tythas Control Center",
-    title: "Designing one dashboard to run every client website",
+    eyebrow: "B2B SaaS · Shipped",
+    title: "Tythas Control Center",
     summary: "A multi-tenant website management platform that replaces fragmented client logins with one central dashboard for CMS, SEO, leads, and uptime.",
-    meta: [
-      { label: "Scope", value: "Product Architecture · Design System · Edge API" },
-      { label: "Role", value: "Lead Product Designer & Design Engineer" },
-      { label: "Client/Context", value: "Tythas Digital (Agency Platform)" },
-      { label: "Year", value: "2026" },
-      { label: "Status", value: "Shipped" }
-    ],
     heroImage: "assets/images/tythas_control_center_hero.svg",
     heroImageAlt: "Tythas Control Center — Multi-Tenant Web Platform Architecture and UI Showcase"
   },
@@ -238,27 +230,6 @@ export const project = {
     "Complete Phase 8 production migration on Vercel Edge with automated PostgreSQL connection pooling.",
     "Expand connector adapter library to support Shopify Storefront API and Webflow webhooks natively.",
     "Introduce AI-powered meta description and alt-text generator with human-in-the-loop review."
-  ],
-
-  moreProjects: [
-    {
-      title: "Raya",
-      tags: "AI Health · Concept",
-      image: "assets/images/raya_hero.svg",
-      link: "raya.html"
-    },
-    {
-      title: "Elixir Helps",
-      tags: "Healthcare SaaS · Shipped",
-      image: "assets/images/elixirhelps.jpg",
-      link: "elixir-helps.html"
-    },
-    {
-      title: "Before Two",
-      tags: "Hospitality Ops · Shipped",
-      image: "assets/images/before_two_hero.svg",
-      link: "before-two.html"
-    }
   ],
 
   nextCaseStudy: {

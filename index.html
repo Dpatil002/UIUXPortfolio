@@ -3,581 +3,551 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Digambar Patil — Digital Product Designer</title>
-  <meta name="description" content="Portfolio of Digambar Patil — Designer based in Pune. Shaping digital products, websites and design systems with clarity and character.">
+  <title>Digambar Patil — Product Designer &amp; UI/UX Lead</title>
+  <meta name="description" content="I'm Digambar, a product designer in Pune. I design AI and SaaS products, and build them in code.">
   
   <link rel="icon" href="/favicon.ico" sizes="48x48">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
-  <meta name="theme-color" content="#0A0A0A">
+  <meta name="theme-color" content="#111315">
 
   <!-- Open Graph / Social Sharing -->
-  <meta property="og:title" content="Digambar Patil — Digital Product Designer">
-  <meta property="og:description" content="Portfolio of Digambar Patil — Designer based in Pune. Shaping digital products, websites and design systems with clarity and character.">
+  <meta property="og:title" content="Digambar Patil — Product Designer &amp; UI/UX Lead">
+  <meta property="og:description" content="Calm interfaces for complicated products. Product designer in Pune for AI and SaaS products.">
   <meta property="og:image" content="/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="/og-image.png">
 
-  <!-- Fonts: Newsreader (display serif) and Plus Jakarta Sans (body sans) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <!-- Preload LCP hero portrait image -->
-  <link rel="preload" as="image" href="assets/images/portrait.webp" type="image/webp" fetchpriority="high">
+  <!-- Preload Fraunces 300 + Instrument Sans 400 only -->
+  <link rel="preload" as="font" href="assets/fonts/fraunces-300-latin.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="assets/fonts/instrument-sans-400.woff2" type="font/woff2" crossorigin>
 
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    @font-face { font-family: "Fraunces"; font-style: normal; font-weight: 300 400; font-display: swap; src: url("assets/fonts/fraunces-300-latin.woff2") format("woff2"); }
+    @font-face { font-family: "Instrument Sans"; font-style: normal; font-weight: 400; font-display: swap; src: url("assets/fonts/instrument-sans-400.woff2") format("woff2"); }
+    :root {
+      --bg: #111315; --surface: #1A1D21; --line: rgba(250, 250, 247, 0.12);
+      --text: #FAFAF7; --text-2: rgba(250, 250, 247, 0.82); --text-3: rgba(250, 250, 247, 0.62);
+      --accent: #FF6B3D;
+      --font-display: "Fraunces", Georgia, serif;
+      --font-text: "Instrument Sans", system-ui, sans-serif;
+      --ease-out: cubic-bezier(0, 0, 0.2, 1); --ease: cubic-bezier(0.4, 0, 0.2, 1);
+      --radius-editorial: 6px;
+    }
+    body.home-editorial { background-color: var(--bg); color: var(--text); font-family: var(--font-text); line-height: 1.55; margin: 0; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    .ed-container { width: 100%; max-width: 1440px; margin: 0 auto; padding: 0 20px; box-sizing: border-box; }
+    @media (min-width: 768px) { .ed-container { padding: 0 40px; } }
+    .ed-header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px; background: transparent; transition: opacity 500ms var(--ease); }
+    @media (min-width: 768px) { .ed-header { padding: 20px 40px; } }
+    .ed-nav-inner { max-width: 1440px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+    .ed-brand-link { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: #FAFAF7; mix-blend-mode: difference; min-height: 44px; }
+    .ed-brand-mark { height: 24px; width: auto; fill: currentColor; }
+    .ed-brand-name { font-family: var(--font-text); font-size: 15px; font-weight: 500; letter-spacing: -0.01em; color: #FAFAF7; }
+    .ed-desktop-nav { display: none; align-items: center; gap: 32px; mix-blend-mode: difference; }
+    @media (min-width: 768px) { .ed-desktop-nav { display: flex; } }
+    .ed-nav-item { font-size: 14px; color: #FAFAF7; text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; }
+    .ed-nav-pill-btn { height: 36px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--line); color: #FAFAF7; text-decoration: none; font-size: 14px; font-weight: 500; display: inline-flex; align-items: center; }
+    .ed-menu-toggle { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; background: transparent; border: none; color: #FAFAF7; font-size: 15px; font-weight: 500; cursor: pointer; }
+    @media (min-width: 768px) { .ed-menu-toggle { display: none; } }
+    .ed-hero-section { padding-top: 128px; padding-bottom: 48px; }
+    @media (min-width: 768px) { .ed-hero-section { padding-top: 176px; padding-bottom: 64px; } }
+    .ed-h1 { font-family: var(--font-display); font-weight: 300; font-size: 40px; line-height: 1.0; letter-spacing: -0.04em; font-variation-settings: "opsz" 144; color: var(--text); margin: 0; }
+    @media (min-width: 768px) { .ed-h1 { font-size: 64px; } }
+    @media (min-width: 1280px) { .ed-h1 { font-size: 88px; } }
+    .ed-hero-lead { font-size: 17px; line-height: 1.5; color: var(--text-2); max-width: 46ch; margin-top: 24px; }
+    @media (min-width: 768px) { .ed-hero-lead { font-size: 19px; } }
+    .ed-hero-signature { margin-top: 16px; font-size: 13px; color: var(--text-3); display: flex; align-items: center; flex-wrap: wrap; gap: 4px; }
+    .ed-rot-slot { display: inline-block; position: relative; min-width: 7.2ch; height: 1.25em; vertical-align: baseline; overflow: hidden; }
+    .ed-rot-word { display: inline-block; font-weight: 500; color: var(--text); }
+    .ed-hero-meta { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line); display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    @media (min-width: 1024px) { .ed-hero-meta { grid-template-columns: repeat(4, 1fr); } }
+    .ed-meta-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--text-3); margin-bottom: 6px; }
+    .ed-meta-val { font-size: 15px; color: var(--text); display: flex; align-items: center; gap: 8px; }
+    .ed-accent-pulse-dot { width: 6px; height: 6px; border-radius: 50%; background-color: var(--accent); display: inline-block; flex-shrink: 0; }
+    .ed-hero-mobile-btns { display: flex; flex-direction: column; gap: 12px; margin-top: 32px; }
+    @media (min-width: 768px) { .ed-hero-mobile-btns { display: none; } }
+    .ed-hero-btn-primary { height: 48px; border-radius: 999px; background: var(--text); color: var(--bg); text-decoration: none; font-weight: 500; font-size: 15px; display: flex; align-items: center; justify-content: center; }
+    .ed-hero-btn-secondary { height: 48px; border-radius: 999px; border: 1px solid var(--line); color: var(--text); text-decoration: none; font-weight: 500; font-size: 15px; display: flex; align-items: center; justify-content: center; }
+    .skip-link { position: absolute; top: -100px; left: 1rem; background: var(--text); color: var(--bg); padding: 0.5rem 1rem; z-index: 9999; }
+    .skip-link:focus { top: 1rem; }
+  </style>
+  <link rel="preload" as="style" href="styles.css" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="styles.css"></noscript>
 </head>
-<body>
+<body class="home-editorial">
 
   <!-- Skip link as first focusable element -->
   <a href="#main-content" class="skip-link">Skip to content</a>
 
-  <!-- Subtle Ambient Particle Background Canvas -->
-  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+  <!-- 2. HEADER (fixed, transparent background, mix-blend-mode: difference) -->
+  <header class="ed-header" id="top">
+    <div class="ed-nav-inner">
+      <a href="/" class="ed-brand-link" id="nav-brand" aria-label="Digambar Patil — home">
+        <svg class="ed-brand-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 538 369" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="M69.1,367.1C71.5,365.2 75.9,358.6 100.1,320.5C123.0,284.3 126.6,278.7 130.4,272.8L134.1,267.0L245.8,267.0C314.6,267.0 360.2,266.6 364.5,266.0C384.6,263.1 404.6,252.0 417.0,236.7C423.7,228.5 431.6,212.5 433.7,203.0C435.8,193.2 435.8,175.6 433.7,166.0C430.5,151.4 418.5,131.6 407.4,122.5C400.0,116.4 396.1,114.0 387.5,110.0C371.0,102.3 375.8,102.7 278.5,102.3C217.4,102.0 189.5,102.2 184.8,103.0C170.4,105.5 158.3,114.4 148.9,129.4C146.1,133.9 139.4,144.5 133.9,153.0C120.4,174.0 119.6,175.8 120.8,178.6C122.8,183.0 130.0,184.2 157.1,184.7C178.4,185.2 182.1,185.0 184.8,183.6C186.7,182.6 190.1,178.7 193.7,173.2L199.5,164.5L278.0,164.2C331.6,164.0 357.7,164.3 360.2,165.0C374.5,169.1 378.9,189.3 367.8,199.7C361.9,205.2 367.5,205.0 245.7,205.0C138.0,205.0 133.0,204.9 125.8,203.1C110.4,199.1 95.3,189.4 86.5,177.9C68.8,154.4 66.2,124.3 79.7,98.8C85.5,87.8 98.9,74.7 110.0,69.2C126.9,60.9 116.7,61.5 250.0,61.5L368.5,61.5L378.9,63.8C416.2,72.0 447.0,96.0 464.0,129.9C468.1,138.1 473.4,154.4 475.1,164.0C477.0,174.7 476.8,196.6 474.7,207.3C467.7,242.4 446.5,272.8 416.5,290.5C405.6,297.0 396.6,300.7 383.0,304.3L371.5,307.4L264.3,308.0C170.7,308.4 156.9,308.7 155.7,310.0C154.2,311.6 124.2,358.8 122.1,362.8C121.0,364.8 121.1,365.5 122.6,367.1C124.3,369.0 127.3,369.0 246.4,369.0C349.2,369.0 370.2,368.7 379.0,367.5C419.6,361.7 455.0,344.0 484.0,314.8C548.8,249.7 555.7,146.5 500.2,72.8C473.0,36.7 432.2,11.3 387.5,2.8L375.5,0.5L250.5,0.5C131.8,0.5 125.0,0.6 116.5,2.4C98.2,6.2 78.6,14.8 64.5,25.2C54.0,32.9 40.2,47.3 33.3,57.7C23.1,73.0 17.2,86.7 12.9,105.1C9.8,118.0 9.6,147.2 12.4,160.0C19.5,192.6 38.0,221.4 64.2,240.6C69.0,244.1 73.0,247.5 73.0,248.1C73.0,248.7 69.5,254.6 65.2,261.3C60.8,268.0 51.3,282.9 44.0,294.5C36.7,306.1 23.8,326.4 15.4,339.7C6.9,352.9 -0.0,364.2 -0.0,364.6C-0.0,365.0 0.7,366.2 1.7,367.2C3.2,368.9 5.6,369.0 35.0,369.0C64.5,369.0 66.9,368.9 69.1,367.1Z"/></svg>
+        <span class="ed-brand-name">Digambar Patil</span>
+      </a>
 
-  <!-- Cursor following arrow badge for footer email -->
-  <div id="cursor-badge" class="cursor-arrow-badge" aria-hidden="true">
-    <svg viewBox="0 0 24 24">
-      <line x1="7" y1="17" x2="17" y2="7"></line>
-      <polyline points="7 7 17 7 17 17"></polyline>
-    </svg>
-  </div>
+      <!-- Desktop Nav (>=768px) -->
+      <nav class="ed-desktop-nav" aria-label="Main Navigation">
+        <a href="#work" class="ed-nav-item">Work</a>
+        <a href="about.html" class="ed-nav-item">About</a>
+        <a href="assets/Digambar_Patil_Resume.pdf" target="_blank" rel="noopener noreferrer" class="ed-nav-item">Resume ↗</a>
+        <a href="#contact" class="ed-nav-pill-btn">Get in touch</a>
+      </nav>
 
-  <!-- NAV -->
-  <header class="site-nav" id="top">
-    <div class="container">
-      <div class="nav-inner">
-        <a href="/" class="nav-brand" id="nav-brand" aria-label="Digambar Patil — home">
-          <svg class="brand-logo-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 538 369" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="M69.1,367.1C71.5,365.2 75.9,358.6 100.1,320.5C123.0,284.3 126.6,278.7 130.4,272.8L134.1,267.0L245.8,267.0C314.6,267.0 360.2,266.6 364.5,266.0C384.6,263.1 404.6,252.0 417.0,236.7C423.7,228.5 431.6,212.5 433.7,203.0C435.8,193.2 435.8,175.6 433.7,166.0C430.5,151.4 418.5,131.6 407.4,122.5C400.0,116.4 396.1,114.0 387.5,110.0C371.0,102.3 375.8,102.7 278.5,102.3C217.4,102.0 189.5,102.2 184.8,103.0C170.4,105.5 158.3,114.4 148.9,129.4C146.1,133.9 139.4,144.5 133.9,153.0C120.4,174.0 119.6,175.8 120.8,178.6C122.8,183.0 130.0,184.2 157.1,184.7C178.4,185.2 182.1,185.0 184.8,183.6C186.7,182.6 190.1,178.7 193.7,173.2L199.5,164.5L278.0,164.2C331.6,164.0 357.7,164.3 360.2,165.0C374.5,169.1 378.9,189.3 367.8,199.7C361.9,205.2 367.5,205.0 245.7,205.0C138.0,205.0 133.0,204.9 125.8,203.1C110.4,199.1 95.3,189.4 86.5,177.9C68.8,154.4 66.2,124.3 79.7,98.8C85.5,87.8 98.9,74.7 110.0,69.2C126.9,60.9 116.7,61.5 250.0,61.5L368.5,61.5L378.9,63.8C416.2,72.0 447.0,96.0 464.0,129.9C468.1,138.1 473.4,154.4 475.1,164.0C477.0,174.7 476.8,196.6 474.7,207.3C467.7,242.4 446.5,272.8 416.5,290.5C405.6,297.0 396.6,300.7 383.0,304.3L371.5,307.4L264.3,308.0C170.7,308.4 156.9,308.7 155.7,310.0C154.2,311.6 124.2,358.8 122.1,362.8C121.0,364.8 121.1,365.5 122.6,367.1C124.3,369.0 127.3,369.0 246.4,369.0C349.2,369.0 370.2,368.7 379.0,367.5C419.6,361.7 455.0,344.0 484.0,314.8C548.8,249.7 555.7,146.5 500.2,72.8C473.0,36.7 432.2,11.3 387.5,2.8L375.5,0.5L250.5,0.5C131.8,0.5 125.0,0.6 116.5,2.4C98.2,6.2 78.6,14.8 64.5,25.2C54.0,32.9 40.2,47.3 33.3,57.7C23.1,73.0 17.2,86.7 12.9,105.1C9.8,118.0 9.6,147.2 12.4,160.0C19.5,192.6 38.0,221.4 64.2,240.6C69.0,244.1 73.0,247.5 73.0,248.1C73.0,248.7 69.5,254.6 65.2,261.3C60.8,268.0 51.3,282.9 44.0,294.5C36.7,306.1 23.8,326.4 15.4,339.7C6.9,352.9 -0.0,364.2 -0.0,364.6C-0.0,365.0 0.7,366.2 1.7,367.2C3.2,368.9 5.6,369.0 35.0,369.0C64.5,369.0 66.9,368.9 69.1,367.1Z"/></svg>
-          <span class="brand-wordmark">
-            <span class="brand-name">Digambar Patil</span>
-            <span class="brand-title">Product Designer</span>
-          </span>
-        </a>
-        <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav-sheet">
-          <span class="hamburger-bar"></span>
-          <span class="hamburger-bar"></span>
-        </button>
-        <nav class="nav-links desktop-nav" id="nav-links" aria-label="Main Navigation">
-          <a href="work.html" class="nav-link" id="nav-work">Work</a>
-          <a href="about.html" class="nav-link" id="nav-about">About</a>
-          <a href="assets/Digambar_Patil_Resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link" id="nav-resume">Resume <span class="nav-external-icon" aria-hidden="true">↗</span></a>
-          <a href="#contact" class="nav-contact-btn" id="nav-contact">Contact</a>
-        </nav>
-      </div>
+      <!-- Mobile Menu Toggle Button (<768px) -->
+      <button class="ed-menu-toggle" id="ed-menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="ed-mobile-menu">Menu</button>
     </div>
 
-    <!-- Mobile Navigation Sheet (<768px) -->
-    <div class="mobile-nav-sheet" id="mobile-nav-sheet" aria-hidden="true">
-      <div class="sheet-inner">
-        <nav class="sheet-nav-list" aria-label="Mobile Navigation">
-          <a href="work.html" class="sheet-nav-link" id="sheet-nav-work">Work</a>
-          <a href="about.html" class="sheet-nav-link" id="sheet-nav-about">About</a>
-          <a href="assets/Digambar_Patil_Resume.pdf" target="_blank" rel="noopener noreferrer" class="sheet-nav-link" id="sheet-nav-resume">Resume <span class="nav-external-icon" aria-hidden="true">↗</span></a>
-          <a href="#contact" class="sheet-nav-link" id="sheet-nav-contact">Contact</a>
-        </nav>
-        <div class="sheet-footer">
-          <a href="mailto:contact@digambarpatil.com" class="sheet-btn-primary">Email me</a>
-          <div class="sheet-social-row">
-            <a href="https://www.linkedin.com/in/digambar-patil-6847081aa/" target="_blank" rel="noopener noreferrer" class="sheet-social-link" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24" class="sheet-social-icon" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64c-.95 0-1.66.71-1.66 1.66 0 .93.71 1.64 1.66 1.64.92 0 1.63-.71 1.63-1.64 0-.95-.71-1.66-1.63-1.66z"></path></svg>
-            </a>
-            <a href="https://www.behance.net/digambarpatil2" target="_blank" rel="noopener noreferrer" class="sheet-social-link" aria-label="Behance">
-              <svg viewBox="0 0 24 24" class="sheet-social-icon" aria-hidden="true"><path d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-4.085 0-6.625-2.748-6.625-6.84 0-4.225 2.684-6.892 6.471-6.892 4.103 0 6.136 2.924 5.753 6.944h-9.351c.143 2.087 1.664 3.656 3.753 3.656 1.848 0 2.879-.824 3.324-1.868h1.776zm-8.854-5.352h6.586c-.161-1.802-1.399-3.08-3.264-3.08-1.954 0-3.136 1.294-3.322 3.08zm-14.872-6.648h5.922c3.154 0 4.908 1.492 4.908 3.781 0 1.611-.871 2.766-2.28 3.27 1.778.508 2.802 1.879 2.802 3.736 0 2.569-1.977 4.213-5.316 4.213h-6.036v-15zm3.02 6.096h2.49c1.242 0 2.05-.623 2.05-1.637 0-.964-.784-1.579-2.026-1.579h-2.514v3.216zm0 5.864h2.723c1.455 0 2.378-.711 2.378-1.815 0-1.127-.923-1.801-2.454-1.801h-2.647v3.616z"></path></svg>
-            </a>
-          </div>
-          <p class="sheet-status-text">Open to full-time roles · Pune / Remote</p>
+    <!-- Mobile Full-Screen Overlay Menu (<768px) -->
+    <div class="ed-mobile-menu-overlay" id="ed-mobile-menu" aria-hidden="true">
+      <div class="ed-mobile-menu-header">
+        <a href="/" class="ed-brand-link" aria-label="Digambar Patil — home">
+          <span class="ed-brand-name" style="font-size: 16px; font-weight: 500;">Digambar Patil</span>
+        </a>
+        <button class="ed-mobile-menu-close" id="ed-mobile-menu-close" aria-label="Close menu">Close</button>
+      </div>
+
+      <nav class="ed-mobile-menu-links" aria-label="Mobile Navigation">
+        <a href="#work" class="ed-mobile-nav-link" id="mob-link-work">Work</a>
+        <a href="about.html" class="ed-mobile-nav-link" id="mob-link-about">About</a>
+        <a href="assets/Digambar_Patil_Resume.pdf" target="_blank" rel="noopener noreferrer" class="ed-mobile-nav-link" id="mob-link-resume">Resume ↗</a>
+        <a href="#contact" class="ed-mobile-nav-link" id="mob-link-contact">Contact</a>
+      </nav>
+
+      <div class="ed-mobile-menu-footer">
+        <a href="mailto:contact@digambarpatil.com" class="ed-mobile-menu-btn-primary">Email me</a>
+        <div class="ed-mobile-menu-socials">
+          <a href="https://www.linkedin.com/in/digambar-patil-6847081aa/" target="_blank" rel="noopener noreferrer" class="ed-mobile-menu-social-link">LinkedIn ↗</a>
+          <a href="https://www.behance.net/digambarpatil2" target="_blank" rel="noopener noreferrer" class="ed-mobile-menu-social-link">Behance ↗</a>
         </div>
+        <div class="ed-mobile-menu-status">Open to full-time roles · Pune / Remote</div>
       </div>
     </div>
   </header>
 
   <main id="main-content">
-    <!-- 3.1 HERO SECTION -->
-    <section class="hero-section" id="hero" aria-label="Hero">
-      <div class="container">
-        <div class="hero-grid">
-          <div class="hero-content">
-            <p class="hero-eyebrow">PRODUCT DESIGNER · UI/UX LEAD · PUNE</p>
-            <h1 class="hero-h1">
-              <span class="hero-word" style="--w-idx: 0;">I</span>
-              <span class="hero-word" style="--w-idx: 1;">design</span>
-              <span class="hero-word" style="--w-idx: 2;">AI</span>
-              <span class="hero-word" style="--w-idx: 3;">and</span>
-              <span class="hero-word" style="--w-idx: 4;">SaaS</span>
-              <span class="hero-word" style="--w-idx: 5;">products</span>
-              <span class="hero-word" style="--w-idx: 6;">—</span>
-              <span class="hero-word" style="--w-idx: 7;">and</span>
-              <span class="hero-word" style="--w-idx: 8;">build</span>
-              <span class="hero-word" style="--w-idx: 9;">what</span>
-              <span class="hero-word" style="--w-idx: 10;">I</span>
-              <span class="hero-word" style="--w-idx: 11;">design.</span>
+
+    <!-- 3. HERO SECTION -->
+    <section class="ed-hero-section" id="hero" aria-label="Hero">
+      <div class="ed-container">
+        <div class="ed-hero-grid">
+          
+          <div class="ed-hero-h1-wrap">
+            <h1 class="ed-h1">
+              <span class="ed-h1-line">
+                <span class="ed-h1-inner">Calm interfaces for</span>
+              </span>
+              <span class="ed-h1-line">
+                <span class="ed-h1-inner"><em>complicated</em> products.</span>
+              </span>
             </h1>
-            <p class="hero-subline">
-              UI/UX Lead at The Impact Engine. 2.5+ years designing web apps, admin dashboards and AI-assisted products for fintech, healthcare, wellness and e-commerce — from research to production-ready UI in React and Next.js.
-            </p>
-            <div class="hero-chip">
-              <span class="pulse-dot" aria-hidden="true"></span>
-              <span>Open to full-time roles</span>
+          </div>
+
+          <p class="ed-hero-lead">
+            I'm Digambar, a product designer in Pune. I design AI and SaaS products, and build them in code.
+          </p>
+
+          <div class="ed-hero-signature" id="ed-hero-signature">
+            <span>I</span>
+            <span class="ed-rot-slot" id="ed-rot-slot" aria-live="off">
+              <span class="ed-rot-word rot-active" id="ed-rot-word">research</span>
+            </span>
+            <span>— AI products, SaaS platforms and design systems.</span>
+          </div>
+
+          <!-- Meta row (48px below, 1px --line top border, 20px padding-top) -->
+          <div class="ed-hero-meta">
+            <div class="ed-meta-item">
+              <span class="ed-meta-label">BASED</span>
+              <span class="ed-meta-val">Pune, India (IST)</span>
             </div>
-            <div class="hero-buttons">
-              <a href="#work" class="hero-btn-primary">View work</a>
-              <a href="assets/Digambar_Patil_Resume.pdf" target="_blank" rel="noopener noreferrer" class="hero-btn-secondary">Resume ↗</a>
+            <div class="ed-meta-item">
+              <span class="ed-meta-label">FOCUS</span>
+              <span class="ed-meta-val">AI products · B2B SaaS · Design systems</span>
+            </div>
+            <div class="ed-meta-item">
+              <span class="ed-meta-label">NOW</span>
+              <span class="ed-meta-val">UI/UX Lead at The Impact Engine</span>
+            </div>
+            <div class="ed-meta-item">
+              <span class="ed-meta-label">OPEN TO</span>
+              <span class="ed-meta-val">
+                <!-- Accent use #1: 6px --accent dot with soft pulse (2s infinite) -->
+                <span class="ed-accent-pulse-dot" aria-hidden="true"></span>
+                <span>Product Designer · AI Product Designer · UI/UX Lead</span>
+              </span>
             </div>
           </div>
 
-          <div class="hero-portrait-wrapper">
-            <div class="hero-portrait-card">
-              <picture>
-                <source srcset="assets/images/portrait.webp" type="image/webp">
-                <img src="assets/images/portrait.jpg" alt="Digambar Patil — Product Designer" class="hero-portrait-img" width="340" height="425" fetchpriority="high">
-              </picture>
-            </div>
+          <!-- Buttons (mobile only, below meta, full width, 48px tall, 12px gap) -->
+          <div class="ed-hero-mobile-btns">
+            <a href="#work" class="ed-hero-btn-primary">View work ↓</a>
+            <a href="assets/Digambar_Patil_Resume.pdf" target="_blank" rel="noopener noreferrer" class="ed-hero-btn-secondary">Resume ↗</a>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- 3.2 META STRIP -->
-    <section class="meta-strip-section" aria-label="Professional highlights">
-      <div class="container">
-        <div class="meta-strip-grid">
-          <div class="meta-strip-item">
-            <span class="meta-strip-label">ROLE</span>
-            <span class="meta-strip-val">Product Designer · UI/UX Lead</span>
-          </div>
-          <div class="meta-strip-item">
-            <span class="meta-strip-label">FOCUS</span>
-            <span class="meta-strip-val">AI products, B2B SaaS, design systems</span>
-          </div>
-          <div class="meta-strip-item">
-            <span class="meta-strip-label">OPEN TO</span>
-            <span class="meta-strip-val">Product Designer, AI Product Designer, UI/UX Lead</span>
-          </div>
-          <div class="meta-strip-item">
-            <span class="meta-strip-label">BASED</span>
-            <span class="meta-strip-val">Pune, India (IST)</span>
-          </div>
+    <!-- 4. FEATURED IMAGE BAND (between hero and work) -->
+    <section class="ed-featured-band" id="featured-band" aria-label="Featured product overview">
+      <div class="ed-container">
+        <div class="ed-featured-frame" id="ed-featured-frame">
+          <img 
+            src="assets/images/tythas_screen_dashboard.svg" 
+            alt="Tythas Control Center Dashboard — Multi-Tenant SaaS Interface" 
+            class="ed-featured-img" 
+            id="ed-featured-img"
+            width="1200" 
+            height="514" 
+            loading="lazy"
+          >
         </div>
       </div>
     </section>
 
-    <!-- 3.3 PROOF BAR -->
-    <section class="proof-bar-section" aria-label="Key metrics & proof points">
-      <div class="container">
-        <div class="proof-scroll-container" id="proof-scroll-container">
-          <div class="proof-card" data-metric-type="text">
-            <div class="proof-num">6 → 1</div>
-            <div class="proof-label">Workflows consolidated into one SaaS (Tythas Control Center)</div>
-          </div>
-          <div class="proof-card" data-metric-type="counter" data-target="22" data-suffix="+">
-            <div class="proof-num"><span class="count-val">22</span>+</div>
-            <div class="proof-label">Screens across 3 role-based portals (Elixir Helps)</div>
-          </div>
-          <div class="proof-card" data-metric-type="counter" data-target="20" data-suffix="+">
-            <div class="proof-num"><span class="count-val">20</span>+</div>
-            <div class="proof-label">Brands designed for across India, UK and Australia</div>
-          </div>
-          <div class="proof-card" data-metric-type="text">
-            <div class="proof-num">[X]</div>
-            <div class="proof-label">Designers mentored at The Impact Engine</div>
-          </div>
-        </div>
-        <div class="proof-dots" id="proof-dots" aria-hidden="true">
-          <button type="button" class="proof-dot active" data-index="0" aria-label="Metric 1"></button>
-          <button type="button" class="proof-dot" data-index="1" aria-label="Metric 2"></button>
-          <button type="button" class="proof-dot" data-index="2" aria-label="Metric 3"></button>
-          <button type="button" class="proof-dot" data-index="3" aria-label="Metric 4"></button>
-        </div>
-      </div>
-    </section>
-
-    <!-- 3.4 CLIENT STRIP -->
-    <section class="clients-section" aria-label="Clients">
-      <div class="container">
-        <h2 class="clients-title">Brands I've designed for</h2>
-      </div>
-      <div class="marquee-wrapper" id="clients-marquee" tabindex="0" role="region" aria-label="Brands carousel">
-        <div class="marquee-track">
-          <!-- Primary Group -->
-          <div class="marquee-group">
-            <div class="company-logo-item"><span>Pride World City</span></div>
-            <div class="company-logo-item"><span>Masqa</span></div>
-            <div class="company-logo-item"><span>Powerpoint Co-working Space</span></div>
-            <div class="company-logo-item"><span>Quoffine</span></div>
-            <div class="company-logo-item"><span>Grover Zampa</span></div>
-            <div class="company-logo-item"><span>Soché</span></div>
-            <div class="company-logo-item"><span>Eureka Engineering</span></div>
-            <div class="company-logo-item"><span>Kanchoco</span></div>
-            <div class="company-logo-item"><span>Dewaxify London</span></div>
-            <div class="company-logo-item"><span>Bespoke Sol.</span></div>
-            <div class="company-logo-item"><span>Sydney Decors</span></div>
-            <div class="company-logo-item"><span>Elixir Helps</span></div>
-            <div class="company-logo-item"><span>Johnson Bathware</span></div>
-            <div class="company-logo-item"><span>Copper Chocs</span></div>
-            <div class="company-logo-item"><span>Weverve System</span></div>
-            <div class="company-logo-item"><span>HireSprint UK</span></div>
-            <div class="company-logo-item"><span>SB Patil</span></div>
-            <div class="company-logo-item"><span>Moransh UK</span></div>
-          </div>
-          <!-- Cloned Group for Infinite Scroll -->
-          <div class="marquee-group" aria-hidden="true">
-            <div class="company-logo-item"><span>Pride World City</span></div>
-            <div class="company-logo-item"><span>Masqa</span></div>
-            <div class="company-logo-item"><span>Powerpoint Co-working Space</span></div>
-            <div class="company-logo-item"><span>Quoffine</span></div>
-            <div class="company-logo-item"><span>Grover Zampa</span></div>
-            <div class="company-logo-item"><span>Soché</span></div>
-            <div class="company-logo-item"><span>Eureka Engineering</span></div>
-            <div class="company-logo-item"><span>Kanchoco</span></div>
-            <div class="company-logo-item"><span>Dewaxify London</span></div>
-            <div class="company-logo-item"><span>Bespoke Sol.</span></div>
-            <div class="company-logo-item"><span>Sydney Decors</span></div>
-            <div class="company-logo-item"><span>Elixir Helps</span></div>
-            <div class="company-logo-item"><span>Johnson Bathware</span></div>
-            <div class="company-logo-item"><span>Copper Chocs</span></div>
-            <div class="company-logo-item"><span>Weverve System</span></div>
-            <div class="company-logo-item"><span>HireSprint UK</span></div>
-            <div class="company-logo-item"><span>SB Patil</span></div>
-            <div class="company-logo-item"><span>Moransh UK</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 3.5 SELECTED WORK -->
-    <section class="selected-work-section" id="work" aria-label="Selected work">
-      <div class="container">
-        <div class="selected-work-header">
-          <div class="section-label-tiny reveal-on-scroll">CASE STUDIES</div>
-          <h2 class="section-heading reveal-on-scroll">Selected work</h2>
+    <!-- 5. WORK THAT SHIPPED (id="work") -->
+    <section class="ed-work-section" id="work" aria-label="Work that shipped">
+      <div class="ed-container">
+        <div class="ed-section-head ed-reveal">
+          <h2 class="ed-h2">Work that shipped</h2>
+          <a href="work.html" class="ed-head-link">All work →</a>
         </div>
 
-        <div class="work-cards-grid">
-          <!-- 1. Tythas Control Center -->
-          <a href="tythas-control-center.html" class="work-card reveal-on-scroll" aria-label="Tythas Control Center case study">
-            <div class="work-card-media">
-              <img src="assets/images/tythas_control_center_hero.svg" alt="Tythas Control Center — Multi-Tenant SaaS Platform" class="work-card-img" loading="lazy" width="800" height="500">
+        <div class="ed-work-grid">
+          
+          <!-- 1. Tythas Control Center (First card spans both columns on >=768px at 21:9) -->
+          <a href="tythas-control-center.html" class="ed-work-card ed-reveal" aria-label="Tythas Control Center case study">
+            <div class="ed-card-media">
+              <img src="assets/images/tythas_control_center_hero.svg" alt="Tythas Control Center SaaS Platform" class="ed-card-img" width="1200" height="514" loading="lazy">
+              <div class="ed-cursor-pill">View case study</div>
             </div>
-            <div class="work-card-tag">B2B SaaS · Shipped</div>
-            <div class="work-card-title-row">
-              <h3 class="work-card-title">Tythas Control Center</h3>
-              <span class="work-card-arrow" aria-hidden="true">→</span>
-            </div>
-            <p class="work-card-outcome">Designed and shipped a multi-tenant SaaS that replaces [X] client logins with one dashboard.</p>
-            <div class="work-card-footer">
-              <span class="work-card-role">Lead Designer · 2026</span>
-              <span class="work-card-link-text">Read case study →</span>
+            <div class="ed-card-info">
+              <div class="ed-card-title-row">
+                <h3 class="ed-card-title">Tythas Control Center</h3>
+                <span class="ed-card-year">2026</span>
+              </div>
+              <p class="ed-card-outcome">Designed and shipped a multi-tenant SaaS that replaces [X] client logins with one dashboard.</p>
+              <div class="ed-card-tags">B2B SaaS · Shipped</div>
             </div>
           </a>
 
           <!-- 2. Raya -->
-          <a href="raya.html" class="work-card reveal-on-scroll" aria-label="Raya case study">
-            <div class="work-card-media">
-              <img src="assets/images/raya_hero.svg" alt="Raya — AI Workout Coach Interface" class="work-card-img" loading="lazy" width="800" height="500">
+          <a href="raya.html" class="ed-work-card ed-reveal" aria-label="Raya case study">
+            <div class="ed-card-media">
+              <img src="assets/images/raya_hero.svg" alt="Raya AI Workout Coach Interface" class="ed-card-img" width="800" height="500" loading="lazy">
+              <div class="ed-cursor-pill">View case study</div>
             </div>
-            <div class="work-card-tag">AI Health · Concept</div>
-            <div class="work-card-title-row">
-              <h3 class="work-card-title">Raya</h3>
-              <span class="work-card-arrow" aria-hidden="true">→</span>
-            </div>
-            <p class="work-card-outcome">AI coach concept that turns skipped workouts into 5-minute wins.</p>
-            <div class="work-card-footer">
-              <span class="work-card-role">Product Designer · 2026</span>
-              <span class="work-card-link-text">Read case study →</span>
+            <div class="ed-card-info">
+              <div class="ed-card-title-row">
+                <h3 class="ed-card-title">Raya</h3>
+                <span class="ed-card-year">2026</span>
+              </div>
+              <p class="ed-card-outcome">AI coach concept that turns skipped workouts into 5-minute wins.</p>
+              <div class="ed-card-tags">AI Health · Concept</div>
             </div>
           </a>
 
           <!-- 3. Elixir Helps -->
-          <a href="elixir-helps.html" class="work-card reveal-on-scroll" aria-label="Elixir Helps case study">
-            <div class="work-card-media">
-              <img src="assets/images/elixirhelps.jpg" alt="Elixir Helps — Therapy Portals & Booking Platform" class="work-card-img" loading="lazy" width="800" height="500">
+          <a href="elixir-helps.html" class="ed-work-card ed-reveal" aria-label="Elixir Helps case study">
+            <div class="ed-card-media">
+              <img src="assets/images/elixirhelps.jpg" alt="Elixir Helps Therapy Portals" class="ed-card-img" width="800" height="500" loading="lazy">
+              <div class="ed-cursor-pill">View case study</div>
             </div>
-            <div class="work-card-tag">Healthcare · Shipped</div>
-            <div class="work-card-title-row">
-              <h3 class="work-card-title">Elixir Helps</h3>
-              <span class="work-card-arrow" aria-hidden="true">→</span>
-            </div>
-            <p class="work-card-outcome">Booking site + admin + counsellor portals for online therapy.</p>
-            <div class="work-card-footer">
-              <span class="work-card-role">UI/UX Lead · 2025</span>
-              <span class="work-card-link-text">Read case study →</span>
+            <div class="ed-card-info">
+              <div class="ed-card-title-row">
+                <h3 class="ed-card-title">Elixir Helps</h3>
+                <span class="ed-card-year">2025</span>
+              </div>
+              <p class="ed-card-outcome">Booking site + admin + counsellor portals for online therapy.</p>
+              <div class="ed-card-tags">Healthcare · Shipped</div>
             </div>
           </a>
 
           <!-- 4. Soché -->
-          <a href="soche.html" class="work-card reveal-on-scroll" aria-label="Soché case study">
-            <div class="work-card-media">
-              <img src="assets/images/soche_hero.svg" alt="Soché — Luxury D2C & B2B Wholesale Store" class="work-card-img" loading="lazy" width="800" height="500">
+          <a href="soche.html" class="ed-work-card ed-reveal" aria-label="Soché case study">
+            <div class="ed-card-media">
+              <img src="assets/images/soche_hero.svg" alt="Soché Luxury Commerce Platform" class="ed-card-img" width="800" height="500" loading="lazy">
+              <div class="ed-cursor-pill">View case study</div>
             </div>
-            <div class="work-card-tag">Luxury Commerce · Shipped</div>
-            <div class="work-card-title-row">
-              <h3 class="work-card-title">Soché</h3>
-              <span class="work-card-arrow" aria-hidden="true">→</span>
-            </div>
-            <p class="work-card-outcome">One Shopify store serving luxury D2C buyers and B2B wholesale.</p>
-            <div class="work-card-footer">
-              <span class="work-card-role">Lead Designer · 2025</span>
-              <span class="work-card-link-text">Read case study →</span>
+            <div class="ed-card-info">
+              <div class="ed-card-title-row">
+                <h3 class="ed-card-title">Soché</h3>
+                <span class="ed-card-year">2025</span>
+              </div>
+              <p class="ed-card-outcome">One Shopify store serving luxury D2C buyers and B2B wholesale.</p>
+              <div class="ed-card-tags">Luxury Commerce · Shipped</div>
             </div>
           </a>
 
           <!-- 5. Before Two -->
-          <a href="before-two.html" class="work-card reveal-on-scroll" aria-label="Before Two case study">
-            <div class="work-card-media">
-              <img src="assets/images/before_two_hero.svg" alt="Before Two — Hospitality Housekeeping Mobile App" class="work-card-img" loading="lazy" width="800" height="500">
+          <a href="before-two.html" class="ed-work-card ed-reveal" aria-label="Before Two case study">
+            <div class="ed-card-media">
+              <img src="assets/images/before_two_hero.svg" alt="Before Two Housekeeping Mobile App" class="ed-card-img" width="800" height="500" loading="lazy">
+              <div class="ed-cursor-pill">View case study</div>
             </div>
-            <div class="work-card-tag">Hospitality Ops · Shipped</div>
-            <div class="work-card-title-row">
-              <h3 class="work-card-title">Before Two</h3>
-              <span class="work-card-arrow" aria-hidden="true">→</span>
-            </div>
-            <p class="work-card-outcome">Offline-first, photo-verified housekeeping for villa hosts.</p>
-            <div class="work-card-footer">
-              <span class="work-card-role">Lead Designer · 2024</span>
-              <span class="work-card-link-text">Read case study →</span>
+            <div class="ed-card-info">
+              <div class="ed-card-title-row">
+                <h3 class="ed-card-title">Before Two</h3>
+                <span class="ed-card-year">2024</span>
+              </div>
+              <p class="ed-card-outcome">Offline-first, photo-verified housekeeping for villa hosts.</p>
+              <div class="ed-card-tags">Hospitality Ops · Shipped</div>
             </div>
           </a>
-        </div>
 
-        <div class="more-work-container reveal-on-scroll">
-          <a href="work.html" class="more-work-link">More work <span aria-hidden="true">→</span></a>
-          <p class="more-work-desc">Copper Chocs and other projects I designed</p>
         </div>
       </div>
     </section>
 
-    <!-- 3.6 HOW I WORK (replaces What I do) -->
-    <section class="how-i-work-section" id="how-i-work" aria-label="How I work">
-      <div class="container">
-        <div class="section-label-tiny reveal-on-scroll">METHODOLOGY</div>
-        <h2 class="section-heading reveal-on-scroll">How I work</h2>
-        <div class="how-grid">
-          <!-- 01 (Open by default) -->
-          <div class="how-item is-open reveal-on-scroll" id="how-item-1">
-            <button type="button" class="how-header-btn" aria-expanded="true" aria-controls="how-collapse-1">
-              <div class="how-title-wrap">
-                <span class="how-num">01</span>
-                <span class="how-title">End-to-end product design</span>
-              </div>
-              <svg viewBox="0 0 24 24" class="how-chevron" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </button>
-            <div class="how-body-collapse" id="how-collapse-1">
-              <div class="how-body-inner">
-                <p class="how-desc">Research, flows, IA, wireframes and high-fidelity UI for web and mobile.</p>
-              </div>
-            </div>
+    <!-- 6. HOW I WORK -->
+    <section class="ed-how-section" id="how-i-work" aria-label="How I work">
+      <div class="ed-container">
+        <div class="ed-how-grid">
+          
+          <div class="ed-how-sticky-head ed-reveal">
+            <h2 class="ed-h2">How I work</h2>
           </div>
 
-          <!-- 02 -->
-          <div class="how-item reveal-on-scroll" id="how-item-2">
-            <button type="button" class="how-header-btn" aria-expanded="false" aria-controls="how-collapse-2">
-              <div class="how-title-wrap">
-                <span class="how-num">02</span>
-                <span class="how-title">AI product and interaction design</span>
+          <div class="ed-how-rows">
+            
+            <div class="ed-how-row ed-reveal">
+              <div class="ed-how-row-top">
+                <span class="ed-how-num">01</span>
+                <h3 class="ed-how-title">End-to-end product design</h3>
               </div>
-              <svg viewBox="0 0 24 24" class="how-chevron" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </button>
-            <div class="how-body-collapse" id="how-collapse-2">
-              <div class="how-body-inner">
-                <p class="how-desc">Conversational UX, AI persona and tone, trust, explainability and failure states.</p>
-              </div>
+              <p class="ed-how-desc">Research, flows, IA, wireframes and high-fidelity UI for web and mobile.</p>
             </div>
+
+            <div class="ed-how-row ed-reveal">
+              <div class="ed-how-row-top">
+                <span class="ed-how-num">02</span>
+                <h3 class="ed-how-title">AI product and interaction design</h3>
+              </div>
+              <p class="ed-how-desc">Conversational UX, AI persona and tone, trust, explainability and failure states.</p>
+            </div>
+
+            <div class="ed-how-row ed-reveal">
+              <div class="ed-how-row-top">
+                <span class="ed-how-num">03</span>
+                <h3 class="ed-how-title">Design systems and tokens</h3>
+              </div>
+              <p class="ed-how-desc">Scalable component libraries, design-to-code QA and pixel-accurate handoff.</p>
+            </div>
+
+            <div class="ed-how-row ed-reveal">
+              <div class="ed-how-row-top">
+                <span class="ed-how-num">04</span>
+                <h3 class="ed-how-title">Design engineering</h3>
+              </div>
+              <p class="ed-how-desc">Prototyping and shipping in React, Next.js and Tailwind with Claude Code, Cursor and v0.</p>
+            </div>
+
           </div>
 
-          <!-- 03 -->
-          <div class="how-item reveal-on-scroll" id="how-item-3">
-            <button type="button" class="how-header-btn" aria-expanded="false" aria-controls="how-collapse-3">
-              <div class="how-title-wrap">
-                <span class="how-num">03</span>
-                <span class="how-title">Design systems and tokens</span>
-              </div>
-              <svg viewBox="0 0 24 24" class="how-chevron" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </button>
-            <div class="how-body-collapse" id="how-collapse-3">
-              <div class="how-body-inner">
-                <p class="how-desc">Scalable component libraries, design-to-code QA and pixel-accurate handoff.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- 04 -->
-          <div class="how-item reveal-on-scroll" id="how-item-4">
-            <button type="button" class="how-header-btn" aria-expanded="false" aria-controls="how-collapse-4">
-              <div class="how-title-wrap">
-                <span class="how-num">04</span>
-                <span class="how-title">Design engineering</span>
-              </div>
-              <svg viewBox="0 0 24 24" class="how-chevron" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </button>
-            <div class="how-body-collapse" id="how-collapse-4">
-              <div class="how-body-inner">
-                <p class="how-desc">Prototyping and shipping in React, Next.js and Tailwind with Claude Code, Cursor and v0.</p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
 
-    <!-- 3.7 TOOLS (replaces 28-logo marquee) -->
-    <section class="tools-section" id="tools" aria-label="Tools and technologies">
-      <div class="container">
-        <div class="section-label-tiny reveal-on-scroll">TOOLSTACK</div>
-        <h2 class="section-heading reveal-on-scroll">Tools I use to design &amp; build</h2>
-
-        <div class="tools-group reveal-on-scroll">
-          <div class="tools-group-label">Design</div>
-          <div class="tools-chips-row">
-            <span class="tool-pill">Figma</span>
-            <span class="tool-pill">Figma Make</span>
-            <span class="tool-pill">FigJam</span>
-            <span class="tool-pill">Framer</span>
-            <span class="tool-pill">ProtoPie</span>
+    <!-- 7. NUMBERS (compact proof strip) -->
+    <section class="ed-numbers-section" id="numbers" aria-label="Key proof metrics">
+      <div class="ed-container">
+        <div class="ed-numbers-grid ed-reveal">
+          
+          <div class="ed-stat-item" data-stat-type="text">
+            <div class="ed-stat-num">6→1</div>
+            <div class="ed-stat-label">Workflows consolidated into one SaaS</div>
           </div>
-        </div>
 
-        <div class="tools-group reveal-on-scroll">
-          <div class="tools-group-label">AI &amp; build</div>
-          <div class="tools-chips-row">
-            <span class="tool-pill">Claude Code</span>
-            <span class="tool-pill">Cursor</span>
-            <span class="tool-pill">v0</span>
-            <span class="tool-pill">Lovable</span>
-            <span class="tool-pill">Google Stitch</span>
-            <span class="tool-pill">Antigravity</span>
+          <div class="ed-stat-item" data-stat-type="counter" data-target="22" data-suffix="+">
+            <div class="ed-stat-num"><span class="ed-count-val">22</span>+</div>
+            <div class="ed-stat-label">Screens across 3 role-based portals</div>
           </div>
-        </div>
 
-        <div class="tools-group reveal-on-scroll">
-          <div class="tools-group-label">Code</div>
-          <div class="tools-chips-row">
-            <span class="tool-pill">React</span>
-            <span class="tool-pill">Next.js</span>
-            <span class="tool-pill">Tailwind CSS</span>
-            <span class="tool-pill">HTML/CSS/JS</span>
-            <span class="tool-pill">Supabase</span>
-            <span class="tool-pill">Firebase</span>
-            <span class="tool-pill">GitHub</span>
-            <span class="tool-pill">Vercel</span>
+          <div class="ed-stat-item" data-stat-type="counter" data-target="20" data-suffix="+">
+            <div class="ed-stat-num"><span class="ed-count-val">20</span>+</div>
+            <div class="ed-stat-label">Brands designed for</div>
           </div>
+
+          <div class="ed-stat-item" data-stat-type="text">
+            <div class="ed-stat-num">[X]</div>
+            <div class="ed-stat-label">Designers mentored</div>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- 3.8 TESTIMONIAL -->
-    <section class="testimonials-section" aria-label="Collaborator testimonials">
-      <div class="container">
-        <div class="section-label-tiny reveal-on-scroll">TESTIMONIALS</div>
-        <h2 class="section-heading reveal-on-scroll">Kind words from collaborators</h2>
-        <div class="testimonials-grid" id="testimonials-grid">
-          <!-- Card 1: Existing Quote -->
-          <div class="testimonial-card-item reveal-on-scroll">
-            <blockquote class="testimonial-quote">
-              <p>"As part of my role in HR, I've had the opportunity to closely observe Digambar's work and would strongly recommend him for any initiatives that require a blend of strategic thinking and design expertise. He's consistently demonstrated strong proficiency in leveraging AI tools for competitor analysis and market understanding.</p>
-              <p>His work in UX research and audits stands out for its depth and clarity, and he brings a modern, minimal, and user-friendly approach to design. With a strong eye for typography, color theory, and usability, he ensures every output is both functional and visually cohesive.</p>
-              <p>He's a reliable team member and a valuable contributor to cross-functional projects."</p>
-            </blockquote>
-            <div class="testimonial-author">
-              <span class="author-name">Divya Setiya</span>
-              <span class="author-role">HR Department Lead · The Impact Engine</span>
+    <!-- 8. TOOLS -->
+    <section class="ed-tools-section" id="tools" aria-label="Tools I ship with">
+      <div class="ed-container">
+        <div class="ed-tools-header-label ed-reveal">Tools I ship with</div>
+        <div class="ed-tools-groups ed-reveal">
+          
+          <div class="ed-tool-group">
+            <span class="ed-tool-group-name">Design</span>
+            <div class="ed-tool-chips">
+              <span class="ed-tool-chip">Figma</span>
+              <span class="ed-tool-chip">Figma Make</span>
+              <span class="ed-tool-chip">FigJam</span>
+              <span class="ed-tool-chip">Framer</span>
+              <span class="ed-tool-chip">ProtoPie</span>
             </div>
           </div>
 
-          <!-- Card 2: Placeholder Slot -->
-          <div class="testimonial-card-item testimonial-placeholder-card reveal-on-scroll delay-1">
-            <span class="placeholder-badge">Placeholder</span>
-            <p style="font-size: var(--fs-body); color: var(--text-muted); max-width: 32ch; margin: 0;">[Add design-manager or client testimonial]</p>
+          <div class="ed-tool-group">
+            <span class="ed-tool-group-name">AI &amp; build</span>
+            <div class="ed-tool-chips">
+              <span class="ed-tool-chip">Claude Code</span>
+              <span class="ed-tool-chip">Cursor</span>
+              <span class="ed-tool-chip">v0</span>
+              <span class="ed-tool-chip">Lovable</span>
+              <span class="ed-tool-chip">Google Stitch</span>
+              <span class="ed-tool-chip">Antigravity</span>
+            </div>
           </div>
+
+          <div class="ed-tool-group">
+            <span class="ed-tool-group-name">Code</span>
+            <div class="ed-tool-chips">
+              <span class="ed-tool-chip">React</span>
+              <span class="ed-tool-chip">Next.js</span>
+              <span class="ed-tool-chip">Tailwind CSS</span>
+              <span class="ed-tool-chip">Supabase</span>
+              <span class="ed-tool-chip">Firebase</span>
+              <span class="ed-tool-chip">GitHub</span>
+              <span class="ed-tool-chip">Vercel</span>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- 3.9 CONTACT CTA -->
-    <section class="contact-cta-section" id="contact" aria-label="Contact">
-      <div class="container">
-        <h2 class="contact-h2 reveal-on-scroll">Hiring a Product Designer?</h2>
-        <p class="contact-sub reveal-on-scroll">
-          Available for full-time Product Designer, AI Product Designer, or UI/UX Lead roles in Pune or remote.
-        </p>
-        <div class="contact-cta-buttons reveal-on-scroll">
-          <a href="mailto:contact@digambarpatil.com" class="hero-btn-primary" style="width: auto; padding: 0 1.75rem;">Email me</a>
-          <button type="button" class="copy-email-trigger" id="copy-email-btn" aria-label="Copy email address" title="Copy email to clipboard">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke-width="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke-width="2"></path></svg>
-            <span>Copy email</span>
-          </button>
-          <a href="assets/Digambar_Patil_Resume.pdf" target="_blank" rel="noopener noreferrer" class="hero-btn-secondary" style="width: auto; padding: 0 1.75rem;">Download resume</a>
-          <a href="https://www.linkedin.com/in/digambar-patil-6847081aa/" target="_blank" rel="noopener noreferrer" class="hero-btn-secondary" style="width: auto; padding: 0 1.75rem;">LinkedIn ↗</a>
+    <!-- 9. WHAT PEOPLE SAY -->
+    <section class="ed-testimonials-section" id="what-people-say" aria-label="What people say">
+      <div class="ed-container">
+        <h2 class="ed-h2 ed-reveal">What people say</h2>
+
+        <div class="ed-testimonials-stage ed-reveal">
+          
+          <!-- Mobile Scroll-Snap Carousel (<768px) -->
+          <div class="ed-test-carousel-mobile" id="ed-test-carousel-mobile">
+            <div class="ed-test-slide-mobile">
+              <blockquote class="ed-test-quote">
+                "As part of my role in HR, I've had the opportunity to closely observe Digambar's work and would strongly recommend him for any initiatives that require a blend of strategic thinking and design expertise. He brings a modern, minimal, and user-friendly approach to design with a strong eye for typography, color theory, and usability."
+              </blockquote>
+              <div class="ed-test-author">
+                <span class="ed-author-name">Divya Setiya</span>
+                <span class="ed-author-role">HR Department Lead · The Impact Engine</span>
+              </div>
+            </div>
+
+            <div class="ed-test-slide-mobile">
+              <blockquote class="ed-test-quote">
+                "[Add design-manager or client testimonial]"
+              </blockquote>
+              <div class="ed-test-author">
+                <span class="ed-author-name">[design manager or client]</span>
+                <span class="ed-author-role">[Client / Collaborator]</span>
+              </div>
+            </div>
+          </div>
+          <div class="ed-test-counter-mobile" id="ed-test-counter-mobile">1 / 2</div>
+
+          <!-- Desktop Crossfade (>768px) -->
+          <div class="ed-test-desktop-wrap" id="ed-test-desktop-wrap">
+            <div class="ed-test-slide-desktop is-active" data-slide="0">
+              <blockquote class="ed-test-quote">
+                "As part of my role in HR, I've had the opportunity to closely observe Digambar's work and would strongly recommend him for any initiatives that require a blend of strategic thinking and design expertise. He brings a modern, minimal, and user-friendly approach to design with a strong eye for typography, color theory, and usability."
+              </blockquote>
+              <div class="ed-test-author">
+                <span class="ed-author-name">Divya Setiya</span>
+                <span class="ed-author-role">HR Department Lead · The Impact Engine</span>
+              </div>
+            </div>
+
+            <div class="ed-test-slide-desktop" data-slide="1">
+              <blockquote class="ed-test-quote">
+                "[Add design-manager or client testimonial]"
+              </blockquote>
+              <div class="ed-test-author">
+                <span class="ed-author-name">[design manager or client]</span>
+                <span class="ed-author-role">[Client / Collaborator]</span>
+              </div>
+            </div>
+
+            <div class="ed-test-controls-desktop">
+              <button class="ed-test-btn" id="ed-test-prev" aria-label="Previous quote">‹</button>
+              <button class="ed-test-btn" id="ed-test-next" aria-label="Next quote">›</button>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
-  </main>
 
-  <!-- FOOTER / CONTACT SECTION -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-contact-block reveal-on-scroll">
-        <!-- Eyebrow label top-left -->
-        <div class="footer-eyebrow">LET'S WORK TOGETHER</div>
-        
-        <!-- Footer DP Mark at 32px above email -->
-        <div class="footer-mark-wrapper">
-          <a href="/" class="footer-logo-link" aria-label="Digambar Patil — home">
-            <svg class="footer-logo-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 538 369" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="M69.1,367.1C71.5,365.2 75.9,358.6 100.1,320.5C123.0,284.3 126.6,278.7 130.4,272.8L134.1,267.0L245.8,267.0C314.6,267.0 360.2,266.6 364.5,266.0C384.6,263.1 404.6,252.0 417.0,236.7C423.7,228.5 431.6,212.5 433.7,203.0C435.8,193.2 435.8,175.6 433.7,166.0C430.5,151.4 418.5,131.6 407.4,122.5C400.0,116.4 396.1,114.0 387.5,110.0C371.0,102.3 375.8,102.7 278.5,102.3C217.4,102.0 189.5,102.2 184.8,103.0C170.4,105.5 158.3,114.4 148.9,129.4C146.1,133.9 139.4,144.5 133.9,153.0C120.4,174.0 119.6,175.8 120.8,178.6C122.8,183.0 130.0,184.2 157.1,184.7C178.4,185.2 182.1,185.0 184.8,183.6C186.7,182.6 190.1,178.7 193.7,173.2L199.5,164.5L278.0,164.2C331.6,164.0 357.7,164.3 360.2,165.0C374.5,169.1 378.9,189.3 367.8,199.7C361.9,205.2 367.5,205.0 245.7,205.0C138.0,205.0 133.0,204.9 125.8,203.1C110.4,199.1 95.3,189.4 86.5,177.9C68.8,154.4 66.2,124.3 79.7,98.8C85.5,87.8 98.9,74.7 110.0,69.2C126.9,60.9 116.7,61.5 250.0,61.5L368.5,61.5L378.9,63.8C416.2,72.0 447.0,96.0 464.0,129.9C468.1,138.1 473.4,154.4 475.1,164.0C477.0,174.7 476.8,196.6 474.7,207.3C467.7,242.4 446.5,272.8 416.5,290.5C405.6,297.0 396.6,300.7 383.0,304.3L371.5,307.4L264.3,308.0C170.7,308.4 156.9,308.7 155.7,310.0C154.2,311.6 124.2,358.8 122.1,362.8C121.0,364.8 121.1,365.5 122.6,367.1C124.3,369.0 127.3,369.0 246.4,369.0C349.2,369.0 370.2,368.7 379.0,367.5C419.6,361.7 455.0,344.0 484.0,314.8C548.8,249.7 555.7,146.5 500.2,72.8C473.0,36.7 432.2,11.3 387.5,2.8L375.5,0.5L250.5,0.5C131.8,0.5 125.0,0.6 116.5,2.4C98.2,6.2 78.6,14.8 64.5,25.2C54.0,32.9 40.2,47.3 33.3,57.7C23.1,73.0 17.2,86.7 12.9,105.1C9.8,118.0 9.6,147.2 12.4,160.0C19.5,192.6 38.0,221.4 64.2,240.6C69.0,244.1 73.0,247.5 73.0,248.1C73.0,248.7 69.5,254.6 65.2,261.3C60.8,268.0 51.3,282.9 44.0,294.5C36.7,306.1 23.8,326.4 15.4,339.7C6.9,352.9 -0.0,364.2 -0.0,364.6C-0.0,365.0 0.7,366.2 1.7,367.2C3.2,368.9 5.6,369.0 35.0,369.0C64.5,369.0 66.9,368.9 69.1,367.1Z"/></svg>
-          </a>
-        </div>
-        
-        <!-- Huge serif display email with full-width underline and custom cursor badge interaction -->
-        <div class="email-interactive-wrapper">
-          <a href="mailto:contact@digambarpatil.com" class="email-display-link" id="footer-email">
+    <!-- 10. CONTACT SECTION -->
+    <section class="ed-contact-section" id="contact" aria-label="Contact">
+      <div class="ed-container">
+        <div class="ed-contact-label ed-reveal">HIRING A PRODUCT DESIGNER?</div>
+
+        <div class="ed-contact-link-row ed-reveal">
+          <!-- Giant Link in Fraunces 300, underline draws left->right in --accent on hover -->
+          <a href="mailto:contact@digambarpatil.com" class="ed-giant-email-link" id="ed-contact-email">
             contact@digambarpatil.com
           </a>
-          <div class="email-full-underline" aria-hidden="true"></div>
+          <button type="button" class="ed-copy-email-btn" id="ed-copy-email-btn" aria-label="Copy email address" title="Copy email">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          </button>
+        </div>
+
+        <p class="ed-contact-subtext ed-reveal">
+          I'm open to full-time Product Designer, AI Product Designer and UI/UX Lead roles, and to selected freelance projects. Pune, Bangalore or remote. Let's talk.
+        </p>
+
+        <div class="ed-contact-actions ed-reveal">
+          <a href="assets/Digambar_Patil_Resume.pdf" target="_blank" rel="noopener noreferrer" class="ed-btn-outline">Download resume</a>
+          <a href="https://www.linkedin.com/in/digambar-patil-6847081aa/" target="_blank" rel="noopener noreferrer" class="ed-btn-outline">LinkedIn ↗</a>
         </div>
       </div>
+    </section>
 
-      <!-- Bottom row -->
-      <div class="footer-bottom reveal-on-scroll delay-1">
-        <div class="footer-bottom-left">
-          Designed and built by Digambar
+  </main>
+
+  <!-- 11. FOOTER -->
+  <footer class="ed-footer">
+    <div class="ed-container">
+      <div class="ed-footer-inner">
+        <div class="ed-footer-left">
+          <span>© 2026 Digambar Patil</span>
+          <span>·</span>
+          <span>Pune, IST <span id="ed-live-time">15:30 IST</span></span>
         </div>
-
-        <div class="footer-bottom-center">
-          <span class="live-dot" aria-hidden="true"></span>
-          <span id="live-time">Pune, India · IST</span>
-        </div>
-
-        <div class="footer-bottom-right">
-          <div class="footer-socials" aria-label="Social Profiles">
-            <a href="https://www.linkedin.com/in/digambar-patil-6847081aa/" target="_blank" rel="noopener noreferrer" class="social-pill" aria-label="Digambar Patil on LinkedIn">
-              <svg viewBox="0 0 24 24" class="social-icon"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64c-.95 0-1.66.71-1.66 1.66 0 .93.71 1.64 1.66 1.64.92 0 1.63-.71 1.63-1.64 0-.95-.71-1.66-1.63-1.66z"></path></svg>
-              <span>LinkedIn</span>
-            </a>
-            <a href="https://www.behance.net/digambarpatil2" target="_blank" rel="noopener noreferrer" class="social-pill" aria-label="Digambar Patil on Behance">
-              <svg viewBox="0 0 24 24" class="social-icon"><path d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-4.085 0-6.625-2.748-6.625-6.84 0-4.225 2.684-6.892 6.471-6.892 4.103 0 6.136 2.924 5.753 6.944h-9.351c.143 2.087 1.664 3.656 3.753 3.656 1.848 0 2.879-.824 3.324-1.868h1.776zm-8.854-5.352h6.586c-.161-1.802-1.399-3.08-3.264-3.08-1.954 0-3.136 1.294-3.322 3.08zm-14.872-6.648h5.922c3.154 0 4.908 1.492 4.908 3.781 0 1.611-.871 2.766-2.28 3.27 1.778.508 2.802 1.879 2.802 3.736 0 2.569-1.977 4.213-5.316 4.213h-6.036v-15zm3.02 6.096h2.49c1.242 0 2.05-.623 2.05-1.637 0-.964-.784-1.579-2.026-1.579h-2.514v3.216zm0 5.864h2.723c1.455 0 2.378-.711 2.378-1.815 0-1.127-.923-1.801-2.454-1.801h-2.647v3.616z"></path></svg>
-              <span>Behance</span>
-            </a>
-          </div>
+        <div class="ed-footer-links">
+          <a href="https://www.linkedin.com/in/digambar-patil-6847081aa/" target="_blank" rel="noopener noreferrer" class="ed-footer-link">LinkedIn</a>
+          <a href="https://www.behance.net/digambarpatil2" target="_blank" rel="noopener noreferrer" class="ed-footer-link">Behance</a>
+          <a href="#top" class="ed-footer-link">Back to top ↑</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <script src="script.js"></script>
-
-  <!-- 3.10 MOBILE STICKY CTA -->
-  <div class="mobile-sticky-cta" id="mobile-sticky-cta" aria-hidden="true">
-    <div class="mobile-sticky-cta-inner">
-      <a href="assets/Digambar_Patil_Resume.pdf" target="_blank" rel="noopener noreferrer" class="mobile-sticky-btn hero-btn-secondary">Resume</a>
-      <a href="mailto:contact@digambarpatil.com" class="mobile-sticky-btn hero-btn-primary">Email me</a>
-    </div>
+  <!-- 12. MOBILE STICKY CTA (<768px only) -->
+  <div class="ed-mobile-sticky-cta" id="ed-mobile-sticky-cta" aria-hidden="true">
+    <a href="assets/Digambar_Patil_Resume.pdf" target="_blank" rel="noopener noreferrer" class="ed-sticky-btn-resume">Resume</a>
+    <a href="mailto:contact@digambarpatil.com" class="ed-sticky-btn-email">Email me</a>
   </div>
 
   <!-- Toast Notification -->
   <div id="email-toast" class="toast-notice" role="status" aria-live="polite">Email copied</div>
 
+  <!-- Vendor Lenis & Page Interactions Script -->
+  <script src="assets/js/lenis.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
