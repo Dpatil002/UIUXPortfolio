@@ -13,6 +13,13 @@ document.addEventListener('DOMContentLoaded', () => {
   initProjectFilterTabs();
   initTestimonialCarousel();
   initStickyTocScrollSpy();
+  // Phase 3 Initializers
+  initProofBarCounters();
+  initProofBarDots();
+  initMarqueeTouchPause();
+  initHowIWorkAccordion();
+  initCopyEmailToast();
+  initMobileStickyCTA();
 });
 
 // 1. Ambient Subtle Floating Particles with Cursor Repulsion
@@ -1004,3 +1011,235 @@ function initStickyTocScrollSpy() {
   window.addEventListener('scroll', updateActiveLink, { passive: true });
   updateActiveLink();
 }
+
+/* ==========================================================================
+   PHASE 3 HOMEPAGE INTERACTIONS
+   ========================================================================== */
+
+// 3.3 Proof Bar Counter Animation
+function initProofBarCounters() {
+  const container = document.getElementById('proof-scroll-container');
+  if (!container) return;
+
+  const counterCards = container.querySelectorAll('.proof-card[data-metric-type="counter"]');
+  if (!counterCards.length) return;
+
+  const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const card = entry.target;
+        const targetVal = parseInt(card.getAttribute('data-target'), 10);
+        const countSpan = card.querySelector('.count-val');
+        if (!countSpan || isNaN(targetVal)) return;
+
+        if (prefersReduced) {
+          countSpan.textContent = targetVal;
+        } else {
+          const duration = 800;
+          const startTime = performance.now();
+          function animateCount(now) {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            // Ease out cubic
+            const easeProgress = 1 - Math.pow(1 - progress, 3);
+            const current = Math.floor(easeProgress * targetVal);
+            countSpan.textContent = current;
+            if (progress < 1) {
+              requestAnimationFrame(animateCount);
+            } else {
+              countSpan.textContent = targetVal;
+            }
+          }
+          requestAnimationFrame(animateCount);
+        }
+        observer.unobserve(card);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  counterCards.forEach((card) => observer.observe(card));
+}
+
+// 3.3 Proof Bar Mobile Scroll-Snap Dots
+function initProofBarDots() {
+  const container = document.getElementById('proof-scroll-container');
+  const dotsContainer = document.getElementById('proof-dots');
+  if (!container || !dotsContainer) return;
+
+  const dots = Array.from(dotsContainer.querySelectorAll('.proof-dot'));
+  const cards = Array.from(container.querySelectorAll('.proof-card'));
+  if (!dots.length || !cards.length) return;
+
+  function updateActiveDot() {
+    const scrollLeft = container.scrollLeft;
+    const containerWidth = container.clientWidth;
+    let closestIndex = 0;
+    let minDistance = Infinity;
+
+    cards.forEach((card, index) => {
+      const cardCenter = card.offsetLeft + card.offsetWidth / 2 - container.offsetLeft;
+      const viewCenter = scrollLeft + containerWidth / 2;
+      const distance = Math.abs(cardCenter - viewCenter);
+      if (distance < minDistance) {
+        minDistance = distance;
+        closestIndex = index;
+      }
+    });
+
+    dots.forEach((dot, idx) => {
+      dot.classList.toggle('active', idx === closestIndex);
+    });
+  }
+
+  let scrollTicking = false;
+  container.addEventListener('scroll', () => {
+    if (!scrollTicking) {
+      requestAnimationFrame(() => {
+        updateActiveDot();
+        scrollTicking = false;
+      });
+      scrollTicking = true;
+    }
+  }, { passive: true });
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      if (cards[index]) {
+        cards[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+    });
+  });
+}
+
+// 3.4 Client Strip Marquee Touch-Hold Pause
+function initMarqueeTouchPause() {
+  const marquee = document.getElementById('clients-marquee');
+  if (!marquee) return;
+
+  marquee.addEventListener('touchstart', () => {
+    marquee.classList.add('is-paused');
+  }, { passive: true });
+
+  marquee.addEventListener('touchend', () => {
+    marquee.classList.remove('is-paused');
+  }, { passive: true });
+
+  marquee.addEventListener('touchcancel', () => {
+    marquee.classList.remove('is-paused');
+  }, { passive: true });
+}
+
+// 3.6 How I Work Accordion
+function initHowIWorkAccordion() {
+  const howItems = document.querySelectorAll('.how-item');
+  if (!howItems.length) return;
+
+  howItems.forEach((item) => {
+    const btn = item.querySelector('.how-header-btn');
+    if (!btn) return;
+
+    btn.addEventListener('click', () => {
+      if (window.innerWidth >= 1024) return;
+
+      const wasOpen = item.classList.contains('is-open');
+      item.classList.toggle('is-open', !wasOpen);
+      btn.setAttribute('aria-expanded', !wasOpen ? 'true' : 'false');
+    });
+  });
+}
+
+// 3.9 Contact Email Copy Interaction with Toast
+function initCopyEmailToast() {
+  const btn = document.getElementById('copy-email-btn');
+  const toast = document.getElementById('email-toast');
+  if (!btn || !toast) return;
+
+  let toastTimer = null;
+
+  btn.addEventListener('click', async () => {
+    const email = 'contact@digambarpatil.com';
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(email);
+      } else {
+        const textArea = document.createElement('textarea');
+        textArea.value = email;
+        textArea.style.position = 'fixed';
+        textArea.style.opacity = '0';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+      }
+
+      toast.classList.add('is-visible');
+      if (toastTimer) clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.remove('is-visible');
+      }, 2000);
+    } catch (err) {
+      console.error('Failed to copy email:', err);
+    }
+  });
+}
+
+// 3.10 Mobile Sticky CTA
+function initMobileStickyCTA() {
+  const stickyCta = document.getElementById('mobile-sticky-cta');
+  const heroSection = document.getElementById('hero');
+  const contactSection = document.getElementById('contact');
+  if (!stickyCta || !heroSection) return;
+
+  let passedHero = false;
+  let inContact = false;
+
+  function updateStickyState() {
+    if (window.innerWidth >= 768) {
+      stickyCta.classList.remove('is-visible');
+      document.body.classList.remove('has-sticky-cta');
+      return;
+    }
+
+    if (passedHero && !inContact) {
+      stickyCta.classList.add('is-visible');
+      stickyCta.classList.remove('is-hidden');
+      stickyCta.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('has-sticky-cta');
+    } else {
+      if (inContact) {
+        stickyCta.classList.add('is-hidden');
+      } else {
+        stickyCta.classList.remove('is-visible');
+      }
+      stickyCta.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('has-sticky-cta');
+    }
+  }
+
+  const heroObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      passedHero = !entry.isIntersecting && entry.boundingClientRect.top < 0;
+      updateStickyState();
+    });
+  }, { threshold: 0 });
+
+  const triggerEl = heroSection.querySelector('.hero-buttons') || heroSection;
+  heroObserver.observe(triggerEl);
+
+  if (contactSection) {
+    const contactObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        inContact = entry.isIntersecting;
+        updateStickyState();
+      });
+    }, { threshold: 0.1 });
+
+    contactObserver.observe(contactSection);
+  }
+
+  window.addEventListener('resize', updateStickyState, { passive: true });
+}
+
