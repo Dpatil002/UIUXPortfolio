@@ -229,95 +229,144 @@
     <section class="selected-work-section" id="work" aria-label="Selected work">
       <div class="container">
         <div class="selected-work-header">
-          <div class="section-label-tiny reveal-on-scroll">CASE STUDIES</div>
-          <h2 class="section-heading reveal-on-scroll">Selected work</h2>
+          <h2 class="selected-work-title reveal-on-scroll">Selected work</h2>
         </div>
 
-        <div class="work-cards-grid">
-          <!-- 1. Tythas Control Center -->
-          <a href="tythas-control-center.html" class="work-card reveal-on-scroll" aria-label="Tythas Control Center case study">
-            <div class="work-card-media">
-              <img src="assets/images/tythas_control_center_hero.svg" alt="Tythas Control Center — Multi-Tenant SaaS Platform" class="work-card-img" loading="lazy" width="800" height="500">
+        <div class="work-masonry-grid">
+          <!-- Column 1 (Left) -->
+          <div class="work-masonry-col col-left">
+            <!-- 1. Boldideas consulting -->
+            <div class="work-masonry-card is-upcoming reveal-on-scroll" style="--card-order: 1;">
+              <div class="work-card-media-box">
+                <img src="assets/images/project_boldideas.png" alt="Boldideas consulting — Brand direction" class="work-card-img" loading="lazy" width="371" height="464">
+              </div>
+              <div class="work-card-info">
+                <div class="work-card-header">
+                  <div class="work-card-title-group">
+                    <h3 class="work-card-name">Boldideas consulting</h3>
+                    <span class="work-card-badge">Soon</span>
+                  </div>
+                  <span class="work-card-year">2026</span>
+                </div>
+                <p class="work-card-summary">Brand direction for a consulting studio turning bold ideas into products.</p>
+              </div>
             </div>
-            <div class="work-card-tag">B2B SaaS · Shipped</div>
-            <div class="work-card-title-row">
-              <h3 class="work-card-title">Tythas Control Center</h3>
-              <span class="work-card-arrow" aria-hidden="true">→</span>
-            </div>
-            <p class="work-card-outcome">Designed and shipped a multi-tenant SaaS that replaces [X] client logins with one dashboard.</p>
-            <div class="work-card-footer">
-              <span class="work-card-role">Lead Designer · 2026</span>
-              <span class="work-card-link-text">Read case study →</span>
-            </div>
-          </a>
 
-          <!-- 2. Raya -->
-          <a href="raya.html" class="work-card reveal-on-scroll" aria-label="Raya case study">
-            <div class="work-card-media">
-              <img src="assets/images/raya_hero.svg" alt="Raya — AI Workout Coach Interface" class="work-card-img" loading="lazy" width="800" height="500">
-            </div>
-            <div class="work-card-tag">AI Health · Concept</div>
-            <div class="work-card-title-row">
-              <h3 class="work-card-title">Raya</h3>
-              <span class="work-card-arrow" aria-hidden="true">→</span>
-            </div>
-            <p class="work-card-outcome">AI coach concept that turns skipped workouts into 5-minute wins.</p>
-            <div class="work-card-footer">
-              <span class="work-card-role">Product Designer · 2026</span>
-              <span class="work-card-link-text">Read case study →</span>
-            </div>
-          </a>
+            <!-- 2. Veevoy -->
+            <a href="work.html" class="work-masonry-card reveal-on-scroll" style="--card-order: 3;" aria-label="Veevoy project details">
+              <div class="work-card-media-box">
+                <img src="assets/images/project_veevoy_card.jpg" alt="Veevoy — Healthcare Operations Platform" class="work-card-img" loading="lazy" width="614" height="768">
+              </div>
+              <div class="work-card-info">
+                <div class="work-card-header">
+                  <div class="work-card-title-group">
+                    <h3 class="work-card-name">Veevoy</h3>
+                  </div>
+                  <span class="work-card-year">2025–2026</span>
+                </div>
+                <p class="work-card-summary">Digital platform and design system connecting clinical operations with modern healthcare workflows.</p>
+              </div>
+            </a>
 
-          <!-- 3. Elixir Helps -->
-          <a href="elixir-helps.html" class="work-card reveal-on-scroll" aria-label="Elixir Helps case study">
-            <div class="work-card-media">
-              <img src="assets/images/elixirhelps.jpg" alt="Elixir Helps — Therapy Portals & Booking Platform" class="work-card-img" loading="lazy" width="800" height="500">
-            </div>
-            <div class="work-card-tag">Healthcare · Shipped</div>
-            <div class="work-card-title-row">
-              <h3 class="work-card-title">Elixir Helps</h3>
-              <span class="work-card-arrow" aria-hidden="true">→</span>
-            </div>
-            <p class="work-card-outcome">Booking site + admin + counsellor portals for online therapy.</p>
-            <div class="work-card-footer">
-              <span class="work-card-role">UI/UX Lead · 2025</span>
-              <span class="work-card-link-text">Read case study →</span>
-            </div>
-          </a>
+            <!-- 3. Tythas Control Center -->
+            <a href="tythas-control-center.html" class="work-masonry-card reveal-on-scroll" style="--card-order: 5;" aria-label="Tythas Control Center case study">
+              <div class="work-card-media-box">
+                <img src="assets/images/tythas_control_center_hero.svg" alt="Tythas Control Center — Multi-Tenant SaaS Platform" class="work-card-img" loading="lazy" width="800" height="500">
+              </div>
+              <div class="work-card-info">
+                <div class="work-card-header">
+                  <div class="work-card-title-group">
+                    <h3 class="work-card-name">Tythas Control Center</h3>
+                  </div>
+                  <span class="work-card-year">2026</span>
+                </div>
+                <p class="work-card-summary">Multi-tenant SaaS control center that unifies operations across client domains and replaces disjointed logins.</p>
+              </div>
+            </a>
 
-          <!-- 4. Soché -->
-          <a href="soche.html" class="work-card reveal-on-scroll" aria-label="Soché case study">
-            <div class="work-card-media">
-              <img src="assets/images/soche_hero.svg" alt="Soché — Luxury D2C & B2B Wholesale Store" class="work-card-img" loading="lazy" width="800" height="500">
-            </div>
-            <div class="work-card-tag">Luxury Commerce · Shipped</div>
-            <div class="work-card-title-row">
-              <h3 class="work-card-title">Soché</h3>
-              <span class="work-card-arrow" aria-hidden="true">→</span>
-            </div>
-            <p class="work-card-outcome">One Shopify store serving luxury D2C buyers and B2B wholesale.</p>
-            <div class="work-card-footer">
-              <span class="work-card-role">Lead Designer · 2025</span>
-              <span class="work-card-link-text">Read case study →</span>
-            </div>
-          </a>
+            <!-- 4. Before Two -->
+            <a href="before-two.html" class="work-masonry-card reveal-on-scroll" style="--card-order: 7;" aria-label="Before Two case study">
+              <div class="work-card-media-box">
+                <img src="assets/images/before_two_hero.svg" alt="Before Two — Hospitality Housekeeping Mobile App" class="work-card-img" loading="lazy" width="800" height="500">
+              </div>
+              <div class="work-card-info">
+                <div class="work-card-header">
+                  <div class="work-card-title-group">
+                    <h3 class="work-card-name">Before Two</h3>
+                  </div>
+                  <span class="work-card-year">2024</span>
+                </div>
+                <p class="work-card-summary">Offline-first, photo-verified housekeeping mobile app for luxury villa hosts and operations teams.</p>
+              </div>
+            </a>
+          </div>
 
-          <!-- 5. Before Two -->
-          <a href="before-two.html" class="work-card reveal-on-scroll" aria-label="Before Two case study">
-            <div class="work-card-media">
-              <img src="assets/images/before_two_hero.svg" alt="Before Two — Hospitality Housekeeping Mobile App" class="work-card-img" loading="lazy" width="800" height="500">
-            </div>
-            <div class="work-card-tag">Hospitality Ops · Shipped</div>
-            <div class="work-card-title-row">
-              <h3 class="work-card-title">Before Two</h3>
-              <span class="work-card-arrow" aria-hidden="true">→</span>
-            </div>
-            <p class="work-card-outcome">Offline-first, photo-verified housekeeping for villa hosts.</p>
-            <div class="work-card-footer">
-              <span class="work-card-role">Lead Designer · 2024</span>
-              <span class="work-card-link-text">Read case study →</span>
-            </div>
-          </a>
+          <!-- Column 2 (Right, Staggered) -->
+          <div class="work-masonry-col col-right col-staggered">
+            <!-- 5. Eqvista -->
+            <a href="work.html" class="work-masonry-card reveal-on-scroll" style="--card-order: 2;" aria-label="Eqvista mobile app design">
+              <div class="work-card-media-box">
+                <img src="assets/images/project_eqvista.png" alt="Eqvista — Equity Management Platform Mobile App" class="work-card-img" loading="lazy" width="371" height="464">
+              </div>
+              <div class="work-card-info">
+                <div class="work-card-header">
+                  <div class="work-card-title-group">
+                    <h3 class="work-card-name">Eqvista</h3>
+                  </div>
+                  <span class="work-card-year">2025–2026</span>
+                </div>
+                <p class="work-card-summary">Mobile app design for an equity management platform, focused on clarity, dashboards and financial data.</p>
+              </div>
+            </a>
+
+            <!-- 6. Soché -->
+            <a href="soche.html" class="work-masonry-card reveal-on-scroll" style="--card-order: 4;" aria-label="Soché case study">
+              <div class="work-card-media-box">
+                <img src="assets/images/soche.jpg" alt="Soché — Luxury D2C & B2B Wholesale Store" class="work-card-img" loading="lazy" width="1376" height="768">
+              </div>
+              <div class="work-card-info">
+                <div class="work-card-header">
+                  <div class="work-card-title-group">
+                    <h3 class="work-card-name">Soché</h3>
+                  </div>
+                  <span class="work-card-year">2025</span>
+                </div>
+                <p class="work-card-summary">High-end bespoke e-commerce store serving luxury D2C spice buyers and high-volume B2B wholesale.</p>
+              </div>
+            </a>
+
+            <!-- 7. Elixir Helps -->
+            <a href="elixir-helps.html" class="work-masonry-card reveal-on-scroll" style="--card-order: 6;" aria-label="Elixir Helps case study">
+              <div class="work-card-media-box">
+                <img src="assets/images/elixirhelps.jpg" alt="Elixir Helps — Therapy Portals & Booking Platform" class="work-card-img" loading="lazy" width="1376" height="768">
+              </div>
+              <div class="work-card-info">
+                <div class="work-card-header">
+                  <div class="work-card-title-group">
+                    <h3 class="work-card-name">Elixir Helps</h3>
+                  </div>
+                  <span class="work-card-year">2025</span>
+                </div>
+                <p class="work-card-summary">End-to-end booking platform, therapist directory, and counsellor portals for online mental healthcare.</p>
+              </div>
+            </a>
+
+            <!-- 8. Raya -->
+            <a href="raya.html" class="work-masonry-card reveal-on-scroll" style="--card-order: 8;" aria-label="Raya case study">
+              <div class="work-card-media-box">
+                <img src="assets/images/raya_hero.svg" alt="Raya — AI Workout Coach Interface" class="work-card-img" loading="lazy" width="800" height="500">
+              </div>
+              <div class="work-card-info">
+                <div class="work-card-header">
+                  <div class="work-card-title-group">
+                    <h3 class="work-card-name">Raya</h3>
+                  </div>
+                  <span class="work-card-year">2026</span>
+                </div>
+                <p class="work-card-summary">AI workout coach concept that adapts to user energy levels and turns skipped sessions into micro-wins.</p>
+              </div>
+            </a>
+          </div>
         </div>
 
         <div class="more-work-container reveal-on-scroll">

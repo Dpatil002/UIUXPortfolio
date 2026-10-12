@@ -1347,61 +1347,82 @@ body.nav-menu-open {
 
 /* 3.5 SELECTED WORK (id="work") */
 .selected-work-section {
-  padding: var(--section-y) 0;
+  padding: clamp(5rem, 8vw, 8rem) 0;
   border-bottom: 1px solid var(--border-hairline);
+  position: relative;
 }
 
 .selected-work-header {
-  margin-bottom: var(--s-6);
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
 }
 
-.work-cards-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 32px;
+.selected-work-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 4.2vw, 3.8rem);
+  font-weight: 400;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0;
 }
 
-@media (min-width: 768px) {
-  .work-cards-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
-  }
-  .work-card:first-child {
-    grid-column: 1 / -1;
-  }
-}
-
-.work-card {
+/* Staggered Masonry Grid */
+.work-masonry-grid {
   display: flex;
   flex-direction: column;
-  gap: var(--s-3);
+  gap: clamp(2.5rem, 5vw, 4rem);
+}
+
+@media (max-width: 859px) {
+  .work-masonry-col {
+    display: contents;
+  }
+}
+
+@media (min-width: 860px) {
+  .work-masonry-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: clamp(2.5rem, 4.5vw, 4.5rem);
+    row-gap: 0;
+    align-items: start;
+  }
+
+  .work-masonry-col {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(3rem, 5vw, 4.5rem);
+  }
+
+  .col-staggered {
+    padding-top: clamp(6.5rem, 11vw, 9.5rem);
+  }
+}
+
+.work-masonry-card {
+  order: var(--card-order, 1);
+  display: flex;
+  flex-direction: column;
   text-decoration: none;
   color: inherit;
-  background: var(--bg-card);
-  border: 1px solid var(--border-hairline);
-  border-radius: var(--radius-card);
-  padding: var(--s-4);
-  transition: transform 120ms ease, border-color 0.3s ease, box-shadow 0.3s ease;
-  min-height: 44px;
+  cursor: pointer;
   -webkit-tap-highlight-color: transparent;
+  transition: opacity 0.3s ease;
 }
 
-.work-card:active {
-  transform: scale(0.98);
+.work-masonry-card.is-upcoming {
+  cursor: default;
 }
 
-.work-card:hover {
-  border-color: rgba(196, 181, 253, 0.4);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 24px rgba(196, 181, 253, 0.1);
-}
-
-.work-card-media {
+.work-card-media-box {
   width: 100%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 4 / 5;
   border-radius: 12px;
   overflow: hidden;
   position: relative;
-  background: #181a1e;
+  background: #14161a;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .work-card-img {
@@ -1409,77 +1430,75 @@ body.nav-menu-open {
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 400ms var(--transition-smooth);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .work-card:hover .work-card-img {
-    transform: scale(1.03);
+  .work-masonry-card:not(.is-upcoming):hover .work-card-media-box {
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), 0 0 30px rgba(196, 181, 253, 0.08);
+  }
+
+  .work-masonry-card:not(.is-upcoming):hover .work-card-img {
+    transform: scale(1.035);
   }
 }
 
-.work-card-tag {
-  font-size: var(--fs-small);
-  color: var(--accent-lavender);
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  margin-top: 4px;
+.work-card-info {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
-.work-card-title-row {
+.work-card-header {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
+  gap: 12px;
+}
+
+.work-card-title-group {
+  display: inline-flex;
+  align-items: baseline;
   gap: 8px;
 }
 
-.work-card-title {
-  font-family: var(--font-serif);
-  font-size: var(--fs-h3);
-  color: var(--text-main);
-  font-weight: 400;
+.work-card-name {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 500;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
   margin: 0;
-}
-
-.work-card-arrow {
-  color: var(--accent-lavender);
-  transition: transform 250ms ease;
-  display: inline-block;
+  transition: color 0.25s ease;
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .work-card:hover .work-card-arrow {
-    transform: translateX(4px);
+  .work-masonry-card:not(.is-upcoming):hover .work-card-name {
+    color: var(--accent-lavender, #C4B5FD);
   }
 }
 
-.work-card-outcome {
-  font-size: var(--fs-body);
-  color: var(--text-muted);
+.work-card-badge {
+  font-size: 0.8125rem;
+  color: #9CA3AF;
+  font-weight: 400;
+}
+
+.work-card-year {
+  font-size: 0.8125rem;
+  color: #717680;
+  font-variant-numeric: tabular-nums;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.work-card-summary {
+  font-size: 0.875rem;
+  color: var(--text-muted, #94A3B8);
   line-height: 1.5;
   margin: 0;
-}
-
-.work-card-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-top: auto;
-  padding-top: var(--s-2);
-  border-top: 1px solid var(--border-hairline);
-}
-
-.work-card-role {
-  font-size: var(--fs-small);
-  color: var(--text-dim);
-}
-
-.work-card-link-text {
-  font-size: var(--fs-small);
-  color: var(--accent-lavender);
-  font-weight: 600;
+  max-width: 44ch;
 }
 
 .more-work-container {
