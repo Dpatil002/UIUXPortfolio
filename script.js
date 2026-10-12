@@ -20,6 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
   initHowIWorkAccordion();
   initCopyEmailToast();
   initMobileStickyCTA();
+  // Phase 4 Initializers
+  initReadingProgressBar();
+  initCaseStudyTOC();
+  initDecisionBlockHotspots();
+  initScreenGalleryAndLightbox();
 });
 
 // 1. Ambient Subtle Floating Particles with Cursor Repulsion
@@ -392,39 +397,36 @@ function initFeaturedCarousel() {
   startAutoPlay();
 }
 
-// 6. Project Filter Tabs (Work Page)
+// 6. Project Filter Tabs / Chips (Work Page)
 function initProjectFilterTabs() {
-  const filterBtns = document.querySelectorAll('.work-filter-btn, .filter-tab-btn');
-  const projectCards = document.querySelectorAll('.work-project-card, .filterable-project-card');
+  const filterBtns = document.querySelectorAll('.work-chip, .work-filter-btn, .filter-tab-btn');
+  const projectCards = document.querySelectorAll('.work-card, .work-project-card, .filterable-project-card');
   const emptyState = document.getElementById('filter-empty-state');
   if (!filterBtns.length || !projectCards.length) return;
 
-  let isAnimating = false;
-
   function normalizeFilterParam(val) {
     if (!val) return 'all';
-    const lower = val.toLowerCase().trim();
-    if (lower === 'websites' || lower === 'website') return 'websites';
-    if (lower === 'web-applications' || lower === 'web-application' || lower === 'webapplications' || lower === 'webapplication' || lower === 'web-apps' || lower === 'webapps' || lower === 'web-app' || lower === 'webapp') return 'web-applications';
-    if (lower === 'mobile-apps' || lower === 'mobile-app' || lower === 'mobileapps' || lower === 'mobileapp' || lower === 'app' || lower === 'apps') return 'mobile-apps';
+    const lower = val.toLowerCase().trim().replace(/[\s_]+/g, '-');
     if (lower === 'all') return 'all';
+    if (lower === 'ai') return 'ai';
+    if (lower === 'saas' || lower === 'b2b-saas') return 'saas';
+    if (lower === 'mobile' || lower === 'mobile-app' || lower === 'mobile-apps' || lower === 'app' || lower === 'apps') return 'mobile-app';
+    if (lower === 'ecommerce' || lower === 'e-commerce' || lower === 'commerce') return 'e-commerce';
     return lower;
   }
 
   function applyFilter(filterValue, updateUrl = true, immediate = false) {
     const normFilter = normalizeFilterParam(filterValue);
     
-    // Update tab states
-    let activeBtn = null;
+    // Update tab / chip states
     filterBtns.forEach((btn) => {
-      const btnFilter = btn.getAttribute('data-filter');
+      const btnFilter = normalizeFilterParam(btn.getAttribute('data-filter'));
       const isActive = btnFilter === normFilter || (normFilter === 'all' && btnFilter === 'all');
       btn.classList.toggle('active', isActive);
       btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
-      if (isActive) activeBtn = btn;
     });
 
-    // Update URL if requested
+    // Update URL ?filter=
     if (updateUrl) {
       const url = new URL(window.location.href);
       if (normFilter === 'all') {
@@ -439,8 +441,9 @@ function initProjectFilterTabs() {
     const nonMatchingCards = [];
 
     projectCards.forEach((card) => {
-      const cat = (card.getAttribute('data-category') || '').trim();
-      const match = normFilter === 'all' || cat === normFilter || cat.split(/\s+/).includes(normFilter);
+      const cat = (card.getAttribute('data-category') || '').toLowerCase().trim();
+      const catTokens = cat.split(/[\s,]+/).map(t => normalizeFilterParam(t));
+      const match = normFilter === 'all' || catTokens.includes(normFilter);
       if (match) {
         matchingCards.push(card);
       } else {
@@ -451,78 +454,51 @@ function initProjectFilterTabs() {
     if (immediate) {
       nonMatchingCards.forEach((card) => {
         card.style.display = 'none';
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(14px)';
-        card.style.pointerEvents = 'none';
+        card.classList.remove('filtering-in', 'filtering-out');
       });
 
       matchingCards.forEach((card) => {
-        card.style.display = 'flex';
-        card.style.opacity = '1';
-        card.style.transform = 'translateY(0)';
-        card.style.pointerEvents = 'auto';
+        card.style.display = '';
+        card.classList.remove('filtering-in', 'filtering-out');
       });
 
       if (emptyState) {
-        if (matchingCards.length === 0) {
-          emptyState.style.display = 'block';
-          emptyState.classList.add('is-visible');
-        } else {
-          emptyState.classList.remove('is-visible');
-          emptyState.style.display = 'none';
-        }
+        emptyState.style.display = matchingCards.length === 0 ? 'block' : 'none';
       }
       return;
     }
 
-    // Smooth staggered animation:
-    // 1. Fade out non-matching cards (200ms)
-    nonMatchingCards.forEach((card) => {
-      card.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
-      card.style.opacity = '0';
-      card.style.transform = 'translateY(12px)';
-      card.style.pointerEvents = 'none';
+    // Phase 4: Cards animate out/in (fade + scale 0.98, 200ms) on filter change
+    projectCards.forEach((card) => {
+      card.classList.remove('filtering-in');
+      card.classList.add('filtering-out');
     });
 
     setTimeout(() => {
-      // Hide non-matching cards so grid reflows cleanly
       nonMatchingCards.forEach((card) => {
         card.style.display = 'none';
+        card.classList.remove('filtering-out');
       });
 
-      // Show and stagger fade in matching cards
-      matchingCards.forEach((card, idx) => {
-        card.style.display = 'flex';
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(14px)';
-        card.style.transition = 'opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1)';
-        
-        // Force reflow
-        void card.offsetWidth;
-
-        setTimeout(() => {
-          card.style.opacity = '1';
-          card.style.transform = 'translateY(0)';
-          card.style.pointerEvents = 'auto';
-        }, idx * 45 + 20);
+      matchingCards.forEach((card) => {
+        card.style.display = '';
+        card.classList.remove('filtering-out');
+        card.classList.add('filtering-in');
       });
 
-      // Handle Empty state
       if (emptyState) {
-        if (matchingCards.length === 0) {
-          emptyState.style.display = 'block';
-          setTimeout(() => emptyState.classList.add('is-visible'), 30);
-        } else {
-          emptyState.classList.remove('is-visible');
-          setTimeout(() => {
-            emptyState.style.display = 'none';
-          }, 200);
-        }
+        emptyState.style.display = matchingCards.length === 0 ? 'block' : 'none';
       }
+
+      setTimeout(() => {
+        matchingCards.forEach((card) => {
+          card.classList.remove('filtering-in');
+        });
+      }, 200);
     }, 200);
   }
 
-  // Click events & Keyboard accessible events on filter buttons
+  // Click & keyboard events on filter buttons
   filterBtns.forEach((btn, index) => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -547,13 +523,13 @@ function initProjectFilterTabs() {
   });
 
   // Handle popstate for browser navigation (Back / Forward)
-  window.addEventListener('popstate', (e) => {
+  window.addEventListener('popstate', () => {
     const params = new URLSearchParams(window.location.search);
     const filterParam = params.get('filter') || 'all';
     applyFilter(filterParam, false, false);
   });
 
-  // Initial load check from URL
+  // Initial load check from URL ?filter=
   const initialParams = new URLSearchParams(window.location.search);
   const initialFilter = initialParams.get('filter');
   if (initialFilter) {
@@ -1241,5 +1217,352 @@ function initMobileStickyCTA() {
   }
 
   window.addEventListener('resize', updateStickyState, { passive: true });
+}
+
+/* ==========================================================================
+   PHASE 4: CASE STUDY TEMPLATE & WORK PAGE INTERACTIONS
+   ========================================================================== */
+
+// 4.1 Reading Progress Bar (2px line under header)
+function initReadingProgressBar() {
+  const bar = document.getElementById('cs-reading-progress-bar');
+  const container = document.getElementById('cs-reading-progress');
+  if (!bar || !container) return;
+
+  function updateProgress() {
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    if (total <= 0) {
+      bar.style.width = '0%';
+      container.setAttribute('aria-valuenow', '0');
+      return;
+    }
+    const current = Math.min(100, Math.max(0, (window.scrollY / total) * 100));
+    bar.style.width = current + '%';
+    container.setAttribute('aria-valuenow', Math.round(current));
+  }
+
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  window.addEventListener('resize', updateProgress, { passive: true });
+  updateProgress();
+}
+
+// 4.2 Section Nav: Mobile Bottom Sheet + Desktop Sticky Left-Rail TOC
+function initCaseStudyTOC() {
+  const pillBtn = document.getElementById('cs-toc-pill');
+  const sheet = document.getElementById('cs-toc-sheet');
+  const backdrop = document.getElementById('cs-toc-sheet-backdrop');
+  const closeBtn = document.getElementById('cs-toc-sheet-close');
+  const sheetLinks = document.querySelectorAll('.cs-toc-sheet-link');
+  const railLinks = document.querySelectorAll('.cs-rail-link');
+
+  const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Mobile Bottom Sheet
+  function openSheet() {
+    if (!sheet || !backdrop) return;
+    sheet.classList.add('is-open');
+    backdrop.classList.add('is-open');
+    backdrop.setAttribute('aria-hidden', 'false');
+    if (pillBtn) pillBtn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeSheet() {
+    if (!sheet || !backdrop) return;
+    sheet.classList.remove('is-open');
+    backdrop.classList.remove('is-open');
+    backdrop.setAttribute('aria-hidden', 'true');
+    if (pillBtn) {
+      pillBtn.setAttribute('aria-expanded', 'false');
+      pillBtn.focus();
+    }
+    document.body.style.overflow = '';
+  }
+
+  if (pillBtn) {
+    pillBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openSheet();
+    });
+  }
+
+  if (closeBtn) closeBtn.addEventListener('click', closeSheet);
+  if (backdrop) {
+    backdrop.addEventListener('click', (e) => {
+      if (e.target === backdrop) closeSheet();
+    });
+  }
+
+  // Swipe down to close on mobile sheet
+  let touchStartY = 0;
+  if (sheet) {
+    sheet.addEventListener('touchstart', (e) => {
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    sheet.addEventListener('touchmove', (e) => {
+      const currentY = e.touches[0].clientY;
+      if (currentY - touchStartY > 60 && sheet.scrollTop <= 0) {
+        closeSheet();
+      }
+    }, { passive: true });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && sheet && sheet.classList.contains('is-open')) {
+      closeSheet();
+    }
+  });
+
+  // Smooth-scroll navigation with header offset
+  function scrollToTarget(targetId) {
+    const targetEl = document.getElementById(targetId);
+    if (!targetEl) return;
+    const headerOffset = 80;
+    const elementPosition = targetEl.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: prefersReduced ? 'auto' : 'smooth'
+    });
+  }
+
+  sheetLinks.forEach((link) => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        const id = href.slice(1);
+        closeSheet();
+        setTimeout(() => scrollToTarget(id), 120);
+      }
+    });
+  });
+
+  railLinks.forEach((link) => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        scrollToTarget(href.slice(1));
+      }
+    });
+  });
+
+  // Desktop Left-Rail TOC: IntersectionObserver Active State
+  const observedSectionIds = ['tldr', 'problem', 'role-and-scope', 'key-decisions', 'final-design', 'outcome', 'what-id-do-next', 'process-artefacts'];
+  const observedSections = observedSectionIds.map(id => document.getElementById(id)).filter(Boolean);
+
+  if (observedSections.length && railLinks.length) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const currentId = entry.target.id;
+          railLinks.forEach((link) => {
+            const sectionTarget = link.getAttribute('data-section') || link.getAttribute('href')?.replace('#', '');
+            const isActive = sectionTarget === currentId;
+            link.classList.toggle('active', isActive);
+          });
+        }
+      });
+    }, {
+      rootMargin: '-80px 0px -55% 0px',
+      threshold: [0, 0.2]
+    });
+
+    observedSections.forEach(section => observer.observe(section));
+  }
+}
+
+// 4.3 DecisionBlock: Hotspots & Notes Synchronization
+function initDecisionBlockHotspots() {
+  const blocks = document.querySelectorAll('.cs-decision-block');
+  if (!blocks.length) return;
+
+  blocks.forEach((block) => {
+    const hotspots = block.querySelectorAll('.cs-hotspot');
+    const notes = block.querySelectorAll('.cs-decision-note');
+
+    function setActive(id) {
+      hotspots.forEach((h) => {
+        const match = h.getAttribute('data-hotspot-id') === String(id);
+        h.classList.toggle('active', match);
+        h.setAttribute('aria-expanded', match ? 'true' : 'false');
+      });
+
+      notes.forEach((n) => {
+        const match = n.getAttribute('data-note-id') === String(id);
+        n.classList.toggle('active', match);
+        n.setAttribute('aria-pressed', match ? 'true' : 'false');
+      });
+    }
+
+    // Set first active by default
+    if (hotspots.length) {
+      const firstId = hotspots[0].getAttribute('data-hotspot-id');
+      setActive(firstId);
+    }
+
+    hotspots.forEach((spot) => {
+      spot.addEventListener('click', () => {
+        const spotId = spot.getAttribute('data-hotspot-id');
+        setActive(spotId);
+      });
+    });
+
+    notes.forEach((note) => {
+      note.addEventListener('click', () => {
+        const noteId = note.getAttribute('data-note-id');
+        setActive(noteId);
+      });
+
+      note.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          const noteId = note.getAttribute('data-note-id');
+          setActive(noteId);
+        }
+      });
+    });
+  });
+}
+
+// 4.4 Screen Gallery: Mobile Counter & Fullscreen Lightbox
+function initScreenGalleryAndLightbox() {
+  const galleryContainer = document.getElementById('cs-gallery-container');
+  const counterPill = document.getElementById('cs-counter-pill');
+  const galleryItems = document.querySelectorAll('.cs-gallery-item');
+
+  // Mobile Carousel Counter update
+  if (galleryContainer && counterPill && galleryItems.length) {
+    let scrollTimeout;
+    galleryContainer.addEventListener('scroll', () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        const scrollLeft = galleryContainer.scrollLeft;
+        const firstItem = galleryItems[0];
+        const cardWidth = firstItem ? firstItem.offsetWidth + 16 : 300;
+        const currentIdx = Math.min(galleryItems.length, Math.max(1, Math.round(scrollLeft / cardWidth) + 1));
+        counterPill.textContent = `${currentIdx} / ${galleryItems.length}`;
+      }, 50);
+    }, { passive: true });
+  }
+
+  // Fullscreen Lightbox Modal
+  const lightbox = document.getElementById('cs-lightbox');
+  if (!lightbox || !galleryItems.length) return;
+
+  const lightboxImg = document.getElementById('cs-lightbox-img');
+  const lightboxCounter = document.getElementById('cs-lightbox-counter');
+  const lightboxCaption = document.getElementById('cs-lightbox-caption');
+  const closeBtn = document.getElementById('cs-lightbox-close');
+  const backdrop = document.getElementById('cs-lightbox-backdrop');
+  const prevBtn = document.getElementById('cs-lightbox-prev');
+  const nextBtn = document.getElementById('cs-lightbox-next');
+  const stage = document.getElementById('cs-lightbox-stage');
+
+  let currentIndex = 0;
+  const screensData = [];
+
+  galleryItems.forEach((item, idx) => {
+    const img = item.querySelector('.cs-gallery-img');
+    const captionEl = item.querySelector('.cs-caption-text');
+    screensData.push({
+      src: img ? img.getAttribute('src') : '',
+      alt: img ? img.getAttribute('alt') : '',
+      caption: captionEl ? captionEl.textContent : ''
+    });
+
+    item.addEventListener('click', () => openLightbox(idx));
+    item.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openLightbox(idx);
+      }
+    });
+  });
+
+  function updateLightboxView() {
+    const data = screensData[currentIndex];
+    if (!data) return;
+
+    if (lightboxImg) {
+      lightboxImg.src = data.src;
+      lightboxImg.alt = data.alt;
+    }
+    if (lightboxCounter) {
+      lightboxCounter.textContent = `${currentIndex + 1} / ${screensData.length}`;
+    }
+    if (lightboxCaption) {
+      lightboxCaption.textContent = data.caption;
+    }
+  }
+
+  function openLightbox(index) {
+    currentIndex = index;
+    updateLightboxView();
+    lightbox.classList.add('is-open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    if (closeBtn) closeBtn.focus();
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  function showNext() {
+    currentIndex = (currentIndex + 1) % screensData.length;
+    updateLightboxView();
+  }
+
+  function showPrev() {
+    currentIndex = (currentIndex - 1 + screensData.length) % screensData.length;
+    updateLightboxView();
+  }
+
+  if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+  if (backdrop) backdrop.addEventListener('click', closeLightbox);
+  if (nextBtn) nextBtn.addEventListener('click', showNext);
+  if (prevBtn) prevBtn.addEventListener('click', showPrev);
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('is-open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    else if (e.key === 'ArrowRight') showNext();
+    else if (e.key === 'ArrowLeft') showPrev();
+  });
+
+  // Touch Swipe on Lightbox Stage (Mobile)
+  let touchStartX = 0;
+  let touchStartY = 0;
+
+  if (stage) {
+    stage.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    stage.addEventListener('touchend', (e) => {
+      const touchEndX = e.changedTouches[0].clientX;
+      const touchEndY = e.changedTouches[0].clientY;
+      const diffX = touchStartX - touchEndX;
+      const diffY = touchStartY - touchEndY;
+
+      // Horizontal swipe
+      if (Math.abs(diffX) > 50 && Math.abs(diffX) > Math.abs(diffY)) {
+        if (diffX > 0) showNext();
+        else showPrev();
+      }
+      // Swipe down to close
+      else if (diffY < -70 && Math.abs(diffY) > Math.abs(diffX)) {
+        closeLightbox();
+      }
+    }, { passive: true });
+  }
 }
 

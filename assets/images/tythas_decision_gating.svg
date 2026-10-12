@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="100%" height="100%">
+  <defs>
+    <linearGradient id="gtBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c14" />
+      <stop offset="100%" stop-color="#121826" />
+    </linearGradient>
+    <linearGradient id="gtCard" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#192135" />
+      <stop offset="100%" stop-color="#121727" />
+    </linearGradient>
+    <filter id="gtShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.6" />
+    </filter>
+  </defs>
+
+  <rect width="1200" height="680" fill="url(#gtBg)" />
+
+  <!-- Window Frame -->
+  <g transform="translate(60, 45)" filter="url(#gtShadow)">
+    <rect width="1080" height="590" rx="14" fill="#0f1422" stroke="#252f4a" stroke-width="1.5" />
+    <rect width="1080" height="52" rx="14" fill="#161e31" />
+    <circle cx="28" cy="26" r="5.5" fill="#ef4444" />
+    <circle cx="48" cy="26" r="5.5" fill="#f59e0b" />
+    <circle cx="68" cy="26" r="5.5" fill="#10b981" />
+    <text x="100" y="30" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="600" fill="#cbd5e1">Tythas Control Center · Defensive Connection-State Machine &amp; Write Protection</text>
+
+    <!-- State Progression Track (4 States) -->
+    <g transform="translate(40, 80)">
+      <text x="0" y="20" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#818cf8" letter-spacing="1">FOUR VERIFIED CONNECTION STATES (POSTEL'S LAW DEFENSIVE GATING)</text>
+
+      <!-- State 1: Disconnected -->
+      <g transform="translate(0, 45)">
+        <rect width="230" height="110" rx="10" fill="#141a29" stroke="#334155" stroke-width="1" />
+        <circle cx="24" cy="30" r="6" fill="#ef4444" />
+        <text x="40" y="34" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="700" fill="#fca5a5">01 · Disconnected</text>
+        <text x="24" y="62" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" fill="#94a3b8">Domain entered but unreachable.</text>
+        <rect x="24" y="78" width="180" height="20" rx="4" fill="rgba(239, 68, 68, 0.15)" />
+        <text x="32" y="92" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="700" fill="#f87171">WRITE CONTROLS: LOCKED</text>
+      </g>
+
+      <!-- Arrow 1 -> 2 -->
+      <path d="M 235 100 L 255 100" stroke="#475569" stroke-width="2" />
+
+      <!-- State 2: Audit Only -->
+      <g transform="translate(260, 45)">
+        <rect width="230" height="110" rx="10" fill="#141a29" stroke="#475569" stroke-width="1" />
+        <circle cx="24" cy="30" r="6" fill="#f59e0b" />
+        <text x="40" y="34" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="700" fill="#fde047">02 · Audit Only</text>
+        <text x="24" y="62" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" fill="#94a3b8">HTTP &amp; DNS verified; read-only.</text>
+        <rect x="24" y="78" width="180" height="20" rx="4" fill="rgba(245, 158, 11, 0.15)" />
+        <text x="32" y="92" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="700" fill="#fbbf24">INSPECT CRAWL ONLY</text>
+      </g>
+
+      <!-- Arrow 2 -> 3 -->
+      <path d="M 495 100 L 515 100" stroke="#475569" stroke-width="2" />
+
+      <!-- State 3: Analyzing -->
+      <g transform="translate(520, 45)">
+        <rect width="230" height="110" rx="10" fill="#141a29" stroke="#6366f1" stroke-width="1.5" />
+        <circle cx="24" cy="30" r="6" fill="#818cf8" />
+        <text x="40" y="34" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="700" fill="#c7d2fe">03 · Analyzing</text>
+        <text x="24" y="62" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" fill="#94a3b8">API key handshake in progress.</text>
+        <rect x="24" y="78" width="180" height="20" rx="4" fill="rgba(99, 102, 241, 0.2)" />
+        <text x="32" y="92" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="700" fill="#a5b4fc">TESTING CAPABILITY PING</text>
+      </g>
+
+      <!-- Arrow 3 -> 4 -->
+      <path d="M 755 100 L 775 100" stroke="#10b981" stroke-width="2" />
+
+      <!-- State 4: Connected -->
+      <g transform="translate(780, 45)">
+        <rect width="220" height="110" rx="10" fill="#152427" stroke="#10b981" stroke-width="2" />
+        <circle cx="24" cy="30" r="6" fill="#10b981" />
+        <text x="40" y="34" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="700" fill="#6ee7b7">04 · Connected</text>
+        <text x="24" y="62" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" fill="#94a3b8">Bi-directional verified write bridge.</text>
+        <rect x="24" y="78" width="170" height="20" rx="4" fill="rgba(16, 185, 129, 0.25)" />
+        <text x="32" y="92" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="700" fill="#34d399">✓ WRITE ACTIVE &amp; SAFE</text>
+      </g>
+    </g>
+
+    <!-- Side-by-Side Comparison of UI Actions -->
+    <g transform="translate(40, 280)">
+      <!-- Unconnected / Unverified Tenant: Defensive Gating UI -->
+      <g>
+        <rect width="480" height="260" rx="10" fill="#131828" stroke="#ef4444" stroke-width="1.2" />
+        <rect width="480" height="40" rx="10" fill="#1d2238" />
+        <text x="20" y="26" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="700" fill="#fca5a5">Tenant State: Audit Only (Client Site Unverified)</text>
+        
+        <text x="24" y="70" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="600" fill="#cbd5e1">Action Attempted: "Publish 301 Redirect Rule"</text>
+        <text x="24" y="92" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#94a3b8">The UI intercepts write triggers before server execution:</text>
+
+        <!-- Disabled Button with clear barrier -->
+        <rect x="24" y="115" width="220" height="42" rx="6" fill="#1c2438" stroke="#334155" stroke-dasharray="4,4" />
+        <text x="40" y="141" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="600" fill="#64748b">🚫 Publish Redirect (Locked)</text>
+
+        <!-- Warning Callout Box -->
+        <rect x="24" y="170" width="432" height="70" rx="6" fill="rgba(239, 68, 68, 0.1)" stroke="#ef4444" stroke-width="0.8" />
+        <text x="40" y="195" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" font-weight="700" fill="#f87171">PREVENTS SILENT FAILURE</text>
+        <text x="40" y="215" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" fill="#e2e8f0">Write credentials not detected. Complete Connector Setup to</text>
+        <text x="40" y="230" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" fill="#e2e8f0">enable write actions. Zero ghost clicks.</text>
+      </g>
+
+      <!-- Connected Tenant: Verified UI -->
+      <g transform="translate(520, 0)">
+        <rect width="480" height="260" rx="10" fill="#131f29" stroke="#10b981" stroke-width="1.2" />
+        <rect width="480" height="40" rx="10" fill="#172b35" />
+        <text x="20" y="26" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="700" fill="#6ee7b7">Tenant State: Connected (Live Webhook Active)</text>
+        
+        <text x="24" y="70" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="600" fill="#cbd5e1">Action Attempted: "Publish 301 Redirect Rule"</text>
+        <text x="24" y="92" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#94a3b8">Cryptographically signed payload sent to live edge router:</text>
+
+        <!-- Active Live Button -->
+        <rect x="24" y="115" width="220" height="42" rx="6" fill="#10b981" />
+        <text x="45" y="141" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="700" fill="#ffffff">✓ Publish Redirect Now</text>
+
+        <!-- Success Callout Box -->
+        <rect x="24" y="170" width="432" height="70" rx="6" fill="rgba(16, 185, 129, 0.12)" stroke="#10b981" stroke-width="0.8" />
+        <text x="40" y="195" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" font-weight="700" fill="#34d399">100% VERIFIED PIPELINE</text>
+        <text x="40" y="215" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" fill="#e2e8f0">Route `/services/old-seo` redirected to `/services/seo-v2`.</text>
+        <text x="40" y="230" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" fill="#e2e8f0">Edge propagation confirmed in 220ms.</text>
+      </g>
+    </g>
+  </g>
+</svg>

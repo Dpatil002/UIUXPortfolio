@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="100%" height="100%">
+  <defs>
+    <linearGradient id="dbBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c13" />
+      <stop offset="100%" stop-color="#111624" />
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#182033" />
+      <stop offset="100%" stop-color="#131928" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="750" fill="url(#dbBg)" />
+
+  <!-- App Window Container -->
+  <g transform="translate(30, 25)">
+    <rect width="1140" height="700" rx="14" fill="#0d111d" stroke="#222b42" stroke-width="1.5" />
+    
+    <!-- Window Bar -->
+    <rect width="1140" height="46" rx="14" fill="#141a2a" />
+    <circle cx="24" cy="23" r="5" fill="#ef4444" />
+    <circle cx="42" cy="23" r="5" fill="#f59e0b" />
+    <circle cx="60" cy="23" r="5" fill="#10b981" />
+    <text x="90" y="27" font-family="'Plus Jakarta Sans', sans-serif" font-size="12.5" font-weight="600" fill="#94a3b8">Tythas Control Center · Dashboard Overview · Multi-Tenant Portfolio</text>
+    
+    <!-- Sidebar (Left) -->
+    <g transform="translate(0, 46)">
+      <rect width="220" height="654" fill="#0f1422" stroke="#1d2538" stroke-width="1" />
+      <!-- Brand Logo / Switcher -->
+      <g transform="translate(20, 20)">
+        <rect width="180" height="44" rx="8" fill="#192237" stroke="#2c3a59" />
+        <circle cx="24" cy="22" r="12" fill="#6366f1" />
+        <text x="18" y="26" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="800" fill="#ffffff">TC</text>
+        <text x="44" y="22" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#ffffff">Tythas Agency</text>
+        <text x="44" y="34" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#818cf8">6 Client Sites ▾</text>
+      </g>
+
+      <!-- Nav Items -->
+      <g transform="translate(15, 85)">
+        <rect x="0" y="0" width="190" height="36" rx="6" fill="#6366f1" />
+        <text x="35" y="22" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#ffffff">📊 Overview &amp; Sites</text>
+
+        <text x="35" y="58" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600" fill="#94a3b8">📄 Pages Manager</text>
+        <text x="35" y="94" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600" fill="#94a3b8">✍️ Blog &amp; Articles</text>
+        <text x="35" y="130" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600" fill="#94a3b8">🔍 SEO &amp; Schema</text>
+        <text x="35" y="166" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600" fill="#94a3b8">📬 Inbound Leads (2)</text>
+        <text x="35" y="202" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600" fill="#94a3b8">⚡ Site Health &amp; Ping</text>
+        <text x="35" y="238" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600" fill="#94a3b8">🔌 Connectors</text>
+        <text x="35" y="274" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600" fill="#94a3b8">⚙️ Global Settings</text>
+      </g>
+    </g>
+
+    <!-- Main Content Area -->
+    <g transform="translate(240, 65)">
+      <!-- Top Title and Quick Stats -->
+      <text x="0" y="24" font-family="'Space Grotesk', sans-serif" font-size="24" font-weight="700" fill="#ffffff">Client Sites Portfolio</text>
+      <text x="0" y="46" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" fill="#94a3b8">Unified management for 6 connected client properties</text>
+      
+      <rect x="760" y="5" width="120" height="36" rx="6" fill="#6366f1" />
+      <text x="782" y="28" font-family="'Plus Jakarta Sans', sans-serif" font-size="12.5" font-weight="700" fill="#ffffff">+ Connect Site</text>
+
+      <!-- Stat Badges Row -->
+      <g transform="translate(0, 65)">
+        <rect width="205" height="76" rx="8" fill="url(#cardGrad)" stroke="#232d46" />
+        <text x="18" y="26" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="600" fill="#94a3b8">TOTAL ACTIVE SITES</text>
+        <text x="18" y="56" font-family="'Space Grotesk', sans-serif" font-size="24" font-weight="700" fill="#ffffff">6</text>
+        <text x="44" y="56" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" font-weight="700" fill="#10b981">100% ONLINE</text>
+
+        <rect x="225" y="0" width="205" height="76" rx="8" fill="url(#cardGrad)" stroke="#232d46" />
+        <text x="243" y="26" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="600" fill="#94a3b8">THIS WEEK'S LEADS</text>
+        <text x="243" y="56" font-family="'Space Grotesk', sans-serif" font-size="24" font-weight="700" fill="#ffffff">47</text>
+        <text x="282" y="56" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" font-weight="700" fill="#10b981">+28%</text>
+
+        <rect x="450" y="0" width="205" height="76" rx="8" fill="url(#cardGrad)" stroke="#232d46" />
+        <text x="468" y="26" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="600" fill="#94a3b8">ARTICLES PUBLISHED</text>
+        <text x="468" y="56" font-family="'Space Grotesk', sans-serif" font-size="24" font-weight="700" fill="#ffffff">184</text>
+        <text x="518" y="56" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" font-weight="700" fill="#818cf8">ALL INDEXED</text>
+
+        <rect x="675" y="0" width="205" height="76" rx="8" fill="url(#cardGrad)" stroke="#232d46" />
+        <text x="693" y="26" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="600" fill="#94a3b8">ATTENTION REQUIRED</text>
+        <text x="693" y="56" font-family="'Space Grotesk', sans-serif" font-size="24" font-weight="700" fill="#f59e0b">1 Warning</text>
+      </g>
+
+      <!-- Client Sites Grid (2x2 Cards) -->
+      <g transform="translate(0, 160)">
+        <!-- Site Card 1: Tythas Agency -->
+        <rect width="430" height="190" rx="10" fill="#131929" stroke="#25304c" />
+        <circle cx="28" cy="30" r="10" fill="#10b981" />
+        <text x="48" y="34" font-family="'Plus Jakarta Sans', sans-serif" font-size="15" font-weight="700" fill="#ffffff">Tythas.agency</text>
+        <rect x="310" y="20" width="100" height="22" rx="11" fill="rgba(16, 185, 129, 0.15)" />
+        <text x="325" y="35" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="700" fill="#6ee7b7">CONNECTED</text>
+        <text x="24" y="70" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#94a3b8">Stack: Custom Next.js 14 App Router (Vercel Edge)</text>
+        <text x="24" y="92" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#94a3b8">Health: 100% Uptime · SSL Valid (312 days) · Avg LCP 0.8s</text>
+        <text x="24" y="114" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#cbd5e1">Latest: 2 New Inbound B2B Inquiries awaiting triage</text>
+        <rect x="24" y="136" width="110" height="32" rx="6" fill="#1c253b" />
+        <text x="40" y="156" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600" fill="#818cf8">Manage Site →</text>
+
+        <!-- Site Card 2: Sa Creations -->
+        <g transform="translate(450, 0)">
+          <rect width="430" height="190" rx="10" fill="#131929" stroke="#ef4444" stroke-width="1.2" />
+          <circle cx="28" cy="30" r="10" fill="#f59e0b" />
+          <text x="48" y="34" font-family="'Plus Jakarta Sans', sans-serif" font-size="15" font-weight="700" fill="#ffffff">SaCreations.in</text>
+          <rect x="290" y="20" width="120" height="22" rx="11" fill="rgba(239, 68, 68, 0.15)" />
+          <text x="305" y="35" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="700" fill="#fca5a5">ATTENTION: SSL</text>
+          <text x="24" y="70" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#94a3b8">Stack: WordPress 6.5 (Headless REST Connector)</text>
+          <text x="24" y="92" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#fca5a5">Warning: SSL Certificate renewal pending in 48h</text>
+          <text x="24" y="114" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#cbd5e1">Pages: 34 Published · 18 Leads Captured</text>
+          <rect x="24" y="136" width="110" height="32" rx="6" fill="#ef4444" />
+          <text x="38" y="156" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#ffffff">Resolve SSL →</text>
+        </g>
+
+        <!-- Site Card 3: Mandal Stores -->
+        <g transform="translate(0, 210)">
+          <rect width="430" height="190" rx="10" fill="#131929" stroke="#25304c" />
+          <circle cx="28" cy="30" r="10" fill="#10b981" />
+          <text x="48" y="34" font-family="'Plus Jakarta Sans', sans-serif" font-size="15" font-weight="700" fill="#ffffff">MandalStores.com</text>
+          <rect x="310" y="20" width="100" height="22" rx="11" fill="rgba(16, 185, 129, 0.15)" />
+          <text x="325" y="35" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="700" fill="#6ee7b7">CONNECTED</text>
+          <text x="24" y="70" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#94a3b8">Stack: Custom Node Storefront + Strapi Backend</text>
+          <text x="24" y="92" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#94a3b8">Health: 99.98% Uptime · SSL Valid (240 days)</text>
+          <text x="24" y="114" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#cbd5e1">SEO: Product Schema active across 112 SKUs</text>
+          <rect x="24" y="136" width="110" height="32" rx="6" fill="#1c253b" />
+          <text x="40" y="156" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600" fill="#818cf8">Manage Site →</text>
+        </g>
+
+        <!-- Site Card 4: Copper Chocs Pune -->
+        <g transform="translate(450, 210)">
+          <rect width="430" height="190" rx="10" fill="#131929" stroke="#25304c" />
+          <circle cx="28" cy="30" r="10" fill="#10b981" />
+          <text x="48" y="34" font-family="'Plus Jakarta Sans', sans-serif" font-size="15" font-weight="700" fill="#ffffff">CopperChocs.com</text>
+          <rect x="310" y="20" width="100" height="22" rx="11" fill="rgba(16, 185, 129, 0.15)" />
+          <text x="325" y="35" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="700" fill="#6ee7b7">CONNECTED</text>
+          <text x="24" y="70" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#94a3b8">Stack: Shopify Storefront + Custom Cake Ordering Engine</text>
+          <text x="24" y="92" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#94a3b8">Health: 100% Uptime · SSL Valid · Avg LCP 1.1s</text>
+          <text x="24" y="114" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#cbd5e1">Local SEO: 24 Outlet Schemas synced to Google Maps</text>
+          <rect x="24" y="136" width="110" height="32" rx="6" fill="#1c253b" />
+          <text x="40" y="156" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600" fill="#818cf8">Manage Site →</text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

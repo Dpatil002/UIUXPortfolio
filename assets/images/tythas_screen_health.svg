@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="100%" height="100%">
+  <defs>
+    <linearGradient id="hlBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c13" />
+      <stop offset="100%" stop-color="#111624" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="750" fill="url(#hlBg)" />
+
+  <g transform="translate(30, 25)">
+    <rect width="1140" height="700" rx="14" fill="#0d111d" stroke="#222b42" stroke-width="1.5" />
+    
+    <!-- Window Bar -->
+    <rect width="1140" height="46" rx="14" fill="#141a2a" />
+    <circle cx="24" cy="23" r="5" fill="#ef4444" />
+    <circle cx="42" cy="23" r="5" fill="#f59e0b" />
+    <circle cx="60" cy="23" r="5" fill="#10b981" />
+    <text x="90" y="27" font-family="'Plus Jakarta Sans', sans-serif" font-size="12.5" font-weight="600" fill="#94a3b8">Tythas Control Center · Infrastructure Health &amp; Uptime Telemetry</text>
+
+    <!-- Header Section -->
+    <g transform="translate(40, 65)">
+      <text x="0" y="24" font-family="'Space Grotesk', sans-serif" font-size="24" font-weight="700" fill="#ffffff">Automated Site Health &amp; Observability</text>
+      <text x="0" y="46" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" fill="#94a3b8">Proactive cron heartbeats inspecting HTTP codes, SSL renewals, indexability &amp; Core Web Vitals</text>
+
+      <rect x="740" y="5" width="160" height="36" rx="6" fill="#10b981" />
+      <text x="758" y="28" font-family="'Plus Jakarta Sans', sans-serif" font-size="12.5" font-weight="700" fill="#ffffff">Run Instant Diagnostic</text>
+    </g>
+
+    <!-- 6 Health Category Tiles (Miller's Law Information Chunking) -->
+    <g transform="translate(40, 135)">
+      <!-- Tile 1: HTTP Uptime -->
+      <g>
+        <rect width="335" height="150" rx="10" fill="#131929" stroke="#10b981" stroke-width="1.2" />
+        <circle cx="28" cy="28" r="8" fill="#10b981" />
+        <text x="46" y="32" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="700" fill="#ffffff">HTTP Reachability</text>
+        <text x="24" y="70" font-family="'Space Grotesk', sans-serif" font-size="32" font-weight="700" fill="#10b981">99.98%</text>
+        <text x="24" y="98" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#94a3b8">Last ping: 32 seconds ago</text>
+        <text x="24" y="122" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" fill="#cbd5e1">✓ All edge edge locations respond &lt; 140ms</text>
+      </g>
+
+      <!-- Tile 2: SSL Certificates -->
+      <g transform="translate(360, 0)">
+        <rect width="335" height="150" rx="10" fill="#131929" stroke="#f59e0b" stroke-width="1.2" />
+        <circle cx="28" cy="28" r="8" fill="#f59e0b" />
+        <text x="46" y="32" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="700" fill="#ffffff">SSL TLS Certificates</text>
+        <text x="24" y="70" font-family="'Space Grotesk', sans-serif" font-size="32" font-weight="700" fill="#fde047">5/6 Valid</text>
+        <text x="24" y="98" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#fca5a5">1 alert: SaCreations renewal due 48h</text>
+        <text x="24" y="122" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" fill="#fde047">Auto-renewal token queued</text>
+      </g>
+
+      <!-- Tile 3: Core Web Vitals -->
+      <g transform="translate(720, 0)">
+        <rect width="340" height="150" rx="10" fill="#131929" stroke="#10b981" stroke-width="1.2" />
+        <circle cx="28" cy="28" r="8" fill="#10b981" />
+        <text x="46" y="32" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="700" fill="#ffffff">Core Web Vitals</text>
+        <text x="24" y="70" font-family="'Space Grotesk', sans-serif" font-size="32" font-weight="700" fill="#10b981">0.82s LCP</text>
+        <text x="24" y="98" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#94a3b8">CLS: 0.002 · INP: 45ms</text>
+        <text x="24" y="122" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" fill="#6ee7b7">✓ 100% Mobile &amp; Desktop Passed</text>
+      </g>
+
+      <!-- Tile 4: XML Sitemap & Crawl -->
+      <g transform="translate(0, 175)">
+        <rect width="335" height="150" rx="10" fill="#131929" stroke="#232d46" />
+        <circle cx="28" cy="28" r="8" fill="#6366f1" />
+        <text x="46" y="32" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="700" fill="#ffffff">XML Sitemap &amp; Robots</text>
+        <text x="24" y="70" font-family="'Space Grotesk', sans-serif" font-size="32" font-weight="700" fill="#c7d2fe">342 URLs</text>
+        <text x="24" y="98" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#94a3b8">Index coverage: 100% verified</text>
+        <text x="24" y="122" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" fill="#cbd5e1">✓ Zero orphaned canonical URLs</text>
+      </g>
+
+      <!-- Tile 5: Broken Links & 404s -->
+      <g transform="translate(360, 175)">
+        <rect width="335" height="150" rx="10" fill="#131929" stroke="#232d46" />
+        <circle cx="28" cy="28" r="8" fill="#10b981" />
+        <text x="46" y="32" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="700" fill="#ffffff">Redirects &amp; Broken Links</text>
+        <text x="24" y="70" font-family="'Space Grotesk', sans-serif" font-size="32" font-weight="700" fill="#10b981">0 Errors</text>
+        <text x="24" y="98" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#94a3b8">48 active 301 edge redirects</text>
+        <text x="24" y="122" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" fill="#cbd5e1">✓ Zero 404 crawls detected</text>
+      </g>
+
+      <!-- Tile 6: Lead Form Health -->
+      <g transform="translate(720, 175)">
+        <rect width="340" height="150" rx="10" fill="#131929" stroke="#232d46" />
+        <circle cx="28" cy="28" r="8" fill="#10b981" />
+        <text x="46" y="32" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="700" fill="#ffffff">Form Submission API</text>
+        <text x="24" y="70" font-family="'Space Grotesk', sans-serif" font-size="32" font-weight="700" fill="#10b981">100% Delivery</text>
+        <text x="24" y="98" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#94a3b8">Webhook latency: 180ms avg</text>
+        <text x="24" y="122" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" fill="#cbd5e1">✓ Zero dropped inquiries recorded</text>
+      </g>
+    </g>
+  </g>
+</svg>

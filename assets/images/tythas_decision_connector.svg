@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0e17" />
+      <stop offset="100%" stop-color="#121726" />
+    </linearGradient>
+    <linearGradient id="nodeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#192033" />
+      <stop offset="100%" stop-color="#131826" />
+    </linearGradient>
+    <linearGradient id="indigoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#818cf8" />
+    </linearGradient>
+    <filter id="boxShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.6" />
+    </filter>
+  </defs>
+
+  <rect width="1200" height="680" fill="url(#bgGrad)" />
+  
+  <!-- Subtle Blueprint Grid -->
+  <g opacity="0.05" stroke="#818cf8" stroke-width="1">
+    <line x1="0" y1="170" x2="1200" y2="170" />
+    <line x1="0" y1="340" x2="1200" y2="340" />
+    <line x1="0" y1="510" x2="1200" y2="510" />
+    <line x1="300" y1="0" x2="300" y2="680" />
+    <line x1="600" y1="0" x2="600" y2="680" />
+    <line x1="900" y1="0" x2="900" y2="680" />
+  </g>
+
+  <!-- Top Window Header Bar -->
+  <rect x="40" y="40" width="1120" height="52" rx="10" fill="#151b2a" stroke="#252d43" stroke-width="1" />
+  <circle cx="70" cy="66" r="6" fill="#ef4444" />
+  <circle cx="90" cy="66" r="6" fill="#f59e0b" />
+  <circle cx="110" cy="66" r="6" fill="#10b981" />
+  <text x="140" y="70" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="600" fill="#94a3b8">Tythas Control Center · Universal Connector Bridge Architecture</text>
+  <rect x="990" y="52" width="150" height="28" rx="14" fill="rgba(16, 185, 129, 0.15)" stroke="#10b981" stroke-width="1" />
+  <circle cx="1006" cy="66" r="4" fill="#10b981" />
+  <text x="1018" y="70" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" font-weight="700" fill="#6ee7b7">ALL TENANTS LIVE</text>
+
+  <!-- Flow Nodes Canvas -->
+  <!-- Left Node: Dashboard Client -->
+  <g transform="translate(60, 140)" filter="url(#boxShadow)">
+    <rect width="280" height="460" rx="12" fill="url(#nodeGrad)" stroke="#27324d" stroke-width="1.5" />
+    <rect x="0" y="0" width="280" height="48" rx="12" fill="#1b2338" />
+    <text x="24" y="30" font-family="'Plus Jakarta Sans', sans-serif" font-size="15" font-weight="700" fill="#ffffff">1. Dashboard UI</text>
+    <text x="24" y="75" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600" fill="#818cf8">SINGLE AUTHORING INTERFACE</text>
+    <rect x="24" y="95" width="232" height="60" rx="8" fill="#0f1422" stroke="#252d43" />
+    <text x="40" y="125" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="600" fill="#e2e8f0">WYSIWYG Blog Editor</text>
+    <text x="40" y="142" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#94a3b8">Standardized schema controls</text>
+    <rect x="24" y="170" width="232" height="60" rx="8" fill="#0f1422" stroke="#252d43" />
+    <text x="40" y="200" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="600" fill="#e2e8f0">SEO &amp; JSON-LD Panel</text>
+    <text x="40" y="217" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#94a3b8">Canonical tags, structured data</text>
+    <rect x="24" y="245" width="232" height="60" rx="8" fill="#0f1422" stroke="#252d43" />
+    <text x="40" y="275" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="600" fill="#e2e8f0">Leads &amp; Form Inbox</text>
+    <text x="40" y="292" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#94a3b8">Centralized attribution CRM</text>
+    
+    <rect x="24" y="350" width="232" height="80" rx="8" fill="rgba(99, 102, 241, 0.08)" stroke="#6366f1" stroke-width="1" />
+    <text x="36" y="375" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#818cf8">ZERO CLIENT STACK FRICTION</text>
+    <text x="36" y="395" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#cbd5e1">The operator never cares if</text>
+    <text x="36" y="412" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#cbd5e1">target site is WP or Node.</text>
+  </g>
+
+  <!-- Arrow 1 -> 2 -->
+  <path d="M 345 370 L 415 370" stroke="#6366f1" stroke-width="3" stroke-dasharray="6,4" />
+  <polygon points="418,370 410,365 410,375" fill="#6366f1" />
+
+  <!-- Center Node: Universal Connector Adapter -->
+  <g transform="translate(420, 110)" filter="url(#boxShadow)">
+    <rect width="360" height="520" rx="14" fill="#131929" stroke="#6366f1" stroke-width="2" />
+    <rect x="0" y="0" width="360" height="54" rx="14" fill="url(#indigoGrad)" />
+    <text x="24" y="34" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="800" fill="#ffffff">2. Universal Connector Bridge</text>
+    <text x="24" y="85" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#a5b4fc">CAPABILITY &amp; AUTH PROTOCOL</text>
+    
+    <!-- Sub module 1 -->
+    <rect x="24" y="105" width="312" height="85" rx="8" fill="#1a2236" stroke="#2e3a59" />
+    <circle cx="48" cy="132" r="12" fill="#252f4a" />
+    <text x="44" y="136" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#818cf8">A</text>
+    <text x="72" y="132" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="700" fill="#ffffff">State &amp; Capability Handshake</text>
+    <text x="72" y="152" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" fill="#94a3b8">4-step: Disconnected → Audit → Analyzing → Connected</text>
+    <text x="72" y="170" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#10b981">✓ Cryptographic HMAC token verified</text>
+
+    <!-- Sub module 2 -->
+    <rect x="24" y="205" width="312" height="85" rx="8" fill="#1a2236" stroke="#2e3a59" />
+    <circle cx="48" cy="232" r="12" fill="#252f4a" />
+    <text x="44" y="236" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#818cf8">B</text>
+    <text x="72" y="232" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="700" fill="#ffffff">Standardized Write Transformer</text>
+    <text x="72" y="252" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" fill="#94a3b8">Maps unified AST payload to WP REST or Custom API</text>
+    <text x="72" y="270" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#10b981">✓ Zero client-side plugins needed</text>
+
+    <!-- Sub module 3 -->
+    <rect x="24" y="305" width="312" height="85" rx="8" fill="#1a2236" stroke="#2e3a59" />
+    <circle cx="48" cy="332" r="12" fill="#252f4a" />
+    <text x="44" y="336" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#818cf8">C</text>
+    <text x="72" y="332" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="700" fill="#ffffff">Automated Failover &amp; Rollback</text>
+    <text x="72" y="352" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" fill="#94a3b8">Guarantees write idempotency &amp; status rollback</text>
+    <text x="72" y="370" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#10b981">✓ No silent write drops allowed</text>
+
+    <rect x="24" y="415" width="312" height="75" rx="8" fill="#0c101c" stroke="#25304c" />
+    <text x="40" y="442" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#c7d2fe">PER-TENANT SECURITY ISOLATION</text>
+    <text x="40" y="462" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#94a3b8">Credentials, webhooks &amp; tokens encrypted with AES-256</text>
+    <text x="40" y="478" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#94a3b8">at rest. Zero cross-tenant leakage.</text>
+  </g>
+
+  <!-- Arrow 2 -> 3 -->
+  <path d="M 785 370 L 855 370" stroke="#10b981" stroke-width="3" stroke-dasharray="6,4" />
+  <polygon points="858,370 850,365 850,375" fill="#10b981" />
+
+  <!-- Right Node: Client Backends -->
+  <g transform="translate(860, 140)" filter="url(#boxShadow)">
+    <rect width="280" height="460" rx="12" fill="url(#nodeGrad)" stroke="#27324d" stroke-width="1.5" />
+    <rect x="0" y="0" width="280" height="48" rx="12" fill="#1b2338" />
+    <text x="24" y="30" font-family="'Plus Jakarta Sans', sans-serif" font-size="15" font-weight="700" fill="#ffffff">3. Client Targets</text>
+    <text x="24" y="75" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600" fill="#10b981">ANY ARCHITECTURE SUPPORTED</text>
+    
+    <rect x="24" y="95" width="232" height="90" rx="8" fill="#0f1422" stroke="#252d43" />
+    <rect x="36" y="108" width="80" height="20" rx="4" fill="rgba(33, 117, 155, 0.2)" stroke="#21759b" />
+    <text x="44" y="122" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="700" fill="#38bdf8">WORDPRESS</text>
+    <text x="36" y="148" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600" fill="#e2e8f0">Target WP REST API</text>
+    <text x="36" y="166" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#94a3b8">Posts, taxonomies, media sync</text>
+
+    <rect x="24" y="200" width="232" height="90" rx="8" fill="#0f1422" stroke="#252d43" />
+    <rect x="36" y="213" width="96" height="20" rx="4" fill="rgba(255, 255, 255, 0.1)" stroke="#ffffff" stroke-opacity="0.3" />
+    <text x="44" y="227" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="700" fill="#ffffff">CUSTOM NEXT.JS</text>
+    <text x="36" y="253" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600" fill="#e2e8f0">Server Action Webhook</text>
+    <text x="36" y="271" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#94a3b8">Instant ISR on-demand revalidate</text>
+
+    <rect x="24" y="305" width="232" height="90" rx="8" fill="#0f1422" stroke="#252d43" />
+    <rect x="36" y="318" width="100" height="20" rx="4" fill="rgba(249, 115, 22, 0.15)" stroke="#f97316" stroke-opacity="0.4" />
+    <text x="44" y="332" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="700" fill="#fb923c">STATIC / ASTRO</text>
+    <text x="36" y="358" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600" fill="#e2e8f0">Deploy Webhook &amp; Edge</text>
+    <text x="36" y="376" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#94a3b8">Cloudflare / Netlify build triggers</text>
+
+    <rect x="24" y="410" width="232" height="36" rx="6" fill="#141a29" />
+    <text x="40" y="432" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="600" fill="#10b981">✓ 100% Zero Manual FTP / Code Edits</text>
+  </g>
+</svg>

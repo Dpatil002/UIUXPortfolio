@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="100%" height="100%">
+  <defs>
+    <linearGradient id="edBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090c13" />
+      <stop offset="100%" stop-color="#111624" />
+    </linearGradient>
+    <linearGradient id="edCard" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#182033" />
+      <stop offset="100%" stop-color="#121827" />
+    </linearGradient>
+    <filter id="edShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="20" flood-color="#000000" flood-opacity="0.65" />
+    </filter>
+  </defs>
+
+  <rect width="1200" height="680" fill="url(#edBg)" />
+
+  <!-- App Window Container -->
+  <g transform="translate(50, 40)" filter="url(#edShadow)">
+    <rect width="1100" height="600" rx="14" fill="#0e1320" stroke="#232d46" stroke-width="1.5" />
+    
+    <!-- Window Header -->
+    <rect width="1100" height="50" rx="14" fill="#151d30" />
+    <circle cx="28" cy="25" r="5.5" fill="#ef4444" />
+    <circle cx="48" cy="25" r="5.5" fill="#f59e0b" />
+    <circle cx="68" cy="25" r="5.5" fill="#10b981" />
+    <text x="100" y="29" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="600" fill="#cbd5e1">Tythas Control Center · Blog Editor — "Scaling Local SEO with Dynamic Schema"</text>
+    
+    <!-- Status & Publish Actions -->
+    <rect x="760" y="11" width="100" height="28" rx="6" fill="#1f2840" />
+    <text x="778" y="29" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" font-weight="600" fill="#94a3b8">Draft saved</text>
+    <rect x="875" y="11" width="105" height="28" rx="6" fill="rgba(99, 102, 241, 0.15)" stroke="#6366f1" stroke-width="1" />
+    <text x="892" y="29" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" font-weight="700" fill="#818cf8">Live Preview</text>
+    <rect x="995" y="11" width="90" height="28" rx="6" fill="#6366f1" />
+    <text x="1018" y="29" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#ffffff">Publish</text>
+
+    <!-- 10-Item Formatting Toolbar -->
+    <rect y="50" width="1100" height="46" fill="#121828" stroke="#1f2840" stroke-width="1" />
+    <g transform="translate(24, 60)">
+      <!-- Tool 1: H1 -->
+      <rect x="0" y="0" width="34" height="26" rx="4" fill="#1f2942" />
+      <text x="10" y="18" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#e2e8f0">H1</text>
+      <!-- Tool 2: H2 -->
+      <rect x="42" y="0" width="34" height="26" rx="4" fill="#171f33" />
+      <text x="52" y="18" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600" fill="#94a3b8">H2</text>
+      <!-- Tool 3: Bold -->
+      <rect x="84" y="0" width="34" height="26" rx="4" fill="#171f33" />
+      <text x="96" y="18" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800" fill="#94a3b8">B</text>
+      <!-- Tool 4: Italic -->
+      <rect x="126" y="0" width="34" height="26" rx="4" fill="#171f33" />
+      <text x="139" y="18" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-style="italic" font-weight="600" fill="#94a3b8">I</text>
+      <!-- Tool 5: Link -->
+      <rect x="168" y="0" width="34" height="26" rx="4" fill="#171f33" />
+      <text x="178" y="18" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600" fill="#94a3b8">🔗</text>
+      <!-- Tool 6: List -->
+      <rect x="210" y="0" width="34" height="26" rx="4" fill="#171f33" />
+      <text x="220" y="17" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#94a3b8">≡</text>
+      <!-- Tool 7: Quote -->
+      <rect x="252" y="0" width="34" height="26" rx="4" fill="#171f33" />
+      <text x="264" y="18" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="700" fill="#94a3b8">“</text>
+      <!-- Tool 8: Code -->
+      <rect x="294" y="0" width="34" height="26" rx="4" fill="#171f33" />
+      <text x="303" y="17" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#94a3b8">&lt;&gt;</text>
+      <!-- Tool 9: Image Upload -->
+      <rect x="336" y="0" width="34" height="26" rx="4" fill="#171f33" />
+      <text x="345" y="18" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#94a3b8">🖼</text>
+      <!-- Tool 10: FAQ Schema Prompt -->
+      <rect x="378" y="0" width="110" height="26" rx="4" fill="rgba(16, 185, 129, 0.15)" stroke="#10b981" stroke-width="1" />
+      <text x="388" y="17" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#6ee7b7">+ FAQ Schema</text>
+    </g>
+
+    <!-- Editor Main Canvas (Split View: Writing Area + Viewport Preview) -->
+    <!-- Left: Writing Surface -->
+    <g transform="translate(40, 120)">
+      <text x="0" y="32" font-family="'Space Grotesk', sans-serif" font-size="28" font-weight="700" fill="#ffffff">Scaling Local SEO with Dynamic Schema</text>
+      <text x="0" y="70" font-family="'Plus Jakarta Sans', sans-serif" font-size="15" fill="#94a3b8" line-height="24">
+        Every local business website requires rich snippets to rank in map pack results. Instead of editing
+      </text>
+      <text x="0" y="94" font-family="'Plus Jakarta Sans', sans-serif" font-size="15" fill="#94a3b8">
+        WordPress header scripts manually, Tythas Control Center automates JSON-LD generation directly
+      </text>
+      <text x="0" y="118" font-family="'Plus Jakarta Sans', sans-serif" font-size="15" fill="#94a3b8">
+        from your business profile metadata.
+      </text>
+
+      <!-- Subhead H2 -->
+      <text x="0" y="170" font-family="'Space Grotesk', sans-serif" font-size="20" font-weight="600" fill="#c7d2fe">Automated Business Schema Injection</text>
+      <text x="0" y="202" font-family="'Plus Jakarta Sans', sans-serif" font-size="15" fill="#cbd5e1">
+        When a client modifies opening hours or holiday announcements, the platform synchronizes the
+      </text>
+      <text x="0" y="226" font-family="'Plus Jakarta Sans', sans-serif" font-size="15" fill="#cbd5e1">
+        Google Business Profile API and updates canonical structured data in real-time.
+      </text>
+
+      <!-- Inline FAQ Schema Block Callout -->
+      <rect x="0" y="260" width="560" height="130" rx="8" fill="#141c2c" stroke="#2a3652" />
+      <rect x="0" y="260" width="4" height="130" fill="#10b981" />
+      <text x="24" y="286" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#6ee7b7">STRUCTURED FAQ ACCORDION (JSON-LD AUTO-GENERATED)</text>
+      <text x="24" y="312" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="600" fill="#ffffff">Q: How fast does local schema propagate to Googlebot?</text>
+      <text x="24" y="332" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#94a3b8">A: Typically within 24 to 48 hours following sitemap ping re-crawl.</text>
+      <text x="24" y="362" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="600" fill="#818cf8">+ Add another question</text>
+    </g>
+
+    <!-- Right: Integrated Viewport Emulation Frame -->
+    <g transform="translate(680, 115)">
+      <rect width="380" height="440" rx="20" fill="#0a0c12" stroke="#2c3750" stroke-width="2" />
+      <!-- Mobile Notch / Camera -->
+      <rect x="140" y="8" width="100" height="14" rx="7" fill="#1c2336" />
+      <circle cx="215" cy="15" r="3" fill="#3a4768" />
+      
+      <!-- Device Header -->
+      <rect x="0" y="32" width="380" height="38" fill="#131929" />
+      <text x="20" y="55" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#ffffff">Client Site Live Preview</text>
+      <rect x="290" y="40" width="70" height="20" rx="10" fill="rgba(16, 185, 129, 0.2)" />
+      <text x="304" y="54" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="700" fill="#10b981">390 × 844</text>
+
+      <!-- Simulated Rendered Mobile Site -->
+      <rect x="20" y="85" width="340" height="120" rx="8" fill="#171e30" />
+      <text x="36" y="112" font-family="'Space Grotesk', sans-serif" font-size="14" font-weight="700" fill="#ffffff">Scaling Local SEO</text>
+      <text x="36" y="132" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#94a3b8">Every local business requires rich</text>
+      <text x="36" y="148" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#94a3b8">snippets to rank in search results...</text>
+      <rect x="36" y="165" width="80" height="24" rx="4" fill="#6366f1" />
+      <text x="48" y="181" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="700" fill="#ffffff">Read More</text>
+
+      <!-- Simulated Accordion -->
+      <rect x="20" y="220" width="340" height="60" rx="6" fill="#141a2a" stroke="#252f48" />
+      <text x="36" y="246" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" font-weight="600" fill="#e2e8f0">How fast does schema propagate? ▾</text>
+      <text x="36" y="265" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#6ee7b7">✓ Valid Schema.org FAQ markup</text>
+
+      <!-- Footer indicator -->
+      <text x="120" y="420" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="600" fill="#818cf8">Mobile Viewport Verified</text>
+    </g>
+  </g>
+</svg>
