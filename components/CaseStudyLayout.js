@@ -1,7 +1,13 @@
 /**
- * CaseStudyLayout Component
- * Renders the standardized case study template conforming to Phase 4 rules.
- * All project copy comes from data/projects/*.js — layout code remains decoupled.
+ * CaseStudyLayout Component — Phase 4b Editorial Dark Theme
+ * 
+ * Strict editorial dark theme scoped to .case-study:
+ * - Newsreader 300/400 (display serif) + Instrument Sans 400/500 (text/UI)
+ * - Self-hosted woff2 with Google Fonts fallback, font-display: swap
+ * - Color tokens: --cs-bg: #121417, --cs-surface: #1A1D21, --cs-line: rgba(253,253,253,.12)
+ * - 4 Editorial chapters: Overview, Challenge, Approach, Outcome
+ * - High-contrast accessible typography (contrast > 4.5:1)
+ * - Decoupled content from data/projects/*.js
  */
 
 import { DP_MARK_SVG } from './Logo.js';
@@ -17,10 +23,42 @@ export function renderCaseStudy(project) {
     finalDesign,
     outcome,
     nextSteps,
+    moreProjects = [],
     nextCaseStudy,
     prevCaseStudy,
     processArtifacts
   } = project;
+
+  // Build more projects list (ensure 3 items)
+  let displayProjects = moreProjects;
+  if (!displayProjects || displayProjects.length === 0) {
+    displayProjects = [];
+    if (nextCaseStudy) {
+      displayProjects.push({
+        title: nextCaseStudy.title,
+        tags: nextCaseStudy.category || "Case Study",
+        image: nextCaseStudy.image,
+        link: nextCaseStudy.link
+      });
+    }
+    if (prevCaseStudy) {
+      displayProjects.push({
+        title: prevCaseStudy.title,
+        tags: prevCaseStudy.category || "Case Study",
+        image: prevCaseStudy.image,
+        link: prevCaseStudy.link
+      });
+    }
+  }
+
+  // Hero meta list items
+  const heroMetaList = hero.meta || [
+    { label: "Scope", value: "Product Architecture · Design System" },
+    { label: "Role", value: tldr.role },
+    { label: "Client/Context", value: tldr.team },
+    { label: "Year", value: "2026" },
+    { label: "Status", value: tldr.status }
+  ];
 
   // Decision blocks markup
   const decisionBlocksHtml = keyDecisions.map((decision, index) => {
@@ -57,9 +95,9 @@ export function renderCaseStudy(project) {
     `).join('');
 
     return `
-      <article class="cs-decision-block reveal-on-scroll" id="${decision.id}">
-        <div class="cs-decision-header">
-          <span class="cs-decision-badge">Decision ${num}</span>
+      <article class="cs-decision-subblock" id="${decision.id}">
+        <div class="cs-decision-meta-row">
+          <span class="cs-decision-badge">DECISION ${num}</span>
           <h3 class="cs-decision-title">${decision.title}</h3>
         </div>
 
@@ -74,163 +112,59 @@ export function renderCaseStudy(project) {
           </div>
         </div>
 
-        <div class="cs-annotated-image-wrap">
-          <div class="cs-annotated-image-stage">
+        <div class="cs-figure-mat cs-fade-rise" id="mat-${decision.id}">
+          <div class="cs-annotated-wrap">
             <img 
               src="${decision.image}" 
-              alt="${decision.imageAlt}" 
-              class="cs-annotated-img" 
-              loading="lazy" 
-              width="1200" 
-              height="680"
+              alt="${decision.imageAlt || decision.title}" 
+              class="cs-annotated-img"
+              loading="lazy"
+              data-lightbox-src="${decision.image}"
+              data-caption="${decision.title}"
             >
-            <div class="cs-hotspots-layer" aria-hidden="false">
+            <div class="cs-hotspots-layer">
               ${hotspotsHtml}
             </div>
           </div>
-          <div class="cs-decision-notes-list" aria-label="Annotated notes for ${decision.title}">
-            ${notesHtml}
-          </div>
+        </div>
+
+        <div class="cs-decision-notes-list">
+          ${notesHtml}
         </div>
       </article>
     `;
   }).join('');
 
-  // Screen gallery markup
-  const totalScreens = finalDesign.screens.length;
-  const screensHtml = finalDesign.screens.map((screen, idx) => `
-    <figure 
-      class="cs-gallery-item" 
-      data-gallery-index="${idx}"
-      tabindex="0"
-      role="button"
-      aria-label="View screenshot ${idx + 1}: ${screen.alt}"
-    >
-      <div class="cs-gallery-media aspect-16-10">
+  // Screens gallery markup
+  const screens = finalDesign.screens || [];
+  const totalScreens = screens.length;
+  const screensHtml = screens.map((screen, idx) => `
+    <figure class="cs-screen-figure cs-fade-rise" id="${screen.id || `screen-${idx + 1}`}">
+      <div class="cs-figure-mat">
         <img 
           src="${screen.image}" 
           alt="${screen.alt}" 
-          class="cs-gallery-img" 
-          loading="lazy" 
-          width="1200" 
-          height="750"
+          class="cs-gallery-img"
+          loading="lazy"
+          data-screen-index="${idx}"
+          data-lightbox-src="${screen.image}"
+          data-caption="${screen.caption}"
         >
-        <span class="cs-gallery-zoom-badge" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
-        </span>
       </div>
-      <figcaption class="cs-gallery-caption">
-        <span class="cs-caption-index">${idx + 1} / ${totalScreens}</span>
-        <span class="cs-caption-text">${screen.caption}</span>
+      <figcaption class="cs-figure-caption">
+        <span class="cs-caption-index">${String(idx + 1).padStart(2, '0')}.</span> ${screen.caption}
       </figcaption>
     </figure>
   `).join('');
-
-  // Outcome stat cards markup (same component as homepage proof bar)
-  const statCardsHtml = outcome.statCards.map(card => `
-    <div class="proof-card">
-      <span class="proof-num">${card.number}</span>
-      <span class="proof-label">${card.label}</span>
-    </div>
-  `).join('');
-
-  // Next steps bullets
-  const nextStepsHtml = nextSteps.map(step => `
-    <li class="cs-step-bullet">
-      <span class="cs-bullet-dot" aria-hidden="true"></span>
-      <span>${step}</span>
-    </li>
-  `).join('');
-
-  // Role bullets
-  const ownedBulletsHtml = roleAndScope.owned.map(item => `
-    <li class="cs-scope-item owned">
-      <span class="cs-scope-icon" aria-hidden="true">✓</span>
-      <span>${item}</span>
-    </li>
-  `).join('');
-
-  const othersOwnedBulletsHtml = roleAndScope.othersOwned.map(item => `
-    <li class="cs-scope-item others">
-      <span class="cs-scope-icon" aria-hidden="true">→</span>
-      <span>${item}</span>
-    </li>
-  `).join('');
-
-  // Process Artefacts Accordion (if present in project data)
-  let processArtefactsHtml = '';
-  if (processArtifacts && processArtifacts.length > 0) {
-    const items = processArtifacts.map(art => `
-      <details class="cs-artefact-item">
-        <summary class="cs-artefact-summary">
-          <span>${art.title}</span>
-          <span class="cs-accordion-icon" aria-hidden="true">▾</span>
-        </summary>
-        <div class="cs-artefact-body">
-          ${art.contentHtml}
-        </div>
-      </details>
-    `).join('');
-
-    processArtefactsHtml = `
-      <section class="cs-section cs-process-artefacts-section reveal-on-scroll" id="process-artefacts">
-        <div class="cs-section-header">
-          <h2 class="cs-section-heading">Process artefacts</h2>
-          <p class="cs-section-sub">Historical research models, personas, and frameworks maintained for documentation.</p>
-        </div>
-        <div class="cs-artefacts-accordion">
-          ${items}
-        </div>
-      </section>
-    `;
-  }
-
-  // Next & Previous Case Study Card
-  const nextCaseStudyHtml = `
-    <nav class="cs-nav-bottom reveal-on-scroll" aria-label="Case Study Navigation">
-      <div class="cs-nav-carousel">
-        ${prevCaseStudy ? `
-          <a href="${prevCaseStudy.link}" class="cs-nav-card prev-card" aria-label="Previous case study: ${prevCaseStudy.title}">
-            <div class="cs-nav-card-media">
-              <img src="${prevCaseStudy.image}" alt="${prevCaseStudy.title}" loading="lazy" class="cs-nav-card-img" width="600" height="375">
-            </div>
-            <div class="cs-nav-card-body">
-              <div class="cs-nav-card-eyebrow">← PREVIOUS CASE STUDY</div>
-              <h3 class="cs-nav-card-title">${prevCaseStudy.title}</h3>
-              <p class="cs-nav-card-desc">${prevCaseStudy.summary}</p>
-            </div>
-          </a>
-        ` : ''}
-
-        ${nextCaseStudy ? `
-          <a href="${nextCaseStudy.link}" class="cs-nav-card next-card" aria-label="Next case study: ${nextCaseStudy.title}">
-            <div class="cs-nav-card-media">
-              <img src="${nextCaseStudy.image}" alt="${nextCaseStudy.title}" loading="lazy" class="cs-nav-card-img" width="600" height="375">
-            </div>
-            <div class="cs-nav-card-body">
-              <div class="cs-nav-card-eyebrow">NEXT CASE STUDY →</div>
-              <h3 class="cs-nav-card-title">${nextCaseStudy.title}</h3>
-              <p class="cs-nav-card-desc">${nextCaseStudy.summary}</p>
-            </div>
-          </a>
-        ` : ''}
-      </div>
-    </nav>
-  `;
 
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>${meta.title}</title>
   <meta name="description" content="${meta.description}">
-
-  <link rel="icon" href="/favicon.ico" sizes="48x48">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <meta name="theme-color" content="#0A0A0A">
+  <meta name="theme-color" content="#121417">
 
   <!-- Open Graph / Social Sharing -->
   <meta property="og:title" content="${meta.title}">
@@ -242,25 +176,37 @@ export function renderCaseStudy(project) {
   <meta name="twitter:image" content="${meta.ogImage || '/og-image.png'}">
   <meta name="keywords" content="${meta.keywords}">
   
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- Preload Newsreader 300 + Instrument Sans 400 only -->
+  <link rel="preload" href="assets/fonts/newsreader-300.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/instrument-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+  
+  <!-- Google Fonts fallback with font-display: swap -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
   
+  <!-- Preload LCP hero screenshot -->
   <link rel="preload" as="image" href="${hero.heroImage}" fetchpriority="high">
+  
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="case-study-template">
+<body class="case-study">
 
   <!-- Skip link as first focusable element -->
   <a href="#main-content" class="skip-link">Skip to content</a>
 
-  <!-- Fixed Reading Progress Bar (2px line under header) -->
+  <!-- Fixed Reading Progress Bar (1px line, --cs-text at 40%) -->
   <div class="cs-reading-progress" id="cs-reading-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Reading progress">
     <div class="cs-reading-progress-bar" id="cs-reading-progress-bar"></div>
   </div>
 
-  <!-- NAVIGATION -->
-  <header class="site-nav" id="top">
+  <!-- NAVIGATION HEADER -->
+  <header class="site-nav cs-dark-nav" id="top">
     <div class="container">
       <div class="nav-inner">
         <a href="/" class="nav-brand" id="nav-brand" aria-label="Digambar Patil — home">
@@ -299,7 +245,7 @@ export function renderCaseStudy(project) {
               <svg viewBox="0 0 24 24" class="sheet-social-icon" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64c-.95 0-1.66.71-1.66 1.66 0 .93.71 1.64 1.66 1.64.92 0 1.63-.71 1.63-1.64 0-.95-.71-1.66-1.63-1.66z"></path></svg>
             </a>
             <a href="https://www.behance.net/digambarpatil2" target="_blank" rel="noopener noreferrer" class="sheet-social-link" aria-label="Behance">
-              <svg viewBox="0 0 24 24" class="sheet-social-icon" aria-hidden="true"><path d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-4.085 0-6.625-2.748-6.625-6.84 0-4.225 2.684-6.892 6.471-6.892 4.103 0 6.136 2.924 5.753 6.944h-9.351c.143 2.087 1.664 3.656 3.753 3.656 1.848 0 2.879-.824 3.324-1.868h1.776zm-8.854-5.352h6.586c-.161-1.802-1.399-3.08-3.264-3.08-1.954 0-3.136 1.294-3.322 3.08zm-14.872-6.648h5.922c3.154 0 4.908 1.492 4.908 3.781 0 1.611-.871 2.766-2.28 3.27 1.778.508 2.802 1.879 2.802 3.736 0 2.569-1.977 4.213-5.316 4.213h-6.036v-15zm3.02 6.096h2.49c1.242 0 2.05-.623 2.05-1.637 0-.964-.784-1.579-2.026-1.579h-2.514v3.216zm0 5.864h2.723c1.455 0 2.378-.711 2.378-1.815 0-1.127-.923-1.801-2.454-1.801h-2.647v3.616z"></path></svg>
+              <svg viewBox="0 0 24 24" class="sheet-social-icon" aria-hidden="true"><path d="M22 7h-7V5h7v2zm1.726 10c-.442 1.297-2.029 3-4.726 3-3.859 0-6-2.587-6-6 0-3.473 2.15-6 6-6 3.738 0 5.642 2.502 5.642 6 0 .546-.073 1.026-.142 1.275H16.03c.09 1.584 1.218 2.725 2.84 2.725 1.417 0 2.215-.658 2.531-1.5l2.325.5zm-5.726-5.5h3.69c-.114-1.392-1.04-2.225-2.23-2.225-1.282 0-2.193.858-2.36 2.225zM2 17h4.838c2.253 0 3.662-1.042 3.662-2.758 0-1.283-.815-2.075-1.928-2.317 1.036-.375 1.65-1.258 1.65-2.358C10.222 7.85 8.948 7 6.838 7H2v10zm2.703-8.208h2.07c1.03 0 1.62.466 1.62 1.241 0 .808-.62 1.292-1.62 1.292H4.703V8.792zm0 4.225h2.247c1.173 0 1.83.508 1.83 1.392 0 .891-.657 1.391-1.83 1.391H4.703v-2.783z"></path></svg>
             </a>
           </div>
           <p class="sheet-status-text">Open to full-time roles · Pune / Remote</p>
@@ -308,7 +254,7 @@ export function renderCaseStudy(project) {
     </div>
   </header>
 
-  <!-- Sticky Mobile Section Nav Pill (<1280px) -->
+  <!-- Sticky Mobile Section Nav Pill (<1024px) -->
   <div class="cs-sticky-toc-pill-wrap" id="cs-sticky-toc-pill-wrap">
     <button class="cs-toc-pill" id="cs-toc-pill" aria-expanded="false" aria-controls="cs-toc-sheet">
       <span>On this page</span>
@@ -324,45 +270,54 @@ export function renderCaseStudy(project) {
         <h3 class="cs-toc-sheet-title">On this page</h3>
         <button class="cs-toc-sheet-close" id="cs-toc-sheet-close" aria-label="Close table of contents">✕</button>
       </div>
-      <nav class="cs-toc-sheet-nav" aria-label="Sections on this page">
-        <a href="#tldr" class="cs-toc-sheet-link">Overview &amp; TL;DR</a>
-        <a href="#problem" class="cs-toc-sheet-link">The problem</a>
-        <a href="#role-and-scope" class="cs-toc-sheet-link">My role and scope</a>
-        <a href="#key-decisions" class="cs-toc-sheet-link">Key decisions</a>
-        <a href="#final-design" class="cs-toc-sheet-link">Final design</a>
-        <a href="#outcome" class="cs-toc-sheet-link">Outcome &amp; metrics</a>
-        <a href="#what-id-do-next" class="cs-toc-sheet-link">What I'd do next</a>
+      <nav class="cs-toc-sheet-nav" aria-label="Chapters on this page">
+        <a href="#overview" class="cs-toc-sheet-link">1. Overview</a>
+        <a href="#challenge" class="cs-toc-sheet-link">2. Challenge</a>
+        <a href="#approach" class="cs-toc-sheet-link">3. Approach</a>
+        <a href="#outcome" class="cs-toc-sheet-link">4. Outcome</a>
         ${processArtifacts && processArtifacts.length > 0 ? `<a href="#process-artefacts" class="cs-toc-sheet-link">Process artefacts</a>` : ''}
+        <a href="#more-projects" class="cs-toc-sheet-link">More projects</a>
       </nav>
     </div>
   </div>
 
   <main id="main-content" class="cs-main">
     
-    <!-- Hero Section -->
+    <!-- HERO SECTION -->
     <section class="cs-hero" id="hero">
       <div class="container">
         
-        <div class="cs-breadcrumb reveal-on-scroll">
+        <div class="cs-breadcrumb">
           <a href="work.html" class="cs-back-btn">
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
             <span>All Selected Work</span>
           </a>
         </div>
 
-        <div class="cs-hero-header reveal-on-scroll">
-          <div class="cs-eyebrow-chip">${hero.eyebrow}</div>
+        <div class="cs-hero-header">
+          <div class="cs-hero-eyebrow">${hero.projectName || hero.eyebrow}</div>
           <h1 class="cs-hero-title">${hero.title}</h1>
           <p class="cs-hero-summary">${hero.summary}</p>
+
+          <!-- META LIST as <dl> -->
+          <dl class="cs-hero-meta">
+            ${heroMetaList.map(item => `
+              <div class="cs-meta-item">
+                <dt class="cs-meta-label">${item.label}</dt>
+                <dd class="cs-meta-value">${item.value}</dd>
+              </div>
+            `).join('')}
+          </dl>
         </div>
 
-        <div class="cs-hero-image-wrap reveal-on-scroll">
+        <!-- HERO IMAGE (16:10, on --cs-surface, radius 8px, mobile edge-to-edge) -->
+        <div class="cs-hero-image-wrap">
           <img 
             src="${hero.heroImage}" 
             alt="${hero.heroImageAlt || hero.title}" 
             class="cs-hero-image" 
             width="1200" 
-            height="675"
+            height="750"
             fetchpriority="high"
           >
         </div>
@@ -370,155 +325,182 @@ export function renderCaseStudy(project) {
       </div>
     </section>
 
-    <!-- Case Study Rail Layout Container (>=1280px Left Rail TOC + Content) -->
-    <div class="container cs-layout-container">
-      
-      <!-- Sticky Desktop Left-Rail TOC (>=1280px) -->
-      <aside class="cs-desktop-toc" id="cs-desktop-toc" aria-label="Page navigation">
-        <div class="cs-toc-sticky-box">
-          <div class="cs-toc-rail-title">ON THIS PAGE</div>
-          <nav class="cs-toc-rail-nav">
-            <a href="#tldr" class="cs-rail-link active" data-section="tldr">TL;DR</a>
-            <a href="#problem" class="cs-rail-link" data-section="problem">The problem</a>
-            <a href="#role-and-scope" class="cs-rail-link" data-section="role-and-scope">Role &amp; scope</a>
-            <a href="#key-decisions" class="cs-rail-link" data-section="key-decisions">Key decisions</a>
-            <a href="#final-design" class="cs-rail-link" data-section="final-design">Final design</a>
-            <a href="#outcome" class="cs-rail-link" data-section="outcome">Outcome</a>
-            <a href="#what-id-do-next" class="cs-rail-link" data-section="what-id-do-next">What's next</a>
-            ${processArtifacts && processArtifacts.length > 0 ? `<a href="#process-artefacts" class="cs-rail-link" data-section="process-artefacts">Artefacts</a>` : ''}
-          </nav>
-        </div>
-      </aside>
+    <!-- CONTENT CHAPTERS CONTAINER -->
+    <div class="container cs-content-container">
 
-      <!-- Main Prose & Sections Body -->
-      <div class="cs-content-body">
-        
-        <!-- SECTION 1: TL;DR Card -->
-        <section class="cs-section cs-tldr-section reveal-on-scroll" id="tldr">
-          <div class="cs-tldr-card">
-            <div class="cs-tldr-meta-grid">
-              <div class="cs-tldr-item">
-                <span class="cs-tldr-label">ROLE</span>
-                <span class="cs-tldr-val">${tldr.role}</span>
-              </div>
-              <div class="cs-tldr-item">
-                <span class="cs-tldr-label">TEAM</span>
-                <span class="cs-tldr-val">${tldr.team}</span>
-              </div>
-              <div class="cs-tldr-item">
-                <span class="cs-tldr-label">TIMELINE</span>
-                <span class="cs-tldr-val">${tldr.timeline}</span>
-              </div>
-              <div class="cs-tldr-item">
-                <span class="cs-tldr-label">PLATFORM</span>
-                <span class="cs-tldr-val">${tldr.platform}</span>
-              </div>
-              <div class="cs-tldr-item">
-                <span class="cs-tldr-label">STATUS</span>
-                <span class="cs-tldr-val">${tldr.status}</span>
-              </div>
-            </div>
-            <div class="cs-tldr-outcome">
-              <span class="cs-tldr-outcome-label">KEY OUTCOME</span>
+      <!-- CHAPTER 1: OVERVIEW -->
+      <section class="cs-chapter" id="overview">
+        <div class="cs-chapter-grid">
+          <div class="cs-chapter-aside">
+            <h2 class="cs-chapter-title">Overview</h2>
+          </div>
+          <div class="cs-chapter-content">
+            <!-- TL;DR Key Outcome Callout -->
+            <div class="cs-tldr-editorial">
+              <span class="cs-tldr-badge">TL;DR · KEY OUTCOME</span>
               <p class="cs-tldr-outcome-text">${tldr.keyOutcome}</p>
             </div>
-          </div>
-        </section>
 
-        <!-- SECTION 2: The Problem -->
-        <section class="cs-section cs-problem-section reveal-on-scroll" id="problem">
-          <div class="cs-section-header">
-            <h2 class="cs-section-heading">The problem</h2>
-          </div>
-          <div class="cs-prose">
-            ${problem.paragraphs.map(p => `<p>${p}</p>`).join('')}
-            ${problem.pullQuote ? `
-              <blockquote class="cs-pull-quote">
-                <p>“${problem.pullQuote}”</p>
-              </blockquote>
-            ` : ''}
-          </div>
-        </section>
-
-        <!-- SECTION 3: My Role and Scope -->
-        <section class="cs-section cs-role-section reveal-on-scroll" id="role-and-scope">
-          <div class="cs-section-header">
-            <h2 class="cs-section-heading">My role and scope</h2>
-          </div>
-          <div class="cs-scope-grid">
-            <div class="cs-scope-col">
-              <h3 class="cs-scope-title">What I owned</h3>
-              <ul class="cs-scope-list">
-                ${ownedBulletsHtml}
-              </ul>
-            </div>
-            <div class="cs-scope-col">
-              <h3 class="cs-scope-title">What others owned</h3>
-              <ul class="cs-scope-list">
-                ${othersOwnedBulletsHtml}
-              </ul>
+            <!-- The Problem Prose -->
+            <div class="cs-prose">
+              <h3 class="cs-section-subtitle">The problem</h3>
+              ${problem.paragraphs.map(p => `<p>${p}</p>`).join('')}
+              ${problem.pullQuote ? `
+                <blockquote class="cs-pull-quote">
+                  <p>"${problem.pullQuote}"</p>
+                </blockquote>
+              ` : ''}
             </div>
           </div>
+        </div>
+      </section>
+
+      <!-- CHAPTER 2: CHALLENGE -->
+      <section class="cs-chapter" id="challenge">
+        <div class="cs-chapter-grid">
+          <div class="cs-chapter-aside">
+            <h2 class="cs-chapter-title">Challenge</h2>
+          </div>
+          <div class="cs-chapter-content">
+            <div class="cs-prose">
+              <h3 class="cs-section-subtitle">My role and scope</h3>
+              <p class="cs-scope-intro">Here is how ownership was partitioned across product architecture, interface design, and client operational constraints:</p>
+              
+              <div class="cs-scope-split">
+                <div class="cs-scope-col">
+                  <h4 class="cs-scope-col-title">What I owned</h4>
+                  <ul class="cs-scope-list">
+                    ${roleAndScope.owned.map(item => `<li>${item}</li>`).join('')}
+                  </ul>
+                </div>
+                ${roleAndScope.othersOwned && roleAndScope.othersOwned.length > 0 ? `
+                  <div class="cs-scope-col">
+                    <h4 class="cs-scope-col-title">What others owned / constraints</h4>
+                    <ul class="cs-scope-list cs-scope-list-muted">
+                      ${roleAndScope.othersOwned.map(item => `<li>${item}</li>`).join('')}
+                    </ul>
+                  </div>
+                ` : ''}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHAPTER 3: APPROACH -->
+      <section class="cs-chapter" id="approach">
+        <div class="cs-chapter-grid">
+          <div class="cs-chapter-aside">
+            <h2 class="cs-chapter-title">Approach</h2>
+          </div>
+          <div class="cs-chapter-content">
+            <div class="cs-prose">
+              <h3 class="cs-section-subtitle">Key architectural decisions</h3>
+              <p>Every core interaction was architected through rigorous evaluation of cognitive trade-offs, defensive failure states, and operator ergonomics.</p>
+            </div>
+
+            <!-- Decision Blocks (H3 sub-blocks) -->
+            <div class="cs-decisions-list">
+              ${decisionBlocksHtml}
+            </div>
+
+            <!-- Final Design Screen Gallery -->
+            <div class="cs-gallery-section" id="final-design">
+              <h3 class="cs-section-subtitle">Final design</h3>
+              <p class="cs-gallery-intro">Production-ready interface workflows operating across client tenants:</p>
+              
+              <!-- Screen gallery figures on --cs-surface mats -->
+              <div class="cs-editorial-gallery">
+                ${screensHtml}
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- CHAPTER 4: OUTCOME -->
+      <section class="cs-chapter" id="outcome">
+        <div class="cs-chapter-grid">
+          <div class="cs-chapter-aside">
+            <h2 class="cs-chapter-title">Outcome</h2>
+          </div>
+          <div class="cs-chapter-content">
+            
+            <!-- Outcome Stats (Number in Newsreader 300, 48px/64px, label 13px beneath, 1px --cs-line top rule, no card bg) -->
+            <div class="cs-outcome-stats-rule">
+              <div class="cs-stats-editorial-grid">
+                ${outcome.statCards.map(s => `
+                  <div class="cs-stat-editorial-item">
+                    <span class="cs-stat-editorial-number">${s.number}</span>
+                    <span class="cs-stat-editorial-label">${s.label}</span>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+
+            <!-- What I'd Do Next (3 bullets) -->
+            <div class="cs-prose cs-next-steps-editorial">
+              <h3 class="cs-section-subtitle">What I'd do next</h3>
+              <ul class="cs-next-steps-list">
+                ${nextSteps.map(step => `<li>${step}</li>`).join('')}
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- PROCESS ARTEFACTS ACCORDION (Stays last, collapsed) -->
+      ${processArtifacts && processArtifacts.length > 0 ? `
+        <section class="cs-chapter cs-chapter-artefacts" id="process-artefacts">
+          <div class="cs-chapter-grid">
+            <div class="cs-chapter-aside">
+              <h2 class="cs-chapter-title">Artefacts</h2>
+            </div>
+            <div class="cs-chapter-content">
+              <details class="cs-artefacts-accordion">
+                <summary class="cs-artefacts-summary">
+                  <span class="cs-artefacts-summary-text">Process artefacts &amp; research frameworks (${processArtifacts.length})</span>
+                  <span class="cs-accordion-chevron" aria-hidden="true">▾</span>
+                </summary>
+                <div class="cs-artefacts-drawer">
+                  ${processArtifacts.map(art => `
+                    <div class="cs-artefact-section">
+                      <h4 class="cs-artefact-title">${art.title}</h4>
+                      ${art.contentHtml}
+                    </div>
+                  `).join('')}
+                </div>
+              </details>
+            </div>
+          </div>
         </section>
+      ` : ''}
 
-        <!-- SECTION 4: Key Decisions -->
-        <section class="cs-section cs-decisions-section reveal-on-scroll" id="key-decisions">
-          <div class="cs-section-header">
-            <h2 class="cs-section-heading">Key decisions</h2>
-            <p class="cs-section-sub">Four pivotal product decisions shaping ergonomics, safety, and operations.</p>
-          </div>
-          <div class="cs-decision-blocks-list">
-            ${decisionBlocksHtml}
-          </div>
-        </section>
-
-        <!-- SECTION 5: Final Design (Screen Gallery) -->
-        <section class="cs-section cs-gallery-section reveal-on-scroll" id="final-design">
-          <div class="cs-section-header">
-            <h2 class="cs-section-heading">Final design</h2>
-            <p class="cs-section-sub">End-to-end interface gallery. Tap any screen to inspect in fullscreen.</p>
-          </div>
-
-          <!-- Screen Gallery (Carousel on mobile, Grid on desktop) -->
-          <div class="cs-gallery-container ${finalDesign.galleryType === 'phone' ? 'gallery-phone-grid' : 'gallery-web-grid'}" id="cs-gallery-container">
-            ${screensHtml}
-          </div>
-
-          <!-- Mobile Gallery Counter -->
-          <div class="cs-gallery-counter-bar" id="cs-gallery-counter-bar" aria-live="polite">
-            <span class="cs-counter-pill" id="cs-counter-pill">1 / ${totalScreens}</span>
-          </div>
-        </section>
-
-        <!-- SECTION 6: Outcome (Stat Cards) -->
-        <section class="cs-section cs-outcome-section reveal-on-scroll" id="outcome">
-          <div class="cs-section-header">
-            <h2 class="cs-section-heading">Outcome</h2>
-            <p class="cs-section-sub">Measurable impact on agency turnaround and operational safety.</p>
-          </div>
-          <div class="proof-scroll-container">
-            ${statCardsHtml}
-          </div>
-        </section>
-
-        <!-- SECTION 7: What I'd Do Next -->
-        <section class="cs-section cs-next-steps-section reveal-on-scroll" id="what-id-do-next">
-          <div class="cs-section-header">
-            <h2 class="cs-section-heading">What I'd do next</h2>
-          </div>
-          <ul class="cs-steps-list">
-            ${nextStepsHtml}
-          </ul>
-        </section>
-
-        <!-- Optional Collapsed Process Artefacts Accordion -->
-        ${processArtefactsHtml}
-
-        <!-- Next / Previous Case Study Navigation -->
-        ${nextCaseStudyHtml}
-
-      </div>
     </div>
+
+    <!-- MORE PROJECTS SECTION (replaces single next/prev card) -->
+    <section class="cs-more-projects-section" id="more-projects">
+      <div class="container">
+        <div class="cs-more-projects-header">
+          <h2 class="cs-more-projects-title">More projects</h2>
+        </div>
+        <div class="cs-more-projects-carousel">
+          ${displayProjects.map(proj => `
+            <a href="${proj.link}" class="cs-more-project-card">
+              <div class="cs-more-project-img-wrap">
+                <img src="${proj.image}" alt="${proj.title}" class="cs-more-project-img" loading="lazy">
+              </div>
+              <div class="cs-more-project-info">
+                <h3 class="cs-more-project-name">${proj.title}</h3>
+                <span class="cs-more-project-tags">${proj.tags}</span>
+              </div>
+            </a>
+          `).join('')}
+        </div>
+      </div>
+    </section>
 
   </main>
 
@@ -541,10 +523,10 @@ export function renderCaseStudy(project) {
     </div>
   </div>
 
-  <!-- FOOTER / CONTACT SECTION -->
-  <footer class="site-footer" id="contact">
+  <!-- FOOTER / CONTACT SECTION (Dark Tokens) -->
+  <footer class="site-footer cs-dark-footer" id="contact">
     <div class="container">
-      <div class="footer-top-row reveal-on-scroll">
+      <div class="footer-top-row">
         <div class="footer-cta-col">
           <p class="footer-subheading">HAVE A PRODUCT IN MIND?</p>
           <a href="mailto:contact@digambarpatil.com" class="footer-huge-link" id="footer-email-link">

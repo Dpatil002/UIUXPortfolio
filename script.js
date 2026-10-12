@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCaseStudyTOC();
   initDecisionBlockHotspots();
   initScreenGalleryAndLightbox();
+  initEditorialImageAnimations();
 });
 
 // 1. Ambient Subtle Floating Particles with Cursor Repulsion
@@ -1377,7 +1378,7 @@ function initCaseStudyTOC() {
 
 // 4.3 DecisionBlock: Hotspots & Notes Synchronization
 function initDecisionBlockHotspots() {
-  const blocks = document.querySelectorAll('.cs-decision-block');
+  const blocks = document.querySelectorAll('.cs-decision-subblock, .cs-decision-block');
   if (!blocks.length) return;
 
   blocks.forEach((block) => {
@@ -1432,7 +1433,7 @@ function initDecisionBlockHotspots() {
 function initScreenGalleryAndLightbox() {
   const galleryContainer = document.getElementById('cs-gallery-container');
   const counterPill = document.getElementById('cs-counter-pill');
-  const galleryItems = document.querySelectorAll('.cs-gallery-item');
+  const galleryItems = document.querySelectorAll('.cs-gallery-item, .cs-screen-figure');
 
   // Mobile Carousel Counter update
   if (galleryContainer && counterPill && galleryItems.length) {
@@ -1451,7 +1452,7 @@ function initScreenGalleryAndLightbox() {
 
   // Fullscreen Lightbox Modal
   const lightbox = document.getElementById('cs-lightbox');
-  if (!lightbox || !galleryItems.length) return;
+  if (!lightbox) return;
 
   const lightboxImg = document.getElementById('cs-lightbox-img');
   const lightboxCounter = document.getElementById('cs-lightbox-counter');
@@ -1465,23 +1466,31 @@ function initScreenGalleryAndLightbox() {
   let currentIndex = 0;
   const screensData = [];
 
-  galleryItems.forEach((item, idx) => {
-    const img = item.querySelector('.cs-gallery-img');
-    const captionEl = item.querySelector('.cs-caption-text');
-    screensData.push({
-      src: img ? img.getAttribute('src') : '',
-      alt: img ? img.getAttribute('alt') : '',
-      caption: captionEl ? captionEl.textContent : ''
-    });
+  // Find all zoomable images across figures and decision mats
+  const zoomableImages = document.querySelectorAll('.cs-gallery-img, .cs-annotated-img, [data-lightbox-src]');
 
-    item.addEventListener('click', () => openLightbox(idx));
-    item.addEventListener('keydown', (e) => {
+  zoomableImages.forEach((img, idx) => {
+    const src = img.getAttribute('data-lightbox-src') || img.getAttribute('src');
+    const alt = img.getAttribute('alt') || '';
+    const caption = img.getAttribute('data-caption') || alt;
+
+    screensData.push({ src, alt, caption });
+
+    img.style.cursor = 'zoom-in';
+    img.setAttribute('tabindex', '0');
+    img.setAttribute('role', 'button');
+    img.setAttribute('aria-label', `View full size image: ${caption}`);
+
+    img.addEventListener('click', () => openLightbox(idx));
+    img.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
         openLightbox(idx);
       }
     });
   });
+
+  if (!screensData.length) return;
 
   function updateLightboxView() {
     const data = screensData[currentIndex];
@@ -1565,4 +1574,33 @@ function initScreenGalleryAndLightbox() {
     }, { passive: true });
   }
 }
+
+// 4.5 Editorial Image Fade & Rise IntersectionObserver (15% in view, 500ms once)
+function initEditorialImageAnimations() {
+  const animatedItems = document.querySelectorAll('.cs-fade-rise');
+  if (!animatedItems.length) return;
+
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return;
+
+  document.body.classList.add('js-animate');
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.15
+    });
+
+    animatedItems.forEach(el => observer.observe(el));
+  } else {
+    animatedItems.forEach(el => el.classList.add('in-view'));
+  }
+}
+
 

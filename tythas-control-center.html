@@ -2,15 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Tythas Control Center — Multi-Tenant SaaS Platform UX Case Study | Digambar Patil</title>
   <meta name="description" content="A multi-tenant website management platform I designed and built for Tythas Digital — one dashboard to run every client site's pages, blog, SEO, forms, leads and uptime.">
-
-  <link rel="icon" href="/favicon.ico" sizes="48x48">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <meta name="theme-color" content="#0A0A0A">
+  <meta name="theme-color" content="#121417">
 
   <!-- Open Graph / Social Sharing -->
   <meta property="og:title" content="Tythas Control Center — Multi-Tenant SaaS Platform UX Case Study | Digambar Patil">
@@ -22,25 +17,37 @@
   <meta name="twitter:image" content="/og-image.png">
   <meta name="keywords" content="Product Design, UI/UX Design, Multi-Tenant SaaS, Design System, Information Architecture, Next.js, Tailored CMS, B2B Platform">
   
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- Preload Newsreader 300 + Instrument Sans 400 only -->
+  <link rel="preload" href="assets/fonts/newsreader-300.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/instrument-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+  
+  <!-- Google Fonts fallback with font-display: swap -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
   
+  <!-- Preload LCP hero screenshot -->
   <link rel="preload" as="image" href="assets/images/tythas_control_center_hero.svg" fetchpriority="high">
+  
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="case-study-template">
+<body class="case-study">
 
   <!-- Skip link as first focusable element -->
   <a href="#main-content" class="skip-link">Skip to content</a>
 
-  <!-- Fixed Reading Progress Bar (2px line under header) -->
+  <!-- Fixed Reading Progress Bar (1px line, --cs-text at 40%) -->
   <div class="cs-reading-progress" id="cs-reading-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Reading progress">
     <div class="cs-reading-progress-bar" id="cs-reading-progress-bar"></div>
   </div>
 
-  <!-- NAVIGATION -->
-  <header class="site-nav" id="top">
+  <!-- NAVIGATION HEADER -->
+  <header class="site-nav cs-dark-nav" id="top">
     <div class="container">
       <div class="nav-inner">
         <a href="/" class="nav-brand" id="nav-brand" aria-label="Digambar Patil — home">
@@ -79,7 +86,7 @@
               <svg viewBox="0 0 24 24" class="sheet-social-icon" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64c-.95 0-1.66.71-1.66 1.66 0 .93.71 1.64 1.66 1.64.92 0 1.63-.71 1.63-1.64 0-.95-.71-1.66-1.63-1.66z"></path></svg>
             </a>
             <a href="https://www.behance.net/digambarpatil2" target="_blank" rel="noopener noreferrer" class="sheet-social-link" aria-label="Behance">
-              <svg viewBox="0 0 24 24" class="sheet-social-icon" aria-hidden="true"><path d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-4.085 0-6.625-2.748-6.625-6.84 0-4.225 2.684-6.892 6.471-6.892 4.103 0 6.136 2.924 5.753 6.944h-9.351c.143 2.087 1.664 3.656 3.753 3.656 1.848 0 2.879-.824 3.324-1.868h1.776zm-8.854-5.352h6.586c-.161-1.802-1.399-3.08-3.264-3.08-1.954 0-3.136 1.294-3.322 3.08zm-14.872-6.648h5.922c3.154 0 4.908 1.492 4.908 3.781 0 1.611-.871 2.766-2.28 3.27 1.778.508 2.802 1.879 2.802 3.736 0 2.569-1.977 4.213-5.316 4.213h-6.036v-15zm3.02 6.096h2.49c1.242 0 2.05-.623 2.05-1.637 0-.964-.784-1.579-2.026-1.579h-2.514v3.216zm0 5.864h2.723c1.455 0 2.378-.711 2.378-1.815 0-1.127-.923-1.801-2.454-1.801h-2.647v3.616z"></path></svg>
+              <svg viewBox="0 0 24 24" class="sheet-social-icon" aria-hidden="true"><path d="M22 7h-7V5h7v2zm1.726 10c-.442 1.297-2.029 3-4.726 3-3.859 0-6-2.587-6-6 0-3.473 2.15-6 6-6 3.738 0 5.642 2.502 5.642 6 0 .546-.073 1.026-.142 1.275H16.03c.09 1.584 1.218 2.725 2.84 2.725 1.417 0 2.215-.658 2.531-1.5l2.325.5zm-5.726-5.5h3.69c-.114-1.392-1.04-2.225-2.23-2.225-1.282 0-2.193.858-2.36 2.225zM2 17h4.838c2.253 0 3.662-1.042 3.662-2.758 0-1.283-.815-2.075-1.928-2.317 1.036-.375 1.65-1.258 1.65-2.358C10.222 7.85 8.948 7 6.838 7H2v10zm2.703-8.208h2.07c1.03 0 1.62.466 1.62 1.241 0 .808-.62 1.292-1.62 1.292H4.703V8.792zm0 4.225h2.247c1.173 0 1.83.508 1.83 1.392 0 .891-.657 1.391-1.83 1.391H4.703v-2.783z"></path></svg>
             </a>
           </div>
           <p class="sheet-status-text">Open to full-time roles · Pune / Remote</p>
@@ -88,7 +95,7 @@
     </div>
   </header>
 
-  <!-- Sticky Mobile Section Nav Pill (<1280px) -->
+  <!-- Sticky Mobile Section Nav Pill (<1024px) -->
   <div class="cs-sticky-toc-pill-wrap" id="cs-sticky-toc-pill-wrap">
     <button class="cs-toc-pill" id="cs-toc-pill" aria-expanded="false" aria-controls="cs-toc-sheet">
       <span>On this page</span>
@@ -104,45 +111,74 @@
         <h3 class="cs-toc-sheet-title">On this page</h3>
         <button class="cs-toc-sheet-close" id="cs-toc-sheet-close" aria-label="Close table of contents">✕</button>
       </div>
-      <nav class="cs-toc-sheet-nav" aria-label="Sections on this page">
-        <a href="#tldr" class="cs-toc-sheet-link">Overview &amp; TL;DR</a>
-        <a href="#problem" class="cs-toc-sheet-link">The problem</a>
-        <a href="#role-and-scope" class="cs-toc-sheet-link">My role and scope</a>
-        <a href="#key-decisions" class="cs-toc-sheet-link">Key decisions</a>
-        <a href="#final-design" class="cs-toc-sheet-link">Final design</a>
-        <a href="#outcome" class="cs-toc-sheet-link">Outcome &amp; metrics</a>
-        <a href="#what-id-do-next" class="cs-toc-sheet-link">What I'd do next</a>
+      <nav class="cs-toc-sheet-nav" aria-label="Chapters on this page">
+        <a href="#overview" class="cs-toc-sheet-link">1. Overview</a>
+        <a href="#challenge" class="cs-toc-sheet-link">2. Challenge</a>
+        <a href="#approach" class="cs-toc-sheet-link">3. Approach</a>
+        <a href="#outcome" class="cs-toc-sheet-link">4. Outcome</a>
         <a href="#process-artefacts" class="cs-toc-sheet-link">Process artefacts</a>
+        <a href="#more-projects" class="cs-toc-sheet-link">More projects</a>
       </nav>
     </div>
   </div>
 
   <main id="main-content" class="cs-main">
     
-    <!-- Hero Section -->
+    <!-- HERO SECTION -->
     <section class="cs-hero" id="hero">
       <div class="container">
         
-        <div class="cs-breadcrumb reveal-on-scroll">
+        <div class="cs-breadcrumb">
           <a href="work.html" class="cs-back-btn">
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
             <span>All Selected Work</span>
           </a>
         </div>
 
-        <div class="cs-hero-header reveal-on-scroll">
-          <div class="cs-eyebrow-chip">B2B SaaS · Shipped</div>
-          <h1 class="cs-hero-title">Tythas Control Center</h1>
+        <div class="cs-hero-header">
+          <div class="cs-hero-eyebrow">Tythas Control Center</div>
+          <h1 class="cs-hero-title">Designing one dashboard to run every client website</h1>
           <p class="cs-hero-summary">A multi-tenant website management platform that replaces fragmented client logins with one central dashboard for CMS, SEO, leads, and uptime.</p>
+
+          <!-- META LIST as <dl> -->
+          <dl class="cs-hero-meta">
+            
+              <div class="cs-meta-item">
+                <dt class="cs-meta-label">Scope</dt>
+                <dd class="cs-meta-value">Product Architecture · Design System · Edge API</dd>
+              </div>
+            
+              <div class="cs-meta-item">
+                <dt class="cs-meta-label">Role</dt>
+                <dd class="cs-meta-value">Lead Product Designer & Design Engineer</dd>
+              </div>
+            
+              <div class="cs-meta-item">
+                <dt class="cs-meta-label">Client/Context</dt>
+                <dd class="cs-meta-value">Tythas Digital (Agency Platform)</dd>
+              </div>
+            
+              <div class="cs-meta-item">
+                <dt class="cs-meta-label">Year</dt>
+                <dd class="cs-meta-value">2026</dd>
+              </div>
+            
+              <div class="cs-meta-item">
+                <dt class="cs-meta-label">Status</dt>
+                <dd class="cs-meta-value">Shipped</dd>
+              </div>
+            
+          </dl>
         </div>
 
-        <div class="cs-hero-image-wrap reveal-on-scroll">
+        <!-- HERO IMAGE (16:10, on --cs-surface, radius 8px, mobile edge-to-edge) -->
+        <div class="cs-hero-image-wrap">
           <img 
             src="assets/images/tythas_control_center_hero.svg" 
             alt="Tythas Control Center — Multi-Tenant Web Platform Architecture and UI Showcase" 
             class="cs-hero-image" 
             width="1200" 
-            height="675"
+            height="750"
             fetchpriority="high"
           >
         </div>
@@ -150,138 +186,86 @@
       </div>
     </section>
 
-    <!-- Case Study Rail Layout Container (>=1280px Left Rail TOC + Content) -->
-    <div class="container cs-layout-container">
-      
-      <!-- Sticky Desktop Left-Rail TOC (>=1280px) -->
-      <aside class="cs-desktop-toc" id="cs-desktop-toc" aria-label="Page navigation">
-        <div class="cs-toc-sticky-box">
-          <div class="cs-toc-rail-title">ON THIS PAGE</div>
-          <nav class="cs-toc-rail-nav">
-            <a href="#tldr" class="cs-rail-link active" data-section="tldr">TL;DR</a>
-            <a href="#problem" class="cs-rail-link" data-section="problem">The problem</a>
-            <a href="#role-and-scope" class="cs-rail-link" data-section="role-and-scope">Role &amp; scope</a>
-            <a href="#key-decisions" class="cs-rail-link" data-section="key-decisions">Key decisions</a>
-            <a href="#final-design" class="cs-rail-link" data-section="final-design">Final design</a>
-            <a href="#outcome" class="cs-rail-link" data-section="outcome">Outcome</a>
-            <a href="#what-id-do-next" class="cs-rail-link" data-section="what-id-do-next">What's next</a>
-            <a href="#process-artefacts" class="cs-rail-link" data-section="process-artefacts">Artefacts</a>
-          </nav>
-        </div>
-      </aside>
+    <!-- CONTENT CHAPTERS CONTAINER -->
+    <div class="container cs-content-container">
 
-      <!-- Main Prose & Sections Body -->
-      <div class="cs-content-body">
-        
-        <!-- SECTION 1: TL;DR Card -->
-        <section class="cs-section cs-tldr-section reveal-on-scroll" id="tldr">
-          <div class="cs-tldr-card">
-            <div class="cs-tldr-meta-grid">
-              <div class="cs-tldr-item">
-                <span class="cs-tldr-label">ROLE</span>
-                <span class="cs-tldr-val">Lead Product Designer & Design Engineer</span>
-              </div>
-              <div class="cs-tldr-item">
-                <span class="cs-tldr-label">TEAM</span>
-                <span class="cs-tldr-val">Solo (Self-Initiated Agency Platform)</span>
-              </div>
-              <div class="cs-tldr-item">
-                <span class="cs-tldr-label">TIMELINE</span>
-                <span class="cs-tldr-val">Sept 2026 (Phases 1–7 Shipped)</span>
-              </div>
-              <div class="cs-tldr-item">
-                <span class="cs-tldr-label">PLATFORM</span>
-                <span class="cs-tldr-val">Next.js 14 · Web Application</span>
-              </div>
-              <div class="cs-tldr-item">
-                <span class="cs-tldr-label">STATUS</span>
-                <span class="cs-tldr-val">Shipped (Phase 8 Active)</span>
-              </div>
-            </div>
-            <div class="cs-tldr-outcome">
-              <span class="cs-tldr-outcome-label">KEY OUTCOME</span>
+      <!-- CHAPTER 1: OVERVIEW -->
+      <section class="cs-chapter" id="overview">
+        <div class="cs-chapter-grid">
+          <div class="cs-chapter-aside">
+            <h2 class="cs-chapter-title">Overview</h2>
+          </div>
+          <div class="cs-chapter-content">
+            <!-- TL;DR Key Outcome Callout -->
+            <div class="cs-tldr-editorial">
+              <span class="cs-tldr-badge">TL;DR · KEY OUTCOME</span>
               <p class="cs-tldr-outcome-text">Consolidated 6 client site workflows into 1 unified dashboard, cutting developer intervention on routine updates to zero.</p>
             </div>
-          </div>
-        </section>
 
-        <!-- SECTION 2: The Problem -->
-        <section class="cs-section cs-problem-section reveal-on-scroll" id="problem">
-          <div class="cs-section-header">
-            <h2 class="cs-section-heading">The problem</h2>
-          </div>
-          <div class="cs-prose">
-            <p>Tythas is the digital agency I run. The moment a client site shipped, it became its own disconnected island — a separate WordPress admin, a different hosting cPanel, sometimes an ad-hoc script I'd written once and never documented.</p><p>There was no single place to see which sites needed attention, no consistent way to publish a page across different tech stacks, and nothing watching for SEO gaps, lead capture failures, or server uptime.</p><p>A five-minute copy change became an urgent developer ticket for me personally, and more than once I learned about a broken form or expired SSL certificate directly from the client — not from an automated system.</p>
-            
-              <blockquote class="cs-pull-quote">
-                <p>“A five-minute content change often became an urgent ticket for me personally, and more than once I heard about an expired SSL directly from the client.”</p>
-              </blockquote>
-            
-          </div>
-        </section>
-
-        <!-- SECTION 3: My Role and Scope -->
-        <section class="cs-section cs-role-section reveal-on-scroll" id="role-and-scope">
-          <div class="cs-section-header">
-            <h2 class="cs-section-heading">My role and scope</h2>
-          </div>
-          <div class="cs-scope-grid">
-            <div class="cs-scope-col">
-              <h3 class="cs-scope-title">What I owned</h3>
-              <ul class="cs-scope-list">
-                
-    <li class="cs-scope-item owned">
-      <span class="cs-scope-icon" aria-hidden="true">✓</span>
-      <span>Product architecture, information architecture, and end-to-end design system tokens</span>
-    </li>
-  
-    <li class="cs-scope-item owned">
-      <span class="cs-scope-icon" aria-hidden="true">✓</span>
-      <span>Interactive UX workflows: WYSIWYG editor, schema generator, unified leads CRM, and health telemetry</span>
-    </li>
-  
-    <li class="cs-scope-item owned">
-      <span class="cs-scope-icon" aria-hidden="true">✓</span>
-      <span>Front-end engineering in Next.js 14, React, Tailwind CSS, and edge API integration</span>
-    </li>
-  
-    <li class="cs-scope-item owned">
-      <span class="cs-scope-icon" aria-hidden="true">✓</span>
-      <span>Defensive state machine logic preventing unverified writes to client repositories</span>
-    </li>
-  
-              </ul>
-            </div>
-            <div class="cs-scope-col">
-              <h3 class="cs-scope-title">What others owned</h3>
-              <ul class="cs-scope-list">
-                
-    <li class="cs-scope-item others">
-      <span class="cs-scope-icon" aria-hidden="true">→</span>
-      <span>Legacy WordPress client hosting environments and DNS configurations</span>
-    </li>
-  
-    <li class="cs-scope-item others">
-      <span class="cs-scope-icon" aria-hidden="true">→</span>
-      <span>Third-party marketing ad campaigns generating inbound client traffic</span>
-    </li>
-  
-              </ul>
+            <!-- The Problem Prose -->
+            <div class="cs-prose">
+              <h3 class="cs-section-subtitle">The problem</h3>
+              <p>Tythas is the digital agency I run. The moment a client site shipped, it became its own disconnected island — a separate WordPress admin, a different hosting cPanel, sometimes an ad-hoc script I'd written once and never documented.</p><p>There was no single place to see which sites needed attention, no consistent way to publish a page across different tech stacks, and nothing watching for SEO gaps, lead capture failures, or server uptime.</p><p>A five-minute copy change became an urgent developer ticket for me personally, and more than once I learned about a broken form or expired SSL certificate directly from the client — not from an automated system.</p>
+              
+                <blockquote class="cs-pull-quote">
+                  <p>"A five-minute content change often became an urgent ticket for me personally, and more than once I heard about an expired SSL directly from the client."</p>
+                </blockquote>
+              
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <!-- SECTION 4: Key Decisions -->
-        <section class="cs-section cs-decisions-section reveal-on-scroll" id="key-decisions">
-          <div class="cs-section-header">
-            <h2 class="cs-section-heading">Key decisions</h2>
-            <p class="cs-section-sub">Four pivotal product decisions shaping ergonomics, safety, and operations.</p>
+      <!-- CHAPTER 2: CHALLENGE -->
+      <section class="cs-chapter" id="challenge">
+        <div class="cs-chapter-grid">
+          <div class="cs-chapter-aside">
+            <h2 class="cs-chapter-title">Challenge</h2>
           </div>
-          <div class="cs-decision-blocks-list">
-            
-      <article class="cs-decision-block reveal-on-scroll" id="decision-connector">
-        <div class="cs-decision-header">
-          <span class="cs-decision-badge">Decision 01</span>
+          <div class="cs-chapter-content">
+            <div class="cs-prose">
+              <h3 class="cs-section-subtitle">My role and scope</h3>
+              <p class="cs-scope-intro">Here is how ownership was partitioned across product architecture, interface design, and client operational constraints:</p>
+              
+              <div class="cs-scope-split">
+                <div class="cs-scope-col">
+                  <h4 class="cs-scope-col-title">What I owned</h4>
+                  <ul class="cs-scope-list">
+                    <li>Product architecture, information architecture, and end-to-end design system tokens</li><li>Interactive UX workflows: WYSIWYG editor, schema generator, unified leads CRM, and health telemetry</li><li>Front-end engineering in Next.js 14, React, Tailwind CSS, and edge API integration</li><li>Defensive state machine logic preventing unverified writes to client repositories</li>
+                  </ul>
+                </div>
+                
+                  <div class="cs-scope-col">
+                    <h4 class="cs-scope-col-title">What others owned / constraints</h4>
+                    <ul class="cs-scope-list cs-scope-list-muted">
+                      <li>Legacy WordPress client hosting environments and DNS configurations</li><li>Third-party marketing ad campaigns generating inbound client traffic</li>
+                    </ul>
+                  </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHAPTER 3: APPROACH -->
+      <section class="cs-chapter" id="approach">
+        <div class="cs-chapter-grid">
+          <div class="cs-chapter-aside">
+            <h2 class="cs-chapter-title">Approach</h2>
+          </div>
+          <div class="cs-chapter-content">
+            <div class="cs-prose">
+              <h3 class="cs-section-subtitle">Key architectural decisions</h3>
+              <p>Every core interaction was architected through rigorous evaluation of cognitive trade-offs, defensive failure states, and operator ergonomics.</p>
+            </div>
+
+            <!-- Decision Blocks (H3 sub-blocks) -->
+            <div class="cs-decisions-list">
+              
+      <article class="cs-decision-subblock" id="decision-connector">
+        <div class="cs-decision-meta-row">
+          <span class="cs-decision-badge">DECISION 01</span>
           <h3 class="cs-decision-title">Universal Connector Bridge vs. Bespoke Client Plugins</h3>
         </div>
 
@@ -296,17 +280,17 @@
           </div>
         </div>
 
-        <div class="cs-annotated-image-wrap">
-          <div class="cs-annotated-image-stage">
+        <div class="cs-figure-mat cs-fade-rise" id="mat-decision-connector">
+          <div class="cs-annotated-wrap">
             <img 
               src="assets/images/tythas_decision_connector.svg" 
               alt="Universal Connector Bridge Architecture Diagram" 
-              class="cs-annotated-img" 
-              loading="lazy" 
-              width="1200" 
-              height="680"
+              class="cs-annotated-img"
+              loading="lazy"
+              data-lightbox-src="assets/images/tythas_decision_connector.svg"
+              data-caption="Universal Connector Bridge vs. Bespoke Client Plugins"
             >
-            <div class="cs-hotspots-layer" aria-hidden="false">
+            <div class="cs-hotspots-layer">
               
       <button 
         class="cs-hotspot" 
@@ -346,8 +330,10 @@
     
             </div>
           </div>
-          <div class="cs-decision-notes-list" aria-label="Annotated notes for Universal Connector Bridge vs. Bespoke Client Plugins">
-            
+        </div>
+
+        <div class="cs-decision-notes-list">
+          
       <div 
         class="cs-decision-note" 
         data-note-id="1"
@@ -393,13 +379,12 @@
         </div>
       </div>
     
-          </div>
         </div>
       </article>
     
-      <article class="cs-decision-block reveal-on-scroll" id="decision-editor">
-        <div class="cs-decision-header">
-          <span class="cs-decision-badge">Decision 02</span>
+      <article class="cs-decision-subblock" id="decision-editor">
+        <div class="cs-decision-meta-row">
+          <span class="cs-decision-badge">DECISION 02</span>
           <h3 class="cs-decision-title">Continuous WYSIWYG Ergonomics vs. Block-Picker Friction</h3>
         </div>
 
@@ -414,17 +399,17 @@
           </div>
         </div>
 
-        <div class="cs-annotated-image-wrap">
-          <div class="cs-annotated-image-stage">
+        <div class="cs-figure-mat cs-fade-rise" id="mat-decision-editor">
+          <div class="cs-annotated-wrap">
             <img 
               src="assets/images/tythas_decision_editor.svg" 
               alt="Continuous WYSIWYG Editor with Live Mobile Viewport Emulation" 
-              class="cs-annotated-img" 
-              loading="lazy" 
-              width="1200" 
-              height="680"
+              class="cs-annotated-img"
+              loading="lazy"
+              data-lightbox-src="assets/images/tythas_decision_editor.svg"
+              data-caption="Continuous WYSIWYG Ergonomics vs. Block-Picker Friction"
             >
-            <div class="cs-hotspots-layer" aria-hidden="false">
+            <div class="cs-hotspots-layer">
               
       <button 
         class="cs-hotspot" 
@@ -464,8 +449,10 @@
     
             </div>
           </div>
-          <div class="cs-decision-notes-list" aria-label="Annotated notes for Continuous WYSIWYG Ergonomics vs. Block-Picker Friction">
-            
+        </div>
+
+        <div class="cs-decision-notes-list">
+          
       <div 
         class="cs-decision-note" 
         data-note-id="1"
@@ -511,13 +498,12 @@
         </div>
       </div>
     
-          </div>
         </div>
       </article>
     
-      <article class="cs-decision-block reveal-on-scroll" id="decision-gating">
-        <div class="cs-decision-header">
-          <span class="cs-decision-badge">Decision 03</span>
+      <article class="cs-decision-subblock" id="decision-gating">
+        <div class="cs-decision-meta-row">
+          <span class="cs-decision-badge">DECISION 03</span>
           <h3 class="cs-decision-title">Connection-State Gating for Defensive Operations</h3>
         </div>
 
@@ -532,17 +518,17 @@
           </div>
         </div>
 
-        <div class="cs-annotated-image-wrap">
-          <div class="cs-annotated-image-stage">
+        <div class="cs-figure-mat cs-fade-rise" id="mat-decision-gating">
+          <div class="cs-annotated-wrap">
             <img 
               src="assets/images/tythas_decision_gating.svg" 
               alt="Defensive Connection-State Machine and Write Protection" 
-              class="cs-annotated-img" 
-              loading="lazy" 
-              width="1200" 
-              height="680"
+              class="cs-annotated-img"
+              loading="lazy"
+              data-lightbox-src="assets/images/tythas_decision_gating.svg"
+              data-caption="Connection-State Gating for Defensive Operations"
             >
-            <div class="cs-hotspots-layer" aria-hidden="false">
+            <div class="cs-hotspots-layer">
               
       <button 
         class="cs-hotspot" 
@@ -582,8 +568,10 @@
     
             </div>
           </div>
-          <div class="cs-decision-notes-list" aria-label="Annotated notes for Connection-State Gating for Defensive Operations">
-            
+        </div>
+
+        <div class="cs-decision-notes-list">
+          
       <div 
         class="cs-decision-note" 
         data-note-id="1"
@@ -629,13 +617,12 @@
         </div>
       </div>
     
-          </div>
         </div>
       </article>
     
-      <article class="cs-decision-block reveal-on-scroll" id="decision-attention">
-        <div class="cs-decision-header">
-          <span class="cs-decision-badge">Decision 04</span>
+      <article class="cs-decision-subblock" id="decision-attention">
+        <div class="cs-decision-meta-row">
+          <span class="cs-decision-badge">DECISION 04</span>
           <h3 class="cs-decision-title">Single Attention Queue vs. Distributed Notification Feeds</h3>
         </div>
 
@@ -650,17 +637,17 @@
           </div>
         </div>
 
-        <div class="cs-annotated-image-wrap">
-          <div class="cs-annotated-image-stage">
+        <div class="cs-figure-mat cs-fade-rise" id="mat-decision-attention">
+          <div class="cs-annotated-wrap">
             <img 
               src="assets/images/tythas_decision_attention.svg" 
               alt="Priority Attention Queue Multi-Tenant Operational Triage" 
-              class="cs-annotated-img" 
-              loading="lazy" 
-              width="1200" 
-              height="680"
+              class="cs-annotated-img"
+              loading="lazy"
+              data-lightbox-src="assets/images/tythas_decision_attention.svg"
+              data-caption="Single Attention Queue vs. Distributed Notification Feeds"
             >
-            <div class="cs-hotspots-layer" aria-hidden="false">
+            <div class="cs-hotspots-layer">
               
       <button 
         class="cs-hotspot" 
@@ -700,8 +687,10 @@
     
             </div>
           </div>
-          <div class="cs-decision-notes-list" aria-label="Annotated notes for Single Attention Queue vs. Distributed Notification Feeds">
-            
+        </div>
+
+        <div class="cs-decision-notes-list">
+          
       <div 
         class="cs-decision-note" 
         data-note-id="1"
@@ -747,233 +736,176 @@
         </div>
       </div>
     
-          </div>
         </div>
       </article>
     
-          </div>
-        </section>
+            </div>
 
-        <!-- SECTION 5: Final Design (Screen Gallery) -->
-        <section class="cs-section cs-gallery-section reveal-on-scroll" id="final-design">
-          <div class="cs-section-header">
-            <h2 class="cs-section-heading">Final design</h2>
-            <p class="cs-section-sub">End-to-end interface gallery. Tap any screen to inspect in fullscreen.</p>
-          </div>
-
-          <!-- Screen Gallery (Carousel on mobile, Grid on desktop) -->
-          <div class="cs-gallery-container gallery-web-grid" id="cs-gallery-container">
-            
-    <figure 
-      class="cs-gallery-item" 
-      data-gallery-index="0"
-      tabindex="0"
-      role="button"
-      aria-label="View screenshot 1: Multi-Tenant Portfolio Dashboard"
-    >
-      <div class="cs-gallery-media aspect-16-10">
+            <!-- Final Design Screen Gallery -->
+            <div class="cs-gallery-section" id="final-design">
+              <h3 class="cs-section-subtitle">Final design</h3>
+              <p class="cs-gallery-intro">Production-ready interface workflows operating across client tenants:</p>
+              
+              <!-- Screen gallery figures on --cs-surface mats -->
+              <div class="cs-editorial-gallery">
+                
+    <figure class="cs-screen-figure cs-fade-rise" id="screen-1">
+      <div class="cs-figure-mat">
         <img 
           src="assets/images/tythas_screen_dashboard.svg" 
           alt="Multi-Tenant Portfolio Dashboard" 
-          class="cs-gallery-img" 
-          loading="lazy" 
-          width="1200" 
-          height="750"
+          class="cs-gallery-img"
+          loading="lazy"
+          data-screen-index="0"
+          data-lightbox-src="assets/images/tythas_screen_dashboard.svg"
+          data-caption="Multi-tenant dashboard overview showing connected agency sites, uptime status, and lead volume."
         >
-        <span class="cs-gallery-zoom-badge" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
-        </span>
       </div>
-      <figcaption class="cs-gallery-caption">
-        <span class="cs-caption-index">1 / 5</span>
-        <span class="cs-caption-text">Multi-tenant dashboard overview showing connected agency sites, uptime status, and lead volume.</span>
+      <figcaption class="cs-figure-caption">
+        <span class="cs-caption-index">01.</span> Multi-tenant dashboard overview showing connected agency sites, uptime status, and lead volume.
       </figcaption>
     </figure>
   
-    <figure 
-      class="cs-gallery-item" 
-      data-gallery-index="1"
-      tabindex="0"
-      role="button"
-      aria-label="View screenshot 2: Continuous Content & Schema Editor"
-    >
-      <div class="cs-gallery-media aspect-16-10">
+    <figure class="cs-screen-figure cs-fade-rise" id="screen-2">
+      <div class="cs-figure-mat">
         <img 
           src="assets/images/tythas_screen_editor.svg" 
           alt="Continuous Content & Schema Editor" 
-          class="cs-gallery-img" 
-          loading="lazy" 
-          width="1200" 
-          height="750"
+          class="cs-gallery-img"
+          loading="lazy"
+          data-screen-index="1"
+          data-lightbox-src="assets/images/tythas_screen_editor.svg"
+          data-caption="Distraction-free WYSIWYG editor with live mobile preview and inline FAQ schema generation."
         >
-        <span class="cs-gallery-zoom-badge" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
-        </span>
       </div>
-      <figcaption class="cs-gallery-caption">
-        <span class="cs-caption-index">2 / 5</span>
-        <span class="cs-caption-text">Distraction-free WYSIWYG editor with live mobile preview and inline FAQ schema generation.</span>
+      <figcaption class="cs-figure-caption">
+        <span class="cs-caption-index">02.</span> Distraction-free WYSIWYG editor with live mobile preview and inline FAQ schema generation.
       </figcaption>
     </figure>
   
-    <figure 
-      class="cs-gallery-item" 
-      data-gallery-index="2"
-      tabindex="0"
-      role="button"
-      aria-label="View screenshot 3: Technical SEO & Schema Studio"
-    >
-      <div class="cs-gallery-media aspect-16-10">
+    <figure class="cs-screen-figure cs-fade-rise" id="screen-3">
+      <div class="cs-figure-mat">
         <img 
           src="assets/images/tythas_screen_seo.svg" 
           alt="Technical SEO & Schema Studio" 
-          class="cs-gallery-img" 
-          loading="lazy" 
-          width="1200" 
-          height="750"
+          class="cs-gallery-img"
+          loading="lazy"
+          data-screen-index="2"
+          data-lightbox-src="assets/images/tythas_screen_seo.svg"
+          data-caption="Automated JSON-LD schema builder emitting validated structured data without code modifications."
         >
-        <span class="cs-gallery-zoom-badge" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
-        </span>
       </div>
-      <figcaption class="cs-gallery-caption">
-        <span class="cs-caption-index">3 / 5</span>
-        <span class="cs-caption-text">Automated JSON-LD schema builder emitting validated structured data without code modifications.</span>
+      <figcaption class="cs-figure-caption">
+        <span class="cs-caption-index">03.</span> Automated JSON-LD schema builder emitting validated structured data without code modifications.
       </figcaption>
     </figure>
   
-    <figure 
-      class="cs-gallery-item" 
-      data-gallery-index="3"
-      tabindex="0"
-      role="button"
-      aria-label="View screenshot 4: Unified Leads Inbox & Attribution CRM"
-    >
-      <div class="cs-gallery-media aspect-16-10">
+    <figure class="cs-screen-figure cs-fade-rise" id="screen-4">
+      <div class="cs-figure-mat">
         <img 
           src="assets/images/tythas_screen_leads.svg" 
           alt="Unified Leads Inbox & Attribution CRM" 
-          class="cs-gallery-img" 
-          loading="lazy" 
-          width="1200" 
-          height="750"
+          class="cs-gallery-img"
+          loading="lazy"
+          data-screen-index="3"
+          data-lightbox-src="assets/images/tythas_screen_leads.svg"
+          data-caption="Centralized leads inbox aggregating form submissions across all tenant domains with UTM source attribution."
         >
-        <span class="cs-gallery-zoom-badge" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
-        </span>
       </div>
-      <figcaption class="cs-gallery-caption">
-        <span class="cs-caption-index">4 / 5</span>
-        <span class="cs-caption-text">Centralized leads inbox aggregating form submissions across all tenant domains with UTM source attribution.</span>
+      <figcaption class="cs-figure-caption">
+        <span class="cs-caption-index">04.</span> Centralized leads inbox aggregating form submissions across all tenant domains with UTM source attribution.
       </figcaption>
     </figure>
   
-    <figure 
-      class="cs-gallery-item" 
-      data-gallery-index="4"
-      tabindex="0"
-      role="button"
-      aria-label="View screenshot 5: Infrastructure Health & Uptime Telemetry"
-    >
-      <div class="cs-gallery-media aspect-16-10">
+    <figure class="cs-screen-figure cs-fade-rise" id="screen-5">
+      <div class="cs-figure-mat">
         <img 
           src="assets/images/tythas_screen_health.svg" 
           alt="Infrastructure Health & Uptime Telemetry" 
-          class="cs-gallery-img" 
-          loading="lazy" 
-          width="1200" 
-          height="750"
+          class="cs-gallery-img"
+          loading="lazy"
+          data-screen-index="4"
+          data-lightbox-src="assets/images/tythas_screen_health.svg"
+          data-caption="Real-time health telemetry monitoring HTTP responses, SSL expirations, and Core Web Vitals across tenants."
         >
-        <span class="cs-gallery-zoom-badge" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
-        </span>
       </div>
-      <figcaption class="cs-gallery-caption">
-        <span class="cs-caption-index">5 / 5</span>
-        <span class="cs-caption-text">Real-time health telemetry monitoring HTTP responses, SSL expirations, and Core Web Vitals across tenants.</span>
+      <figcaption class="cs-figure-caption">
+        <span class="cs-caption-index">05.</span> Real-time health telemetry monitoring HTTP responses, SSL expirations, and Core Web Vitals across tenants.
       </figcaption>
     </figure>
   
-          </div>
+              </div>
+            </div>
 
-          <!-- Mobile Gallery Counter -->
-          <div class="cs-gallery-counter-bar" id="cs-gallery-counter-bar" aria-live="polite">
-            <span class="cs-counter-pill" id="cs-counter-pill">1 / 5</span>
           </div>
-        </section>
-
-        <!-- SECTION 6: Outcome (Stat Cards) -->
-        <section class="cs-section cs-outcome-section reveal-on-scroll" id="outcome">
-          <div class="cs-section-header">
-            <h2 class="cs-section-heading">Outcome</h2>
-            <p class="cs-section-sub">Measurable impact on agency turnaround and operational safety.</p>
-          </div>
-          <div class="proof-scroll-container">
-            
-    <div class="proof-card">
-      <span class="proof-num">6→1</span>
-      <span class="proof-label">Workflows consolidated into one central dashboard</span>
-    </div>
-  
-    <div class="proof-card">
-      <span class="proof-num">0</span>
-      <span class="proof-label">Developer tickets required for routine client copy updates</span>
-    </div>
-  
-    <div class="proof-card">
-      <span class="proof-num">100%</span>
-      <span class="proof-label">Verified write protection with zero ghost publishing errors</span>
-    </div>
-  
-    <div class="proof-card">
-      <span class="proof-num">0.8s</span>
-      <span class="proof-label">Average Largest Contentful Paint across managed sites</span>
-    </div>
-  
-          </div>
-        </section>
-
-        <!-- SECTION 7: What I'd Do Next -->
-        <section class="cs-section cs-next-steps-section reveal-on-scroll" id="what-id-do-next">
-          <div class="cs-section-header">
-            <h2 class="cs-section-heading">What I'd do next</h2>
-          </div>
-          <ul class="cs-steps-list">
-            
-    <li class="cs-step-bullet">
-      <span class="cs-bullet-dot" aria-hidden="true"></span>
-      <span>Complete Phase 8 production migration on Vercel Edge with automated PostgreSQL connection pooling.</span>
-    </li>
-  
-    <li class="cs-step-bullet">
-      <span class="cs-bullet-dot" aria-hidden="true"></span>
-      <span>Expand connector adapter library to support Shopify Storefront API and Webflow webhooks natively.</span>
-    </li>
-  
-    <li class="cs-step-bullet">
-      <span class="cs-bullet-dot" aria-hidden="true"></span>
-      <span>Introduce AI-powered meta description and alt-text generator with human-in-the-loop review.</span>
-    </li>
-  
-          </ul>
-        </section>
-
-        <!-- Optional Collapsed Process Artefacts Accordion -->
-        
-      <section class="cs-section cs-process-artefacts-section reveal-on-scroll" id="process-artefacts">
-        <div class="cs-section-header">
-          <h2 class="cs-section-heading">Process artefacts</h2>
-          <p class="cs-section-sub">Historical research models, personas, and frameworks maintained for documentation.</p>
         </div>
-        <div class="cs-artefacts-accordion">
-          
-      <details class="cs-artefact-item">
-        <summary class="cs-artefact-summary">
-          <span>User Personas & Needs Hierarchy (Agency Owner vs Content Manager)</span>
-          <span class="cs-accordion-icon" aria-hidden="true">▾</span>
-        </summary>
-        <div class="cs-artefact-body">
-          
+      </section>
+
+      <!-- CHAPTER 4: OUTCOME -->
+      <section class="cs-chapter" id="outcome">
+        <div class="cs-chapter-grid">
+          <div class="cs-chapter-aside">
+            <h2 class="cs-chapter-title">Outcome</h2>
+          </div>
+          <div class="cs-chapter-content">
+            
+            <!-- Outcome Stats (Number in Newsreader 300, 48px/64px, label 13px beneath, 1px --cs-line top rule, no card bg) -->
+            <div class="cs-outcome-stats-rule">
+              <div class="cs-stats-editorial-grid">
+                
+                  <div class="cs-stat-editorial-item">
+                    <span class="cs-stat-editorial-number">6→1</span>
+                    <span class="cs-stat-editorial-label">Workflows consolidated into one central dashboard</span>
+                  </div>
+                
+                  <div class="cs-stat-editorial-item">
+                    <span class="cs-stat-editorial-number">0</span>
+                    <span class="cs-stat-editorial-label">Developer tickets required for routine client copy updates</span>
+                  </div>
+                
+                  <div class="cs-stat-editorial-item">
+                    <span class="cs-stat-editorial-number">100%</span>
+                    <span class="cs-stat-editorial-label">Verified write protection with zero ghost publishing errors</span>
+                  </div>
+                
+                  <div class="cs-stat-editorial-item">
+                    <span class="cs-stat-editorial-number">0.8s</span>
+                    <span class="cs-stat-editorial-label">Average Largest Contentful Paint across managed sites</span>
+                  </div>
+                
+              </div>
+            </div>
+
+            <!-- What I'd Do Next (3 bullets) -->
+            <div class="cs-prose cs-next-steps-editorial">
+              <h3 class="cs-section-subtitle">What I'd do next</h3>
+              <ul class="cs-next-steps-list">
+                <li>Complete Phase 8 production migration on Vercel Edge with automated PostgreSQL connection pooling.</li><li>Expand connector adapter library to support Shopify Storefront API and Webflow webhooks natively.</li><li>Introduce AI-powered meta description and alt-text generator with human-in-the-loop review.</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- PROCESS ARTEFACTS ACCORDION (Stays last, collapsed) -->
+      
+        <section class="cs-chapter cs-chapter-artefacts" id="process-artefacts">
+          <div class="cs-chapter-grid">
+            <div class="cs-chapter-aside">
+              <h2 class="cs-chapter-title">Artefacts</h2>
+            </div>
+            <div class="cs-chapter-content">
+              <details class="cs-artefacts-accordion">
+                <summary class="cs-artefacts-summary">
+                  <span class="cs-artefacts-summary-text">Process artefacts &amp; research frameworks (4)</span>
+                  <span class="cs-accordion-chevron" aria-hidden="true">▾</span>
+                </summary>
+                <div class="cs-artefacts-drawer">
+                  
+                    <div class="cs-artefact-section">
+                      <h4 class="cs-artefact-title">User Personas & Needs Hierarchy (Agency Owner vs Content Manager)</h4>
+                      
         <div class="cs-artefact-grid">
           <div class="cs-artefact-card">
             <h4>Agency Owner (Digambar)</h4>
@@ -987,16 +919,11 @@
           </div>
         </div>
       
-        </div>
-      </details>
-    
-      <details class="cs-artefact-item">
-        <summary class="cs-artefact-summary">
-          <span>Eisenhower Prioritisation Matrix & 5-Whys Root Cause Analysis</span>
-          <span class="cs-accordion-icon" aria-hidden="true">▾</span>
-        </summary>
-        <div class="cs-artefact-body">
-          
+                    </div>
+                  
+                    <div class="cs-artefact-section">
+                      <h4 class="cs-artefact-title">Eisenhower Prioritisation Matrix & 5-Whys Root Cause Analysis</h4>
+                      
         <div class="cs-artefact-grid">
           <div class="cs-artefact-card">
             <h4>Eisenhower Matrix</h4>
@@ -1010,16 +937,11 @@
           </div>
         </div>
       
-        </div>
-      </details>
-    
-      <details class="cs-artefact-item">
-        <summary class="cs-artefact-summary">
-          <span>Cognitive UI/UX Laws Applied</span>
-          <span class="cs-accordion-icon" aria-hidden="true">▾</span>
-        </summary>
-        <div class="cs-artefact-body">
-          
+                    </div>
+                  
+                    <div class="cs-artefact-section">
+                      <h4 class="cs-artefact-title">Cognitive UI/UX Laws Applied</h4>
+                      
         <div class="cs-artefact-grid">
           <div class="cs-artefact-card">
             <h4>Jakob's Law &amp; Hick's Law</h4>
@@ -1031,16 +953,11 @@
           </div>
         </div>
       
-        </div>
-      </details>
-    
-      <details class="cs-artefact-item">
-        <summary class="cs-artefact-summary">
-          <span>Information Architecture (9 Scoped Product Areas)</span>
-          <span class="cs-accordion-icon" aria-hidden="true">▾</span>
-        </summary>
-        <div class="cs-artefact-body">
-          
+                    </div>
+                  
+                    <div class="cs-artefact-section">
+                      <h4 class="cs-artefact-title">Information Architecture (9 Scoped Product Areas)</h4>
+                      
         <div class="cs-artefact-grid">
           <div class="cs-artefact-card">
             <h4>Overview &amp; Content</h4>
@@ -1052,48 +969,58 @@
           </div>
         </div>
       
-        </div>
-      </details>
-    
-        </div>
-      </section>
-    
+                    </div>
+                  
+                </div>
+              </details>
+            </div>
+          </div>
+        </section>
+      
 
-        <!-- Next / Previous Case Study Navigation -->
-        
-    <nav class="cs-nav-bottom reveal-on-scroll" aria-label="Case Study Navigation">
-      <div class="cs-nav-carousel">
-        
-          <a href="before-two.html" class="cs-nav-card prev-card" aria-label="Previous case study: Before Two">
-            <div class="cs-nav-card-media">
-              <img src="assets/images/before_two_hero.svg" alt="Before Two" loading="lazy" class="cs-nav-card-img" width="600" height="375">
-            </div>
-            <div class="cs-nav-card-body">
-              <div class="cs-nav-card-eyebrow">← PREVIOUS CASE STUDY</div>
-              <h3 class="cs-nav-card-title">Before Two</h3>
-              <p class="cs-nav-card-desc">Offline-first, photo-verified housekeeping for luxury villa hosts.</p>
-            </div>
-          </a>
-        
-
-        
-          <a href="raya.html" class="cs-nav-card next-card" aria-label="Next case study: Raya">
-            <div class="cs-nav-card-media">
-              <img src="assets/images/raya_hero.svg" alt="Raya" loading="lazy" class="cs-nav-card-img" width="600" height="375">
-            </div>
-            <div class="cs-nav-card-body">
-              <div class="cs-nav-card-eyebrow">NEXT CASE STUDY →</div>
-              <h3 class="cs-nav-card-title">Raya</h3>
-              <p class="cs-nav-card-desc">AI workout coach concept that turns skipped workouts into 5-minute wins.</p>
-            </div>
-          </a>
-        
-      </div>
-    </nav>
-  
-
-      </div>
     </div>
+
+    <!-- MORE PROJECTS SECTION (replaces single next/prev card) -->
+    <section class="cs-more-projects-section" id="more-projects">
+      <div class="container">
+        <div class="cs-more-projects-header">
+          <h2 class="cs-more-projects-title">More projects</h2>
+        </div>
+        <div class="cs-more-projects-carousel">
+          
+            <a href="raya.html" class="cs-more-project-card">
+              <div class="cs-more-project-img-wrap">
+                <img src="assets/images/raya_hero.svg" alt="Raya" class="cs-more-project-img" loading="lazy">
+              </div>
+              <div class="cs-more-project-info">
+                <h3 class="cs-more-project-name">Raya</h3>
+                <span class="cs-more-project-tags">AI Health · Concept</span>
+              </div>
+            </a>
+          
+            <a href="elixir-helps.html" class="cs-more-project-card">
+              <div class="cs-more-project-img-wrap">
+                <img src="assets/images/elixirhelps.jpg" alt="Elixir Helps" class="cs-more-project-img" loading="lazy">
+              </div>
+              <div class="cs-more-project-info">
+                <h3 class="cs-more-project-name">Elixir Helps</h3>
+                <span class="cs-more-project-tags">Healthcare SaaS · Shipped</span>
+              </div>
+            </a>
+          
+            <a href="before-two.html" class="cs-more-project-card">
+              <div class="cs-more-project-img-wrap">
+                <img src="assets/images/before_two_hero.svg" alt="Before Two" class="cs-more-project-img" loading="lazy">
+              </div>
+              <div class="cs-more-project-info">
+                <h3 class="cs-more-project-name">Before Two</h3>
+                <span class="cs-more-project-tags">Hospitality Ops · Shipped</span>
+              </div>
+            </a>
+          
+        </div>
+      </div>
+    </section>
 
   </main>
 
@@ -1116,10 +1043,10 @@
     </div>
   </div>
 
-  <!-- FOOTER / CONTACT SECTION -->
-  <footer class="site-footer" id="contact">
+  <!-- FOOTER / CONTACT SECTION (Dark Tokens) -->
+  <footer class="site-footer cs-dark-footer" id="contact">
     <div class="container">
-      <div class="footer-top-row reveal-on-scroll">
+      <div class="footer-top-row">
         <div class="footer-cta-col">
           <p class="footer-subheading">HAVE A PRODUCT IN MIND?</p>
           <a href="mailto:contact@digambarpatil.com" class="footer-huge-link" id="footer-email-link">
