@@ -16,8 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initTestimonialCarousel();
   initStickyTocScrollSpy();
   // Phase 3 Initializers
-  initProofBarCounters();
-  initProofBarDots();
   initMarqueeTouchPause();
   initHowIWorkAccordion();
   initCopyEmailToast();
