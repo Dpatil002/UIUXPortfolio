@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initLiveClock();
   initScrollReveal();
   initCursorFollowBadge();
+  initCursorRing();
   initCursorTrail();
   initExpandingButtons();
   initFeaturedCarousel();
@@ -223,6 +224,56 @@ function initCursorFollowBadge() {
     requestAnimationFrame(render);
   }
 
+  render();
+}
+
+// 4b. Hollow Cursor Ring Follower
+function initCursorRing() {
+  const ring = document.getElementById('cursor-ring');
+  if (!ring || window.matchMedia('(hover: none) or (pointer: coarse)').matches) return;
+
+  let mouseX = -100;
+  let mouseY = -100;
+  let ringX = -100;
+  let ringY = -100;
+  let isVisible = false;
+
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    if (!isVisible) {
+      isVisible = true;
+      ringX = mouseX;
+      ringY = mouseY;
+      ring.classList.add('is-visible');
+    }
+  }, { passive: true });
+
+  document.addEventListener('mouseleave', () => {
+    isVisible = false;
+    ring.classList.remove('is-visible');
+  });
+
+  const interactives = 'a, button, input, textarea, select, [role="button"], .work-masonry-card';
+  document.addEventListener('mouseover', (e) => {
+    if (e.target && e.target.closest && e.target.closest(interactives)) {
+      ring.classList.add('is-hovering');
+    }
+  });
+  document.addEventListener('mouseout', (e) => {
+    if (e.target && e.target.closest && e.target.closest(interactives)) {
+      ring.classList.remove('is-hovering');
+    }
+  });
+
+  function render() {
+    if (isVisible) {
+      ringX += (mouseX - ringX) * 0.22;
+      ringY += (mouseY - ringY) * 0.22;
+      ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%)`;
+    }
+    requestAnimationFrame(render);
+  }
   render();
 }
 

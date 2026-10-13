@@ -46,6 +46,9 @@
     </svg>
   </div>
 
+  <!-- Cursor ring follower -->
+  <div id="cursor-ring" class="cursor-ring" aria-hidden="true"></div>
+
   <!-- NAV -->
   <header class="site-nav" id="top">
     <div class="container">
@@ -376,75 +379,63 @@
       </div>
     </section>
 
-    <!-- 3.6 HOW I WORK (replaces What I do) -->
-    <section class="how-i-work-section" id="how-i-work" aria-label="How I work">
+    <!-- 3.6 WHAT I DO -->
+    <section class="what-i-do-section" id="what-i-do" aria-label="What I do">
       <div class="container">
-        <div class="section-label-tiny reveal-on-scroll">METHODOLOGY</div>
-        <h2 class="section-heading reveal-on-scroll">How I work</h2>
-        <div class="how-grid">
-          <!-- 01 (Open by default) -->
-          <div class="how-item is-open reveal-on-scroll" id="how-item-1">
-            <button type="button" class="how-header-btn" aria-expanded="true" aria-controls="how-collapse-1">
-              <div class="how-title-wrap">
-                <span class="how-num">01</span>
-                <span class="how-title">End-to-end product design</span>
-              </div>
-              <svg viewBox="0 0 24 24" class="how-chevron" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </button>
-            <div class="how-body-collapse" id="how-collapse-1">
-              <div class="how-body-inner">
-                <p class="how-desc">Research, flows, IA, wireframes and high-fidelity UI for web and mobile.</p>
-              </div>
-            </div>
+        <div class="what-i-do-header">
+          <h2 class="what-i-do-title reveal-on-scroll">What I do</h2>
+        </div>
+
+        <div class="what-i-do-grid reveal-on-scroll">
+          <!-- 01 Product design -->
+          <div class="what-i-do-cell">
+            <span class="what-i-do-num">01</span>
+            <h3 class="what-i-do-cell-title">Product design</h3>
+            <p class="what-i-do-cell-desc">End-to-end UX and UI for digital products — from early concepts and user flows to polished interfaces ready to ship. I focus on clarity, structure and details that make products easier to use.</p>
           </div>
 
-          <!-- 02 -->
-          <div class="how-item reveal-on-scroll" id="how-item-2">
-            <button type="button" class="how-header-btn" aria-expanded="false" aria-controls="how-collapse-2">
-              <div class="how-title-wrap">
-                <span class="how-num">02</span>
-                <span class="how-title">AI product and interaction design</span>
-              </div>
-              <svg viewBox="0 0 24 24" class="how-chevron" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </button>
-            <div class="how-body-collapse" id="how-collapse-2">
-              <div class="how-body-inner">
-                <p class="how-desc">Conversational UX, AI persona and tone, trust, explainability and failure states.</p>
-              </div>
-            </div>
+          <!-- 02 Design systems -->
+          <div class="what-i-do-cell">
+            <span class="what-i-do-num">02</span>
+            <h3 class="what-i-do-cell-title">Design systems</h3>
+            <p class="what-i-do-cell-desc">Scalable design systems with clear foundations, reusable components and practical documentation. Built to support both designers and developers, so the system stays useful beyond handoff.</p>
           </div>
 
-          <!-- 03 -->
-          <div class="how-item reveal-on-scroll" id="how-item-3">
-            <button type="button" class="how-header-btn" aria-expanded="false" aria-controls="how-collapse-3">
-              <div class="how-title-wrap">
-                <span class="how-num">03</span>
-                <span class="how-title">Design systems and tokens</span>
-              </div>
-              <svg viewBox="0 0 24 24" class="how-chevron" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </button>
-            <div class="how-body-collapse" id="how-collapse-3">
-              <div class="how-body-inner">
-                <p class="how-desc">Scalable component libraries, design-to-code QA and pixel-accurate handoff.</p>
-              </div>
-            </div>
+          <!-- 03 Interface direction -->
+          <div class="what-i-do-cell">
+            <span class="what-i-do-num">03</span>
+            <h3 class="what-i-do-cell-title">Interface direction</h3>
+            <p class="what-i-do-cell-desc">Visual direction for digital products that need a distinct and consistent presence. From typography and motion to imagery and UI details, I help shape interfaces that feel cohesive and memorable.</p>
           </div>
 
-          <!-- 04 -->
-          <div class="how-item reveal-on-scroll" id="how-item-4">
-            <button type="button" class="how-header-btn" aria-expanded="false" aria-controls="how-collapse-4">
-              <div class="how-title-wrap">
-                <span class="how-num">04</span>
-                <span class="how-title">Design engineering</span>
-              </div>
-              <svg viewBox="0 0 24 24" class="how-chevron" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </button>
-            <div class="how-body-collapse" id="how-collapse-4">
-              <div class="how-body-inner">
-                <p class="how-desc">Prototyping and shipping in React, Next.js and Tailwind with Claude Code, Cursor and v0.</p>
-              </div>
-            </div>
+          <!-- 04 Web design -->
+          <div class="what-i-do-cell">
+            <span class="what-i-do-num">04</span>
+            <h3 class="what-i-do-cell-title">Web design</h3>
+            <p class="what-i-do-cell-desc">Thoughtful websites for studios, founders and brands — with a strong sense of typography, structure and visual clarity. Designed to feel considered, expressive and easy to navigate.</p>
           </div>
+
+          <!-- 05 Brand identity -->
+          <div class="what-i-do-cell">
+            <span class="what-i-do-num">05</span>
+            <h3 class="what-i-do-cell-title">Brand identity</h3>
+            <p class="what-i-do-cell-desc">Visual identities and brand systems for digital products and modern businesses. Usually developed alongside the product, so brand and interface feel like one coherent experience.</p>
+          </div>
+
+          <!-- 06 Advisory & audits -->
+          <div class="what-i-do-cell">
+            <span class="what-i-do-num">06</span>
+            <h3 class="what-i-do-cell-title">Advisory &amp; audits</h3>
+            <p class="what-i-do-cell-desc">Focused design support for teams that need an outside perspective. UX/UI reviews, design system audits and hands-on feedback to identify gaps, sharpen decisions and move work forward.</p>
+          </div>
+        </div>
+
+        <!-- CTA Row Underneath -->
+        <div class="what-i-do-cta-row reveal-on-scroll">
+          <div class="what-i-do-cta-text">
+            <span>Have a project in mind?</span> <span class="what-i-do-cta-accent">Let’s talk.</span>
+          </div>
+          <a href="#contact" class="what-i-do-cta-btn" id="what-i-do-contact-btn">Get in touch &rarr;</a>
         </div>
       </div>
     </section>
