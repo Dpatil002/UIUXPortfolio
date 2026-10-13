@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCursorTrail();
   initExpandingButtons();
   initFeaturedCarousel();
+  initFeaturedProjectShowcase();
   initProjectFilterTabs();
   initTestimonialCarousel();
   initStickyTocScrollSpy();
@@ -1616,4 +1617,303 @@ function initScreenGalleryAndLightbox() {
     }, { passive: true });
   }
 }
+
+// ==========================================================================
+// FEATURED PROJECT SHOWCASE (Auto-rotating showcase below hero)
+// ==========================================================================
+function initFeaturedProjectShowcase() {
+  const showcaseSection = document.getElementById('featured-showcase');
+  const stage = document.getElementById('showcase-stage');
+  const slides = Array.from(document.querySelectorAll('.showcase-slide'));
+  const indicators = Array.from(document.querySelectorAll('.indicator-line'));
+  const counter = document.getElementById('showcase-counter');
+  const openBtn = document.getElementById('showcase-open-btn');
+  const pauseBtn = document.getElementById('showcase-pause-btn');
+  const pauseIcon = pauseBtn ? pauseBtn.querySelector('.icon-pause') : null;
+  const playIcon = pauseBtn ? pauseBtn.querySelector('.icon-play') : null;
+  const progressCircle = document.getElementById('showcase-progress-circle');
+  const liveRegion = document.getElementById('showcase-live-region');
+
+  if (!showcaseSection || !stage || !slides.length) return;
+
+  const featuredProjects = [
+    {
+      title: "Tythas Control Center",
+      href: "tythas-control-center.html",
+      tags: ["B2B SaaS", "Shipped"],
+      image: "assets/images/showcase/tythas_laptop_1600.webp",
+      mobileImage: "assets/images/showcase/tythas_laptop_640.webp",
+      deviceType: "laptop",
+      alt: "Tythas Control Center dashboard showing client sites, SEO health, and alerts"
+    },
+    {
+      title: "Raya",
+      href: "raya.html",
+      tags: ["AI", "Mobile app", "Concept"],
+      image: "assets/images/showcase/raya_phone_1024.webp",
+      mobileImage: "assets/images/showcase/raya_phone_640.webp",
+      deviceType: "phone",
+      alt: "Raya AI mobile application interface displaying contextual recommendations"
+    },
+    {
+      title: "Elixir Helps",
+      href: "elixir-helps.html",
+      tags: ["Healthcare", "Web + Admin"],
+      image: "assets/images/showcase/elixir_laptop_1600.webp",
+      mobileImage: "assets/images/showcase/elixir_laptop_640.webp",
+      deviceType: "laptop",
+      alt: "Elixir Helps healthcare management portal displaying patient records and care coordinator dashboard"
+    },
+    {
+      title: "Soché",
+      href: "soche.html",
+      tags: ["D2C", "Shopify"],
+      image: "assets/images/showcase/soche_laptop_1600.webp",
+      mobileImage: "assets/images/showcase/soche_laptop_640.webp",
+      deviceType: "laptop",
+      alt: "Soché luxury jewellery e-commerce storefront with curated collections and product detail view"
+    },
+    {
+      title: "Before Two",
+      href: "before-two.html",
+      tags: ["Operations", "Mobile app"],
+      image: "assets/images/showcase/before_two_phone_1024.webp",
+      mobileImage: "assets/images/showcase/before_two_phone_640.webp",
+      deviceType: "phone",
+      alt: "Before Two operations mobile app showcasing order tracking and supply workflow"
+    }
+  ];
+
+  const CIRCLE_CIRCUMFERENCE = 119.38;
+  const ROTATE_INTERVAL = 5000; // 5000ms
+
+  let currentIndex = 0;
+  let isManualPaused = false;
+  let isHovered = false;
+  let isFocused = false;
+  let isDocumentHidden = document.hidden;
+  let isIntersecting = true;
+  let elapsedTime = 0;
+  let lastTimestamp = null;
+  let animationFrameId = null;
+
+  const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) {
+    isManualPaused = true;
+  }
+
+  function updatePlayPauseUI() {
+    if (!pauseBtn) return;
+    if (isManualPaused) {
+      pauseBtn.setAttribute('aria-label', 'Play slideshow');
+      pauseBtn.setAttribute('aria-pressed', 'true');
+      if (pauseIcon) pauseIcon.style.display = 'none';
+      if (playIcon) playIcon.style.display = 'block';
+    } else {
+      pauseBtn.setAttribute('aria-label', 'Pause slideshow');
+      pauseBtn.setAttribute('aria-pressed', 'false');
+      if (pauseIcon) pauseIcon.style.display = 'block';
+      if (playIcon) playIcon.style.display = 'none';
+    }
+  }
+
+  updatePlayPauseUI();
+
+  function preloadNextSlide(nextIdx) {
+    const nextProj = featuredProjects[nextIdx];
+    if (nextProj && nextProj.image) {
+      const img = new Image();
+      img.src = nextProj.image;
+    }
+  }
+
+  function goToSlide(newIndex, isManual = false) {
+    const total = slides.length;
+    currentIndex = (newIndex + total) % total;
+    elapsedTime = 0;
+
+    slides.forEach((slide, idx) => {
+      const isActive = idx === currentIndex;
+      slide.classList.toggle('is-active', isActive);
+      slide.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+      if (isActive) {
+        slide.removeAttribute('inert');
+      } else {
+        slide.setAttribute('inert', '');
+      }
+      const link = slide.querySelector('.showcase-device-link');
+      if (link) {
+        link.tabIndex = isActive ? 0 : -1;
+      }
+    });
+
+    indicators.forEach((ind, idx) => {
+      const isActive = idx === currentIndex;
+      ind.classList.toggle('is-active', isActive);
+      ind.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    });
+
+    const currentProject = featuredProjects[currentIndex];
+    if (currentProject) {
+      if (openBtn) {
+        openBtn.href = currentProject.href;
+        openBtn.setAttribute('aria-label', `Open case study: ${currentProject.title}`);
+      }
+      if (counter) {
+        counter.textContent = `0${currentIndex + 1} / 0${total}`;
+      }
+    }
+
+    if (progressCircle) {
+      progressCircle.style.strokeDashoffset = CIRCLE_CIRCUMFERENCE;
+    }
+
+    // Accessible live region announcements for manual transitions ONLY
+    if (isManual && liveRegion) {
+      liveRegion.setAttribute('aria-live', 'polite');
+      liveRegion.textContent = `Slide ${currentIndex + 1} of ${total}: ${currentProject.title}`;
+      setTimeout(() => {
+        if (liveRegion) liveRegion.setAttribute('aria-live', 'off');
+      }, 1200);
+    } else if (liveRegion) {
+      liveRegion.setAttribute('aria-live', 'off');
+      liveRegion.textContent = '';
+    }
+
+    // Preload next slide
+    preloadNextSlide((currentIndex + 1) % total);
+  }
+
+  function shouldRotate() {
+    if (prefersReducedMotion) return false;
+    if (isManualPaused) return false;
+    if (isHovered) return false;
+    if (isFocused) return false;
+    if (isDocumentHidden) return false;
+    if (!isIntersecting) return false;
+    return true;
+  }
+
+  function animationLoop(timestamp) {
+    if (!lastTimestamp) lastTimestamp = timestamp;
+    const delta = timestamp - lastTimestamp;
+    lastTimestamp = timestamp;
+
+    if (shouldRotate()) {
+      elapsedTime += delta;
+      if (progressCircle) {
+        const fraction = Math.min(elapsedTime / ROTATE_INTERVAL, 1);
+        const offset = CIRCLE_CIRCUMFERENCE * (1 - fraction);
+        progressCircle.style.strokeDashoffset = offset.toFixed(2);
+      }
+
+      if (elapsedTime >= ROTATE_INTERVAL) {
+        goToSlide(currentIndex + 1, false);
+      }
+    }
+
+    animationFrameId = requestAnimationFrame(animationLoop);
+  }
+
+  animationFrameId = requestAnimationFrame(animationLoop);
+
+  // Manual Pause / Play button toggle
+  if (pauseBtn) {
+    pauseBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      isManualPaused = !isManualPaused;
+      updatePlayPauseUI();
+    });
+  }
+
+  // Indicator clicks
+  indicators.forEach((indicator) => {
+    indicator.addEventListener('click', () => {
+      const targetIdx = parseInt(indicator.dataset.index, 10);
+      if (!isNaN(targetIdx)) {
+        goToSlide(targetIdx, true);
+      }
+    });
+  });
+
+  // Hover detection on stage (desktop only pause)
+  stage.addEventListener('mouseenter', () => {
+    isHovered = true;
+  });
+  stage.addEventListener('mouseleave', () => {
+    isHovered = false;
+  });
+
+  // Focus detection inside section
+  showcaseSection.addEventListener('focusin', () => {
+    isFocused = true;
+  });
+  showcaseSection.addEventListener('focusout', (e) => {
+    if (!showcaseSection.contains(e.relatedTarget)) {
+      isFocused = false;
+    }
+  });
+
+  // Keyboard navigation when stage is focused
+  showcaseSection.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      goToSlide(currentIndex + 1, true);
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      goToSlide(currentIndex - 1, true);
+    }
+  });
+
+  // Visibility change
+  document.addEventListener('visibilitychange', () => {
+    isDocumentHidden = document.hidden;
+  });
+
+  // IntersectionObserver (< 30% visible)
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        isIntersecting = entry.intersectionRatio >= 0.3;
+      });
+    }, {
+      threshold: [0, 0.3, 0.5, 1.0]
+    });
+    observer.observe(showcaseSection);
+  }
+
+  // Touch Swipe on mobile (threshold 40px)
+  let touchStartX = 0;
+  let touchStartY = 0;
+  stage.addEventListener('touchstart', (e) => {
+    if (e.touches.length > 0) {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+    }
+  }, { passive: true });
+
+  stage.addEventListener('touchend', (e) => {
+    if (e.changedTouches.length > 0) {
+      const touchEndX = e.changedTouches[0].clientX;
+      const touchEndY = e.changedTouches[0].clientY;
+      const diffX = touchStartX - touchEndX;
+      const diffY = touchStartY - touchEndY;
+
+      // Check if horizontal swipe exceeds 40px threshold and is predominantly horizontal
+      if (Math.abs(diffX) >= 40 && Math.abs(diffX) > Math.abs(diffY)) {
+        if (diffX > 0) {
+          // Swiped left -> next slide
+          goToSlide(currentIndex + 1, true);
+        } else {
+          // Swiped right -> previous slide
+          goToSlide(currentIndex - 1, true);
+        }
+      }
+    }
+  }, { passive: true });
+
+  // Initial preload for slide 2
+  preloadNextSlide(1);
+}
+
 
