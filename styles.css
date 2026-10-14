@@ -1314,10 +1314,11 @@ body.nav-menu-open {
   cursor: default;
 }
 
-.work-card-media-box {
+.work-card-media-box,
+.work-card-media {
   width: 100%;
   aspect-ratio: 4 / 5;
-  border-radius: 12px;
+  border-radius: 0;
   overflow: hidden;
   position: relative;
   background: #14161a;
@@ -1330,6 +1331,7 @@ body.nav-menu-open {
   height: 100%;
   object-fit: cover;
   display: block;
+  border-radius: 0;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -1401,36 +1403,6 @@ body.nav-menu-open {
   max-width: 44ch;
 }
 
-.more-work-container {
-  margin-top: var(--s-7);
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--s-2);
-}
-
-.more-work-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-serif);
-  font-size: var(--fs-h3);
-  color: var(--text-main);
-  text-decoration: none;
-  min-height: 44px;
-  transition: color 200ms ease;
-}
-
-.more-work-link:hover {
-  color: var(--accent-lavender);
-}
-
-.more-work-desc {
-  font-size: var(--fs-small);
-  color: var(--text-muted);
-  margin: 0;
-}
 
 /* 3.6 WHAT I DO (id="what-i-do") */
 .what-i-do-section {
