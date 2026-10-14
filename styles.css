@@ -183,16 +183,10 @@ h4 {
   min-height: 100dvh;
 }
 
-/* Every section uses padding-block: var(--section-y) */
-section,
-.hero-section,
+/* Default padding-block for case study and subpage sections */
 .cs-hero-section,
 .cs-section,
-.selected-work-section,
-.what-i-do-section,
-.kind-words-section,
 .things-section,
-.site-footer,
 .work-header-section,
 .about-hero-section,
 .about-philosophy-section,
@@ -966,8 +960,8 @@ body.nav-menu-open {
 
 /* HERO SECTION */
 .hero-section {
-  padding-top: clamp(2.5rem, 5vw, 5rem);
-  padding-bottom: clamp(3rem, 5vw, 4.5rem);
+  padding-top: clamp(2.5rem, 4.5vw, 4.25rem);
+  padding-bottom: clamp(2rem, 3.5vw, 3rem);
   position: relative;
 }
 
@@ -1144,18 +1138,20 @@ body.nav-menu-open {
 
 /* 3.4 CLIENT STRIP */
 .clients-section {
-  padding: var(--s-6) 0;
+  padding: clamp(1.75rem, 3vw, 2.5rem) 0;
+  border-top: 1px solid var(--border-hairline);
   border-bottom: 1px solid var(--border-hairline);
   overflow: hidden;
+  position: relative;
 }
 
 .clients-title {
-  font-size: var(--fs-small);
+  font-size: 0.8125rem;
   text-transform: uppercase;
   letter-spacing: 0.14em;
   color: var(--text-dim);
   font-weight: 700;
-  margin-bottom: var(--s-4);
+  margin-bottom: clamp(1rem, 1.8vw, 1.35rem);
   text-align: center;
 }
 
@@ -1251,13 +1247,13 @@ body.nav-menu-open {
 
 /* 3.5 SELECTED WORK (id="work") */
 .selected-work-section {
-  padding: clamp(5rem, 8vw, 8rem) 0;
+  padding: clamp(3.5rem, 6vw, 5.5rem) 0;
   border-bottom: 1px solid var(--border-hairline);
   position: relative;
 }
 
 .selected-work-header {
-  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: clamp(2rem, 3.5vw, 3rem);
 }
 
 .selected-work-title {
@@ -1438,13 +1434,13 @@ body.nav-menu-open {
 
 /* 3.6 WHAT I DO (id="what-i-do") */
 .what-i-do-section {
-  padding: clamp(4.5rem, 7vw, 6.5rem) 0;
+  padding: clamp(3.5rem, 6vw, 5.5rem) 0;
   position: relative;
 }
 
 .what-i-do-header {
   text-align: center;
-  margin-bottom: clamp(2.5rem, 4.5vw, 3.5rem);
+  margin-bottom: clamp(2rem, 3.5vw, 3rem);
 }
 
 .what-i-do-title {
@@ -1618,7 +1614,7 @@ body.nav-menu-open {
 
 /* 3.7 TOOLS (replaces 28-logo marquee) */
 .tools-section {
-  padding: var(--section-y) 0;
+  padding: clamp(3.5rem, 6vw, 5.5rem) 0;
   border-bottom: 1px solid var(--border-hairline);
 }
 
@@ -1669,8 +1665,8 @@ body.nav-menu-open {
 
 /* 3.8 TESTIMONIALS (Kind Words) */
 .testimonials-section {
-  padding-top: clamp(3.5rem, 6vw, 6rem);
-  padding-bottom: clamp(3.5rem, 6vw, 6rem);
+  padding-top: clamp(3.5rem, 5.5vw, 5rem);
+  padding-bottom: clamp(3rem, 5vw, 4.5rem);
   position: relative;
 }
 
@@ -1681,7 +1677,7 @@ body.nav-menu-open {
   line-height: 1.15;
   letter-spacing: -0.025em;
   color: var(--text-main);
-  margin-bottom: clamp(1.75rem, 3vw, 2.5rem);
+  margin-bottom: clamp(1.5rem, 2.5vw, 2rem);
 }
 
 .kind-words-divider {
@@ -2504,8 +2500,8 @@ body.nav-menu-open {
    FOOTER / CONTACT SECTION
    ======================================= */
 .site-footer {
-  padding-top: clamp(5.5rem, 9.5vw, 9rem);
-  padding-bottom: clamp(3rem, 5vw, 4.5rem);
+  padding-top: clamp(4rem, 6.5vw, 6rem);
+  padding-bottom: clamp(2.5rem, 4vw, 3.5rem);
   border-top: 1px solid var(--border-hairline);
   position: relative;
   overflow: hidden;
@@ -2514,7 +2510,7 @@ body.nav-menu-open {
 
 .footer-contact-block {
   text-align: left;
-  margin-bottom: clamp(4.5rem, 8vw, 7rem);
+  margin-bottom: clamp(1.75rem, 3vw, 2.5rem);
 }
 
 .footer-eyebrow {
@@ -2656,10 +2652,31 @@ body.nav-menu-open {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 1.5rem;
-  padding-top: 2rem;
+  gap: 1.25rem;
+  padding-top: 1.5rem;
   font-size: var(--fs-small);
   color: var(--text-muted);
+}
+
+@media (min-width: 960px) {
+  .footer-bottom {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .footer-bottom-left {
+    justify-self: start;
+  }
+
+  .footer-bottom-center {
+    justify-self: center;
+  }
+
+  .footer-bottom-right {
+    justify-self: end;
+  }
 }
 
 .footer-bottom-left {
@@ -2715,7 +2732,8 @@ body.nav-menu-open {
 .footer-socials {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  flex-wrap: wrap;
+  gap: 0.625rem;
 }
 
 .social-pill {
@@ -2729,8 +2747,13 @@ body.nav-menu-open {
   border-radius: 9999px;
   color: var(--text-muted);
   text-decoration: none;
+  font-family: inherit;
   font-size: var(--fs-small);
   font-weight: 500;
+  cursor: pointer;
+  line-height: 1;
+  user-select: none;
+  -webkit-user-select: none;
   transition: all 0.25s var(--transition-smooth);
 }
 
@@ -2738,6 +2761,8 @@ body.nav-menu-open {
   width: 14px;
   height: 14px;
   fill: currentColor;
+  flex-shrink: 0;
+  transition: transform 0.2s ease, fill 0.2s ease;
 }
 
 .social-pill:hover {
@@ -2746,6 +2771,21 @@ body.nav-menu-open {
   background: var(--bg-card-hover);
   transform: translateY(-2px);
   box-shadow: 0 4px 14px rgba(196, 181, 253, 0.15);
+}
+
+.social-pill:focus-visible {
+  outline: 2px solid var(--accent-lavender);
+  outline-offset: 2px;
+}
+
+.social-pill.is-copied {
+  border-color: #34D399;
+  color: #34D399;
+  background: rgba(52, 211, 153, 0.08);
+}
+
+.social-pill.is-copied .social-icon {
+  fill: #34D399;
 }
 
 /* SCROLL REVEAL ANIMATIONS */
@@ -2966,7 +3006,7 @@ body.nav-menu-open {
   }
 
   .footer-contact-block {
-    margin-bottom: 3.5rem;
+    margin-bottom: 1.5rem;
   }
 
   .footer-socials {
@@ -10120,7 +10160,8 @@ small,
    FEATURED PROJECT SHOWCASE (Auto-rotating carousel below hero)
    ========================================================================== */
 .featured-showcase-section {
-  padding: 24px 0 64px;
+  padding: clamp(2.5rem, 4.5vw, 3.75rem) 0 clamp(2.5rem, 4.5vw, 4rem);
+  border-bottom: 1px solid var(--border-hairline);
   position: relative;
   width: 100%;
   outline: none;
@@ -10128,7 +10169,7 @@ small,
 
 @media (min-width: 1024px) {
   .featured-showcase-section {
-    padding: 32px 0 120px;
+    padding: clamp(3rem, 5vw, 4.25rem) 0 clamp(3.25rem, 5.5vw, 4.75rem);
   }
 }
 

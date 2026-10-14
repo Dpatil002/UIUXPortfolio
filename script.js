@@ -1178,37 +1178,70 @@ function initHowIWorkAccordion() {
 
 // 3.9 Contact Email Copy Interaction with Toast
 function initCopyEmailToast() {
-  const btn = document.getElementById('copy-email-btn');
-  const toast = document.getElementById('email-toast');
-  if (!btn || !toast) return;
+  const copyButtons = document.querySelectorAll(
+    '#copy-email-btn, #footer-copy-email-btn, .copy-email-trigger, .copy-email-btn, [data-copy-email]'
+  );
+  if (!copyButtons || copyButtons.length === 0) return;
+
+  let toast = document.getElementById('email-toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'email-toast';
+    toast.className = 'toast-notice';
+    toast.setAttribute('role', 'status');
+    toast.setAttribute('aria-live', 'polite');
+    toast.textContent = 'Email copied';
+    document.body.appendChild(toast);
+  }
 
   let toastTimer = null;
 
-  btn.addEventListener('click', async () => {
-    const email = 'contact@digambarpatil.com';
-    try {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        await navigator.clipboard.writeText(email);
-      } else {
-        const textArea = document.createElement('textarea');
-        textArea.value = email;
-        textArea.style.position = 'fixed';
-        textArea.style.opacity = '0';
-        document.body.appendChild(textArea);
-        textArea.focus();
-        textArea.select();
-        document.execCommand('copy');
-        document.body.removeChild(textArea);
-      }
+  copyButtons.forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const email = 'contact@digambarpatil.com';
+      try {
+        let copied = false;
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          try {
+            await navigator.clipboard.writeText(email);
+            copied = true;
+          } catch (clipErr) {
+            // Permission or focus denied; fallback to execCommand
+          }
+        }
+        if (!copied) {
+          const textArea = document.createElement('textarea');
+          textArea.value = email;
+          textArea.style.position = 'fixed';
+          textArea.style.opacity = '0';
+          document.body.appendChild(textArea);
+          textArea.focus();
+          textArea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textArea);
+        }
 
-      toast.classList.add('is-visible');
-      if (toastTimer) clearTimeout(toastTimer);
-      toastTimer = setTimeout(() => {
-        toast.classList.remove('is-visible');
-      }, 2000);
-    } catch (err) {
-      console.error('Failed to copy email:', err);
-    }
+        // Show toast
+        toast.classList.add('is-visible');
+        if (toastTimer) clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => {
+          toast.classList.remove('is-visible');
+        }, 2000);
+
+        // Tactile micro-interaction feedback on clicked button
+        const labelSpan = btn.querySelector('.copy-label') || btn.querySelector('span');
+        const originalText = labelSpan ? labelSpan.textContent : null;
+        btn.classList.add('is-copied');
+        if (labelSpan) labelSpan.textContent = 'Copied!';
+
+        setTimeout(() => {
+          btn.classList.remove('is-copied');
+          if (labelSpan && originalText) labelSpan.textContent = originalText;
+        }, 2000);
+      } catch (err) {
+        console.error('Failed to copy email:', err);
+      }
+    });
   });
 }
 
