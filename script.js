@@ -447,40 +447,201 @@ function initFeaturedCarousel() {
   startAutoPlay();
 }
 
-// 6. Project Filter Tabs / Chips (Work Page)
+// 6. Project Grid & Filter System (/work Page Redesign)
+const WORK_PROJECTS_DATA = [
+  {
+    title: 'Tythas Control Center',
+    slug: 'tythas-control-center.html',
+    year: '2026',
+    category: 'B2B SaaS',
+    filters: ['Product'],
+    filterTokens: ['product'],
+    image: 'assets/images/grid/tythas',
+    alt: 'Tythas Control Center — B2B SaaS'
+  },
+  {
+    title: 'Raya',
+    slug: 'raya.html',
+    year: '2026',
+    category: 'AI fitness coach',
+    filters: ['AI', 'Mobile app'],
+    filterTokens: ['ai', 'mobile-app'],
+    status: 'Concept',
+    image: 'assets/images/grid/raya',
+    alt: 'Raya — AI fitness coach'
+  },
+  {
+    title: 'Elixir Helps',
+    slug: 'elixir-helps.html',
+    year: '2025–2026',
+    category: 'Web + Admin panel',
+    filters: ['Product', 'Web'],
+    filterTokens: ['product', 'web'],
+    image: 'assets/images/grid/elixir',
+    alt: 'Elixir Helps — Web + Admin panel'
+  },
+  {
+    title: 'Soché',
+    slug: 'soche.html',
+    year: '2026',
+    category: 'D2C e-commerce',
+    filters: ['Web'],
+    filterTokens: ['web'],
+    image: 'assets/images/grid/soche',
+    alt: 'Soché — D2C e-commerce'
+  },
+  {
+    title: 'Before Two',
+    slug: 'before-two.html',
+    year: '2026',
+    category: 'Operations app',
+    filters: ['Mobile app'],
+    filterTokens: ['mobile-app'],
+    image: 'assets/images/grid/before-two',
+    alt: 'Before Two — Operations app'
+  },
+  {
+    title: 'Copper Chocs',
+    slug: 'copper-chocs.html',
+    year: '2025',
+    category: 'Shopify store',
+    filters: ['Web'],
+    filterTokens: ['web'],
+    image: 'assets/images/grid/copper-chocs',
+    alt: 'Copper Chocs — Shopify store'
+  }
+];
+
+function initWorkCursorBadge() {
+  const badge = document.getElementById('work-cursor-badge');
+  const mediaElements = document.querySelectorAll('.work-card-media');
+  if (!badge || !mediaElements.length) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  let mouseX = -100, mouseY = -100;
+  let currentX = -100, currentY = -100;
+  let isHovered = false;
+  let rafId = null;
+
+  function render() {
+    if (isHovered) {
+      currentX += (mouseX - currentX) * 0.15;
+      currentY += (mouseY - currentY) * 0.15;
+      badge.style.transform = `translate3d(${currentX}px, ${currentY}px, 0) translate(-50%, -50%) scale(1)`;
+      rafId = requestAnimationFrame(render);
+    }
+  }
+
+  mediaElements.forEach((media) => {
+    media.addEventListener('mouseenter', (e) => {
+      if (window.innerWidth < 1024 || window.matchMedia('(hover: none) or (pointer: coarse)').matches) return;
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      currentX = mouseX;
+      currentY = mouseY;
+      isHovered = true;
+      badge.style.opacity = '1';
+      badge.style.transform = `translate3d(${currentX}px, ${currentY}px, 0) translate(-50%, -50%) scale(1)`;
+      if (!rafId) {
+        rafId = requestAnimationFrame(render);
+      }
+    });
+
+    media.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    media.addEventListener('mouseleave', () => {
+      if (!isHovered) return;
+      isHovered = false;
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+      }
+      badge.style.opacity = '0';
+      badge.style.transform = `translate3d(${currentX}px, ${currentY}px, 0) translate(-50%, -50%) scale(0.5)`;
+    });
+  });
+}
+
 function initProjectFilterTabs() {
-  const filterBtns = document.querySelectorAll('.work-chip, .work-filter-btn, .filter-tab-btn');
-  const projectCards = document.querySelectorAll('.work-card, .work-project-card, .filterable-project-card');
+  const grid = document.getElementById('work-projects-grid');
+  const filterBtns = document.querySelectorAll('.work-filter-pill, .work-chip, .work-filter-btn');
+  const projectCards = document.querySelectorAll('.work-card');
   const emptyState = document.getElementById('filter-empty-state');
-  if (!filterBtns.length || !projectCards.length) return;
+  if (!grid || !projectCards.length) return;
+
+  const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Grid row layout algorithm (desktop 12-col alternating wide/narrow pattern)
+  // Row 1: wide (2/3) + narrow (1/3)
+  // Row 2: narrow (1/3) + wide (2/3)
+  // Row 3: wide (2/3) + narrow (1/3) ... repeat
+  function applyGridRowPattern(visibleCards) {
+    visibleCards.forEach((card, index) => {
+      card.classList.remove(
+        'grid-col-wide-left',
+        'grid-col-narrow-right',
+        'grid-col-narrow-left',
+        'grid-col-wide-right',
+        'grid-col-solo',
+        'is-wide',
+        'is-narrow'
+      );
+
+      const rowIndex = Math.floor(index / 2) + 1;
+      const isOddRow = rowIndex % 2 === 1;
+      const isFirstInRow = index % 2 === 0;
+      const isLastCard = index === visibleCards.length - 1;
+      const isSoloInRow = isFirstInRow && isLastCard;
+
+      if (isSoloInRow) {
+        card.classList.add('grid-col-solo', 'is-wide');
+      } else if (isOddRow) {
+        if (isFirstInRow) {
+          card.classList.add('grid-col-wide-left', 'is-wide');
+        } else {
+          card.classList.add('grid-col-narrow-right', 'is-narrow');
+        }
+      } else {
+        if (isFirstInRow) {
+          card.classList.add('grid-col-narrow-left', 'is-narrow');
+        } else {
+          card.classList.add('grid-col-wide-right', 'is-wide');
+        }
+      }
+    });
+  }
 
   function normalizeFilterParam(val) {
     if (!val) return 'all';
     const lower = val.toLowerCase().trim().replace(/[\s_]+/g, '-');
     if (lower === 'all') return 'all';
     if (lower === 'ai') return 'ai';
-    if (lower === 'saas' || lower === 'b2b-saas') return 'saas';
-    if (lower === 'mobile' || lower === 'mobile-app' || lower === 'mobile-apps' || lower === 'app' || lower === 'apps') return 'mobile-app';
-    if (lower === 'ecommerce' || lower === 'e-commerce' || lower === 'commerce') return 'e-commerce';
+    if (lower === 'product') return 'product';
+    if (lower === 'web') return 'web';
+    if (lower === 'mobile' || lower === 'mobile-app' || lower === 'mobile-apps') return 'mobile-app';
     return lower;
   }
 
   function applyFilter(filterValue, updateUrl = true, immediate = false) {
     const normFilter = normalizeFilterParam(filterValue);
-    
-    // Update tab / chip states
+
+    // Update filter pill active states & aria attributes
     filterBtns.forEach((btn) => {
       const btnFilter = normalizeFilterParam(btn.getAttribute('data-filter'));
       const isActive = btnFilter === normFilter || (normFilter === 'all' && btnFilter === 'all');
       btn.classList.toggle('active', isActive);
       btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      btn.setAttribute('tabindex', isActive ? '0' : '-1');
     });
 
     // Update URL ?filter=
     if (updateUrl) {
       const url = new URL(window.location.href);
       if (normFilter === 'all') {
-        url.searchParams.delete('filter');
+        url.searchParams.set('filter', 'all');
       } else {
         url.searchParams.set('filter', normFilter);
       }
@@ -492,7 +653,7 @@ function initProjectFilterTabs() {
 
     projectCards.forEach((card) => {
       const cat = (card.getAttribute('data-category') || '').toLowerCase().trim();
-      const catTokens = cat.split(/[\s,]+/).map(t => normalizeFilterParam(t));
+      const catTokens = cat.split(/[\s,]+/).map((t) => normalizeFilterParam(t));
       const match = normFilter === 'all' || catTokens.includes(normFilter);
       if (match) {
         matchingCards.push(card);
@@ -501,51 +662,80 @@ function initProjectFilterTabs() {
       }
     });
 
-    if (immediate) {
+    if (emptyState) {
+      emptyState.style.display = matchingCards.length === 0 ? 'block' : 'none';
+    }
+
+    if (immediate || isReducedMotion) {
       nonMatchingCards.forEach((card) => {
         card.style.display = 'none';
-        card.classList.remove('filtering-in', 'filtering-out');
+        card.style.opacity = '';
+        card.style.transform = '';
+        card.style.transition = '';
       });
-
       matchingCards.forEach((card) => {
-        card.style.display = '';
-        card.classList.remove('filtering-in', 'filtering-out');
+        card.style.display = 'flex';
+        card.style.opacity = '';
+        card.style.transform = '';
+        card.style.transition = '';
       });
-
-      if (emptyState) {
-        emptyState.style.display = matchingCards.length === 0 ? 'block' : 'none';
-      }
+      applyGridRowPattern(matchingCards);
+      grid.style.minHeight = '';
       return;
     }
 
-    // Phase 4: Cards animate out/in (fade + scale 0.98, 200ms) on filter change
-    projectCards.forEach((card) => {
-      card.classList.remove('filtering-in');
-      card.classList.add('filtering-out');
+    // Lock grid height during filter animation to prevent sudden jumps
+    const currentHeight = grid.offsetHeight;
+    grid.style.minHeight = `${currentHeight}px`;
+
+    // Outgoing animation: fade + scale 0.98 out over 250ms
+    const outgoing = Array.from(projectCards).filter(
+      (card) => card.style.display !== 'none' && !matchingCards.includes(card)
+    );
+
+    outgoing.forEach((card) => {
+      card.style.transition = 'opacity 250ms ease, transform 250ms ease';
+      card.style.opacity = '0';
+      card.style.transform = 'scale(0.98)';
+      card.style.pointerEvents = 'none';
     });
 
     setTimeout(() => {
       nonMatchingCards.forEach((card) => {
         card.style.display = 'none';
-        card.classList.remove('filtering-out');
+        card.style.pointerEvents = '';
       });
 
+      // Prepare incoming cards at scale 0.98, opacity 0
       matchingCards.forEach((card) => {
-        card.style.display = '';
-        card.classList.remove('filtering-out');
-        card.classList.add('filtering-in');
+        card.style.display = 'flex';
+        card.style.transition = 'none';
+        card.style.opacity = '0';
+        card.style.transform = 'scale(0.98)';
       });
 
-      if (emptyState) {
-        emptyState.style.display = matchingCards.length === 0 ? 'block' : 'none';
-      }
+      // Reflow grid with new wide/narrow alternating row pattern
+      applyGridRowPattern(matchingCards);
+
+      // Force layout reflow
+      void grid.offsetWidth;
+
+      // Incoming animation: fade + scale 0.98 in over 250ms
+      matchingCards.forEach((card) => {
+        card.style.transition = 'opacity 250ms ease, transform 250ms ease';
+        card.style.opacity = '1';
+        card.style.transform = 'scale(1)';
+      });
 
       setTimeout(() => {
         matchingCards.forEach((card) => {
-          card.classList.remove('filtering-in');
+          card.style.transition = '';
+          card.style.opacity = '';
+          card.style.transform = '';
         });
-      }, 200);
-    }, 200);
+        grid.style.minHeight = '';
+      }, 250);
+    }, 250);
   }
 
   // Click & keyboard events on filter buttons
@@ -557,17 +747,16 @@ function initProjectFilterTabs() {
     });
 
     btn.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        btn.click();
-      } else if (e.key === 'ArrowRight') {
-        e.preventDefault();
-        const nextBtn = filterBtns[(index + 1) % filterBtns.length];
-        nextBtn.focus();
+      let targetIndex = -1;
+      if (e.key === 'ArrowRight') {
+        targetIndex = (index + 1) % filterBtns.length;
       } else if (e.key === 'ArrowLeft') {
+        targetIndex = (index - 1 + filterBtns.length) % filterBtns.length;
+      }
+      if (targetIndex >= 0) {
         e.preventDefault();
-        const prevBtn = filterBtns[(index - 1 + filterBtns.length) % filterBtns.length];
-        prevBtn.focus();
+        filterBtns[targetIndex].focus();
+        filterBtns[targetIndex].click();
       }
     });
   });
@@ -584,7 +773,12 @@ function initProjectFilterTabs() {
   const initialFilter = initialParams.get('filter');
   if (initialFilter) {
     applyFilter(initialFilter, false, true);
+  } else {
+    applyGridRowPattern(Array.from(projectCards));
   }
+
+  // Initialize cursor badge on work card media
+  initWorkCursorBadge();
 }
 
 // 7. Kind Words Testimonial Carousel (Manual Navigation)

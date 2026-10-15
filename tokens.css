@@ -53,6 +53,20 @@
   --font-serif: 'Newsreader', 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
+  /* Semantic Token Aliases */
+  --bg: #121417;
+  --bg-raised: #1A1D21;
+  --bg-inverse: #FFFFFF;
+  --text: #F3F3F6;
+  --text-inverse: #121417;
+  --text-2: #8E929B;
+  --text-3: #60646D;
+  --accent: #C4B5FD;
+  --line-strong: rgba(255, 255, 255, 0.16);
+  --font-body: var(--font-sans);
+  --font-display: var(--font-serif);
+  --fs-lead: clamp(1.125rem, 1.05rem + 0.4vw, 1.25rem);
+
   --container-max: var(--max-w);
   --container-narrow: 960px;
   --section-pad-y: var(--section-y);

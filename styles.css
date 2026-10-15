@@ -50,6 +50,20 @@
   --font-serif: 'Newsreader', 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
+  /* Semantic Token Aliases */
+  --bg: #121417;
+  --bg-raised: #1A1D21;
+  --bg-inverse: #FFFFFF;
+  --text: #F3F3F6;
+  --text-inverse: #121417;
+  --text-2: #8E929B;
+  --text-3: #60646D;
+  --accent: #C4B5FD;
+  --line-strong: rgba(255, 255, 255, 0.16);
+  --font-body: var(--font-sans);
+  --font-display: var(--font-serif);
+  --fs-lead: clamp(1.125rem, 1.05rem + 0.4vw, 1.25rem);
+
   --container-max: var(--max-w);
   --container-narrow: 960px;
   --section-pad-y: var(--section-y);
@@ -10057,74 +10071,497 @@ small,
 }
 
 
-/* 4.14 /work PAGE FILTER CHIPS & ANIMATIONS */
-.work-filter-chips {
-  display: flex;
-  gap: var(--s-2);
-  overflow-x: auto;
-  scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
-  padding: 4px var(--gutter);
-  margin: var(--s-5) calc(-1 * var(--gutter)) var(--s-7);
+/* ==========================================================================
+   4.14 /work PAGE REDESIGN — PROJECT GRID & FILTER PILLS
+   ========================================================================== */
+
+/* Page Section & Outer Container */
+.work-page-section {
+  padding-top: 128px;
+  padding-bottom: var(--s-8, 64px);
+  width: 100%;
+  position: relative;
 }
 
-.work-filter-chips::-webkit-scrollbar {
-  display: none;
-}
-
-.work-chip {
-  flex: 0 0 auto;
-  min-height: 44px;
-  padding: 8px 20px;
-  border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--border-hairline);
-  color: var(--text-muted);
-  font-size: var(--fs-small);
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  user-select: none;
-}
-
-.work-chip:hover {
-  color: var(--text-main);
-  border-color: rgba(255, 255, 255, 0.2);
-}
-
-.work-chip.active {
-  background: var(--text-main);
-  color: var(--bg-body);
-  border-color: var(--text-main);
-  font-weight: 600;
-}
-
-@media (min-width: 768px) {
-  .work-filter-chips {
-    padding: 0;
-    margin: var(--s-5) 0 var(--s-7);
-    overflow: visible;
+@media (min-width: 1024px) {
+  .work-page-section {
+    padding-top: 160px;
+    padding-bottom: var(--s-10, 128px);
   }
 }
 
-/* Filter card animation: fade + scale 0.98, 200ms */
+.work-grid-container {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+
+@media (min-width: 768px) {
+  .work-grid-container {
+    padding-inline: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .work-grid-container {
+    padding-inline: 40px;
+  }
+}
+
+/* Visually Hidden Utility for Accessible Headings */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Filter Pills at top-left */
+.work-filters-wrapper {
+  position: relative;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 1024px) {
+  .work-filters-wrapper {
+    margin-bottom: 48px; /* 48px gap below filters to grid */
+  }
+}
+
+.work-filter-pills {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Mobile: Horizontal scroll in one row, no wrap, 20px side padding */
+@media (max-width: 767px) {
+  .work-filters-wrapper {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    position: relative;
+  }
+
+  .work-filters-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  .work-filter-pills {
+    flex-wrap: nowrap;
+    padding-bottom: 4px;
+    padding-right: 20px;
+  }
+
+  .work-filter-pill {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+}
+
+/* Pill: 32px tall, 14px text, radius 999px, 1px border (--line-strong) */
+.work-filter-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  padding: 0 16px;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--line-strong);
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+/* 44px minimum tap target height on touch devices */
+.work-filter-pill::after {
+  content: '';
+  position: absolute;
+  top: -6px;
+  bottom: -6px;
+  left: 0;
+  right: 0;
+  min-height: 44px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .work-filter-pill:not(.active):hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text);
+  }
+}
+
+/* Active: white fill, dark text */
+.work-filter-pill.active {
+  background: var(--bg-inverse);
+  color: var(--text-inverse);
+  border-color: var(--bg-inverse);
+}
+
+.work-filter-pill:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Project Grid */
+.work-grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr;
+  row-gap: 40px; /* Mobile: gap 40px between cards */
+  align-items: start;
+  transition: min-height 250ms ease;
+}
+
+/* Tablet (768–1023px): 2 equal columns, image ratio 4:3, row gap 56px */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .work-grid {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 24px;
+    row-gap: 56px;
+  }
+}
+
+/* Desktop (>=1024px): 2 columns with alternating widths, column gap 24px, row gap 80px */
+@media (min-width: 1024px) {
+  .work-grid {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 24px;
+    row-gap: 80px;
+  }
+
+  /* Row 1: wide (2/3 = 8 cols) + narrow (1/3 = 4 cols) */
+  .work-card.grid-col-wide-left {
+    grid-column: 1 / span 8;
+  }
+  .work-card.grid-col-narrow-right {
+    grid-column: 9 / span 4;
+  }
+
+  /* Row 2: narrow (1/3 = 4 cols) + wide (2/3 = 8 cols) */
+  .work-card.grid-col-narrow-left {
+    grid-column: 1 / span 4;
+  }
+  .work-card.grid-col-wide-right {
+    grid-column: 5 / span 8;
+  }
+
+  /* Solo card in row spans 8 cols (2/3 width) */
+  .work-card.grid-col-solo {
+    grid-column: 1 / span 8;
+  }
+}
+
+/* Tablet overrides for grid-columns */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .work-card.grid-col-wide-left,
+  .work-card.grid-col-narrow-right,
+  .work-card.grid-col-narrow-left,
+  .work-card.grid-col-wide-right,
+  .work-card.grid-col-solo {
+    grid-column: span 1 !important;
+  }
+}
+
+/* Mobile overrides for grid-columns */
+@media (max-width: 767px) {
+  .work-card.grid-col-wide-left,
+  .work-card.grid-col-narrow-right,
+  .work-card.grid-col-narrow-left,
+  .work-card.grid-col-wide-right,
+  .work-card.grid-col-solo {
+    grid-column: 1 / -1 !important;
+  }
+}
+
+/* Project Card: Whole card is one link to the case study */
+.work-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  position: relative;
+  outline: none;
+  color: inherit;
+  transition: opacity 250ms ease, transform 250ms ease;
+}
+
+.work-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+/* Mobile Tap feedback: scale 0.98 for 120ms */
+@media (max-width: 767px) {
+  .work-card:active {
+    transform: scale(0.98);
+    transition: transform 120ms ease;
+  }
+}
+
+/* Media / Image Wrapper */
+.work-card-media {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--bg-raised);
+  border-radius: 4px; /* Image: radius 0-4px */
+  width: 100%;
+  aspect-ratio: 4 / 3; /* Mobile default ratio 4:3 */
+}
+
+/* Tablet (768–1023px): image ratio 4:3 */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .work-card-media {
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* Desktop (>=1024px): Image heights ~ 500px at 1440px wide (scale with viewport) */
+/* Same image height within a row (no ragged rows) */
+@media (min-width: 1024px) {
+  .work-card-media {
+    aspect-ratio: auto;
+    height: clamp(360px, 34.72vw, 500px);
+    cursor: none; /* Desktop cursor follow replaces standard cursor over image */
+  }
+}
+
+/* Image styling */
+.work-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: 4px;
+  transition: transform 600ms ease-out;
+}
+
+/* Desktop Hover: image scales 1.03 (600ms ease-out) */
+@media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
+  .work-card:hover .work-card-img {
+    transform: scale(1.03);
+  }
+}
+
+/* Mobile Static "↗" (32px) on image corner */
+.work-card-touch-badge {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .work-card-touch-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    color: #121417;
+    z-index: 2;
+    pointer-events: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  }
+  .work-card-touch-badge svg {
+    width: 14px;
+    height: 14px;
+    stroke: #121417;
+    stroke-width: 2.2;
+    fill: none;
+    display: block;
+  }
+}
+
+/* Card Metadata (16px below image) */
+.work-card-meta {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Row 1: Title (left) · Year (right, muted) on one row */
+.work-card-row-1 {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.work-card-title-group {
+  display: flex;
+  align-items: baseline;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.work-card-title {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+  transition: text-decoration 0.2s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .work-card:hover .work-card-title {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+  }
+}
+
+/* Optional status tag after title, e.g. "Concept" in --accent */
+.work-card-status {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--accent);
+  margin-left: 8px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.work-card-year {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--text-3); /* muted */
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* 4px below: Category (muted, 14px) */
+.work-card-row-2 {
+  margin-top: 4px;
+}
+
+.work-card-category {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--text-3); /* muted */
+  display: block;
+}
+
+/* Filter change: cards fade + scale 0.98 out/in, 250ms */
 .work-card.filtering-out {
-  opacity: 0;
-  transform: scale(0.98);
-  transition: opacity 200ms ease, transform 200ms ease;
+  opacity: 0 !important;
+  transform: scale(0.98) !important;
+  transition: opacity 250ms ease, transform 250ms ease !important;
   pointer-events: none;
 }
 
 .work-card.filtering-in {
-  opacity: 1;
-  transform: scale(1);
-  transition: opacity 200ms ease, transform 200ms ease;
+  opacity: 1 !important;
+  transform: scale(1) !important;
+  transition: opacity 250ms ease, transform 250ms ease !important;
 }
 
+/* Empty State */
+.work-empty-state {
+  text-align: center;
+  padding: 64px 0;
+  color: var(--text-2);
+  font-family: var(--font-body);
+  font-size: 16px;
+}
+
+/* 72px Circular Cursor Badge for Desktop Work Card Images */
+.work-cursor-badge {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  transform: translate3d(-100px, -100px, 0) translate(-50%, -50%) scale(0.5);
+  transition: opacity 200ms ease;
+  will-change: transform, opacity;
+}
+
+.work-cursor-badge svg {
+  width: 22px;
+  height: 22px;
+  stroke: #121417;
+  stroke-width: 2.2;
+  fill: none;
+  display: block;
+}
+
+@media (max-width: 1023px), (hover: none), (pointer: coarse) {
+  .work-cursor-badge {
+    display: none !important;
+  }
+}
+
+/* Prefers Reduced Motion: no cursor follow, no scale */
 @media (prefers-reduced-motion: reduce) {
+  .work-card {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .work-card-img {
+    transform: none !important;
+    transition: none !important;
+  }
+  .work-card:hover .work-card-img {
+    transform: none !important;
+  }
+  .work-card:active {
+    transform: none !important;
+  }
   .work-card.filtering-out,
   .work-card.filtering-in {
-    transition: none;
+    transition: none !important;
+    transform: none !important;
+  }
+  .work-cursor-badge {
+    display: none !important;
   }
 }
 
