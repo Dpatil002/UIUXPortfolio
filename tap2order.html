@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Tap2Order — An Easier Way for Small Shops to Take Orders | Digambar Patil</title>
+  <meta name="description" content="Customers browse on a phone and order on WhatsApp. The owner runs orders, stock, payments and reviews from one simple desktop panel. UX Case Study by Digambar Patil.">
+  <meta name="theme-color" content="#FFFFFF">
+
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <link rel="canonical" href="https://digambarpatil.com/tap2order">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="Tap2Order — Digambar Patil">
+  <meta property="og:description" content="An easier way for small shops to take orders. Shoppers order on WhatsApp, the owner runs everything from one desktop panel.">
+  <meta property="og:image" content="/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="/og-image.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* Scoped theme variables and styles for Tap2Order */
+    :root {
+      --t2o-bg: #FFFFFF;
+      --t2o-soft: #F1F5FF;
+      --t2o-sky: #DFE8FF;
+      --t2o-ink: #1B2559;
+      --t2o-body: #3A4573;
+      --t2o-muted: #4D5885;
+      --t2o-line: #E1E8FB;
+      --t2o-blue: #4A6CE3;
+      --t2o-deep: #3452C9;
+      --t2o-onblue: #FFFFFF;
+      --t2o-shadow: rgba(52, 82, 201, 0.16);
+      --t2o-display: 'Outfit', system-ui, sans-serif;
+      --t2o-text: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --t2o-mono: 'Space Mono', ui-monospace, monospace;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --t2o-bg: #0E1430;
+        --t2o-soft: #151D44;
+        --t2o-sky: #1B2658;
+        --t2o-ink: #EEF2FF;
+        --t2o-body: #C3CCEE;
+        --t2o-muted: #A3AED8;
+        --t2o-line: #243066;
+        --t2o-blue: #6F8DF5;
+        --t2o-deep: #9DB2FF;
+        --t2o-onblue: #0E1430;
+        --t2o-shadow: rgba(0, 0, 0, 0.45);
+      }
+    }
+
+    :root[data-theme="dark"] {
+      --t2o-bg: #0E1430;
+      --t2o-soft: #151D44;
+      --t2o-sky: #1B2658;
+      --t2o-ink: #EEF2FF;
+      --t2o-body: #C3CCEE;
+      --t2o-muted: #A3AED8;
+      --t2o-line: #243066;
+      --t2o-blue: #6F8DF5;
+      --t2o-deep: #9DB2FF;
+      --t2o-onblue: #0E1430;
+      --t2o-shadow: rgba(0, 0, 0, 0.45);
+    }
+
+    body.t2o-case-study {
+      background: var(--t2o-bg);
+      color: var(--t2o-ink);
+      font-family: var(--t2o-text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .tap2order-main {
+      position: relative;
+      z-index: 10;
+    }
+
+    .tap2order-main .w {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding-left: max(20px, env(safe-area-inset-left, 0px));
+      padding-right: max(20px, env(safe-area-inset-right, 0px));
+    }
+
+    .tap2order-main h1,
+    .tap2order-main h2,
+    .tap2order-main h3 {
+      font-family: var(--t2o-display);
+      margin: 0;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      text-wrap: balance;
+      color: var(--t2o-ink);
+    }
+
+    .tap2order-main p {
+      margin: 0;
+    }
+
+    .tap2order-main .t2o-breadcrumb {
+      padding-top: clamp(80px, 10vw, 104px);
+    }
+
+    .tap2order-main .t2o-back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--t2o-muted);
+      text-decoration: none;
+      font: 500 14px var(--t2o-text);
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    .tap2order-main .t2o-back-btn:hover {
+      color: var(--t2o-deep);
+      transform: translateX(-2px);
+    }
+
+    .tap2order-main .hero {
+      padding-top: 24px;
+    }
+
+    .tap2order-main .eye,
+    .tap2order-main .meta dt {
+      font: 400 12px var(--t2o-mono);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .tap2order-main .meta dt {
+      color: var(--t2o-muted);
+    }
+
+    .tap2order-main .eye {
+      color: var(--t2o-deep);
+    }
+
+    .tap2order-main h1 {
+      font-size: clamp(36px, 6vw, 68px);
+      line-height: 1.04;
+      letter-spacing: -0.025em;
+      max-width: 16ch;
+      margin-top: 16px;
+    }
+
+    .tap2order-main .lead {
+      font-size: clamp(17px, 2vw, 21px);
+      color: var(--t2o-muted);
+      max-width: 56ch;
+      margin-top: 20px;
+    }
+
+    .tap2order-main .dk {
+      margin-top: 48px;
+      border-radius: 18px;
+      border: 1px solid var(--t2o-line);
+      box-shadow: 0 30px 60px var(--t2o-shadow);
+      overflow: hidden;
+      background: var(--t2o-soft);
+    }
+
+    .tap2order-main .dk .tb {
+      height: 28px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding-inline: 14px;
+      background: var(--t2o-soft);
+      border-bottom: 1px solid var(--t2o-line);
+    }
+
+    .tap2order-main .dk .tb i {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--t2o-line);
+      display: block;
+    }
+
+    .tap2order-main .dk img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .tap2order-main .meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      margin-top: 64px;
+      padding-block: 28px;
+      border-block: 1px solid var(--t2o-line);
+    }
+
+    .tap2order-main .meta dd {
+      margin: 6px 0 0;
+      font: 600 18px var(--t2o-display);
+      color: var(--t2o-ink);
+    }
+
+    .tap2order-main section.s {
+      padding-top: 96px;
+    }
+
+    .tap2order-main .cols {
+      display: grid;
+      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+      gap: clamp(24px, 5vw, 72px);
+      align-items: start;
+    }
+
+    .tap2order-main h2 {
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.1;
+      margin-top: 12px;
+      color: var(--t2o-ink);
+    }
+
+    .tap2order-main .copy p {
+      font-size: 18px;
+      color: var(--t2o-body);
+      max-width: 62ch;
+    }
+
+    .tap2order-main .copy p + p {
+      margin-top: 18px;
+    }
+
+    .tap2order-main .phones {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: clamp(12px, 3vw, 32px);
+      margin-top: 48px;
+      align-items: start;
+    }
+
+    .tap2order-main .phones figure {
+      margin: 0;
+    }
+
+    .tap2order-main .ph {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: clamp(18px, 3vw, 30px);
+      border: 1px solid var(--t2o-line);
+      box-shadow: 0 20px 44px var(--t2o-shadow);
+      background: var(--t2o-soft);
+    }
+
+    .tap2order-main figcaption {
+      margin-top: 16px;
+      font-size: 14px;
+      color: var(--t2o-muted);
+    }
+
+    .tap2order-main figcaption b {
+      display: block;
+      font: 600 17px var(--t2o-display);
+      color: var(--t2o-ink);
+      margin-bottom: 2px;
+    }
+
+    .tap2order-main .two {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .tap2order-main .two .dk {
+      margin-top: 0;
+    }
+
+    .tap2order-main .facts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .tap2order-main .facts div {
+      background: var(--t2o-soft);
+      border-radius: 20px;
+      padding: 22px 24px;
+      border: 1px solid var(--t2o-line);
+    }
+
+    .tap2order-main .facts b {
+      display: block;
+      font: 600 34px var(--t2o-display);
+      color: var(--t2o-deep);
+    }
+
+    .tap2order-main .facts span {
+      font-size: 14px;
+      color: var(--t2o-muted);
+    }
+
+    .tap2order-main .cta {
+      margin-top: 96px;
+      margin-bottom: 56px;
+      background: var(--t2o-soft);
+      border-radius: 32px;
+      padding: clamp(28px, 5vw, 56px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      border: 1px solid var(--t2o-line);
+    }
+
+    .tap2order-main .cta h2 {
+      margin-top: 10px;
+      font-size: clamp(26px, 3.4vw, 38px);
+      max-width: 18ch;
+      color: var(--t2o-ink);
+    }
+
+    .tap2order-main .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 56px;
+      padding-inline: 30px;
+      border-radius: 28px;
+      background: var(--t2o-blue);
+      color: var(--t2o-onblue);
+      text-decoration: none;
+      font: 600 17px var(--t2o-display);
+      transition: filter 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .tap2order-main .btn:hover {
+      filter: brightness(1.06);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px var(--t2o-shadow);
+    }
+
+    .tap2order-main .btn:focus-visible {
+      outline: 3px solid var(--t2o-deep);
+      outline-offset: 3px;
+    }
+
+    /* Next / Previous Project Navigation */
+    .tap2order-main .t2o-project-nav {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 72px;
+    }
+
+    .tap2order-main .t2o-pnav-btn {
+      display: flex;
+      flex-direction: column;
+      padding: 24px 28px;
+      border-radius: 20px;
+      background: var(--t2o-soft);
+      border: 1px solid var(--t2o-line);
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    .tap2order-main .t2o-pnav-btn:hover {
+      border-color: var(--t2o-blue);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px var(--t2o-shadow);
+    }
+
+    .tap2order-main .t2o-pnav-btn.next {
+      text-align: right;
+    }
+
+    .tap2order-main .t2o-pnav-sub {
+      font: 400 11px var(--t2o-mono);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--t2o-muted);
+      margin-bottom: 6px;
+    }
+
+    .tap2order-main .t2o-pnav-title {
+      font: 600 18px var(--t2o-display);
+      color: var(--t2o-ink);
+    }
+
+    /* ==========================================================================
+       PERSONALIZED NAVBAR THEME (Tap2Order)
+       ========================================================================== */
+    .t2o-case-study .site-nav {
+      background: rgba(255, 255, 255, 0.90);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--t2o-line);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .t2o-case-study .site-nav {
+        background: rgba(14, 20, 48, 0.90);
+        border-bottom: 1px solid var(--t2o-line);
+      }
+    }
+
+    :root[data-theme="dark"] .t2o-case-study .site-nav {
+      background: rgba(14, 20, 48, 0.90);
+      border-bottom: 1px solid var(--t2o-line);
+    }
+
+    .t2o-case-study .nav-brand {
+      color: var(--t2o-ink);
+    }
+
+    .t2o-case-study .brand-logo-mark {
+      color: var(--t2o-ink);
+    }
+
+    .t2o-case-study .brand-name {
+      color: var(--t2o-ink);
+      font-family: var(--t2o-display);
+      font-weight: 700;
+    }
+
+    .t2o-case-study .brand-title {
+      color: var(--t2o-muted);
+      font-family: var(--t2o-text);
+    }
+
+    .t2o-case-study .nav-link {
+      color: var(--t2o-body);
+      font-family: var(--t2o-text);
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .t2o-case-study .nav-link:hover,
+    .t2o-case-study .nav-link.active {
+      color: var(--t2o-deep);
+    }
+
+    .t2o-case-study .nav-contact-btn {
+      background: var(--t2o-blue);
+      color: var(--t2o-onblue);
+      border: 1px solid var(--t2o-blue);
+      font-family: var(--t2o-display);
+      font-weight: 600;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+    }
+
+    .t2o-case-study .nav-contact-btn:hover {
+      background: var(--t2o-deep);
+      border-color: var(--t2o-deep);
+      color: var(--t2o-onblue);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px var(--t2o-shadow);
+    }
+
+    .t2o-case-study .nav-hamburger .hamburger-bar {
+      background-color: var(--t2o-ink);
+    }
+
+    .t2o-case-study .mobile-nav-sheet {
+      background: var(--t2o-bg);
+      border-top: 1px solid var(--t2o-line);
+    }
+
+    .t2o-case-study .sheet-nav-link {
+      color: var(--t2o-ink);
+      font-family: var(--t2o-display);
+    }
+
+    .t2o-case-study .sheet-nav-link:hover,
+    .t2o-case-study .sheet-nav-link.active {
+      color: var(--t2o-blue);
+    }
+
+    .t2o-case-study .sheet-btn-primary {
+      background: var(--t2o-blue);
+      color: var(--t2o-onblue);
+      font-family: var(--t2o-display);
+    }
+
+    .t2o-case-study .sheet-btn-primary:hover {
+      background: var(--t2o-deep);
+    }
+
+    .t2o-case-study .sheet-social-link {
+      background: var(--t2o-soft);
+      border-color: var(--t2o-line);
+      color: var(--t2o-ink);
+    }
+
+    .t2o-case-study .sheet-social-link:hover {
+      border-color: var(--t2o-blue);
+      color: var(--t2o-blue);
+    }
+
+    .t2o-case-study .sheet-status-text {
+      color: var(--t2o-muted);
+    }
+
+    /* ==========================================================================
+       PERSONALIZED FOOTER THEME (Tap2Order)
+       ========================================================================== */
+    .t2o-case-study .site-footer {
+      background-color: var(--t2o-soft);
+      border-top: 1px solid var(--t2o-line);
+      position: relative;
+      z-index: 20;
+    }
+
+    .t2o-case-study .site-footer .footer-eyebrow {
+      color: var(--t2o-muted);
+      font-family: var(--t2o-mono);
+      font-size: 12px;
+      letter-spacing: 0.16em;
+    }
+
+    .t2o-case-study .site-footer .footer-logo-mark {
+      color: var(--t2o-ink);
+    }
+
+    .t2o-case-study .site-footer .email-display-link {
+      color: var(--t2o-deep);
+      font-family: var(--t2o-display);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      transition: color 0.3s ease, filter 0.3s ease;
+    }
+
+    .t2o-case-study .site-footer .email-interactive-wrapper:hover .email-display-link {
+      color: var(--t2o-blue);
+      filter: drop-shadow(0 0 16px var(--t2o-shadow));
+    }
+
+    .t2o-case-study .site-footer .email-full-underline {
+      background-color: var(--t2o-blue);
+      box-shadow: 0 0 10px var(--t2o-shadow);
+    }
+
+    .t2o-case-study .site-footer .email-interactive-wrapper:hover .email-full-underline {
+      background-color: var(--t2o-deep);
+      box-shadow: 0 0 18px var(--t2o-shadow);
+    }
+
+    .t2o-case-study .site-footer .footer-bottom-left,
+    .t2o-case-study .site-footer .footer-copyright,
+    .t2o-case-study .site-footer .footer-bottom-center {
+      color: var(--t2o-muted);
+      font-family: var(--t2o-text);
+    }
+
+    .t2o-case-study .site-footer .footer-nav-link,
+    .t2o-case-study .site-footer .footer-link {
+      color: var(--t2o-body);
+      font-family: var(--t2o-text);
+      transition: color 0.2s ease;
+    }
+
+    .t2o-case-study .site-footer .footer-nav-link:hover,
+    .t2o-case-study .site-footer .footer-link:hover {
+      color: var(--t2o-deep);
+    }
+
+    .t2o-case-study .site-footer .footer-dot-sep {
+      color: var(--t2o-line);
+    }
+
+    @media (max-width: 760px) {
+      .tap2order-main .cols {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .tap2order-main .two {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .tap2order-main section.s {
+        padding-top: 72px;
+      }
+      .tap2order-main .phones {
+        gap: 12px;
+      }
+      .tap2order-main figcaption {
+        font-size: 12px;
+      }
+      .tap2order-main figcaption b {
+        font-size: 14px;
+      }
+      .tap2order-main .t2o-project-nav {
+        grid-template-columns: 1fr;
+      }
+      .tap2order-main .t2o-pnav-btn.next {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body class="case-study-page t2o-case-study">
+
+  <!-- Skip link as first focusable element -->
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <!-- Background Particle Field -->
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <!-- Cursor Follow Arrow Badge -->
+  <div id="cursor-badge" class="cursor-arrow-badge" aria-hidden="true">
+    <svg viewBox="0 0 24 24">
+      <line x1="7" y1="17" x2="17" y2="7"></line>
+      <polyline points="7 7 17 7 17 17"></polyline>
+    </svg>
+  </div>
+
+  <!-- NAVIGATION -->
+  <header class="site-nav" id="top">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="/" class="nav-brand" id="nav-brand" aria-label="Digambar Patil — home">
+          <svg class="brand-logo-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 538 369" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="M69.1,367.1C71.5,365.2 75.9,358.6 100.1,320.5C123.0,284.3 126.6,278.7 130.4,272.8L134.1,267.0L245.8,267.0C314.6,267.0 360.2,266.6 364.5,266.0C384.6,263.1 404.6,252.0 417.0,236.7C423.7,228.5 431.6,212.5 433.7,203.0C435.8,193.2 435.8,175.6 433.7,166.0C430.5,151.4 418.5,131.6 407.4,122.5C400.0,116.4 396.1,114.0 387.5,110.0C371.0,102.3 375.8,102.7 278.5,102.3C217.4,102.0 189.5,102.2 184.8,103.0C170.4,105.5 158.3,114.4 148.9,129.4C146.1,133.9 139.4,144.5 133.9,153.0C120.4,174.0 119.6,175.8 120.8,178.6C122.8,183.0 130.0,184.2 157.1,184.7C178.4,185.2 182.1,185.0 184.8,183.6C186.7,182.6 190.1,178.7 193.7,173.2L199.5,164.5L278.0,164.2C331.6,164.0 357.7,164.3 360.2,165.0C374.5,169.1 378.9,189.3 367.8,199.7C361.9,205.2 367.5,205.0 245.7,205.0C138.0,205.0 133.0,204.9 125.8,203.1C110.4,199.1 95.3,189.4 86.5,177.9C68.8,154.4 66.2,124.3 79.7,98.8C85.5,87.8 98.9,74.7 110.0,69.2C126.9,60.9 116.7,61.5 250.0,61.5L368.5,61.5L378.9,63.8C416.2,72.0 447.0,96.0 464.0,129.9C468.1,138.1 473.4,154.4 475.1,164.0C477.0,174.7 476.8,196.6 474.7,207.3C467.7,242.4 446.5,272.8 416.5,290.5C405.6,297.0 396.6,300.7 383.0,304.3L371.5,307.4L264.3,308.0C170.7,308.4 156.9,308.7 155.7,310.0C154.2,311.6 124.2,358.8 122.1,362.8C121.0,364.8 121.1,365.5 122.6,367.1C124.3,369.0 127.3,369.0 246.4,369.0C349.2,369.0 370.2,368.7 379.0,367.5C419.6,361.7 455.0,344.0 484.0,314.8C548.8,249.7 555.7,146.5 500.2,72.8C473.0,36.7 432.2,11.3 387.5,2.8L375.5,0.5L250.5,0.5C131.8,0.5 125.0,0.6 116.5,2.4C98.2,6.2 78.6,14.8 64.5,25.2C54.0,32.9 40.2,47.3 33.3,57.7C23.1,73.0 17.2,86.7 12.9,105.1C9.8,118.0 9.6,147.2 12.4,160.0C19.5,192.6 38.0,221.4 64.2,240.6C69.0,244.1 73.0,248.1C73.0,248.7 69.5,254.6 65.2,261.3C60.8,268.0 51.3,282.9 44.0,294.5C36.7,306.1 23.8,326.4 15.4,339.7C6.9,352.9 -0.0,364.2 -0.0,364.6C-0.0,365.0 0.7,366.2 1.7,367.2C3.2,368.9 5.6,369.0 35.0,369.0C64.5,369.0 66.9,368.9 69.1,367.1Z"/></svg>
+          <span class="brand-wordmark">
+            <span class="brand-name">Digambar Patil</span>
+            <span class="brand-title">Product Designer</span>
+          </span>
+        </a>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav-sheet">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+        <nav class="nav-links desktop-nav" id="nav-links" aria-label="Main Navigation">
+          <a href="work.html" class="nav-link active" id="nav-work">Work</a>
+          <a href="about.html" class="nav-link" id="nav-about">About</a>
+          <a href="assets/Digambar_Patil_Resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link" id="nav-resume">Resume <span class="nav-external-icon" aria-hidden="true">↗</span></a>
+          <a href="#contact" class="nav-contact-btn" id="nav-contact">Get in touch</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Sheet (<768px) -->
+    <div class="mobile-nav-sheet" id="mobile-nav-sheet" aria-hidden="true">
+      <div class="sheet-inner">
+        <nav class="sheet-nav-list" aria-label="Mobile Navigation">
+          <a href="work.html" class="sheet-nav-link active" id="sheet-nav-work">Work</a>
+          <a href="about.html" class="sheet-nav-link" id="sheet-nav-about">About</a>
+          <a href="assets/Digambar_Patil_Resume.pdf" target="_blank" rel="noopener noreferrer" class="sheet-nav-link" id="sheet-nav-resume">Resume <span class="nav-external-icon" aria-hidden="true">↗</span></a>
+          <a href="#contact" class="sheet-nav-link" id="sheet-nav-contact">Get in touch</a>
+        </nav>
+        <div class="sheet-footer">
+          <a href="mailto:contact@digambarpatil.com" class="sheet-btn-primary">Email me</a>
+          <div class="sheet-social-row">
+            <a href="https://www.linkedin.com/in/digambar-patil-6847081aa/" target="_blank" rel="noopener noreferrer" class="sheet-social-link" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" class="sheet-social-icon" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64c-.95 0-1.66.71-1.66 1.66 0 .93.71 1.64 1.66 1.64.92 0 1.63-.71 1.63-1.64 0-.95-.71-1.66-1.63-1.66z"></path></svg>
+            </a>
+            <a href="https://www.behance.net/digambarpatil2" target="_blank" rel="noopener noreferrer" class="sheet-social-link" aria-label="Behance">
+              <svg viewBox="0 0 24 24" class="sheet-social-icon" aria-hidden="true"><path d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-4.085 0-6.625-2.748-6.625-6.84 0-4.225 2.684-6.892 6.471-6.892 4.103 0 6.136 2.924 5.753 6.944h-9.351c.143 2.087 1.664 3.656 3.753 3.656 1.848 0 2.879-.824 3.324-1.868h1.776zm-8.854-5.352h6.586c-.161-1.802-1.399-3.08-3.264-3.08-1.954 0-3.136 1.294-3.322 3.08zm-14.872-6.648h5.922c3.154 0 4.908 1.492 4.908 3.781 0 1.611-.871 2.766-2.28 3.27 1.778.508 2.802 1.879 2.802 3.736 0 2.569-1.977 4.213-5.316 4.213h-6.036v-15zm3.02 6.096h2.49c1.242 0 2.05-.623 2.05-1.637 0-.964-.784-1.579-2.026-1.579h-2.514v3.216zm0 5.864h2.723c1.455 0 2.378-.711 2.378-1.815 0-1.127-.923-1.801-2.454-1.801h-2.647v3.616z"></path></svg>
+            </a>
+          </div>
+          <p class="sheet-status-text">Open to full-time roles · Pune / Remote</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="tap2order-main">
+    <div class="w">
+      <!-- Breadcrumb -->
+      <div class="t2o-breadcrumb reveal-on-scroll">
+        <a href="work.html" class="t2o-back-btn">
+          <span aria-hidden="true">←</span> Back to selected work
+        </a>
+      </div>
+
+      <!-- HERO SECTION -->
+      <section class="hero">
+        <p class="eye">Tap2Order</p>
+        <h1>An easier way for small shops to take orders</h1>
+        <p class="lead">Customers browse on a phone and order on WhatsApp. The owner runs orders, stock, payments and reviews from one simple desktop panel.</p>
+        <div class="dk reveal-on-scroll">
+          <div class="tb"><i></i><i></i><i></i></div>
+          <img src="assets/projects/tap2order/dashboard-desktop.webp" alt="Tap2Order owner dashboard showing today's orders, sales, weekly chart and new orders" width="1600" height="1075" loading="eager" fetchpriority="high">
+        </div>
+        <dl class="meta reveal-on-scroll delay-1">
+          <div><dt>Scope</dt><dd>Mobile web app and desktop panel</dd></div>
+          <div><dt>Role</dt><dd>Product designer, end to end</dd></div>
+          <div><dt>Type</dt><dd>Self-initiated product</dd></div>
+          <div><dt>Year</dt><dd>2026</dd></div>
+        </dl>
+      </section>
+
+      <!-- OVERVIEW -->
+      <section class="s">
+        <div class="cols">
+          <div>
+            <p class="eye">Overview</p>
+            <h2>Orders live in chats</h2>
+          </div>
+          <div class="copy">
+            <p>Many small sellers already talk to customers on WhatsApp. That is where orders start, and it is also where they get lost between a chat thread, a notebook and memory.</p>
+            <p>Tap2Order keeps WhatsApp as the place customers order and adds the back office behind it: a shop link for shoppers, and a panel for the owner.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHALLENGE -->
+      <section class="s">
+        <div class="cols">
+          <div>
+            <p class="eye">Challenge</p>
+            <h2>Make it feel safe on the first visit</h2>
+          </div>
+          <div class="copy">
+            <p>A shop owner with no technical training had to see her whole day at a glance. A new shopper had to understand the app in seconds, without creating an account or learning a new checkout.</p>
+            <p>My first direction was dark and festive. It was heavy for a first visit, so I redesigned it light, calm and cool.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- APPROACH -->
+      <section class="s">
+        <div class="cols">
+          <div>
+            <p class="eye">Approach</p>
+            <h2>Three taps to an order</h2>
+          </div>
+          <div class="copy">
+            <p>I mapped three lanes: a new shopper, a returning shopper and the owner. Onboarding teaches the flow before shopping. The order is saved first, then handed to WhatsApp with the message already written.</p>
+            <p>On the owner side, the dashboard answers one question: what needs me right now? Each new order has its Confirm button beside it.</p>
+          </div>
+        </div>
+        <div class="phones reveal-on-scroll">
+          <figure>
+            <img class="ph" src="assets/projects/tap2order/phone-onboarding.webp" alt="How it works onboarding screen" width="600" height="1298" loading="lazy">
+            <figcaption><b>Learn in seconds</b>Three short steps before the first shop.</figcaption>
+          </figure>
+          <figure>
+            <img class="ph" src="assets/projects/tap2order/phone-products.webp" alt="Product screen" width="600" height="1298" loading="lazy">
+            <figcaption><b>Order with confidence</b>Stock, price and one clear action.</figcaption>
+          </figure>
+          <figure>
+            <img class="ph" src="assets/projects/tap2order/phone-whatsapp.webp" alt="WhatsApp hand-off screen" width="600" height="1298" loading="lazy">
+            <figcaption><b>Hand off to WhatsApp</b>The order is saved, the message is ready.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- OUTCOME -->
+      <section class="s">
+        <div class="cols">
+          <div>
+            <p class="eye">Outcome</p>
+            <h2>One calm system, two surfaces</h2>
+          </div>
+          <div class="copy">
+            <p>The result is a complete, clickable design: shopper screens, an owner panel and a light design system with one friendly typeface pair and soft blue surfaces.</p>
+            <p>It has not been tested with shop owners yet. That is the next step.</p>
+          </div>
+        </div>
+        <div class="facts reveal-on-scroll">
+          <div><b>20</b><span>screens designed</span></div>
+          <div><b>4</b><span>user flows</span></div>
+          <div><b>2</b><span>surfaces: phone and desktop</span></div>
+        </div>
+        <div class="two reveal-on-scroll delay-1">
+          <div class="dk">
+            <div class="tb"><i></i><i></i><i></i></div>
+            <img src="assets/projects/tap2order/desktop-orders.webp" alt="Orders screen with status tabs and order detail" width="1600" height="1075" loading="lazy">
+          </div>
+          <div class="dk">
+            <div class="tb"><i></i><i></i><i></i></div>
+            <img src="assets/projects/tap2order/desktop-products.webp" alt="Products and stock screen" width="1600" height="1075" loading="lazy">
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="cta reveal-on-scroll">
+        <div>
+          <p class="eye">Full case study</p>
+          <h2>See the research, decisions and every screen</h2>
+        </div>
+        <a class="btn" id="behance" href="https://www.behance.net/digambarpatil2" target="_blank" rel="noopener noreferrer">
+          See detailed UX case study <span aria-hidden="true">→</span>
+        </a>
+      </section>
+
+      <!-- Next/Prev Project Navigation -->
+      <nav class="t2o-project-nav reveal-on-scroll delay-1" aria-label="Project Navigation">
+        <a href="apla-mandal.html" class="t2o-pnav-btn prev">
+          <span class="t2o-pnav-sub">← PREVIOUS CASE STUDY</span>
+          <span class="t2o-pnav-title">Apla Mandal</span>
+        </a>
+        <a href="copper-chocs.html" class="t2o-pnav-btn next">
+          <span class="t2o-pnav-sub">NEXT UX CASE STUDY →</span>
+          <span class="t2o-pnav-title">Copper Chocs</span>
+        </a>
+      </nav>
+    </div>
+  </main>
+
+  <!-- FOOTER / CONTACT SECTION -->
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <div class="footer-contact-block reveal-on-scroll">
+        <div class="footer-eyebrow">LET'S WORK TOGETHER</div>
+
+        <!-- Footer DP Mark at 32px above email -->
+        <div class="footer-mark-wrapper">
+          <a href="/" class="footer-logo-link" aria-label="Digambar Patil — home">
+            <svg class="footer-logo-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 538 369" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="M69.1,367.1C71.5,365.2 75.9,358.6 100.1,320.5C123.0,284.3 126.6,278.7 130.4,272.8L134.1,267.0L245.8,267.0C314.6,267.0 360.2,266.6 364.5,266.0C384.6,263.1 404.6,252.0 417.0,236.7C423.7,228.5 431.6,212.5 433.7,203.0C435.8,193.2 435.8,175.6 433.7,166.0C430.5,151.4 418.5,131.6 407.4,122.5C400.0,116.4 396.1,114.0 387.5,110.0C371.0,102.3 375.8,102.7 278.5,102.3C217.4,102.0 189.5,102.2 184.8,103.0C170.4,105.5 158.3,114.4 148.9,129.4C146.1,133.9 139.4,144.5 133.9,153.0C120.4,174.0 119.6,175.8 120.8,178.6C122.8,183.0 130.0,184.2 157.1,184.7C178.4,185.2 182.1,185.0 184.8,183.6C186.7,182.6 190.1,178.7 193.7,173.2L199.5,164.5L278.0,164.2C331.6,164.0 357.7,164.3 360.2,165.0C374.5,169.1 378.9,189.3 367.8,199.7C361.9,205.2 367.5,205.0 245.7,205.0C138.0,205.0 133.0,204.9 125.8,203.1C110.4,199.1 95.3,189.4 86.5,177.9C68.8,154.4 66.2,124.3 79.7,98.8C85.5,87.8 98.9,74.7 110.0,69.2C126.9,60.9 116.7,61.5 250.0,61.5L368.5,61.5L378.9,63.8C416.2,72.0 447.0,96.0 464.0,129.9C468.1,138.1 473.4,154.4 475.1,164.0C477.0,174.7 476.8,196.6 474.7,207.3C467.7,242.4 446.5,272.8 416.5,290.5C405.6,297.0 396.6,300.7 383.0,304.3L371.5,307.4L264.3,308.0C170.7,308.4 156.9,308.7 155.7,310.0C154.2,311.6 124.2,358.8 122.1,362.8C121.0,364.8 121.1,365.5 122.6,367.1C124.3,369.0 127.3,369.0 246.4,369.0C349.2,369.0 370.2,368.7 379.0,367.5C419.6,361.7 455.0,344.0 484.0,314.8C548.8,249.7 555.7,146.5 500.2,72.8C473.0,36.7 432.2,11.3 387.5,2.8L375.5,0.5L250.5,0.5C131.8,0.5 125.0,0.6 116.5,2.4C98.2,6.2 78.6,14.8 64.5,25.2C54.0,32.9 40.2,47.3 33.3,57.7C23.1,73.0 17.2,86.7 12.9,105.1C9.8,118.0 9.6,147.2 12.4,160.0C19.5,192.6 38.0,221.4 64.2,240.6C69.0,244.1 73.0,248.1C73.0,248.7 69.5,254.6 65.2,261.3C60.8,268.0 51.3,282.9 44.0,294.5C36.7,306.1 23.8,326.4 15.4,339.7C6.9,352.9 -0.0,364.2 -0.0,364.6C-0.0,365.0 0.7,366.2 1.7,367.2C3.2,368.9 5.6,369.0 35.0,369.0C64.5,369.0 66.9,368.9 69.1,367.1Z"/></svg>
+          </a>
+        </div>
+
+        <!-- Huge serif display email with full-width underline and custom cursor badge interaction -->
+        <div class="email-interactive-wrapper">
+          <a href="mailto:contact@digambarpatil.com" class="email-display-link" id="footer-email">
+            contact@digambarpatil.com
+          </a>
+          <div class="email-full-underline" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <!-- Bottom row -->
+      <div class="footer-bottom reveal-on-scroll delay-1">
+        <div class="footer-bottom-left">
+          <a href="/" class="footer-logo-link" aria-label="Digambar Patil — home">
+            <svg class="footer-logo-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 538 369" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="M69.1,367.1C71.5,365.2 75.9,358.6 100.1,320.5C123.0,284.3 126.6,278.7 130.4,272.8L134.1,267.0L245.8,267.0C314.6,267.0 360.2,266.6 364.5,266.0C384.6,263.1 404.6,252.0 417.0,236.7C423.7,228.5 431.6,212.5 433.7,203.0C435.8,193.2 435.8,175.6 433.7,166.0C430.5,151.4 418.5,131.6 407.4,122.5C400.0,116.4 396.1,114.0 387.5,110.0C371.0,102.3 375.8,102.7 278.5,102.3C217.4,102.0 189.5,102.2 184.8,103.0C170.4,105.5 158.3,114.4 148.9,129.4C146.1,133.9 139.4,144.5 133.9,153.0C120.4,174.0 119.6,175.8 120.8,178.6C122.8,183.0 130.0,184.2 157.1,184.7C178.4,185.2 182.1,185.0 184.8,183.6C186.7,182.6 190.1,178.7 193.7,173.2L199.5,164.5L278.0,164.2C331.6,164.0 357.7,164.3 360.2,165.0C374.5,169.1 378.9,189.3 367.8,199.7C361.9,205.2 367.5,205.0 245.7,205.0C138.0,205.0 133.0,204.9 125.8,203.1C110.4,199.1 95.3,189.4 86.5,177.9C68.8,154.4 66.2,124.3 79.7,98.8C85.5,87.8 98.9,74.7 110.0,69.2C126.9,60.9 116.7,61.5 250.0,61.5L368.5,61.5L378.9,63.8C416.2,72.0 447.0,96.0 464.0,129.9C468.1,138.1 473.4,154.4 475.1,164.0C477.0,174.7 476.8,196.6 474.7,207.3C467.7,242.4 446.5,272.8 416.5,290.5C405.6,297.0 396.6,300.7 383.0,304.3L371.5,307.4L264.3,308.0C170.7,308.4 156.9,308.7 155.7,310.0C154.2,311.6 124.2,358.8 122.1,362.8C121.0,364.8 121.1,365.5 122.6,367.1C124.3,369.0 127.3,369.0 246.4,369.0C349.2,369.0 370.2,368.7 379.0,367.5C419.6,361.7 455.0,344.0 484.0,314.8C548.8,249.7 555.7,146.5 500.2,72.8C473.0,36.7 432.2,11.3 387.5,2.8L375.5,0.5L250.5,0.5C131.8,0.5 125.0,0.6 116.5,2.4C98.2,6.2 78.6,14.8 64.5,25.2C54.0,32.9 40.2,47.3 33.3,57.7C23.1,73.0 17.2,86.7 12.9,105.1C9.8,118.0 9.6,147.2 12.4,160.0C19.5,192.6 38.0,221.4 64.2,240.6C69.0,244.1 73.0,248.1C73.0,248.7 69.5,254.6 65.2,261.3C60.8,268.0 51.3,282.9 44.0,294.5C36.7,306.1 23.8,326.4 15.4,339.7C6.9,352.9 -0.0,364.2 -0.0,364.6C-0.0,365.0 0.7,366.2 1.7,367.2C3.2,368.9 5.6,369.0 35.0,369.0C64.5,369.0 66.9,368.9 69.1,367.1Z"/></svg>
+          </a>
+          <span class="footer-copyright">&copy; 2026 Digambar Patil</span>
+        </div>
+
+        <div class="footer-bottom-center">
+          <nav class="footer-nav" aria-label="Footer Navigation">
+            <a href="work.html" class="footer-nav-link">Work</a>
+            <span class="footer-dot-sep" aria-hidden="true">·</span>
+            <a href="about.html" class="footer-nav-link">About</a>
+            <span class="footer-dot-sep" aria-hidden="true">·</span>
+            <a href="assets/Digambar_Patil_Resume.pdf" target="_blank" rel="noopener noreferrer" class="footer-nav-link">Resume <span class="nav-external-icon" aria-hidden="true">↗</span></a>
+          </nav>
+        </div>
+
+        <div class="footer-bottom-right">
+          <div class="footer-links" aria-label="Social Profiles and Contact">
+            <a href="https://www.linkedin.com/in/digambar-patil-6847081aa/" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn <span class="nav-external-icon" aria-hidden="true">↗</span></a>
+            <span class="footer-dot-sep" aria-hidden="true">·</span>
+            <a href="https://www.behance.net/digambarpatil2" target="_blank" rel="noopener noreferrer" class="footer-link">Behance <span class="nav-external-icon" aria-hidden="true">↗</span></a>
+            <span class="footer-dot-sep" aria-hidden="true">·</span>
+            <a href="mailto:contact@digambarpatil.com" class="footer-link">contact@digambarpatil.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <div id="email-toast" class="toast-notice" role="status" aria-live="polite">Email copied</div>
+
+</body>
+</html>

@@ -356,30 +356,144 @@
       outline-offset: 3px;
     }
 
-    /* Consistent site-footer on Apla Mandal */
+    /* Personalized navbar and footer for Apla Mandal case study */
+    .am-case-study .site-nav {
+      background: rgba(255, 251, 246, 0.90);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--am-line);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .am-case-study .site-nav {
+        background: rgba(20, 14, 12, 0.90);
+        border-bottom: 1px solid var(--am-line);
+      }
+    }
+    :root[data-theme="dark"] .am-case-study .site-nav {
+      background: rgba(20, 14, 12, 0.90);
+      border-bottom: 1px solid var(--am-line);
+    }
+    .am-case-study .nav-brand {
+      color: var(--am-ink);
+    }
+    .am-case-study .brand-logo-mark {
+      color: var(--am-ink);
+    }
+    .am-case-study .brand-name {
+      color: var(--am-ink);
+      font-family: var(--am-display);
+      font-weight: 700;
+    }
+    .am-case-study .brand-title {
+      color: var(--am-muted);
+      font-family: var(--am-display);
+    }
+    .am-case-study .nav-link {
+      color: var(--am-body);
+      font-family: var(--am-display);
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    .am-case-study .nav-link:hover,
+    .am-case-study .nav-link.active {
+      color: var(--am-accent);
+    }
+    .am-case-study .nav-contact-btn {
+      background: var(--am-accent);
+      color: var(--am-onaccent);
+      border: 1px solid var(--am-accent);
+      font-family: var(--am-display);
+      font-weight: 600;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+    }
+    .am-case-study .nav-contact-btn:hover {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px var(--am-shadow);
+    }
+    .am-case-study .nav-hamburger .hamburger-bar {
+      background-color: var(--am-ink);
+    }
+    .am-case-study .mobile-nav-sheet {
+      background: var(--am-bg);
+      border-top: 1px solid var(--am-line);
+    }
+    .am-case-study .sheet-nav-link {
+      color: var(--am-ink);
+      font-family: var(--am-display);
+    }
+    .am-case-study .sheet-nav-link:hover,
+    .am-case-study .sheet-nav-link.active {
+      color: var(--am-accent);
+    }
+    .am-case-study .sheet-btn-primary {
+      background: var(--am-accent);
+      color: var(--am-onaccent);
+      font-family: var(--am-display);
+    }
+    .am-case-study .sheet-social-link {
+      background: var(--am-soft);
+      border-color: var(--am-line);
+      color: var(--am-ink);
+    }
+    .am-case-study .sheet-status-text {
+      color: var(--am-muted);
+    }
+
+    /* Personalized site-footer on Apla Mandal */
     .am-case-study .site-footer {
-      background-color: #0A0A0A;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      background-color: var(--am-soft);
+      border-top: 1px solid var(--am-line);
       position: relative;
       z-index: 20;
     }
-
-    .am-case-study .site-footer .footer-eyebrow,
+    .am-case-study .site-footer .footer-eyebrow {
+      color: var(--am-muted);
+      font-family: var(--am-mono);
+      font-size: 12px;
+      letter-spacing: 0.16em;
+    }
+    .am-case-study .site-footer .footer-logo-mark {
+      color: var(--am-ink);
+    }
+    .am-case-study .site-footer .email-display-link {
+      color: var(--am-accent);
+      font-family: 'Newsreader', serif;
+      transition: color 0.3s ease, filter 0.3s ease;
+    }
+    .am-case-study .site-footer .email-interactive-wrapper:hover .email-display-link {
+      filter: drop-shadow(0 0 16px var(--am-shadow));
+    }
+    .am-case-study .site-footer .email-full-underline {
+      background-color: var(--am-accent);
+      box-shadow: 0 0 10px var(--am-shadow);
+    }
+    .am-case-study .site-footer .email-interactive-wrapper:hover .email-full-underline {
+      background-color: var(--am-accent);
+      box-shadow: 0 0 16px var(--am-shadow);
+    }
     .am-case-study .site-footer .footer-bottom-left,
+    .am-case-study .site-footer .footer-copyright,
     .am-case-study .site-footer .footer-bottom-center {
-      color: #A3A3A3;
+      color: var(--am-muted);
+      font-family: var(--am-display);
     }
-
-    .am-case-study .site-footer .social-pill {
-      background: #171717;
-      border-color: rgba(255, 255, 255, 0.12);
-      color: #E5E5E5;
+    .am-case-study .site-footer .footer-nav-link,
+    .am-case-study .site-footer .footer-link {
+      color: var(--am-body);
+      font-family: var(--am-display);
+      transition: color 0.2s ease;
     }
-
-    .am-case-study .site-footer .social-pill:hover {
-      border-color: rgba(255, 255, 255, 0.25);
-      background: #262626;
-      color: #FFFFFF;
+    .am-case-study .site-footer .footer-nav-link:hover,
+    .am-case-study .site-footer .footer-link:hover {
+      color: var(--am-accent);
+    }
+    .am-case-study .site-footer .footer-dot-sep {
+      color: var(--am-line);
     }
 
     @media (max-width: 820px) {
@@ -533,9 +647,9 @@
           <span class="cs-fnav-sub">← PREVIOUS CASE STUDY</span>
           <span class="cs-fnav-title">Before Two (Operations App)</span>
         </a>
-        <a href="copper-chocs.html" class="cs-footer-nav-btn" style="text-align: right;">
+        <a href="tap2order.html" class="cs-footer-nav-btn" style="text-align: right;">
           <span class="cs-fnav-sub">NEXT UX CASE STUDY →</span>
-          <span class="cs-fnav-title">Copper Chocs (Shopify Store)</span>
+          <span class="cs-fnav-title">Tap2Order (Mobile App &amp; Panel)</span>
         </a>
       </div>
     </div>
