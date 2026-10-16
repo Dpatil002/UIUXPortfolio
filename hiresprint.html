@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>HireSprint — Two-Sided Staffing Website UX Case Study | Digambar Patil</title>
+  <meta name="description" content="Designing a two-sided staffing website for a new London agency, from a blank page. End-to-end UX/UI for Hire Sprint Ltd by Digambar Patil.">
+  <meta name="theme-color" content="#F6F8FB">
+
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <link rel="canonical" href="https://digambarpatil.com/hiresprint">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="HireSprint — Digambar Patil">
+  <meta property="og:description" content="Designing a two-sided staffing website for a new London agency, from a blank page. Separate journeys for businesses and workers.">
+  <meta property="og:image" content="/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="/og-image.png">
+
+  <!-- Google Fonts: Sora & Manrope -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* ==========================================================================
+       SCOPED DESIGN SYSTEM FOR HIRESPRINT
+       Palette: Clean Pale Blue-Grey (#F6F8FB), Deep Trust Navy (#0C2F57),
+                Dark Navy (#0A1B30), Slate Blue Accent (#395A78),
+                Text Ink (#1A1A1A), Muted (#3D4A5C & #5B6878)
+       Typography: Sora (clean geometric sans for titles) & Manrope (neutral body)
+       ========================================================================== */
+    :root {
+      --hs-bg: #F6F8FB;
+      --hs-ink: #1A1A1A;
+      --hs-body: #3D4A5C;
+      --hs-muted: #5B6878;
+      --hs-meta-lbl: #6B7686;
+      --hs-navy: #0C2F57;
+      --hs-navy-dark: #0A1B30;
+      --hs-blue-accent: #395A78;
+      --hs-card-bg: #FFFFFF;
+      --hs-card-border: #DCE4EE;
+      --hs-line: #D3DCE7;
+      --hs-ghost-border: #B8C6D6;
+      --hs-display: 'Sora', system-ui, -apple-system, sans-serif;
+      --hs-text: 'Manrope', system-ui, -apple-system, sans-serif;
+      --hs-mono: 'Space Mono', ui-monospace, monospace;
+    }
+
+    body.hs-case-study {
+      background: var(--hs-bg);
+      color: var(--hs-ink);
+      font-family: var(--hs-text);
+      line-height: 1.65;
+      font-size: 17px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .hs-main {
+      position: relative;
+      z-index: 10;
+    }
+
+    .hs-main .w {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-left: max(24px, env(safe-area-inset-left, 0px));
+      padding-right: max(24px, env(safe-area-inset-right, 0px));
+    }
+
+    .hs-main h1,
+    .hs-main h2,
+    .hs-main h3 {
+      font-family: var(--hs-display);
+      margin: 0;
+      color: var(--hs-ink);
+      text-wrap: balance;
+    }
+
+    .hs-main p {
+      margin: 0;
+    }
+
+    /* Breadcrumb / Back link */
+    .hs-breadcrumb {
+      padding-top: clamp(84px, 10vw, 108px);
+    }
+
+    .hs-back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--hs-muted);
+      text-decoration: none;
+      font: 600 14px var(--hs-text);
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    .hs-back-btn:hover {
+      color: var(--hs-navy);
+      transform: translateX(-2px);
+    }
+
+    /* Header & Meta */
+    .hs-header {
+      padding-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    .hs-header-intro {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      max-width: 980px;
+    }
+
+    .hs-eyebrow {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--hs-blue-accent);
+      letter-spacing: 0.04em;
+    }
+
+    .hs-header h1 {
+      font-size: clamp(36px, 5vw, 62px);
+      line-height: 1.1;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .hs-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      border-top: 1px solid var(--hs-line);
+      padding-top: 20px;
+      gap: 20px;
+    }
+
+    .hs-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .hs-meta-label {
+      font-size: 13px;
+      color: var(--hs-meta-lbl);
+      letter-spacing: 0.04em;
+    }
+
+    .hs-meta-val {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--hs-ink);
+    }
+
+    /* Showcase: Laptop Mockup (Hero) */
+    .hs-showcase {
+      margin-top: 72px;
+      background: var(--hs-navy);
+      padding: clamp(48px, 8vw, 80px) 24px;
+    }
+
+    .hs-showcase-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .lap-lid {
+      background: var(--hs-navy-dark);
+      border-radius: 18px 18px 6px 6px;
+      padding: 14px 14px 20px;
+      box-shadow: 0 50px 90px -40px rgba(2, 10, 24, 0.8);
+    }
+
+    .lap-screen {
+      background: #FFFFFF;
+      border-radius: 6px;
+      overflow: hidden;
+      aspect-ratio: 16 / 10;
+    }
+
+    .lap-screen.scroll {
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(12, 47, 87, 0.4) transparent;
+    }
+
+    .lap-screen.scroll::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .lap-screen.scroll::-webkit-scrollbar-thumb {
+      background: rgba(12, 47, 87, 0.4);
+      border-radius: 3px;
+    }
+
+    .lap-screen img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .lap-base {
+      height: 16px;
+      margin: 0 -6%;
+      background: linear-gradient(#DCE3EC, #9FAEC0);
+      border-radius: 0 0 18px 18px;
+    }
+
+    /* Sections */
+    .hs-section {
+      padding-top: clamp(80px, 10vw, 120px);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px 64px;
+    }
+
+    .hs-sec-title {
+      flex: 1 1 260px;
+      margin: 0;
+      font-family: var(--hs-display);
+      font-weight: 600;
+      font-size: clamp(28px, 3.5vw, 34px);
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+    }
+
+    .hs-sec-body {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      color: var(--hs-body);
+      flex: 2 1 480px;
+      max-width: 760px;
+    }
+
+    .hs-sec-body p strong {
+      color: var(--hs-navy);
+    }
+
+    /* Frames & Figures */
+    .frame {
+      background: var(--hs-card-bg);
+      border: 1px solid var(--hs-card-border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .strip {
+      height: 640px;
+      overflow-y: auto;
+      background: #FFFFFF;
+      border: 1px solid var(--hs-card-border);
+      border-radius: 12px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(12, 47, 87, 0.3) transparent;
+    }
+
+    .strip::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .strip::-webkit-scrollbar-thumb {
+      background: rgba(12, 47, 87, 0.3);
+      border-radius: 3px;
+    }
+
+    .strip img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .cap {
+      font-size: 14px;
+      color: var(--hs-muted);
+      margin-top: 10px;
+      display: block;
+      line-height: 1.45;
+    }
+
+    /* Grids */
+    .hs-grid-2 {
+      margin-top: 56px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      align-items: start;
+    }
+
+    .hs-outcome-grid {
+      margin-top: 56px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .hs-outcome-right {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* Facts */
+    .hs-facts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .hs-fact-item {
+      border-top: 1px solid var(--hs-line);
+      padding-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .hs-fact-val {
+      font-family: var(--hs-display);
+      font-weight: 600;
+      font-size: clamp(28px, 3vw, 36px);
+      color: var(--hs-navy);
+      line-height: 1.15;
+    }
+
+    .hs-fact-lbl {
+      font-size: 14px;
+      color: var(--hs-muted);
+    }
+
+    /* Buttons */
+    .hs-actions-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      padding-top: 12px;
+    }
+
+    .btn-primary {
+      background: var(--hs-navy);
+      color: #FFFFFF;
+      text-decoration: none;
+      padding: 16px 28px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 16px;
+      min-height: 48px;
+      box-sizing: border-box;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--hs-blue-accent);
+      color: #FFFFFF;
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      color: var(--hs-navy);
+      border: 1px solid var(--hs-ghost-border);
+      background: transparent;
+      text-decoration: none;
+      padding: 16px 28px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 16px;
+      min-height: 48px;
+      box-sizing: border-box;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--hs-navy);
+      color: var(--hs-navy);
+      transform: translateY(-1px);
+    }
+
+    /* Next / Prev Project Navigation */
+    .hs-project-nav {
+      margin-top: clamp(80px, 12vw, 140px);
+      padding: 36px 0;
+      border-top: 1px solid var(--hs-line);
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .hs-pnav-btn {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      text-decoration: none;
+      padding: 18px 24px;
+      border-radius: 12px;
+      border: 1px solid var(--hs-card-border);
+      background: #FFFFFF;
+      min-width: 240px;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .hs-pnav-btn:hover {
+      transform: translateY(-2px);
+      border-color: var(--hs-navy);
+      box-shadow: 0 8px 24px rgba(12, 47, 87, 0.08);
+    }
+
+    .hs-pnav-btn.next {
+      text-align: right;
+      margin-left: auto;
+    }
+
+    .hs-pnav-sub {
+      font: 700 12px var(--hs-display);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--hs-muted);
+    }
+
+    .hs-pnav-title {
+      font-family: var(--hs-display);
+      font-size: 18px;
+      color: var(--hs-navy);
+      font-weight: 700;
+    }
+
+    /* ==========================================================================
+       PERSONALIZED HEADER THEME (HireSprint - Cool Grey-Blue & Navy)
+       ========================================================================== */
+    .hs-case-study .site-nav {
+      background: rgba(246, 248, 251, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(211, 220, 231, 0.6);
+    }
+
+    .hs-case-study .brand-name {
+      color: var(--hs-ink);
+    }
+
+    .hs-case-study .brand-title {
+      color: var(--hs-muted);
+    }
+
+    .hs-case-study .brand-logo-mark {
+      color: var(--hs-navy);
+    }
+
+    .hs-case-study .nav-link {
+      color: var(--hs-ink);
+    }
+
+    .hs-case-study .nav-link:hover,
+    .hs-case-study .nav-link.active {
+      color: var(--hs-navy);
+    }
+
+    .hs-case-study .nav-contact-btn {
+      background: var(--hs-navy);
+      color: #FFFFFF;
+      border-radius: 999px;
+      border-color: var(--hs-navy);
+    }
+
+    .hs-case-study .nav-contact-btn:hover {
+      background: var(--hs-blue-accent);
+      border-color: var(--hs-blue-accent);
+      color: #FFFFFF;
+    }
+
+    .hs-case-study .hamburger-bar {
+      background: var(--hs-ink);
+    }
+
+    .hs-case-study .mobile-nav-sheet {
+      background: var(--hs-bg);
+      border-bottom: 1px solid var(--hs-line);
+    }
+
+    .hs-case-study .sheet-nav-link {
+      color: var(--hs-ink);
+      border-bottom-color: rgba(211, 220, 231, 0.5);
+    }
+
+    .hs-case-study .sheet-btn-primary {
+      background: var(--hs-navy);
+      color: #FFFFFF;
+      border-radius: 999px;
+    }
+
+    .hs-case-study .sheet-btn-primary:hover {
+      background: var(--hs-blue-accent);
+    }
+
+    .hs-case-study .sheet-social-link {
+      background: #FFFFFF;
+      border-color: var(--hs-card-border);
+      color: var(--hs-ink);
+    }
+
+    .hs-case-study .sheet-status-text {
+      color: var(--hs-muted);
+    }
+
+    /* ==========================================================================
+       PERSONALIZED FOOTER THEME (HireSprint - Deep Trust Navy #0C2F57)
+       ========================================================================== */
+    .hs-case-study .site-footer {
+      background-color: var(--hs-navy);
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      position: relative;
+      z-index: 20;
+    }
+
+    .hs-case-study .site-footer .footer-contact-block {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .hs-case-study .footer-heading-wrap {
+      margin-bottom: 12px;
+    }
+
+    .hs-case-study .footer-display-h2 {
+      margin: 0;
+      font-family: var(--hs-display);
+      font-weight: 600;
+      font-size: clamp(38px, 6vw, 72px);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: #FFFFFF;
+    }
+
+    .hs-case-study .site-footer .footer-eyebrow {
+      color: #B9CCE2;
+      font-family: var(--hs-display);
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      font-weight: 700;
+    }
+
+    .hs-case-study .site-footer .email-display-link {
+      color: #FFFFFF;
+      font-family: var(--hs-display);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      transition: color 0.3s ease, filter 0.3s ease;
+    }
+
+    .hs-case-study .site-footer .email-interactive-wrapper:hover .email-display-link {
+      color: #FFFFFF;
+      filter: drop-shadow(0 0 16px rgba(185, 204, 226, 0.5));
+    }
+
+    .hs-case-study .site-footer .email-full-underline {
+      background-color: rgba(255, 255, 255, 0.4);
+      box-shadow: 0 0 12px rgba(185, 204, 226, 0.25);
+    }
+
+    .hs-case-study .site-footer .email-interactive-wrapper:hover .email-full-underline {
+      background-color: #FFFFFF;
+      box-shadow: 0 0 20px rgba(185, 204, 226, 0.7);
+    }
+
+    .hs-case-study .site-footer .footer-bottom-left,
+    .hs-case-study .site-footer .footer-copyright {
+      color: #B9CCE2;
+      font-family: var(--hs-text);
+    }
+
+    .hs-case-study .site-footer .footer-link {
+      color: #B9CCE2;
+      font-family: var(--hs-text);
+      transition: color 0.2s ease;
+    }
+
+    .hs-case-study .site-footer .footer-link:hover {
+      color: #FFFFFF;
+    }
+
+    .hs-case-study .site-footer .footer-dot-sep {
+      color: rgba(255, 255, 255, 0.25);
+    }
+
+    /* Responsive Queries */
+    @media (max-width: 900px) {
+      .hs-outcome-grid {
+        grid-template-columns: minmax(0, 1fr) !important;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .hs-grid-2 {
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 20px !important;
+      }
+      .strip {
+        height: 480px !important;
+      }
+      .hs-section {
+        padding-top: 72px !important;
+      }
+      .hs-pnav-btn {
+        width: 100%;
+        text-align: left !important;
+      }
+      .hs-pnav-btn.next {
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body class="case-study-page hs-case-study">
+
+  <!-- Skip link as first focusable element -->
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <!-- Cursor Follow Arrow Badge -->
+  <div id="cursor-badge" class="cursor-arrow-badge" aria-hidden="true">
+    <svg viewBox="0 0 24 24">
+      <line x1="7" y1="17" x2="17" y2="7"></line>
+      <polyline points="7 7 17 7 17 17"></polyline>
+    </svg>
+  </div>
+
+  <!-- NAVIGATION (Themed Header) -->
+  <header class="site-nav" id="top">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="/" class="nav-brand" id="nav-brand" aria-label="Digambar Patil — home">
+          <svg class="brand-logo-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 538 369" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="M69.1,367.1C71.5,365.2 75.9,358.6 100.1,320.5C123.0,284.3 126.6,278.7 130.4,272.8L134.1,267.0L245.8,267.0C314.6,267.0 360.2,266.6 364.5,266.0C384.6,263.1 404.6,252.0 417.0,236.7C423.7,228.5 431.6,212.5 433.7,203.0C435.8,193.2 435.8,175.6 433.7,166.0C430.5,151.4 418.5,131.6 407.4,122.5C400.0,116.4 396.1,114.0 387.5,110.0C371.0,102.3 375.8,102.7 278.5,102.3C217.4,102.0 189.5,102.2 184.8,103.0C170.4,105.5 158.3,114.4 148.9,129.4C146.1,133.9 139.4,144.5 133.9,153.0C120.4,174.0 119.6,175.8 120.8,178.6C122.8,183.0 130.0,184.2 157.1,184.7C178.4,185.2 182.1,185.0 184.8,183.6C186.7,182.6 190.1,178.7 193.7,173.2L199.5,164.5L278.0,164.2C331.6,164.0 357.7,164.3 360.2,165.0C374.5,169.1 378.9,189.3 367.8,199.7C361.9,205.2 367.5,205.0 245.7,205.0C138.0,205.0 133.0,204.9 125.8,203.1C110.4,199.1 95.3,189.4 86.5,177.9C68.8,154.4 66.2,124.3 79.7,98.8C85.5,87.8 98.9,74.7 110.0,69.2C126.9,60.9 116.7,61.5 250.0,61.5L368.5,61.5L378.9,63.8C416.2,72.0 447.0,96.0 464.0,129.9C468.1,138.1 473.4,154.4 475.1,164.0C477.0,174.7 476.8,196.6 474.7,207.3C467.7,242.4 446.5,272.8 416.5,290.5C405.6,297.0 396.6,300.7 383.0,304.3L371.5,307.4L264.3,308.0C170.7,308.4 156.9,308.7 155.7,310.0C154.2,311.6 124.2,358.8 122.1,362.8C121.0,364.8 121.1,365.5 122.6,367.1C124.3,369.0 127.3,369.0 246.4,369.0C349.2,369.0 370.2,368.7 379.0,367.5C419.6,361.7 455.0,344.0 484.0,314.8C548.8,249.7 555.7,146.5 500.2,72.8C473.0,36.7 432.2,11.3 387.5,2.8L375.5,0.5L250.5,0.5C131.8,0.5 125.0,0.6 116.5,2.4C98.2,6.2 78.6,14.8 64.5,25.2C54.0,32.9 40.2,47.3 33.3,57.7C23.1,73.0 17.2,86.7 12.9,105.1C9.8,118.0 9.6,147.2 12.4,160.0C19.5,192.6 38.0,221.4 64.2,240.6C69.0,244.1 73.0,247.5 73.0,248.1C73.0,248.7 69.5,254.6 65.2,261.3C60.8,268.0 51.3,282.9 44.0,294.5C36.7,306.1 23.8,326.4 15.4,339.7C6.9,352.9 -0.0,364.2 -0.0,364.6C-0.0,365.0 0.7,366.2 1.7,367.2C3.2,368.9 5.6,369.0 35.0,369.0C64.5,369.0 66.9,368.9 69.1,367.1Z"/></svg>
+          <span class="brand-wordmark">
+            <span class="brand-name">Digambar Patil</span>
+            <span class="brand-title">Lead UI/UX Designer</span>
+          </span>
+        </a>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav-sheet">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+        <nav class="nav-links desktop-nav" id="nav-links" aria-label="Main Navigation">
+          <a href="work.html" class="nav-link active" id="nav-work">Work</a>
+          <a href="about.html" class="nav-link" id="nav-about">About</a>
+          <a href="assets/Digambar_Patil_Resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link" id="nav-resume">Resume <span class="nav-external-icon" aria-hidden="true">↗</span></a>
+          <a href="#contact" class="nav-contact-btn" id="nav-contact">Get in touch</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Sheet (<768px) -->
+    <div class="mobile-nav-sheet" id="mobile-nav-sheet" aria-hidden="true">
+      <div class="sheet-inner">
+        <nav class="sheet-nav-list" aria-label="Mobile Navigation">
+          <a href="work.html" class="sheet-nav-link active" id="sheet-nav-work">Work</a>
+          <a href="about.html" class="sheet-nav-link" id="sheet-nav-about">About</a>
+          <a href="assets/Digambar_Patil_Resume.pdf" target="_blank" rel="noopener noreferrer" class="sheet-nav-link" id="sheet-nav-resume">Resume <span class="nav-external-icon" aria-hidden="true">↗</span></a>
+          <a href="#contact" class="sheet-nav-link" id="sheet-nav-contact">Get in touch</a>
+        </nav>
+        <div class="sheet-footer">
+          <a href="mailto:contact@digambarpatil.com" class="sheet-btn-primary">Email me</a>
+          <div class="sheet-social-row">
+            <a href="https://www.linkedin.com/in/digambar-patil-6847081aa/" target="_blank" rel="noopener noreferrer" class="sheet-social-link" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" class="sheet-social-icon" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64c-.95 0-1.66.71-1.66 1.66 0 .93.71 1.64 1.66 1.64.92 0 1.63-.71 1.63-1.64 0-.95-.71-1.66-1.63-1.66z"></path></svg>
+            </a>
+            <a href="https://www.behance.net/digambarpatil2" target="_blank" rel="noopener noreferrer" class="sheet-social-link" aria-label="Behance">
+              <svg viewBox="0 0 24 24" class="sheet-social-icon" aria-hidden="true"><path d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-4.085 0-6.625-2.748-6.625-6.84 0-4.225 2.684-6.892 6.471-6.892 4.103 0 6.136 2.924 5.753 6.944h-9.351c.143 2.087 1.664 3.656 3.753 3.656 1.848 0 2.879-.824 3.324-1.868h1.776zm-8.854-5.352h6.586c-.161-1.802-1.399-3.08-3.264-3.08-1.954 0-3.136 1.294-3.322 3.08zm-14.872-6.648h5.922c3.154 0 4.908 1.492 4.908 3.781 0 1.611-.871 2.766-2.28 3.27 1.778.508 2.802 1.879 2.802 3.736 0 2.569-1.977 4.213-5.316 4.213h-6.036v-15zm3.02 6.096h2.49c1.242 0 2.05-.623 2.05-1.637 0-.964-.784-1.579-2.026-1.579h-2.514v3.216zm0 5.864h2.723c1.455 0 2.378-.711 2.378-1.815 0-1.127-.923-1.801-2.454-1.801h-2.647v3.616z"></path></svg>
+            </a>
+          </div>
+          <p class="sheet-status-text">Open to design roles · Pune / Remote</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main id="main-content" class="hs-main">
+    <div class="w">
+      
+      <!-- Breadcrumb -->
+      <div class="hs-breadcrumb">
+        <a href="work.html" class="hs-back-btn">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          <span>Back to Selected Work</span>
+        </a>
+      </div>
+
+      <!-- Header -->
+      <header class="hs-header reveal-on-scroll">
+        <div class="hs-header-intro">
+          <span class="hs-eyebrow">HireSprint</span>
+          <h1>Designing a two-sided staffing website for a new London agency, from a blank page.</h1>
+        </div>
+
+        <!-- Meta Grid -->
+        <div class="hs-meta-grid">
+          <div class="hs-meta-item">
+            <span class="hs-meta-label">Scope</span>
+            <span class="hs-meta-val">Website · 5 pages + 2 forms</span>
+          </div>
+          <div class="hs-meta-item">
+            <span class="hs-meta-label">Role</span>
+            <span class="hs-meta-val">Lead UI/UX Designer</span>
+          </div>
+          <div class="hs-meta-item">
+            <span class="hs-meta-label">Team</span>
+            <span class="hs-meta-val">The Impact Engine</span>
+          </div>
+          <div class="hs-meta-item">
+            <span class="hs-meta-label">Year</span>
+            <span class="hs-meta-val">Nov 2025 – Feb 2026</span>
+          </div>
+        </div>
+      </header>
+
+    </div>
+
+    <!-- Showcase: Laptop Mockup (Hero) -->
+    <section class="hs-showcase reveal-on-scroll">
+      <div class="hs-showcase-inner">
+        <div class="lap-lid">
+          <div class="lap-screen scroll">
+            <img src="assets/projects/hiresprint/hiresprint-home-scroll.webp" alt="HireSprint homepage, scrollable" width="1280" height="3130" loading="eager">
+          </div>
+        </div>
+        <div class="lap-base"></div>
+      </div>
+    </section>
+
+    <div class="w">
+
+      <!-- Section: Overview -->
+      <section class="hs-section reveal-on-scroll">
+        <h2 class="hs-sec-title">Overview</h2>
+        <div class="hs-sec-body">
+          <p>Hire Sprint Ltd supplies temporary staff to London businesses for events, hospitality, cleaning and logistics, often for short-notice shifts. When we started, it had no website, logo, style guide, photography or copy.</p>
+          <p>As Lead UI/UX Designer at The Impact Engine, I took it from the client questionnaire to launch: research, information architecture, visual direction, three homepage iterations and every page and form.</p>
+        </div>
+      </section>
+
+      <figure style="margin: 56px 0 0;" class="reveal-on-scroll">
+        <div class="frame">
+          <img src="assets/projects/hiresprint/hiresprint-services-roles.webp" alt="Homepage services shown as role cards" width="1280" height="700" loading="lazy">
+        </div>
+      </figure>
+
+      <!-- Section: Challenge -->
+      <section class="hs-section reveal-on-scroll">
+        <h2 class="hs-sec-title">Challenge</h2>
+        <div class="hs-sec-body">
+          <p>Short-notice staffing runs on trust, and a new agency has none yet. Established competitors prove themselves with decades and big numbers, but make visitors read a lot before they can act.</p>
+          <p>The site had to serve two audiences, businesses hiring and workers applying, and follow a clear client brief: no long text, no generic AI copy, good fonts and consistent spacing.</p>
+        </div>
+      </section>
+
+      <div class="hs-grid-2 reveal-on-scroll">
+        <figure style="margin: 0; display: flex; flex-direction: column;">
+          <div class="frame">
+            <img src="assets/projects/hiresprint/hiresprint-business-door.webp" alt="Businesses page hero" width="1280" height="620" loading="lazy">
+          </div>
+          <figcaption class="cap">The business door</figcaption>
+        </figure>
+        <figure style="margin: 0; display: flex; flex-direction: column;">
+          <div class="frame">
+            <img src="assets/projects/hiresprint/hiresprint-worker-door.webp" alt="Employee page hero" width="1280" height="725" loading="lazy">
+          </div>
+          <figcaption class="cap">The worker door</figcaption>
+        </figure>
+      </div>
+
+      <!-- Section: Approach -->
+      <section class="hs-section reveal-on-scroll">
+        <h2 class="hs-sec-title">Approach</h2>
+        <div class="hs-sec-body">
+          <p><strong style="color: #0C2F57;">Two doors, not one funnel.</strong> Separate Businesses and Employee pages, each with its own hero, proof and form, so nobody wades through content meant for someone else.</p>
+          <p><strong style="color: #0C2F57;">Win on clarity, not scale.</strong> Roles shown as photos, a three-step process and four plain promises stand in for the history the brand didn't have yet. Across three iterations the homepage got 28% shorter.</p>
+          <p><strong style="color: #0C2F57;">Short, verified forms.</strong> Five fields for businesses, role and CV for workers, OTP phone verification to keep out fake leads, and a visible 24-hour reply promise.</p>
+        </div>
+      </section>
+
+      <div class="hs-grid-2 reveal-on-scroll">
+        <figure style="margin: 0; display: flex; flex-direction: column;">
+          <div class="strip">
+            <img src="assets/projects/hiresprint/hiresprint-iter-v2.webp" alt="Homepage version 2" width="640" height="4492" loading="lazy">
+          </div>
+          <figcaption class="cap">V2 · 8,984 px, generic service content. Scroll to compare.</figcaption>
+        </figure>
+        <figure style="margin: 0; display: flex; flex-direction: column;">
+          <div class="strip">
+            <img src="assets/projects/hiresprint/hiresprint-final-homepage.webp" alt="Final homepage" width="640" height="1565" loading="lazy">
+          </div>
+          <figcaption class="cap">Final · 6,500 px, built around real roles.</figcaption>
+        </figure>
+      </div>
+
+      <figure style="margin: 24px 0 0;" class="reveal-on-scroll">
+        <div class="frame">
+          <img src="assets/projects/hiresprint/hiresprint-step-process.webp" alt="Smart Staffing Made Simple three-step process" width="1280" height="1430" loading="lazy">
+        </div>
+      </figure>
+
+      <div class="hs-grid-2 reveal-on-scroll" style="margin-top: 24px;">
+        <figure style="margin: 0;">
+          <div class="frame">
+            <img src="assets/projects/hiresprint/hiresprint-business-form.webp" alt="Business registration form" width="1190" height="1192" loading="lazy">
+          </div>
+        </figure>
+        <figure style="margin: 0;">
+          <div class="frame">
+            <img src="assets/projects/hiresprint/hiresprint-employee-form.webp" alt="Employee registration form" width="1190" height="1192" loading="lazy">
+          </div>
+        </figure>
+      </div>
+
+      <!-- Section: Outcome -->
+      <section class="hs-section reveal-on-scroll">
+        <h2 class="hs-sec-title">Outcome</h2>
+        <div class="hs-sec-body">
+          <p>HireSprint launched at hiresprint.co.uk with separate journeys for businesses and workers, nine roles shown as photos, and every page leading to one short, verified form.</p>
+          
+          <div class="hs-facts">
+            <div class="hs-fact-item">
+              <span class="hs-fact-val">5</span>
+              <span class="hs-fact-lbl">pages</span>
+            </div>
+            <div class="hs-fact-item">
+              <span class="hs-fact-val">2</span>
+              <span class="hs-fact-lbl">verified forms</span>
+            </div>
+            <div class="hs-fact-item">
+              <span class="hs-fact-val">9</span>
+              <span class="hs-fact-lbl">roles shown</span>
+            </div>
+            <div class="hs-fact-item">
+              <span class="hs-fact-val">28%</span>
+              <span class="hs-fact-lbl">shorter homepage</span>
+            </div>
+          </div>
+
+          <div class="hs-actions-row">
+            <a href="https://www.behance.net/gallery/257014415/Hire-sprint-London-staffing-brand-Website" target="_blank" rel="noopener noreferrer" class="btn-primary">
+              See detailed UX case study <span aria-hidden="true">↗</span>
+            </a>
+            <a href="https://www.hiresprint.co.uk/" target="_blank" rel="noopener noreferrer" class="btn-ghost">
+              Visit live site <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <div class="hs-outcome-grid reveal-on-scroll">
+        <figure style="margin: 0;">
+          <div class="frame">
+            <img src="assets/projects/hiresprint/hiresprint-jobs-roles.webp" alt="Jobs we offer: nine roles" width="1280" height="1528" loading="lazy">
+          </div>
+        </figure>
+        <div class="hs-outcome-right">
+          <figure style="margin: 0;">
+            <div class="frame">
+              <img src="assets/projects/hiresprint/hiresprint-contact-form.webp" alt="Contact enquiry form" width="740" height="1190" loading="lazy">
+            </div>
+          </figure>
+          <figure style="margin: 0;">
+            <div class="frame">
+              <img src="assets/projects/hiresprint/hiresprint-staffing-solutions.webp" alt="Staffing solutions for businesses" width="1280" height="510" loading="lazy">
+            </div>
+          </figure>
+        </div>
+      </div>
+
+      <!-- Next/Prev Case Study Navigation -->
+      <nav class="hs-project-nav reveal-on-scroll delay-1" aria-label="Project Navigation">
+        <a href="powerpoint-coworking.html" class="hs-pnav-btn prev">
+          <span class="hs-pnav-sub">← PREVIOUS CASE STUDY</span>
+          <span class="hs-pnav-title">The PowerPoint Coworking</span>
+        </a>
+        <a href="copper-chocs.html" class="hs-pnav-btn next">
+          <span class="hs-pnav-sub">NEXT UX CASE STUDY →</span>
+          <span class="hs-pnav-title">Copper Chocs</span>
+        </a>
+      </nav>
+
+    </div>
+  </main>
+
+  <!-- FOOTER / CONTACT SECTION (Personalized Deep Trust Navy Theme) -->
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <div class="footer-contact-block reveal-on-scroll">
+        <div class="footer-eyebrow">LET'S WORK TOGETHER</div>
+
+        <div class="footer-heading-wrap">
+          <h2 class="footer-display-h2">Let's work together.</h2>
+        </div>
+
+        <!-- Huge display email with full-width underline and custom cursor badge interaction -->
+        <div class="email-interactive-wrapper">
+          <a href="mailto:contact@digambarpatil.com" class="email-display-link" id="footer-email">
+            contact@digambarpatil.com
+          </a>
+          <div class="email-full-underline" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <!-- Bottom row -->
+      <div class="footer-bottom reveal-on-scroll delay-1">
+        <div class="footer-bottom-left">
+          <span class="footer-copyright">Design and build by Digambar Patil</span>
+        </div>
+
+        <div class="footer-bottom-right">
+          <div class="footer-links" aria-label="Social Profiles and Links">
+            <a href="https://www.linkedin.com/in/digambar-patil-6847081aa/" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn <span class="nav-external-icon" aria-hidden="true">↗</span></a>
+            <span class="footer-dot-sep" aria-hidden="true">·</span>
+            <a href="https://www.behance.net/digambarpatil2" target="_blank" rel="noopener noreferrer" class="footer-link">Behance <span class="nav-external-icon" aria-hidden="true">↗</span></a>
+            <span class="footer-dot-sep" aria-hidden="true">·</span>
+            <a href="assets/Digambar_Patil_Resume.pdf" target="_blank" rel="noopener noreferrer" class="footer-link">Resume <span class="nav-external-icon" aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <div id="email-toast" class="toast-notice" role="status" aria-live="polite">Email copied</div>
+
+</body>
+</html>
