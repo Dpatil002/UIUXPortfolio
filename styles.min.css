@@ -10077,15 +10077,15 @@ small,
 
 /* Page Section & Outer Container */
 .work-page-section {
-  padding-top: 128px;
+  padding-top: 112px;
   padding-bottom: var(--s-8, 64px);
   width: 100%;
   position: relative;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .work-page-section {
-    padding-top: 160px;
+    padding-top: 144px;
     padding-bottom: var(--s-10, 128px);
   }
 }
@@ -10109,6 +10109,61 @@ small,
   }
 }
 
+/* Page Header */
+.work-page-header {
+  position: relative;
+  width: 100%;
+  text-align: left;
+}
+
+/* H1: display font (Newsreader 300), size clamp(2.5rem, 1.6rem + 4vw, 5.5rem), line-height 1.05, letter-spacing -0.03em, max-width 16ch, colour --text */
+.work-page-title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(2.5rem, 1.6rem + 4vw, 5.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  max-width: 16ch;
+  margin: 0;
+  text-align: left;
+}
+
+.work-title-line-mask {
+  display: block;
+  overflow: hidden;
+}
+
+.work-title-line {
+  display: block;
+  transform: translateY(0);
+  animation: workTitleLineSlide 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.work-title-line-mask:nth-child(2) .work-title-line {
+  animation-delay: 120ms;
+}
+
+/* Subline: body font, 18px desktop / 16px mobile, line-height 1.6, colour --text-2, max-width 58ch, 40px below H1 (24px mobile) */
+.work-page-subline {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-2);
+  max-width: 58ch;
+  margin-top: 24px;
+  margin-bottom: 0;
+  text-align: left;
+  animation: workFadeRise 600ms cubic-bezier(0.16, 1, 0.3, 1) 300ms both;
+}
+
+@media (min-width: 768px) {
+  .work-page-subline {
+    font-size: 18px;
+    margin-top: 40px;
+  }
+}
+
 /* Visually Hidden Utility for Accessible Headings */
 .visually-hidden {
   position: absolute;
@@ -10122,15 +10177,18 @@ small,
   border: 0;
 }
 
-/* Filter Pills at top-left */
+/* Filters: 48px below subline (32px mobile), 64px above the grid */
 .work-filters-wrapper {
   position: relative;
-  margin-bottom: 32px;
+  margin-top: 32px;
+  margin-bottom: 64px;
+  animation: workFadeRise 600ms cubic-bezier(0.16, 1, 0.3, 1) 300ms both;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .work-filters-wrapper {
-    margin-bottom: 48px; /* 48px gap below filters to grid */
+    margin-top: 48px;
+    margin-bottom: 64px;
   }
 }
 
@@ -10170,16 +10228,16 @@ small,
   }
 }
 
-/* Pill: 32px tall, 14px text, radius 999px, 1px border (--line-strong) */
+/* Pills 40px tall desktop / 36px mobile, 16px text, radius 999px, 1px --line-strong border; active = white fill, dark text; 8px gap */
 .work-filter-pill {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 32px;
-  padding: 0 16px;
+  height: 36px;
+  padding: 0 18px;
   border-radius: 999px;
   font-family: var(--font-body);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   line-height: 1;
   white-space: nowrap;
@@ -10193,12 +10251,19 @@ small,
   flex-shrink: 0;
 }
 
+@media (min-width: 768px) {
+  .work-filter-pill {
+    height: 40px;
+    padding: 0 20px;
+  }
+}
+
 /* 44px minimum tap target height on touch devices */
 .work-filter-pill::after {
   content: '';
   position: absolute;
-  top: -6px;
-  bottom: -6px;
+  top: -4px;
+  bottom: -4px;
   left: 0;
   right: 0;
   min-height: 44px;
@@ -10221,6 +10286,37 @@ small,
 .work-filter-pill:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
+}
+
+/* Header & Filter Motion Keyframes */
+@keyframes workTitleLineSlide {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes workFadeRise {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work-title-line,
+  .work-page-subline,
+  .work-filters-wrapper {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
 }
 
 /* Project Grid */
