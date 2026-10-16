@@ -1863,13 +1863,13 @@ function initFeaturedProjectShowcase() {
 
   const featuredProjects = [
     {
-      title: "Tythas Control Center",
-      href: "tythas-control-center.html",
-      tags: ["B2B SaaS", "Shipped"],
-      image: "assets/images/showcase/tythas_laptop_1600.webp",
-      mobileImage: "assets/images/showcase/tythas_laptop_640.webp",
+      title: "Tap2Order",
+      href: "tap2order.html",
+      tags: ["SaaS", "Mobile + Web"],
+      image: "assets/images/showcase/tap2order_laptop_1600.webp",
+      mobileImage: "assets/images/showcase/tap2order_laptop_640.webp",
       deviceType: "laptop",
-      alt: "Tythas Control Center dashboard showing client sites, SEO health, and alerts"
+      alt: "Tap2Order merchant dashboard showing incoming orders, daily revenue, and product stock"
     },
     {
       title: "Raya",
