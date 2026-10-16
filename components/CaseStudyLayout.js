@@ -565,7 +565,7 @@ export function renderCaseStudy(project) {
         </div>
       </div>
       <div class="footer-bottom-row">
-        <p class="footer-copyright">© 2026 Digambar Patil. Crafted with care.</p>
+        <p class="footer-copyright">Design and build by Digambar Patil</p>
         <a href="#top" class="footer-back-to-top">Back to top ↑</a>
       </div>
     </div>
