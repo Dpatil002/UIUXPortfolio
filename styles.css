@@ -396,14 +396,12 @@ textarea:focus-visible,
 /* Layout: [DP mark] + "Digambar Patil" wordmark, 10px gap */
 /* Below 360px show the mark only; the link keeps aria-label="Digambar Patil — home" */
 .brand-wordmark {
-  display: none;
+  display: none !important;
 }
 
 @media (min-width: 360px) {
   .brand-wordmark {
-    display: inline-flex;
-    align-items: baseline;
-    gap: 8px;
+    display: none !important;
   }
 }
 
@@ -1624,27 +1622,213 @@ body.nav-menu-open {
   margin: 0;
 }
 
-.tools-group {
-  margin-top: var(--s-5);
+/* Horizontal Left-to-Right Workflow */
+.tools-workflow {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: clamp(2rem, 3.5vw, 3rem);
 }
 
-.tools-group:first-of-type {
-  margin-top: var(--s-6);
+.tools-workflow svg,
+.stage-step-arrow svg,
+.connector-arrow svg {
+  width: 14px !important;
+  height: 14px !important;
+  max-width: 14px !important;
+  max-height: 14px !important;
+  min-width: 14px !important;
+  min-height: 14px !important;
+  display: block;
+  flex-shrink: 0;
+}
+
+@media (min-width: 880px) {
+  .tools-workflow {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 14px;
+  }
+}
+
+.workflow-stage {
+  flex: 1 1 0;
+  min-width: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.028) 0%, rgba(255, 255, 255, 0.008) 100%);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-card, 16px);
+  padding: 24px 22px 26px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1), border-color 250ms ease, box-shadow 250ms ease;
+}
+
+.workflow-stage:hover {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.045) 0%, rgba(255, 255, 255, 0.015) 100%);
+  border-color: rgba(196, 181, 253, 0.3);
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.5), 0 0 24px -6px var(--accent-lavender-glow);
+  transform: translateY(-2px);
+}
+
+.workflow-stage-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.stage-heading-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stage-step-badge {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent-lavender);
+  background: rgba(196, 181, 253, 0.1);
+  border: 1px solid rgba(196, 181, 253, 0.22);
+  border-radius: 9999px;
+  padding: 2px 8px;
+  letter-spacing: 0.05em;
+  line-height: 1.4;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .tools-group-label {
   font-size: var(--fs-small);
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   color: var(--accent-lavender);
   font-weight: 700;
-  margin-bottom: var(--s-3);
+  margin: 0;
+}
+
+.stage-flow-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: all 200ms ease;
+}
+
+.stage-flow-hint svg {
+  width: 12px !important;
+  height: 12px !important;
+  display: block;
+  transition: transform 200ms ease;
+}
+
+.workflow-stage:hover .stage-flow-hint {
+  color: var(--accent-lavender);
+}
+
+.workflow-stage:hover .stage-flow-hint svg {
+  transform: translateX(3px);
+}
+
+.stage-flow-hint.is-final {
+  color: var(--accent-lavender);
+  background: rgba(196, 181, 253, 0.08);
+  border: 1px solid rgba(196, 181, 253, 0.22);
+  border-radius: 9999px;
+  padding: 3px 9px;
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+}
+
+.complete-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-lavender);
+  box-shadow: 0 0 8px var(--accent-lavender);
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* Connectors between stages */
+.workflow-connector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 0;
+}
+
+@media (min-width: 880px) {
+  .workflow-connector {
+    flex-shrink: 0;
+    width: 36px;
+    padding: 0;
+  }
+}
+
+.connector-track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.connector-line {
+  display: none;
+}
+
+@media (min-width: 880px) {
+  .connector-line {
+    display: block;
+    flex: 1;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.08);
+  }
+}
+
+.connector-arrow {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #121417;
+  border: 1px solid var(--border-hairline);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-lavender);
+  box-shadow: 0 0 12px rgba(167, 139, 250, 0.08);
+  transition: all 250ms ease;
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+@media (max-width: 879px) {
+  .connector-arrow {
+    transform: rotate(90deg);
+  }
+}
+
+.connector-arrow:hover {
+  background: rgba(196, 181, 253, 0.12);
+  border-color: var(--accent-lavender);
+  box-shadow: 0 0 16px var(--accent-lavender-glow);
 }
 
 .tools-chips-row {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  align-content: flex-start;
+  flex: 1;
 }
 
 .tool-pill {
@@ -1666,7 +1850,9 @@ body.nav-menu-open {
 .tool-pill:hover {
   background: var(--bg-card-hover);
   border-color: var(--accent-lavender);
+  color: #FFFFFF;
   transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(167, 139, 250, 0.12);
 }
 
 /* 3.8 TESTIMONIALS (Kind Words) */
@@ -10164,20 +10350,20 @@ small,
 
 .work-grid-container {
   width: 100%;
-  max-width: 1440px;
+  max-width: var(--container-max);
   margin-inline: auto;
-  padding-inline: 20px;
+  padding-inline: max(var(--gutter), env(safe-area-inset-left));
 }
 
 @media (min-width: 768px) {
   .work-grid-container {
-    padding-inline: 32px;
+    padding-inline: max(var(--gutter), env(safe-area-inset-left));
   }
 }
 
 @media (min-width: 1024px) {
   .work-grid-container {
-    padding-inline: 40px;
+    padding-inline: max(var(--gutter), env(safe-area-inset-left));
   }
 }
 
@@ -10188,15 +10374,15 @@ small,
   text-align: left;
 }
 
-/* H1: display font (Newsreader 300), size clamp(2.5rem, 1.6rem + 4vw, 5.5rem), line-height 1.05, letter-spacing -0.03em, max-width 16ch, colour --text */
+/* H1: display font (Newsreader 300), reduced size, line-height 1.12, letter-spacing -0.025em, max-width 22ch, colour --text */
 .work-page-title {
   font-family: var(--font-display);
   font-weight: 300;
-  font-size: clamp(2.5rem, 1.6rem + 4vw, 5.5rem);
-  line-height: 1.05;
-  letter-spacing: -0.03em;
+  font-size: clamp(2.25rem, 1.5rem + 2.2vw, 3.5rem);
+  line-height: 1.12;
+  letter-spacing: -0.025em;
   color: var(--text);
-  max-width: 16ch;
+  max-width: 22ch;
   margin: 0;
   text-align: left;
 }

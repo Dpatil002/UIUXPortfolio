@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Sydney Decors — Australian Wall-Panel &amp; Décor Brand Website | Digambar Patil</title>
+  <meta name="description" content="Designing a calm, editorial website for an Australian wall-panel and décor brand. Information architecture, visual direction, and 9 page templates by Digambar Patil.">
+  <meta name="theme-color" content="#F7F3EE">
+
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <link rel="canonical" href="https://digambarpatil.com/sydney-decors.html">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="Sydney Decors — Calm Editorial Website by Digambar Patil">
+  <meta property="og:description" content="Designing a calm, editorial website for an Australian wall-panel and décor brand: IA, visual direction, and 9 page templates across Sydney, Brisbane and Canberra.">
+  <meta property="og:image" content="assets/images/grid/sydney-decors-1200.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="750">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="assets/images/grid/sydney-decors-1200.webp">
+
+  <!-- Google Fonts: Marcellus & DM Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Marcellus&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* ==========================================================================
+       SCOPED DESIGN SYSTEM FOR SYDNEY DECORS
+       Palette: Warm Cream (#F7F3EE), Sage Green (#4F5D42), Forest Dark (#2F3A26),
+                Terracotta (#A86A48), Dark Ink (#2A2620), Body (#4A4238),
+                Muted (#7A7064 / #6B6257), Borders (#E5DDD2 / #DCD2C4)
+       Typography: Marcellus (editorial serif) & DM Sans (body)
+       ========================================================================== */
+    :root {
+      --sd-bg: #F7F3EE;
+      --sd-ink: #2A2620;
+      --sd-body: #4A4238;
+      --sd-muted: #7A7064;
+      --sd-subtle: #6B6257;
+      --sd-line: #DCD2C4;
+      --sd-card-border: #E5DDD2;
+      --sd-sage: #4F5D42;
+      --sd-sage-dark: #2F3A26;
+      --sd-sage-hover: #3E4B33;
+      --sd-terracotta: #A86A48;
+      --sd-terracotta-hover: #8C5334;
+      --sd-card-bg: #FFFFFF;
+      --sd-display: 'Marcellus', Georgia, serif;
+      --sd-text: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --sd-mono: 'Space Mono', ui-monospace, monospace;
+    }
+
+    body.sydney-case-study {
+      background: var(--sd-bg);
+      color: var(--sd-ink);
+      font-family: var(--sd-text);
+      line-height: 1.65;
+      font-size: 17px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .sd-main {
+      position: relative;
+      z-index: 10;
+    }
+
+    .sd-main .w {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-left: max(24px, env(safe-area-inset-left, 0px));
+      padding-right: max(24px, env(safe-area-inset-right, 0px));
+    }
+
+    .sd-main h1,
+    .sd-main h2,
+    .sd-main h3 {
+      font-family: var(--sd-display);
+      margin: 0;
+      font-weight: 400;
+      color: var(--sd-ink);
+      text-wrap: balance;
+    }
+
+    .sd-main p {
+      margin: 0;
+    }
+
+    /* Breadcrumb / Back link */
+    .sd-breadcrumb {
+      padding-top: clamp(84px, 10vw, 108px);
+    }
+
+    .sd-back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--sd-muted);
+      text-decoration: none;
+      font: 500 14px var(--sd-text);
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    .sd-back-btn:hover {
+      color: var(--sd-sage);
+      transform: translateX(-2px);
+    }
+
+    /* Header & Meta */
+    .sd-header {
+      padding-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    .sd-header-intro {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 920px;
+    }
+
+    .sd-eyebrow {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--sd-terracotta);
+      letter-spacing: 0.04em;
+    }
+
+    .sd-header h1 {
+      font-size: clamp(36px, 5.2vw, 64px);
+      line-height: 1.1;
+      letter-spacing: -0.005em;
+    }
+
+    .sd-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      border-top: 1px solid var(--sd-line);
+      padding-top: 20px;
+      gap: 20px;
+    }
+
+    .sd-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .sd-meta-label {
+      font-size: 13px;
+      color: var(--sd-muted);
+      letter-spacing: 0.04em;
+    }
+
+    .sd-meta-val {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--sd-ink);
+    }
+
+    /* Hero Showcase - Sage Green Band + Realistic Laptop */
+    .sd-hero-section {
+      margin-top: clamp(48px, 6vw, 72px);
+      background: var(--sd-sage);
+      padding: clamp(48px, 8vw, 88px) 24px;
+      position: relative;
+    }
+
+    .sd-hero-inner {
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+
+    .lap-lid {
+      background: #1E1A16;
+      border-radius: 18px 18px 6px 6px;
+      padding: 14px 14px 20px;
+      box-shadow: 0 50px 90px -40px rgba(30, 24, 16, 0.65);
+    }
+
+    .lap-screen {
+      background: #FFFFFF;
+      border-radius: 6px;
+      overflow: hidden;
+      aspect-ratio: 16 / 10;
+      position: relative;
+    }
+
+    .lap-screen.scroll {
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(79, 93, 66, 0.4) transparent;
+    }
+
+    .lap-screen.scroll::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .lap-screen.scroll::-webkit-scrollbar-thumb {
+      background: rgba(79, 93, 66, 0.4);
+      border-radius: 4px;
+    }
+
+    .lap-screen img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .lap-base {
+      height: 16px;
+      margin: 0 -6%;
+      background: linear-gradient(#E6E0D7, #B3A897);
+      border-radius: 0 0 18px 18px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .lap-hint {
+      text-align: center;
+      margin-top: 18px;
+      font-size: 13px;
+      color: rgba(247, 243, 238, 0.85);
+      letter-spacing: 0.04em;
+    }
+
+    /* Sections */
+    .sd-section {
+      padding-top: clamp(80px, 10vw, 120px);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px 64px;
+    }
+
+    .sd-sec-title {
+      flex: 1 1 260px;
+      margin: 0;
+      font-family: var(--sd-display);
+      font-size: clamp(28px, 3.5vw, 36px);
+      line-height: 1.15;
+    }
+
+    .sd-sec-body {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      color: var(--sd-body);
+      flex: 2 1 480px;
+      max-width: 760px;
+      font-size: 17px;
+    }
+
+    .sd-sec-body p strong {
+      color: var(--sd-ink);
+    }
+
+    /* Frame & Figures */
+    .frame {
+      background: var(--sd-card-bg);
+      border: 1px solid var(--sd-card-border);
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(42, 38, 32, 0.04);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .frame:hover {
+      box-shadow: 0 8px 28px rgba(42, 38, 32, 0.08);
+    }
+
+    .frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .sd-figure-full {
+      margin: 56px 0 0;
+    }
+
+    .sd-grid-2 {
+      margin-top: 56px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      align-items: start;
+    }
+
+    .sd-grid-gap-24 {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      align-items: start;
+    }
+
+    /* Facts */
+    .sd-facts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 12px;
+    }
+
+    .sd-fact-item {
+      border-top: 1px solid var(--sd-line);
+      padding-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .sd-fact-val {
+      font-family: var(--sd-display);
+      font-size: clamp(32px, 3.8vw, 40px);
+      color: var(--sd-sage);
+      line-height: 1.1;
+    }
+
+    .sd-fact-lbl {
+      font-size: 14px;
+      color: var(--sd-subtle);
+    }
+
+    /* CTAs */
+    .sd-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      padding-top: 12px;
+    }
+
+    .btn-primary {
+      background: var(--sd-sage-dark);
+      color: #FFFFFF;
+      text-decoration: none;
+      padding: 16px 28px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 16px;
+      min-height: 48px;
+      box-sizing: border-box;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--sd-sage);
+      color: #FFFFFF;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(47, 58, 38, 0.25);
+    }
+
+    .btn-ghost {
+      color: var(--sd-ink);
+      border: 1px solid #CFC4B5;
+      background: transparent;
+      text-decoration: none;
+      padding: 16px 28px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 16px;
+      min-height: 48px;
+      box-sizing: border-box;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--sd-ink);
+      color: var(--sd-ink);
+      transform: translateY(-2px);
+    }
+
+    /* Next / Prev Project Navigation */
+    .sd-project-nav {
+      margin-top: clamp(80px, 12vw, 140px);
+      padding: 36px 0;
+      border-top: 1px solid var(--sd-line);
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .sd-pnav-btn {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      text-decoration: none;
+      padding: 16px 22px;
+      border-radius: 4px;
+      border: 1px solid var(--sd-card-border);
+      background: var(--sd-card-bg);
+      min-width: 240px;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .sd-pnav-btn:hover {
+      transform: translateY(-2px);
+      border-color: var(--sd-sage);
+      box-shadow: 0 8px 24px rgba(79, 93, 66, 0.12);
+    }
+
+    .sd-pnav-btn.next {
+      text-align: right;
+      margin-left: auto;
+    }
+
+    .sd-pnav-sub {
+      font: 600 12px var(--sd-text);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--sd-muted);
+    }
+
+    .sd-pnav-title {
+      font-family: var(--sd-display);
+      font-size: 18px;
+      color: var(--sd-sage-dark);
+      font-weight: 400;
+    }
+
+    /* ==========================================================================
+       PERSONALIZED HEADER THEME (Sydney Decors - Warm Cream & Sage)
+       ========================================================================== */
+    .sydney-case-study .site-nav {
+      background: rgba(247, 243, 238, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(220, 210, 196, 0.6);
+    }
+
+    .sydney-case-study .brand-name {
+      color: var(--sd-ink);
+    }
+
+    .sydney-case-study .brand-title {
+      color: var(--sd-subtle);
+    }
+
+    .sydney-case-study .brand-logo-mark {
+      color: var(--sd-sage-dark);
+    }
+
+    .sydney-case-study .nav-link {
+      color: var(--sd-ink);
+    }
+
+    .sydney-case-study .nav-link:hover,
+    .sydney-case-study .nav-link.active {
+      color: var(--sd-sage);
+    }
+
+    .sydney-case-study .nav-contact-btn {
+      background: var(--sd-sage-dark);
+      color: #FFFFFF;
+      border-color: var(--sd-sage-dark);
+    }
+
+    .sydney-case-study .nav-contact-btn:hover {
+      background: var(--sd-sage);
+      border-color: var(--sd-sage);
+      color: #FFFFFF;
+    }
+
+    .sydney-case-study .hamburger-bar {
+      background: var(--sd-ink);
+    }
+
+    .sydney-case-study .mobile-nav-sheet {
+      background: var(--sd-bg);
+      border-bottom: 1px solid var(--sd-line);
+    }
+
+    .sydney-case-study .sheet-nav-link {
+      color: var(--sd-ink);
+      border-bottom-color: rgba(220, 210, 196, 0.5);
+    }
+
+    .sydney-case-study .sheet-btn-primary {
+      background: var(--sd-sage-dark);
+      color: #FFFFFF;
+    }
+
+    .sydney-case-study .sheet-btn-primary:hover {
+      background: var(--sd-sage);
+    }
+
+    .sydney-case-study .sheet-social-link {
+      background: #FFFFFF;
+      border-color: var(--sd-card-border);
+      color: var(--sd-ink);
+    }
+
+    .sydney-case-study .sheet-status-text {
+      color: var(--sd-muted);
+    }
+
+    /* ==========================================================================
+       PERSONALIZED FOOTER THEME (Sydney Decors - Deep Forest Sage)
+       ========================================================================== */
+    .sydney-case-study .site-footer {
+      background-color: var(--sd-sage-dark);
+      border-top: 1px solid rgba(247, 243, 238, 0.15);
+      position: relative;
+      z-index: 20;
+    }
+
+    .sydney-case-study .site-footer .footer-eyebrow {
+      color: #CFD6C4;
+      font-family: var(--sd-text);
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      font-weight: 600;
+    }
+
+    .sydney-case-study .site-footer .footer-display-h2 {
+      font-family: var(--sd-display);
+      font-weight: 400;
+      color: #FFFFFF;
+    }
+
+    .sydney-case-study .site-footer .email-display-link {
+      color: #FFFFFF;
+      font-family: var(--sd-display);
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      transition: color 0.3s ease, filter 0.3s ease;
+    }
+
+    .sydney-case-study .site-footer .email-interactive-wrapper:hover .email-display-link {
+      color: #FFFFFF;
+      filter: drop-shadow(0 0 16px rgba(207, 214, 196, 0.45));
+    }
+
+    .sydney-case-study .site-footer .email-full-underline {
+      background-color: rgba(255, 255, 255, 0.4);
+      box-shadow: 0 0 12px rgba(207, 214, 196, 0.25);
+    }
+
+    .sydney-case-study .site-footer .email-interactive-wrapper:hover .email-full-underline {
+      background-color: #FFFFFF;
+      box-shadow: 0 0 20px rgba(207, 214, 196, 0.6);
+    }
+
+    .sydney-case-study .site-footer .footer-bottom {
+      border-top-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .sydney-case-study .site-footer .footer-copyright,
+    .sydney-case-study .site-footer .footer-link {
+      color: #CFD6C4;
+      transition: color 0.2s ease;
+    }
+
+    .sydney-case-study .site-footer .footer-link:hover {
+      color: #FFFFFF;
+    }
+
+    .sydney-case-study .site-footer .footer-dot-sep {
+      color: rgba(207, 214, 196, 0.3);
+    }
+
+    /* Responsive Queries */
+    @media (max-width: 768px) {
+      .sd-grid-2,
+      .sd-grid-gap-24 {
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 18px !important;
+      }
+      .sd-section {
+        padding-top: 64px !important;
+      }
+      .sd-facts-grid {
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 14px !important;
+      }
+      .sd-pnav-btn {
+        width: 100%;
+        text-align: left !important;
+      }
+      .sd-pnav-btn.next {
+        margin-left: 0;
+      }
+      .lap-base {
+        margin: 0 -3%;
+      }
+    }
+  </style>
+</head>
+<body class="case-study-page sydney-case-study">
+
+  <!-- Skip link as first focusable element -->
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <!-- Cursor Follow Arrow Badge -->
+  <div id="cursor-badge" class="cursor-arrow-badge" aria-hidden="true">
+    <svg viewBox="0 0 24 24">
+      <line x1="7" y1="17" x2="17" y2="7"></line>
+      <polyline points="7 7 17 7 17 17"></polyline>
+    </svg>
+  </div>
+
+  <!-- NAVIGATION (Themed Header) -->
+  <header class="site-nav" id="top">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="/" class="nav-brand" id="nav-brand" aria-label="Digambar Patil — home">
+          <svg class="brand-logo-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 538 369" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="M69.1,367.1C71.5,365.2 75.9,358.6 100.1,320.5C123.0,284.3 126.6,278.7 130.4,272.8L134.1,267.0L245.8,267.0C314.6,267.0 360.2,266.6 364.5,266.0C384.6,263.1 404.6,252.0 417.0,236.7C423.7,228.5 431.6,212.5 433.7,203.0C435.8,193.2 435.8,175.6 433.7,166.0C430.5,151.4 418.5,131.6 407.4,122.5C400.0,116.4 396.1,114.0 387.5,110.0C371.0,102.3 375.8,102.7 278.5,102.3C217.4,102.0 189.5,102.2 184.8,103.0C170.4,105.5 158.3,114.4 148.9,129.4C146.1,133.9 139.4,144.5 133.9,153.0C120.4,174.0 119.6,175.8 120.8,178.6C122.8,183.0 130.0,184.2 157.1,184.7C178.4,185.2 182.1,185.0 184.8,183.6C186.7,182.6 190.1,178.7 193.7,173.2L199.5,164.5L278.0,164.2C331.6,164.0 357.7,164.3 360.2,165.0C374.5,169.1 378.9,189.3 367.8,199.7C361.9,205.2 367.5,205.0 245.7,205.0C138.0,205.0 133.0,204.9 125.8,203.1C110.4,199.1 95.3,189.4 86.5,177.9C68.8,154.4 66.2,124.3 79.7,98.8C85.5,87.8 98.9,74.7 110.0,69.2C126.9,60.9 116.7,61.5 250.0,61.5L368.5,61.5L378.9,63.8C416.2,72.0 447.0,96.0 464.0,129.9C468.1,138.1 473.4,154.4 475.1,164.0C477.0,174.7 476.8,196.6 474.7,207.3C467.7,242.4 446.5,272.8 416.5,290.5C405.6,297.0 396.6,300.7 383.0,304.3L371.5,307.4L264.3,308.0C170.7,308.4 156.9,308.7 155.7,310.0C154.2,311.6 124.2,358.8 122.1,362.8C121.0,364.8 121.1,365.5 122.6,367.1C124.3,369.0 127.3,369.0 246.4,369.0C349.2,369.0 370.2,368.7 379.0,367.5C419.6,361.7 455.0,344.0 484.0,314.8C548.8,249.7 555.7,146.5 500.2,72.8C473.0,36.7 432.2,11.3 387.5,2.8L375.5,0.5L250.5,0.5C131.8,0.5 125.0,0.6 116.5,2.4C98.2,6.2 78.6,14.8 64.5,25.2C54.0,32.9 40.2,47.3 33.3,57.7C23.1,73.0 17.2,86.7 12.9,105.1C9.8,118.0 9.6,147.2 12.4,160.0C19.5,192.6 38.0,221.4 64.2,240.6C69.0,244.1 73.0,247.5 73.0,248.1C73.0,248.7 69.5,254.6 65.2,261.3C60.8,268.0 51.3,282.9 44.0,294.5C36.7,306.1 23.8,326.4 15.4,339.7C6.9,352.9 -0.0,364.2 -0.0,364.6C-0.0,365.0 0.7,366.2 1.7,367.2C3.2,368.9 5.6,369.0 35.0,369.0C64.5,369.0 66.9,368.9 69.1,367.1Z"/></svg>
+          <span class="brand-wordmark">
+            <span class="brand-name">Digambar Patil</span>
+            <span class="brand-title">Lead UI/UX Designer</span>
+          </span>
+        </a>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav-sheet">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+        <nav class="nav-links desktop-nav" id="nav-links" aria-label="Main Navigation">
+          <a href="work.html" class="nav-link active" id="nav-work">Work</a>
+          <a href="about.html" class="nav-link" id="nav-about">About</a>
+          <a href="assets/Digambar_Patil_Resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link" id="nav-resume">Resume <span class="nav-external-icon" aria-hidden="true">↗</span></a>
+          <a href="#contact" class="nav-contact-btn" id="nav-contact">Get in touch</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE NAVIGATION SHEET -->
+  <div class="mobile-nav-sheet" id="mobile-nav-sheet" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Site Navigation">
+    <div class="sheet-inner">
+      <nav class="sheet-nav-links" aria-label="Mobile Navigation">
+        <a href="work.html" class="sheet-nav-link active">Work</a>
+        <a href="about.html" class="sheet-nav-link">About</a>
+        <a href="assets/Digambar_Patil_Resume.pdf" target="_blank" rel="noopener noreferrer" class="sheet-nav-link">Resume <span class="nav-external-icon" aria-hidden="true">↗</span></a>
+      </nav>
+      <div class="sheet-footer">
+        <a href="#contact" class="sheet-btn-primary" id="mobile-sheet-contact">Get in touch</a>
+        <div class="sheet-social-row">
+          <a href="https://www.linkedin.com/in/digambar-patil-6847081aa/" target="_blank" rel="noopener noreferrer" class="sheet-social-link">LinkedIn</a>
+          <a href="https://www.behance.net/digambarpatil2" target="_blank" rel="noopener noreferrer" class="sheet-social-link">Behance</a>
+        </div>
+        <div class="sheet-status">
+          <span class="sheet-status-dot"></span>
+          <span class="sheet-status-text">Available for selected projects</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CASE STUDY CONTENT -->
+  <main class="sd-main" id="main-content">
+    <div class="w">
+
+      <!-- Breadcrumb -->
+      <div class="sd-breadcrumb">
+        <a href="work.html" class="sd-back-btn">
+          <span aria-hidden="true">←</span> Back to all work
+        </a>
+      </div>
+
+      <!-- Case Study Header -->
+      <header class="sd-header reveal-on-scroll">
+        <div class="sd-header-intro">
+          <span class="sd-eyebrow">Sydney Decors</span>
+          <h1>Designing a calm, editorial website for an Australian wall-panel and décor brand.</h1>
+        </div>
+
+        <div class="sd-meta-grid">
+          <div class="sd-meta-item">
+            <span class="sd-meta-label">Scope</span>
+            <span class="sd-meta-val">Website · 9 page templates</span>
+          </div>
+          <div class="sd-meta-item">
+            <span class="sd-meta-label">Role</span>
+            <span class="sd-meta-val">Lead UI/UX Designer</span>
+          </div>
+          <div class="sd-meta-item">
+            <span class="sd-meta-label">Team</span>
+            <span class="sd-meta-val">The Impact Engine</span>
+          </div>
+          <div class="sd-meta-item">
+            <span class="sd-meta-label">Year</span>
+            <span class="sd-meta-val">Nov 2025 – Mar 2026</span>
+          </div>
+        </div>
+      </header>
+
+    </div><!-- /.w -->
+
+    <!-- Hero Laptop Showcase -->
+    <section class="sd-hero-section reveal-on-scroll" aria-label="Interactive desktop preview">
+      <div class="sd-hero-inner">
+        <div class="lap-lid">
+          <div class="lap-screen scroll" tabindex="0" aria-label="Sydney Decors full homepage scrollable preview">
+            <img src="assets/projects/sydney-decors/hero-laptop-screen.webp" alt="Sydney Decors homepage full scrollable design" width="1280" height="3865" loading="eager">
+          </div>
+        </div>
+        <div class="lap-base" aria-hidden="true"></div>
+        <div class="lap-hint" aria-hidden="true">Scroll inside laptop to explore the live homepage</div>
+      </div>
+    </section>
+
+    <div class="w">
+
+      <!-- Section: Overview -->
+      <section class="sd-section reveal-on-scroll">
+        <h2 class="sd-sec-title">Overview</h2>
+        <div class="sd-sec-body">
+          <p>Sydney Decors supplies decorative wall panels, artificial grass, composite decking and exterior cladding, and offers interior and exterior design with installation across Sydney, Brisbane and Canberra.</p>
+          <p>As Lead UI/UX Designer at The Impact Engine, I designed the website end to end: information architecture, visual direction and nine page templates, from the homepage to product pages and the enquiry form.</p>
+        </div>
+      </section>
+
+      <figure class="sd-figure-full reveal-on-scroll">
+        <div class="frame">
+          <img src="assets/projects/sydney-decors/homepage-hero.webp" alt="Sydney Decors homepage hero: Give your home a clean, modern panel look" width="1280" height="930" loading="lazy">
+        </div>
+      </figure>
+
+      <!-- Section: Challenge -->
+      <section class="sd-section reveal-on-scroll">
+        <h2 class="sd-sec-title">Challenge</h2>
+        <div class="sd-sec-body">
+          <p>Homeowners don't buy panels. They buy how a room will feel. Most supplier sites lead with SKUs and thicknesses, which works for trade buyers and loses everyone else.</p>
+          <p>The site had to sell four product lines and a design service under one calm brand, help people picture the finished space, and give undecided visitors a next step instead of a dead end.</p>
+        </div>
+      </section>
+
+      <div class="sd-grid-2 reveal-on-scroll">
+        <figure class="frame" style="margin: 0;">
+          <img src="assets/projects/sydney-decors/before-after-slider.webp" alt="Before and after interactive room comparison slider" width="1280" height="620" loading="lazy">
+        </figure>
+        <figure class="frame" style="margin: 0;">
+          <img src="assets/projects/sydney-decors/why-choose.webp" alt="Why homeowners choose Sydney Decors value proposition breakdown" width="1280" height="660" loading="lazy">
+        </figure>
+      </div>
+
+      <!-- Section: Approach -->
+      <section class="sd-section reveal-on-scroll">
+        <h2 class="sd-sec-title">Approach</h2>
+        <div class="sd-sec-body">
+          <p><strong>Lead with the room.</strong> Every page opens on a styled, daylit space with the material in context. The interface stays quiet in cream, sage and one terracotta accent, so the products carry the colour.</p>
+          <p><strong>Specs at a glance, detail on demand.</strong> Product pages show size, thickness and finish in one row, with "Get in touch" and "Download brochure" side by side and trust badges directly below.</p>
+          <p><strong>One system, many materials.</strong> A single product-card pattern covers grass and decking, and a recurring "Not sure which panel?" band catches buyers who are still deciding.</p>
+        </div>
+      </section>
+
+      <figure class="sd-figure-full reveal-on-scroll">
+        <div class="frame">
+          <img src="assets/projects/sydney-decors/wall-panel-product.webp" alt="Wall panel product page with specifications, trust badges, and sample downloads" width="1280" height="1070" loading="lazy">
+        </div>
+      </figure>
+
+      <div class="sd-grid-gap-24 reveal-on-scroll">
+        <figure class="frame" style="margin: 0;">
+          <img src="assets/projects/sydney-decors/artificial-grass-card.webp" alt="Artificial grass collection product card component" width="1130" height="664" loading="lazy">
+        </figure>
+        <figure class="frame" style="margin: 0;">
+          <img src="assets/projects/sydney-decors/composite-decking-card.webp" alt="Composite decking collection product card component" width="1150" height="740" loading="lazy">
+        </figure>
+      </div>
+
+      <figure class="sd-figure-full reveal-on-scroll" style="margin-top: 24px;">
+        <div class="frame">
+          <img src="assets/projects/sydney-decors/services-cards.webp" alt="Interior and exterior residential installation services cards" width="1280" height="1680" loading="lazy">
+        </div>
+      </figure>
+
+      <!-- Section: Outcome -->
+      <section class="sd-section reveal-on-scroll">
+        <h2 class="sd-sec-title">Outcome</h2>
+        <div class="sd-sec-body">
+          <p>The site is live at sydneydecors.com.au: nine templates covering four product lines, a design service and three cities, built on one shared set of spec rows, product cards and CTA bands.</p>
+
+          <div class="sd-facts-grid">
+            <div class="sd-fact-item">
+              <span class="sd-fact-val">9</span>
+              <span class="sd-fact-lbl">page templates</span>
+            </div>
+            <div class="sd-fact-item">
+              <span class="sd-fact-val">4</span>
+              <span class="sd-fact-lbl">product lines</span>
+            </div>
+            <div class="sd-fact-item">
+              <span class="sd-fact-val">3</span>
+              <span class="sd-fact-lbl">cities served</span>
+            </div>
+          </div>
+
+          <div class="sd-cta-row">
+            <a href="https://www.behance.net/gallery/257014733/Sydney-Decors-Website" target="_blank" rel="noopener noreferrer" class="btn-primary" id="behance-case-study">
+              See detailed UX case study <span aria-hidden="true">↗</span>
+            </a>
+            <a href="https://sydneydecors.com.au/" target="_blank" rel="noopener noreferrer" class="btn-ghost" id="live-site">
+              Visit live site <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <div class="sd-grid-2 reveal-on-scroll">
+        <figure class="frame" style="margin: 0;">
+          <img src="assets/projects/sydney-decors/wall-panel-catalogue.webp" alt="Wall panel catalogue layout with filterable categories" width="1280" height="640" loading="lazy">
+        </figure>
+        <figure class="frame" style="margin: 0;">
+          <img src="assets/projects/sydney-decors/selected-design-projects.webp" alt="Featured completed interior design projects gallery" width="1280" height="970" loading="lazy">
+        </figure>
+      </div>
+
+      <!-- Next / Prev Project Navigation -->
+      <nav class="sd-project-nav reveal-on-scroll delay-1" aria-label="Project Navigation">
+        <a href="hiresprint.html" class="sd-pnav-btn prev">
+          <span class="sd-pnav-sub">← PREVIOUS CASE STUDY</span>
+          <span class="sd-pnav-title">HireSprint (Staffing Platform)</span>
+        </a>
+        <a href="soche.html" class="sd-pnav-btn next">
+          <span class="sd-pnav-sub">NEXT UX CASE STUDY →</span>
+          <span class="sd-pnav-title">Soché (Luxury Spices)</span>
+        </a>
+      </nav>
+
+    </div><!-- /.w -->
+  </main>
+
+  <!-- FOOTER / CONTACT SECTION (Themed Dark Forest Sage) -->
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <div class="footer-contact-block reveal-on-scroll">
+        <div class="footer-eyebrow">LET'S WORK TOGETHER</div>
+
+        <div class="footer-heading-wrap">
+          <h2 class="footer-display-h2">Let's work together.</h2>
+        </div>
+
+        <!-- Huge display email with full-width underline and custom cursor badge interaction -->
+        <div class="email-interactive-wrapper">
+          <a href="mailto:contact@digambarpatil.com" class="email-display-link" id="footer-email">
+            contact@digambarpatil.com
+          </a>
+          <div class="email-full-underline" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <!-- Bottom row -->
+      <div class="footer-bottom reveal-on-scroll delay-1">
+        <div class="footer-bottom-left">
+          <span class="footer-copyright">Design and build by Digambar Patil</span>
+        </div>
+
+        <div class="footer-bottom-right">
+          <div class="footer-links" aria-label="Social Profiles and Links">
+            <a href="https://www.linkedin.com/in/digambar-patil-6847081aa/" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn <span class="nav-external-icon" aria-hidden="true">↗</span></a>
+            <span class="footer-dot-sep" aria-hidden="true">·</span>
+            <a href="https://www.behance.net/digambarpatil2" target="_blank" rel="noopener noreferrer" class="footer-link">Behance <span class="nav-external-icon" aria-hidden="true">↗</span></a>
+            <span class="footer-dot-sep" aria-hidden="true">·</span>
+            <a href="assets/Digambar_Patil_Resume.pdf" target="_blank" rel="noopener noreferrer" class="footer-link">Resume <span class="nav-external-icon" aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <div id="email-toast" class="toast-notice" role="status" aria-live="polite">Email copied</div>
+
+</body>
+</html>

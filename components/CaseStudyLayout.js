@@ -265,10 +265,6 @@ export function renderCaseStudy(project) {
       <div class="nav-inner">
         <a href="/" class="nav-brand" id="nav-brand" aria-label="Digambar Patil — home">
           ${DP_MARK_SVG}
-          <span class="brand-wordmark">
-            <span class="brand-name">Digambar Patil</span>
-            <span class="brand-title">Product Designer</span>
-          </span>
         </a>
         <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav-sheet">
           <span class="hamburger-bar"></span>
