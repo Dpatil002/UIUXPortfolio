@@ -28,7 +28,7 @@
   <!-- Preload LCP hero portrait image -->
   <link rel="preload" as="image" href="assets/images/portrait.webp" type="image/webp" fetchpriority="high">
 
-  <link rel="stylesheet" href="styles.css?v=workflow5">
+  <link rel="stylesheet" href="styles.css?v=carousel2">
 </head>
 <body>
 
@@ -593,110 +593,457 @@
       </div>
     </section>
 
-    <!-- 3.7 TOOLS (replaces 28-logo marquee) -->
+    <!-- 3.7 TOOLS (Horizontal Continuous Left-to-Right Carousel) -->
     <section class="tools-section" id="tools" aria-label="Tools and technologies">
       <div class="container">
         <div class="section-label-tiny reveal-on-scroll">TOOLSTACK</div>
         <h2 class="section-heading reveal-on-scroll">Tools I use to design &amp; build</h2>
+      </div>
 
-        <!-- Horizontal Left-to-Right Workflow -->
-        <div class="tools-workflow reveal-on-scroll">
-          <!-- Stage 1: Design -->
-          <div class="workflow-stage" data-stage="1">
-            <div class="workflow-stage-header">
-              <div class="stage-heading-group">
-                <span class="stage-step-badge">01</span>
-                <div class="tools-group-label">DESIGN</div>
+      <!-- Horizontal Continuous Moving Carousel (Left to Right) -->
+      <div class="tools-carousel-wrapper reveal-on-scroll" aria-label="Tools workflow carousel moving left to right">
+        <div class="tools-carousel-track">
+          <!-- Primary Carousel Group -->
+          <div class="tools-carousel-group">
+            <!-- Stage 1: Design -->
+            <div class="workflow-stage" data-stage="1">
+              <div class="workflow-stage-header">
+                <div class="stage-heading-group">
+                  <span class="stage-step-badge">01</span>
+                  <div class="tools-group-label">DESIGN</div>
+                </div>
+                <div class="stage-flow-hint" aria-hidden="true">
+                  <span>NEXT</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </div>
               </div>
-              <div class="stage-flow-hint" aria-hidden="true">
-                <span>NEXT</span>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <div class="tools-chips-row">
+                <span class="tool-pill">Figma</span>
+                <span class="tool-pill">Figma Make</span>
+                <span class="row-break" aria-hidden="true"></span>
+                <span class="tool-pill">FigJam</span>
+                <span class="tool-pill">Framer</span>
+                <span class="tool-pill">ProtoPie</span>
+              </div>
+            </div>
+
+            <!-- Connector 1 -> 2 -->
+            <div class="workflow-connector" aria-hidden="true">
+              <span class="connector-arrow">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                   <line x1="5" y1="12" x2="19" y2="12"></line>
                   <polyline points="12 5 19 12 12 19"></polyline>
                 </svg>
+              </span>
+            </div>
+
+            <!-- Stage 2: AI & Build -->
+            <div class="workflow-stage" data-stage="2">
+              <div class="workflow-stage-header">
+                <div class="stage-heading-group">
+                  <span class="stage-step-badge">02</span>
+                  <div class="tools-group-label">AI &amp; BUILD</div>
+                </div>
+                <div class="stage-flow-hint" aria-hidden="true">
+                  <span>NEXT</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <div class="tools-chips-row">
+                <span class="tool-pill">Claude Code</span>
+                <span class="tool-pill">Cursor</span>
+                <span class="tool-pill">v0</span>
+                <span class="row-break" aria-hidden="true"></span>
+                <span class="tool-pill">Lovable</span>
+                <span class="tool-pill">Google Stitch</span>
+                <span class="row-break" aria-hidden="true"></span>
+                <span class="tool-pill">Antigravity</span>
               </div>
             </div>
-            <div class="tools-chips-row">
-              <span class="tool-pill">Figma</span>
-              <span class="tool-pill">Figma Make</span>
-              <span class="row-break" aria-hidden="true"></span>
-              <span class="tool-pill">FigJam</span>
-              <span class="tool-pill">Framer</span>
-              <span class="tool-pill">ProtoPie</span>
-            </div>
-          </div>
 
-          <!-- Connector 1 -> 2 -->
-          <div class="workflow-connector" aria-hidden="true">
-            <span class="connector-arrow">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </span>
-          </div>
-
-          <!-- Stage 2: AI & Build -->
-          <div class="workflow-stage" data-stage="2">
-            <div class="workflow-stage-header">
-              <div class="stage-heading-group">
-                <span class="stage-step-badge">02</span>
-                <div class="tools-group-label">AI &amp; BUILD</div>
-              </div>
-              <div class="stage-flow-hint" aria-hidden="true">
-                <span>NEXT</span>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <!-- Connector 2 -> 3 -->
+            <div class="workflow-connector" aria-hidden="true">
+              <span class="connector-arrow">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                   <line x1="5" y1="12" x2="19" y2="12"></line>
                   <polyline points="12 5 19 12 12 19"></polyline>
                 </svg>
+              </span>
+            </div>
+
+            <!-- Stage 3: Code -->
+            <div class="workflow-stage" data-stage="3">
+              <div class="workflow-stage-header">
+                <div class="stage-heading-group">
+                  <span class="stage-step-badge">03</span>
+                  <div class="tools-group-label">CODE</div>
+                </div>
+                <div class="stage-flow-hint is-final" aria-hidden="true">
+                  <span class="complete-dot"></span>
+                  <span>PRODUCTION</span>
+                </div>
+              </div>
+              <div class="tools-chips-row">
+                <span class="tool-pill">React</span>
+                <span class="tool-pill">Next.js</span>
+                <span class="row-break" aria-hidden="true"></span>
+                <span class="tool-pill">Tailwind CSS</span>
+                <span class="tool-pill">HTML/CSS/JS</span>
+                <span class="row-break" aria-hidden="true"></span>
+                <span class="tool-pill">Supabase</span>
+                <span class="tool-pill">Firebase</span>
+                <span class="row-break" aria-hidden="true"></span>
+                <span class="tool-pill">GitHub</span>
+                <span class="tool-pill">Vercel</span>
               </div>
             </div>
-            <div class="tools-chips-row">
-              <span class="tool-pill">Claude Code</span>
-              <span class="tool-pill">Cursor</span>
-              <span class="tool-pill">v0</span>
-              <span class="row-break" aria-hidden="true"></span>
-              <span class="tool-pill">Lovable</span>
-              <span class="tool-pill">Google Stitch</span>
-              <span class="row-break" aria-hidden="true"></span>
-              <span class="tool-pill">Antigravity</span>
+
+            <!-- Connector 3 -> 1 -->
+            <div class="workflow-connector" aria-hidden="true">
+              <span class="connector-arrow">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </span>
+            </div>
+
+            <!-- Cycle 2 in Group 1 -->
+            <!-- Stage 1: Design -->
+            <div class="workflow-stage" data-stage="1">
+              <div class="workflow-stage-header">
+                <div class="stage-heading-group">
+                  <span class="stage-step-badge">01</span>
+                  <div class="tools-group-label">DESIGN</div>
+                </div>
+                <div class="stage-flow-hint" aria-hidden="true">
+                  <span>NEXT</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <div class="tools-chips-row">
+                <span class="tool-pill">Figma</span>
+                <span class="tool-pill">Figma Make</span>
+                <span class="row-break" aria-hidden="true"></span>
+                <span class="tool-pill">FigJam</span>
+                <span class="tool-pill">Framer</span>
+                <span class="tool-pill">ProtoPie</span>
+              </div>
+            </div>
+
+            <!-- Connector 1 -> 2 -->
+            <div class="workflow-connector" aria-hidden="true">
+              <span class="connector-arrow">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </span>
+            </div>
+
+            <!-- Stage 2: AI & Build -->
+            <div class="workflow-stage" data-stage="2">
+              <div class="workflow-stage-header">
+                <div class="stage-heading-group">
+                  <span class="stage-step-badge">02</span>
+                  <div class="tools-group-label">AI &amp; BUILD</div>
+                </div>
+                <div class="stage-flow-hint" aria-hidden="true">
+                  <span>NEXT</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <div class="tools-chips-row">
+                <span class="tool-pill">Claude Code</span>
+                <span class="tool-pill">Cursor</span>
+                <span class="tool-pill">v0</span>
+                <span class="row-break" aria-hidden="true"></span>
+                <span class="tool-pill">Lovable</span>
+                <span class="tool-pill">Google Stitch</span>
+                <span class="row-break" aria-hidden="true"></span>
+                <span class="tool-pill">Antigravity</span>
+              </div>
+            </div>
+
+            <!-- Connector 2 -> 3 -->
+            <div class="workflow-connector" aria-hidden="true">
+              <span class="connector-arrow">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </span>
+            </div>
+
+            <!-- Stage 3: Code -->
+            <div class="workflow-stage" data-stage="3">
+              <div class="workflow-stage-header">
+                <div class="stage-heading-group">
+                  <span class="stage-step-badge">03</span>
+                  <div class="tools-group-label">CODE</div>
+                </div>
+                <div class="stage-flow-hint is-final" aria-hidden="true">
+                  <span class="complete-dot"></span>
+                  <span>PRODUCTION</span>
+                </div>
+              </div>
+              <div class="tools-chips-row">
+                <span class="tool-pill">React</span>
+                <span class="tool-pill">Next.js</span>
+                <span class="row-break" aria-hidden="true"></span>
+                <span class="tool-pill">Tailwind CSS</span>
+                <span class="tool-pill">HTML/CSS/JS</span>
+                <span class="row-break" aria-hidden="true"></span>
+                <span class="tool-pill">Supabase</span>
+                <span class="tool-pill">Firebase</span>
+                <span class="row-break" aria-hidden="true"></span>
+                <span class="tool-pill">GitHub</span>
+                <span class="tool-pill">Vercel</span>
+              </div>
+            </div>
+
+            <!-- Connector 3 -> 1 -->
+            <div class="workflow-connector" aria-hidden="true">
+              <span class="connector-arrow">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </span>
             </div>
           </div>
 
-          <!-- Connector 2 -> 3 -->
-          <div class="workflow-connector" aria-hidden="true">
-            <span class="connector-arrow">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </span>
-          </div>
-
-          <!-- Stage 3: Code -->
-          <div class="workflow-stage" data-stage="3">
-            <div class="workflow-stage-header">
-              <div class="stage-heading-group">
-                <span class="stage-step-badge">03</span>
-                <div class="tools-group-label">CODE</div>
+          <!-- Duplicate Group for Seamless Infinite Loop -->
+          <div class="tools-carousel-group" aria-hidden="true">
+            <!-- Stage 1: Design -->
+            <div class="workflow-stage" data-stage="1">
+              <div class="workflow-stage-header">
+                <div class="stage-heading-group">
+                  <span class="stage-step-badge">01</span>
+                  <div class="tools-group-label">DESIGN</div>
+                </div>
+                <div class="stage-flow-hint" aria-hidden="true">
+                  <span>NEXT</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </div>
               </div>
-              <div class="stage-flow-hint is-final" aria-hidden="true">
-                <span class="complete-dot"></span>
-                <span>PRODUCTION</span>
+              <div class="tools-chips-row">
+                <span class="tool-pill">Figma</span>
+                <span class="tool-pill">Figma Make</span>
+                <span class="row-break" aria-hidden="true"></span>
+                <span class="tool-pill">FigJam</span>
+                <span class="tool-pill">Framer</span>
+                <span class="tool-pill">ProtoPie</span>
               </div>
             </div>
-            <div class="tools-chips-row">
-              <span class="tool-pill">React</span>
-              <span class="tool-pill">Next.js</span>
-              <span class="row-break" aria-hidden="true"></span>
-              <span class="tool-pill">Tailwind CSS</span>
-              <span class="tool-pill">HTML/CSS/JS</span>
-              <span class="row-break" aria-hidden="true"></span>
-              <span class="tool-pill">Supabase</span>
-              <span class="tool-pill">Firebase</span>
-              <span class="row-break" aria-hidden="true"></span>
-              <span class="tool-pill">GitHub</span>
-              <span class="tool-pill">Vercel</span>
+
+            <!-- Connector 1 -> 2 -->
+            <div class="workflow-connector" aria-hidden="true">
+              <span class="connector-arrow">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </span>
+            </div>
+
+            <!-- Stage 2: AI & Build -->
+            <div class="workflow-stage" data-stage="2">
+              <div class="workflow-stage-header">
+                <div class="stage-heading-group">
+                  <span class="stage-step-badge">02</span>
+                  <div class="tools-group-label">AI &amp; BUILD</div>
+                </div>
+                <div class="stage-flow-hint" aria-hidden="true">
+                  <span>NEXT</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <div class="tools-chips-row">
+                <span class="tool-pill">Claude Code</span>
+                <span class="tool-pill">Cursor</span>
+                <span class="tool-pill">v0</span>
+                <span class="row-break" aria-hidden="true"></span>
+                <span class="tool-pill">Lovable</span>
+                <span class="tool-pill">Google Stitch</span>
+                <span class="row-break" aria-hidden="true"></span>
+                <span class="tool-pill">Antigravity</span>
+              </div>
+            </div>
+
+            <!-- Connector 2 -> 3 -->
+            <div class="workflow-connector" aria-hidden="true">
+              <span class="connector-arrow">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </span>
+            </div>
+
+            <!-- Stage 3: Code -->
+            <div class="workflow-stage" data-stage="3">
+              <div class="workflow-stage-header">
+                <div class="stage-heading-group">
+                  <span class="stage-step-badge">03</span>
+                  <div class="tools-group-label">CODE</div>
+                </div>
+                <div class="stage-flow-hint is-final" aria-hidden="true">
+                  <span class="complete-dot"></span>
+                  <span>PRODUCTION</span>
+                </div>
+              </div>
+              <div class="tools-chips-row">
+                <span class="tool-pill">React</span>
+                <span class="tool-pill">Next.js</span>
+                <span class="row-break" aria-hidden="true"></span>
+                <span class="tool-pill">Tailwind CSS</span>
+                <span class="tool-pill">HTML/CSS/JS</span>
+                <span class="row-break" aria-hidden="true"></span>
+                <span class="tool-pill">Supabase</span>
+                <span class="tool-pill">Firebase</span>
+                <span class="row-break" aria-hidden="true"></span>
+                <span class="tool-pill">GitHub</span>
+                <span class="tool-pill">Vercel</span>
+              </div>
+            </div>
+
+            <!-- Connector 3 -> 1 -->
+            <div class="workflow-connector" aria-hidden="true">
+              <span class="connector-arrow">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </span>
+            </div>
+
+            <!-- Cycle 2 in Group 2 -->
+            <!-- Stage 1: Design -->
+            <div class="workflow-stage" data-stage="1">
+              <div class="workflow-stage-header">
+                <div class="stage-heading-group">
+                  <span class="stage-step-badge">01</span>
+                  <div class="tools-group-label">DESIGN</div>
+                </div>
+                <div class="stage-flow-hint" aria-hidden="true">
+                  <span>NEXT</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <div class="tools-chips-row">
+                <span class="tool-pill">Figma</span>
+                <span class="tool-pill">Figma Make</span>
+                <span class="row-break" aria-hidden="true"></span>
+                <span class="tool-pill">FigJam</span>
+                <span class="tool-pill">Framer</span>
+                <span class="tool-pill">ProtoPie</span>
+              </div>
+            </div>
+
+            <!-- Connector 1 -> 2 -->
+            <div class="workflow-connector" aria-hidden="true">
+              <span class="connector-arrow">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </span>
+            </div>
+
+            <!-- Stage 2: AI & Build -->
+            <div class="workflow-stage" data-stage="2">
+              <div class="workflow-stage-header">
+                <div class="stage-heading-group">
+                  <span class="stage-step-badge">02</span>
+                  <div class="tools-group-label">AI &amp; BUILD</div>
+                </div>
+                <div class="stage-flow-hint" aria-hidden="true">
+                  <span>NEXT</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <div class="tools-chips-row">
+                <span class="tool-pill">Claude Code</span>
+                <span class="tool-pill">Cursor</span>
+                <span class="tool-pill">v0</span>
+                <span class="row-break" aria-hidden="true"></span>
+                <span class="tool-pill">Lovable</span>
+                <span class="tool-pill">Google Stitch</span>
+                <span class="row-break" aria-hidden="true"></span>
+                <span class="tool-pill">Antigravity</span>
+              </div>
+            </div>
+
+            <!-- Connector 2 -> 3 -->
+            <div class="workflow-connector" aria-hidden="true">
+              <span class="connector-arrow">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </span>
+            </div>
+
+            <!-- Stage 3: Code -->
+            <div class="workflow-stage" data-stage="3">
+              <div class="workflow-stage-header">
+                <div class="stage-heading-group">
+                  <span class="stage-step-badge">03</span>
+                  <div class="tools-group-label">CODE</div>
+                </div>
+                <div class="stage-flow-hint is-final" aria-hidden="true">
+                  <span class="complete-dot"></span>
+                  <span>PRODUCTION</span>
+                </div>
+              </div>
+              <div class="tools-chips-row">
+                <span class="tool-pill">React</span>
+                <span class="tool-pill">Next.js</span>
+                <span class="row-break" aria-hidden="true"></span>
+                <span class="tool-pill">Tailwind CSS</span>
+                <span class="tool-pill">HTML/CSS/JS</span>
+                <span class="row-break" aria-hidden="true"></span>
+                <span class="tool-pill">Supabase</span>
+                <span class="tool-pill">Firebase</span>
+                <span class="row-break" aria-hidden="true"></span>
+                <span class="tool-pill">GitHub</span>
+                <span class="tool-pill">Vercel</span>
+              </div>
+            </div>
+
+            <!-- Connector 3 -> 1 -->
+            <div class="workflow-connector" aria-hidden="true">
+              <span class="connector-arrow">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </span>
             </div>
           </div>
         </div>
