@@ -1635,22 +1635,23 @@ body.nav-menu-open {
   margin: 0;
 }
 
-/* Horizontal Left-to-Right Moving Carousel */
+/* Horizontal Left-to-Right Moving Carousel of Tool Pills */
 .tools-carousel-wrapper {
   position: relative;
   width: 100%;
   overflow: hidden;
-  margin-top: clamp(2.5rem, 4vw, 3.5rem);
-  padding: 16px 0 24px;
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
-  mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+  margin-top: clamp(2rem, 3.5vw, 3rem);
+  padding: 14px 0 18px;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%);
 }
 
 .tools-carousel-track {
   display: flex;
+  align-items: center;
   width: max-content;
   will-change: transform;
-  animation: tools-carousel-ltr 55s linear infinite;
+  animation: tools-carousel-ltr 45s linear infinite;
 }
 
 @keyframes tools-carousel-ltr {
@@ -1670,216 +1671,134 @@ body.nav-menu-open {
 .tools-carousel-group {
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding-right: 14px;
+  gap: 12px;
+  padding-right: 12px;
   flex-shrink: 0;
 }
 
-.workflow-stage {
-  width: 350px;
-  min-width: 350px;
-  max-width: 350px;
-  min-height: 380px;
-  flex-shrink: 0;
-  align-self: stretch;
-  background: #111317;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 20px;
-  padding: 30px 20px 34px;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1), border-color 250ms ease, box-shadow 250ms ease;
-}
-
-.workflow-stage:hover {
-  background: #13161C;
-  border-color: rgba(196, 181, 253, 0.35);
-  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.6), 0 0 24px -6px rgba(196, 181, 253, 0.2);
-  transform: translateY(-2px);
-}
-
-.workflow-stage-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 26px;
-  padding-bottom: 0;
-  border-bottom: none;
-}
-
-.stage-heading-group {
-  display: flex;
+/* Category cluster: Category badge + its tool pills */
+.tool-category-cluster {
+  display: inline-flex;
   align-items: center;
   gap: 10px;
+  flex-shrink: 0;
 }
 
-.stage-step-badge {
-  font-family: var(--font-sans);
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--accent-lavender);
-  background: transparent;
-  border: 1px solid rgba(196, 181, 253, 0.35);
+/* Inline category label / badge */
+.tool-category-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 38px;
+  min-height: 38px;
+  padding: 0 16px 0 10px;
   border-radius: 9999px;
-  padding: 2px 7px;
-  letter-spacing: 0.04em;
-  line-height: 1.3;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.tools-group-label {
+  background: rgba(196, 181, 253, 0.08);
+  border: 1px solid rgba(196, 181, 253, 0.32);
+  color: var(--accent-lavender, #C4B5FD);
   font-family: var(--font-sans);
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--accent-lavender);
+  font-size: 12px;
   font-weight: 700;
-  margin: 0;
-}
-
-.stage-flow-hint {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-family: var(--font-sans);
-  font-size: 11px;
-  font-weight: 600;
-  color: #555866;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  user-select: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  box-shadow: 0 0 14px -3px rgba(196, 181, 253, 0.16);
+  margin-right: 2px;
   transition: all 200ms ease;
 }
 
-.stage-flow-hint svg {
-  width: 11px !important;
-  height: 11px !important;
-  display: block;
-  transition: transform 200ms ease;
+.tool-category-badge:hover {
+  background: rgba(196, 181, 253, 0.13);
+  border-color: rgba(196, 181, 253, 0.5);
+  box-shadow: 0 0 18px -2px rgba(196, 181, 253, 0.28);
 }
 
-.workflow-stage:hover .stage-flow-hint {
-  color: var(--accent-lavender);
-}
-
-.workflow-stage:hover .stage-flow-hint svg {
-  transform: translateX(3px);
-}
-
-.stage-flow-hint.is-final {
-  color: var(--accent-lavender);
-  background: transparent;
-  border: 1px solid rgba(196, 181, 253, 0.35);
+.tool-category-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
   border-radius: 9999px;
-  padding: 3px 10px;
+  background: rgba(196, 181, 253, 0.22);
+  color: #FFFFFF;
+  font-family: var(--font-sans);
   font-size: 10.5px;
-  letter-spacing: 0.08em;
   font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1;
 }
 
-.complete-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--accent-lavender);
-  box-shadow: 0 0 8px var(--accent-lavender);
+.tool-category-title {
   display: inline-block;
-  flex-shrink: 0;
+  line-height: 1;
 }
 
-/* Connectors between stages */
-.workflow-connector {
-  display: flex;
+/* Cluster separator dot */
+.tool-cluster-separator {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-  width: 28px;
-  align-self: center;
-}
-
-.connector-arrow {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: #111318;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #6C7082;
-  transition: all 250ms ease;
-  flex-shrink: 0;
-  z-index: 2;
-}
-
-.connector-arrow svg {
-  width: 13px !important;
-  height: 13px !important;
-  display: block;
+  color: rgba(196, 181, 253, 0.35);
+  font-size: 14px;
+  line-height: 1;
+  padding: 0 10px;
+  user-select: none;
   flex-shrink: 0;
 }
 
-.connector-arrow:hover {
-  background: rgba(196, 181, 253, 0.12);
-  border-color: var(--accent-lavender);
-  color: var(--accent-lavender);
-  box-shadow: 0 0 16px var(--accent-lavender-glow);
-}
-
-.tools-chips-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  align-content: flex-start;
-  flex: 1;
-}
-
-.row-break {
-  flex-basis: 100%;
-  width: 100%;
-  height: 0;
-  margin: 0;
-  padding: 0;
-  border: none;
-}
-
+/* Rounded tool pills */
 .tool-pill {
   display: inline-flex;
   align-items: center;
   height: 38px;
   min-height: 38px;
-  padding: 0 15px;
+  padding: 0 16px;
   border-radius: 9999px;
-  background: #16181F;
+  background: #14171D;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  color: #DDE0EC;
+  color: #E2E5F0;
+  font-family: var(--font-sans);
   font-size: 13.5px !important;
   font-weight: 500;
   user-select: none;
   white-space: nowrap;
-  transition: all 200ms ease;
+  flex-shrink: 0;
+  transition: all 200ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .tool-pill:hover {
-  background: #1F222B;
+  background: #1C1F28;
   border-color: var(--accent-lavender);
   color: #FFFFFF;
   transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(167, 139, 250, 0.16);
+  box-shadow: 0 6px 16px -4px rgba(0, 0, 0, 0.5), 0 0 14px -2px rgba(196, 181, 253, 0.28);
 }
 
 @media (max-width: 600px) {
-  .workflow-stage {
-    width: 310px;
-    min-width: 310px;
-    max-width: 310px;
-    padding: 26px 16px 30px;
-  }
   .tools-carousel-wrapper {
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+    padding: 10px 0 14px;
+  }
+  .tool-category-badge {
+    height: 34px;
+    min-height: 34px;
+    font-size: 11px;
+    padding: 0 12px 0 8px;
+  }
+  .tool-category-num {
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+  }
+  .tool-pill {
+    height: 34px;
+    min-height: 34px;
+    padding: 0 13px;
+    font-size: 12.5px !important;
   }
 }
 
@@ -1893,10 +1812,7 @@ body.nav-menu-open {
     overflow-x: auto;
     -webkit-mask-image: none;
     mask-image: none;
-    scroll-snap-type: x mandatory;
-  }
-  .workflow-stage {
-    scroll-snap-align: start;
+    padding-bottom: 20px;
   }
 }
 
