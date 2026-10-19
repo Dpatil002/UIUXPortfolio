@@ -10567,7 +10567,7 @@ small,
   transition: min-height 250ms ease;
 }
 
-/* Tablet (768–1023px): 2 equal columns, image ratio 4:3, row gap 56px */
+/* Tablet (768–1023px): 2 equal columns, image ratio 16:10, row gap 56px */
 @media (min-width: 768px) and (max-width: 1023px) {
   .work-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -10576,33 +10576,20 @@ small,
   }
 }
 
-/* Desktop (>=1024px): 2 columns with alternating widths, column gap 24px, row gap 80px */
+/* Desktop (>=1024px): 2 equal balanced columns, column gap 32px, row gap 64px */
 @media (min-width: 1024px) {
   .work-grid {
-    grid-template-columns: repeat(12, 1fr);
-    column-gap: 24px;
-    row-gap: 80px;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 32px;
+    row-gap: 64px;
   }
 
-  /* Row 1: wide (2/3 = 8 cols) + narrow (1/3 = 4 cols) */
-  .work-card.grid-col-wide-left {
-    grid-column: 1 / span 8;
-  }
-  .work-card.grid-col-narrow-right {
-    grid-column: 9 / span 4;
-  }
-
-  /* Row 2: narrow (1/3 = 4 cols) + wide (2/3 = 8 cols) */
-  .work-card.grid-col-narrow-left {
-    grid-column: 1 / span 4;
-  }
-  .work-card.grid-col-wide-right {
-    grid-column: 5 / span 8;
-  }
-
-  /* Solo card in row spans 8 cols (2/3 width) */
+  .work-card.grid-col-wide-left,
+  .work-card.grid-col-narrow-right,
+  .work-card.grid-col-narrow-left,
+  .work-card.grid-col-wide-right,
   .work-card.grid-col-solo {
-    grid-column: 1 / span 8;
+    grid-column: span 1;
   }
 }
 
@@ -10661,25 +10648,26 @@ small,
   position: relative;
   overflow: hidden;
   background-color: var(--bg-raised);
-  border-radius: 4px; /* Image: radius 0-4px */
+  border-radius: 6px;
   width: 100%;
-  aspect-ratio: 4 / 3; /* Mobile default ratio 4:3 */
+  aspect-ratio: 16 / 10;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Tablet (768–1023px): image ratio 4:3 */
+/* Tablet (768–1023px) */
 @media (min-width: 768px) and (max-width: 1023px) {
   .work-card-media {
     height: auto;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 10;
   }
 }
 
-/* Desktop (>=1024px): Image heights ~ 500px at 1440px wide (scale with viewport) */
-/* Same image height within a row (no ragged rows) */
+/* Desktop (>=1024px) */
 @media (min-width: 1024px) {
   .work-card-media {
-    aspect-ratio: auto;
-    height: clamp(360px, 34.72vw, 500px);
+    aspect-ratio: 16 / 10;
+    height: auto;
     cursor: none; /* Desktop cursor follow replaces standard cursor over image */
   }
 }
