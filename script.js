@@ -1863,49 +1863,40 @@ function initFeaturedProjectShowcase() {
 
   const featuredProjects = [
     {
-      title: "Tap2Order",
-      href: "tap2order.html",
-      tags: ["SaaS", "Mobile + Web"],
-      image: "assets/images/showcase/tap2order_laptop_1600.webp",
-      mobileImage: "assets/images/showcase/tap2order_laptop_640.webp",
-      deviceType: "laptop",
-      alt: "Tap2Order merchant dashboard showing incoming orders, daily revenue, and product stock"
-    },
-    {
-      title: "Raya",
-      href: "raya.html",
-      tags: ["AI", "Mobile app", "Concept"],
-      image: "assets/images/showcase/raya_phone_1024.webp",
-      mobileImage: "assets/images/showcase/raya_phone_640.webp",
-      deviceType: "phone",
-      alt: "Raya AI mobile application interface displaying contextual recommendations"
-    },
-    {
       title: "Elixir Helps",
       href: "elixir-helps.html",
-      tags: ["Healthcare", "Web + Admin"],
+      tags: ["Healthcare", "Multi-role web platform"],
       image: "assets/images/showcase/elixir_laptop_1600.webp",
       mobileImage: "assets/images/showcase/elixir_laptop_640.webp",
       deviceType: "laptop",
       alt: "Elixir Helps healthcare management portal displaying patient records and care coordinator dashboard"
     },
     {
-      title: "Soché",
-      href: "soche.html",
-      tags: ["D2C", "Shopify"],
-      image: "assets/images/showcase/soche_laptop_1600.webp",
-      mobileImage: "assets/images/showcase/soche_laptop_640.webp",
+      title: "Tythas Control Center",
+      href: "tythas-control-center.html",
+      tags: ["B2B SaaS", "Designed & built"],
+      image: "assets/images/showcase/tythas_laptop_1600.webp",
+      mobileImage: "assets/images/showcase/tythas_laptop_640.webp",
       deviceType: "laptop",
-      alt: "Soché luxury jewellery e-commerce storefront with curated collections and product detail view"
+      alt: "Tythas Control Center multi-tenant website management platform dashboard"
     },
     {
-      title: "Before Two",
-      href: "before-two.html",
-      tags: ["Operations", "Mobile app"],
-      image: "assets/images/showcase/before_two_phone_1024.webp",
-      mobileImage: "assets/images/showcase/before_two_phone_640.webp",
+      title: "Rayafit",
+      href: "raya.html",
+      tags: ["AI mobile app"],
+      image: "assets/images/showcase/raya_phone_1024.webp",
+      mobileImage: "assets/images/showcase/raya_phone_640.webp",
       deviceType: "phone",
-      alt: "Before Two operations mobile app showcasing order tracking and supply workflow"
+      alt: "Rayafit AI mobile application interface displaying contextual recommendations"
+    },
+    {
+      title: "Copper Chocs",
+      href: "copper-chocs.html",
+      tags: ["E-commerce", "Shopify"],
+      image: "assets/projects/copper-chocs/homepage-laptop-screen.webp",
+      mobileImage: "assets/projects/copper-chocs/homepage-laptop-screen.webp",
+      deviceType: "laptop",
+      alt: "Copper Chocs online store redesign"
     }
   ];
 

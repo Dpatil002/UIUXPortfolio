@@ -130,15 +130,45 @@
           </div>
         </div>
 
-        <!-- 2 Columns with Alternating Widths (Row 1: wide + narrow, Row 2: narrow + wide, etc.) -->
+        <!-- 2 Columns with Alternating Widths (Row 1: wide + narrow, Row 2: narrow + wide) -->
         <div class="work-grid" id="work-projects-grid">
 
-          <!-- 1: Tythas Control Center — Row 1 (cols 1–6) -->
-          <a href="tythas-control-center.html" class="work-card is-wide grid-col-wide-left" data-category="product" aria-label="Tythas Control Center — B2B SaaS">
+          <!-- 1: Elixir Helps — Row 1 (cols 1–6) -->
+          <a href="elixir-helps.html" class="work-card is-wide grid-col-wide-left" data-category="product web" aria-label="Elixir Helps — Healthcare · Multi-role web platform">
+            <div class="work-card-media">
+              <picture>
+                <source type="image/webp" srcset="assets/images/grid/elixir-480.webp 480w, assets/images/grid/elixir-768.webp 768w, assets/images/grid/elixir-1200.webp 1200w, assets/images/grid/elixir-1600.webp 1600w, assets/images/grid/elixir-1800.webp 1800w" sizes="(min-width: 1440px) 640px, (min-width: 768px) 50vw, 100vw">
+                <img src="assets/images/grid/elixir-1200.webp" alt="Elixir Helps — Healthcare · Multi-role web platform" class="work-card-img" width="1600" height="1000" loading="eager" fetchpriority="high">
+              </picture>
+              <div class="work-card-touch-badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="work-card-meta">
+              <div class="work-card-row-1">
+                <div class="work-card-title-group">
+                  <h2 class="work-card-title">Elixir Helps</h2>
+                </div>
+                <span class="work-card-year">2025</span>
+              </div>
+              <div class="work-card-row-2">
+                <span class="work-card-category">Healthcare · Multi-role web platform</span>
+              </div>
+              <div class="work-card-row-3">
+                <span class="work-card-role">My role: Lead designer, end to end</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- 2: Tythas Control Center — Row 1 (cols 7–12) -->
+          <a href="tythas-control-center.html" class="work-card is-narrow grid-col-narrow-right" data-category="product" aria-label="Tythas Control Center — B2B SaaS · Designed & built">
             <div class="work-card-media">
               <picture>
                 <source type="image/webp" srcset="assets/images/grid/tythas-480.webp 480w, assets/images/grid/tythas-768.webp 768w, assets/images/grid/tythas-1200.webp 1200w, assets/images/grid/tythas-1800.webp 1800w" sizes="(min-width: 1440px) 640px, (min-width: 768px) 50vw, 100vw">
-                <img src="assets/images/grid/tythas-1200.webp" alt="Tythas Control Center — B2B SaaS" class="work-card-img" width="1600" height="1000" loading="eager" fetchpriority="high">
+                <img src="assets/images/grid/tythas-1200.webp" alt="Tythas Control Center — B2B SaaS · Designed & built" class="work-card-img" width="1600" height="1000" loading="eager" fetchpriority="high">
               </picture>
               <div class="work-card-touch-badge" aria-hidden="true">
                 <svg viewBox="0 0 24 24">
@@ -155,17 +185,20 @@
                 <span class="work-card-year">2026</span>
               </div>
               <div class="work-card-row-2">
-                <span class="work-card-category">B2B SaaS</span>
+                <span class="work-card-category">B2B SaaS · Designed &amp; built</span>
+              </div>
+              <div class="work-card-row-3">
+                <span class="work-card-role">My role: Solo — design, front-end &amp; integration</span>
               </div>
             </div>
           </a>
 
-          <!-- 2: Rayafit — Row 1 (cols 7–12) -->
-          <a href="raya.html" class="work-card is-narrow grid-col-narrow-right" data-category="ai mobile-app" aria-label="Rayafit — AI fitness coach app">
+          <!-- 3: Rayafit — Row 2 (cols 1–6) -->
+          <a href="raya.html" class="work-card is-narrow grid-col-narrow-left" data-category="ai mobile-app" aria-label="Rayafit — AI mobile app">
             <div class="work-card-media">
               <picture>
                 <source type="image/webp" srcset="assets/images/grid/raya-480.webp 480w, assets/images/grid/raya-768.webp 768w, assets/images/grid/raya-1200.webp 1200w, assets/images/grid/raya-1600.webp 1600w, assets/images/grid/raya-1800.webp 1800w" sizes="(min-width: 1440px) 640px, (min-width: 768px) 50vw, 100vw">
-                <img src="assets/images/grid/raya-1200.webp" alt="Rayafit — AI fitness coach app" class="work-card-img" width="1600" height="1000" loading="eager" fetchpriority="high">
+                <img src="assets/images/grid/raya-1200.webp" alt="Rayafit — AI mobile app" class="work-card-img" width="1600" height="1000" loading="lazy">
               </picture>
               <div class="work-card-touch-badge" aria-hidden="true">
                 <svg viewBox="0 0 24 24">
@@ -183,125 +216,20 @@
                 <span class="work-card-year">2026</span>
               </div>
               <div class="work-card-row-2">
-                <span class="work-card-category">AI fitness coach app</span>
+                <span class="work-card-category">AI mobile app</span>
+              </div>
+              <div class="work-card-row-3">
+                <span class="work-card-role">My role: Lead designer, end to end</span>
               </div>
             </div>
           </a>
 
-          <!-- 3: Elixir Helps — Row 2 (cols 1–6) -->
-          <a href="elixir-helps.html" class="work-card is-narrow grid-col-narrow-left" data-category="product web" aria-label="Elixir Helps — Web + Admin panel">
-            <div class="work-card-media">
-              <picture>
-                <source type="image/webp" srcset="assets/images/grid/elixir-480.webp 480w, assets/images/grid/elixir-768.webp 768w, assets/images/grid/elixir-1200.webp 1200w, assets/images/grid/elixir-1600.webp 1600w, assets/images/grid/elixir-1800.webp 1800w" sizes="(min-width: 1440px) 640px, (min-width: 768px) 50vw, 100vw">
-                <img src="assets/images/grid/elixir-1200.webp" alt="Elixir Helps — Web + Admin panel" class="work-card-img" width="1600" height="1000" loading="lazy">
-              </picture>
-              <div class="work-card-touch-badge" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <line x1="7" y1="17" x2="17" y2="7"></line>
-                  <polyline points="7 7 17 7 17 17"></polyline>
-                </svg>
-              </div>
-            </div>
-            <div class="work-card-meta">
-              <div class="work-card-row-1">
-                <div class="work-card-title-group">
-                  <h2 class="work-card-title">Elixir Helps</h2>
-                </div>
-                <span class="work-card-year">2025–2026</span>
-              </div>
-              <div class="work-card-row-2">
-                <span class="work-card-category">Web + Admin panel</span>
-              </div>
-            </div>
-          </a>
-
-          <!-- 4: Soché — Row 2 (cols 7–12) -->
-          <a href="soche.html" class="work-card is-wide grid-col-wide-right" data-category="web" aria-label="Soché — D2C e-commerce">
-            <div class="work-card-media">
-              <picture>
-                <source type="image/webp" srcset="assets/images/grid/soche-480.webp 480w, assets/images/grid/soche-768.webp 768w, assets/images/grid/soche-1200.webp 1200w, assets/images/grid/soche-1600.webp 1600w, assets/images/grid/soche-1800.webp 1800w" sizes="(min-width: 1440px) 640px, (min-width: 768px) 50vw, 100vw">
-                <img src="assets/images/grid/soche-1200.webp" alt="Soché — D2C e-commerce" class="work-card-img" width="1600" height="1000" loading="lazy">
-              </picture>
-              <div class="work-card-touch-badge" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <line x1="7" y1="17" x2="17" y2="7"></line>
-                  <polyline points="7 7 17 7 17 17"></polyline>
-                </svg>
-              </div>
-            </div>
-            <div class="work-card-meta">
-              <div class="work-card-row-1">
-                <div class="work-card-title-group">
-                  <h2 class="work-card-title">Soché</h2>
-                </div>
-                <span class="work-card-year">2026</span>
-              </div>
-              <div class="work-card-row-2">
-                <span class="work-card-category">D2C e-commerce</span>
-              </div>
-            </div>
-          </a>
-
-          <!-- 5: Before Two — Row 3 (cols 1–6) -->
-          <a href="before-two.html" class="work-card is-wide grid-col-wide-left" data-category="mobile-app" aria-label="Before Two — Operations app">
-            <div class="work-card-media">
-              <picture>
-                <source type="image/webp" srcset="assets/images/grid/before-two-480.webp 480w, assets/images/grid/before-two-768.webp 768w, assets/images/grid/before-two-1200.webp 1200w, assets/images/grid/before-two-1600.webp 1600w, assets/images/grid/before-two-1800.webp 1800w" sizes="(min-width: 1440px) 640px, (min-width: 768px) 50vw, 100vw">
-                <img src="assets/images/grid/before-two-1200.webp" alt="Before Two — Operations app" class="work-card-img" width="1600" height="1000" loading="lazy">
-              </picture>
-              <div class="work-card-touch-badge" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <line x1="7" y1="17" x2="17" y2="7"></line>
-                  <polyline points="7 7 17 7 17 17"></polyline>
-                </svg>
-              </div>
-            </div>
-            <div class="work-card-meta">
-              <div class="work-card-row-1">
-                <div class="work-card-title-group">
-                  <h2 class="work-card-title">Before Two</h2>
-                </div>
-                <span class="work-card-year">2026</span>
-              </div>
-              <div class="work-card-row-2">
-                <span class="work-card-category">Operations app</span>
-              </div>
-            </div>
-          </a>
-
-          <!-- 6: Apla Mandal — Row 3 (cols 7–12) -->
-          <a href="apla-mandal.html" class="work-card is-narrow grid-col-narrow-right" data-category="mobile-app web" aria-label="Apla Mandal — Community festival app">
-            <div class="work-card-media">
-              <picture>
-                <source type="image/webp" srcset="assets/images/grid/apla-mandal-480.webp 480w, assets/images/grid/apla-mandal-768.webp 768w, assets/images/grid/apla-mandal-1200.webp 1200w, assets/images/grid/apla-mandal-1600.webp 1600w, assets/images/grid/apla-mandal-1800.webp 1800w" sizes="(min-width: 1440px) 640px, (min-width: 768px) 50vw, 100vw">
-                <img src="assets/images/grid/apla-mandal-1200.webp" alt="Apla Mandal — One app for a 31-year-old Ganeshotsav" class="work-card-img" width="1600" height="1000" loading="lazy">
-              </picture>
-              <div class="work-card-touch-badge" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <line x1="7" y1="17" x2="17" y2="7"></line>
-                  <polyline points="7 7 17 7 17 17"></polyline>
-                </svg>
-              </div>
-            </div>
-            <div class="work-card-meta">
-              <div class="work-card-row-1">
-                <div class="work-card-title-group">
-                  <h2 class="work-card-title">Apla Mandal</h2>
-                </div>
-                <span class="work-card-year">2026</span>
-              </div>
-              <div class="work-card-row-2">
-                <span class="work-card-category">Community festival app</span>
-              </div>
-            </div>
-          </a>
-
-          <!-- 7: Copper Chocs — Row 4 (cols 1–6) -->
-          <a href="copper-chocs.html" class="work-card is-narrow grid-col-narrow-left" data-category="web" aria-label="Copper Chocs — Shopify store">
+          <!-- 4: Copper Chocs — Row 2 (cols 7–12) -->
+          <a href="copper-chocs.html" class="work-card is-wide grid-col-wide-right" data-category="web" aria-label="Copper Chocs — E-commerce · Shopify">
             <div class="work-card-media">
               <picture>
                 <source type="image/webp" srcset="assets/images/grid/copper-chocs-480.webp 480w, assets/images/grid/copper-chocs-768.webp 768w, assets/images/grid/copper-chocs-1200.webp 1200w, assets/images/grid/copper-chocs-1600.webp 1600w, assets/images/grid/copper-chocs-1800.webp 1800w" sizes="(min-width: 1440px) 640px, (min-width: 768px) 50vw, 100vw">
-                <img src="assets/images/grid/copper-chocs-1200.webp" alt="Copper Chocs — Shopify store" class="work-card-img" width="1600" height="1000" loading="lazy">
+                <img src="assets/images/grid/copper-chocs-1200.webp" alt="Copper Chocs — E-commerce · Shopify" class="work-card-img" width="1600" height="1000" loading="lazy">
               </picture>
               <div class="work-card-touch-badge" aria-hidden="true">
                 <svg viewBox="0 0 24 24">
@@ -318,145 +246,101 @@
                 <span class="work-card-year">2025</span>
               </div>
               <div class="work-card-row-2">
-                <span class="work-card-category">Shopify store</span>
+                <span class="work-card-category">E-commerce · Shopify</span>
+              </div>
+              <div class="work-card-row-3">
+                <span class="work-card-role">My role: Lead designer, end to end</span>
               </div>
             </div>
           </a>
 
-          <!-- 8: Tap2Order — Row 4 (cols 7–12) -->
-          <a href="tap2order.html" class="work-card is-wide grid-col-wide-right" data-category="mobile-app web" aria-label="Tap2Order — Mobile app and desktop panel">
-            <div class="work-card-media">
-              <picture>
-                <source type="image/webp" srcset="assets/images/grid/tap2order-480.webp 480w, assets/images/grid/tap2order-768.webp 768w, assets/images/grid/tap2order-1200.webp 1200w, assets/images/grid/tap2order-1600.webp 1600w, assets/images/grid/tap2order-1800.webp 1800w" sizes="(min-width: 1440px) 640px, (min-width: 768px) 50vw, 100vw">
-                <img src="assets/images/grid/tap2order-1200.webp" alt="Tap2Order — An easier way for small shops to take orders" class="work-card-img" width="1600" height="1000" loading="lazy">
-              </picture>
-              <div class="work-card-touch-badge" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <line x1="7" y1="17" x2="17" y2="7"></line>
-                  <polyline points="7 7 17 7 17 17"></polyline>
-                </svg>
-              </div>
-            </div>
-            <div class="work-card-meta">
-              <div class="work-card-row-1">
-                <div class="work-card-title-group">
-                  <h2 class="work-card-title">Tap2Order</h2>
-                </div>
-                <span class="work-card-year">2026</span>
-              </div>
-              <div class="work-card-row-2">
-                <span class="work-card-category">Mobile app &amp; desktop panel</span>
-              </div>
-            </div>
-          </a>
+        </div>
 
-          <!-- 9: Pride World City — Row 5 (cols 1–6) -->
-          <a href="pride-world-city.html" class="work-card is-wide grid-col-wide-left" data-category="web" aria-label="Pride World City — 400-acre township website">
-            <div class="work-card-media">
-              <picture>
-                <source type="image/webp" srcset="assets/images/grid/pwc-480.webp 480w, assets/images/grid/pwc-768.webp 768w, assets/images/grid/pwc-1200.webp 1200w, assets/images/grid/pwc-1600.webp 1600w" sizes="(min-width: 1440px) 640px, (min-width: 768px) 50vw, 100vw">
-                <img src="assets/images/grid/pwc-1200.webp" alt="Pride World City — Redesigning a 400-acre township's website" class="work-card-img" width="1600" height="1000" loading="lazy">
-              </picture>
-              <div class="work-card-touch-badge" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <line x1="7" y1="17" x2="17" y2="7"></line>
-                  <polyline points="7 7 17 7 17 17"></polyline>
-                </svg>
-              </div>
-            </div>
-            <div class="work-card-meta">
-              <div class="work-card-row-1">
-                <div class="work-card-title-group">
-                  <h2 class="work-card-title">Pride World City</h2>
-                </div>
-                <span class="work-card-year">2024</span>
-              </div>
-              <div class="work-card-row-2">
-                <span class="work-card-category">Real estate township website</span>
-              </div>
-            </div>
-          </a>
+        <!-- Empty state when zero projects match -->
+        <div class="work-empty-state" id="filter-empty-state" style="display: none;" aria-live="polite">
+          <p>No projects found in this category.</p>
+        </div>
 
-          <!-- 10: The PowerPoint Coworking — Row 5 (cols 7–12) -->
-          <a href="powerpoint-coworking.html" class="work-card is-narrow grid-col-narrow-right" data-category="web" aria-label="The PowerPoint Coworking — Minimal website">
-            <div class="work-card-media">
-              <picture>
-                <source type="image/webp" srcset="assets/images/grid/tppcws-480.webp 480w, assets/images/grid/tppcws-768.webp 768w, assets/images/grid/tppcws-1200.webp 1200w, assets/images/grid/tppcws-1600.webp 1600w, assets/images/grid/tppcws-1800.webp 1800w" sizes="(min-width: 1440px) 640px, (min-width: 768px) 50vw, 100vw">
-                <img src="assets/images/grid/tppcws-1200.webp" alt="The PowerPoint Coworking — Minimal website" class="work-card-img" width="1600" height="1000" loading="lazy">
-              </picture>
-              <div class="work-card-touch-badge" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <line x1="7" y1="17" x2="17" y2="7"></line>
-                  <polyline points="7 7 17 7 17 17"></polyline>
-                </svg>
+        <!-- MORE WORK SECTION -->
+        <section class="more-work-section" aria-label="More work">
+          <div class="more-work-header">
+            <h2 class="more-work-title">More work</h2>
+            <p class="more-work-subline">Additional projects across operations, commerce, and web platforms.</p>
+          </div>
+          <div class="more-work-grid">
+            <!-- 1: Tap2Order -->
+            <a href="tap2order.html" class="more-work-card" aria-label="Tap2Order case study">
+              <div class="more-work-card-media">
+                <picture>
+                  <source type="image/webp" srcset="assets/images/grid/tap2order-480.webp 480w, assets/images/grid/tap2order-768.webp 768w, assets/images/grid/tap2order-1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw">
+                  <img src="assets/images/grid/tap2order-1200.webp" alt="Tap2Order — Order &amp; Inventory Management Platform" loading="lazy" width="1200" height="750">
+                </picture>
               </div>
-            </div>
-            <div class="work-card-meta">
-              <div class="work-card-row-1">
-                <div class="work-card-title-group">
-                  <h2 class="work-card-title">The PowerPoint Coworking</h2>
+              <div class="more-work-card-meta">
+                <div class="more-work-card-row">
+                  <h3 class="more-work-card-title">Tap2Order</h3>
+                  <span class="more-work-card-year">2026</span>
                 </div>
-                <span class="work-card-year">2025–2026</span>
+                <span class="more-work-card-category">SaaS · Ordering platform</span>
+                <span class="more-work-card-role">My role: Lead designer, end to end</span>
               </div>
-              <div class="work-card-row-2">
-                <span class="work-card-category">Coworking space website</span>
-              </div>
-            </div>
-          </a>
+            </a>
 
-          <!-- 11: HireSprint — Row 6 (cols 1–6) -->
-          <a href="hiresprint.html" class="work-card is-narrow grid-col-narrow-left" data-category="web" aria-label="HireSprint — Two-sided staffing website">
-            <div class="work-card-media">
-              <picture>
-                <source type="image/webp" srcset="assets/images/grid/hiresprint-480.webp 480w, assets/images/grid/hiresprint-768.webp 768w, assets/images/grid/hiresprint-1200.webp 1200w, assets/images/grid/hiresprint-1600.webp 1600w, assets/images/grid/hiresprint-1800.webp 1800w" sizes="(min-width: 1440px) 640px, (min-width: 768px) 50vw, 100vw">
-                <img src="assets/images/grid/hiresprint-1200.webp" alt="HireSprint — Two-sided staffing website" class="work-card-img" width="1600" height="1000" loading="lazy">
-              </picture>
-              <div class="work-card-touch-badge" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <line x1="7" y1="17" x2="17" y2="7"></line>
-                  <polyline points="7 7 17 7 17 17"></polyline>
-                </svg>
+            <!-- 2: Before Two -->
+            <a href="before-two.html" class="more-work-card" aria-label="Before Two case study">
+              <div class="more-work-card-media">
+                <picture>
+                  <source type="image/webp" srcset="assets/images/grid/before-two-480.webp 480w, assets/images/grid/before-two-768.webp 768w, assets/images/grid/before-two-1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw">
+                  <img src="assets/images/grid/before-two-1200.webp" alt="Before Two — Housekeeping operations mobile app" loading="lazy" width="1200" height="750">
+                </picture>
               </div>
-            </div>
-            <div class="work-card-meta">
-              <div class="work-card-row-1">
-                <div class="work-card-title-group">
-                  <h2 class="work-card-title">HireSprint</h2>
+              <div class="more-work-card-meta">
+                <div class="more-work-card-row">
+                  <h3 class="more-work-card-title">Before Two</h3>
+                  <span class="more-work-card-year">2024</span>
                 </div>
-                <span class="work-card-year">2025–2026</span>
+                <span class="more-work-card-category">Operations mobile app</span>
+                <span class="more-work-card-role">My role: Lead designer, end to end</span>
               </div>
-              <div class="work-card-row-2">
-                <span class="work-card-category">Two-sided staffing website</span>
-              </div>
-            </div>
-          </a>
+            </a>
 
-          <!-- 12: Sydney Decors — Row 6 (cols 7–12) -->
-          <a href="sydney-decors.html" class="work-card is-wide grid-col-wide-right" data-category="web" aria-label="Sydney Decors — Australian wall-panel and décor website">
-            <div class="work-card-media">
-              <picture>
-                <source type="image/webp" srcset="assets/images/grid/sydney-decors-480.webp 480w, assets/images/grid/sydney-decors-768.webp 768w, assets/images/grid/sydney-decors-1200.webp 1200w, assets/images/grid/sydney-decors-1600.webp 1600w, assets/images/grid/sydney-decors-1800.webp 1800w" sizes="(min-width: 1440px) 640px, (min-width: 768px) 50vw, 100vw">
-                <img src="assets/images/grid/sydney-decors-1200.webp" alt="Sydney Decors — Australian wall-panel and décor website" class="work-card-img" width="1600" height="1000" loading="lazy">
-              </picture>
-              <div class="work-card-touch-badge" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <line x1="7" y1="17" x2="17" y2="7"></line>
-                  <polyline points="7 7 17 7 17 17"></polyline>
-                </svg>
+            <!-- 3: Soché -->
+            <a href="soche.html" class="more-work-card" aria-label="Soché case study">
+              <div class="more-work-card-media">
+                <picture>
+                  <source type="image/webp" srcset="assets/images/grid/soche-480.webp 480w, assets/images/grid/soche-768.webp 768w, assets/images/grid/soche-1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw">
+                  <img src="assets/images/grid/soche-1200.webp" alt="Soché — Luxury D2C &amp; B2B wholesale store" loading="lazy" width="1200" height="750">
+                </picture>
               </div>
-            </div>
-            <div class="work-card-meta">
-              <div class="work-card-row-1">
-                <div class="work-card-title-group">
-                  <h2 class="work-card-title">Sydney Decors</h2>
+              <div class="more-work-card-meta">
+                <div class="more-work-card-row">
+                  <h3 class="more-work-card-title">Soché</h3>
+                  <span class="more-work-card-year">2025</span>
                 </div>
-                <span class="work-card-year">2025–2026</span>
+                <span class="more-work-card-category">D2C &amp; wholesale store</span>
+                <span class="more-work-card-role">My role: Lead designer, end to end</span>
               </div>
-              <div class="work-card-row-2">
-                <span class="work-card-category">Website · 9 page templates</span>
+            </a>
+
+            <!-- 4: Sydney Decors -->
+            <a href="sydney-decors.html" class="more-work-card" aria-label="Sydney Decors case study">
+              <div class="more-work-card-media">
+                <picture>
+                  <source type="image/webp" srcset="assets/images/grid/sydney-decors-480.webp 480w, assets/images/grid/sydney-decors-768.webp 768w, assets/images/grid/sydney-decors-1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw">
+                  <img src="assets/images/grid/sydney-decors-1200.webp" alt="Sydney Decors — Australian wall-panel and décor website" loading="lazy" width="1200" height="750">
+                </picture>
               </div>
-            </div>
-          </a>
+              <div class="more-work-card-meta">
+                <div class="more-work-card-row">
+                  <h3 class="more-work-card-title">Sydney Decors</h3>
+                  <span class="more-work-card-year">2026</span>
+                </div>
+                <span class="more-work-card-category">Website · 9 page templates</span>
+                <span class="more-work-card-role">My role: Lead designer, end to end</span>
+              </div>
+            </a>
+          </div>
+        </section>
 
         </div>
 
