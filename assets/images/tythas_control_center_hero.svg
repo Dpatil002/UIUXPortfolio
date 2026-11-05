@@ -68,7 +68,7 @@
 
     <!-- Description Paragraph -->
     <text x="0" y="220" font-family="-apple-system, BlinkMacSystemFont, 'Plus Jakarta Sans', sans-serif" font-size="14.5" fill="#9ca3af" font-weight="400">A multi-tenant website management platform designed</text>
-    <text x="0" y="244" font-family="-apple-system, BlinkMacSystemFont, 'Plus Jakarta Sans', sans-serif" font-size="14.5" fill="#9ca3af" font-weight="400">and built for my own agency — one dashboard to run</text>
+    <text x="0" y="244" font-family="-apple-system, BlinkMacSystemFont, 'Plus Jakarta Sans', sans-serif" font-size="14.5" fill="#9ca3af" font-weight="400">and built solo — one dashboard to run</text>
     <text x="0" y="268" font-family="-apple-system, BlinkMacSystemFont, 'Plus Jakarta Sans', sans-serif" font-size="14.5" fill="#9ca3af" font-weight="400">every client site's pages, blog, SEO, forms, leads,</text>
     <text x="0" y="292" font-family="-apple-system, BlinkMacSystemFont, 'Plus Jakarta Sans', sans-serif" font-size="14.5" fill="#9ca3af" font-weight="400">and uptime instead of fragmented logins.</text>
 

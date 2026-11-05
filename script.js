@@ -175,7 +175,13 @@ function initScrollReveal() {
     }
   );
 
-  elements.forEach((el) => observer.observe(el));
+  elements.forEach((el) => {
+    observer.observe(el);
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      el.classList.add('is-revealed');
+    }
+  });
 }
 
 // 4. Cursor Follow Arrow Badge (Interactive Elements: Featured Carousel & Footer Email)

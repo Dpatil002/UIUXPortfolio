@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Tythas Control Center — Multi-Tenant SaaS Platform UX Case Study | Digambar Patil</title>
-  <meta name="description" content="A multi-tenant website management platform I designed and built for Tythas Digital — one dashboard to run every client site's pages, blog, SEO, forms, leads and uptime.">
+  <meta name="description" content="A multi-tenant SaaS website management platform designed and built solo to manage 6 client websites from one central dashboard for CMS, SEO, leads, and uptime.">
   <meta name="theme-color" content="#121417">
 
   <!-- Open Graph / Social Sharing -->
   <meta property="og:title" content="Tythas Control Center — Multi-Tenant SaaS Platform UX Case Study | Digambar Patil">
-  <meta property="og:description" content="A multi-tenant website management platform I designed and built for Tythas Digital — one dashboard to run every client site's pages, blog, SEO, forms, leads and uptime.">
+  <meta property="og:description" content="A multi-tenant SaaS website management platform designed and built solo to manage 6 client websites from one central dashboard for CMS, SEO, leads, and uptime.">
   <meta property="og:image" content="/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -32,7 +32,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
   
   <!-- Preload LCP hero screenshot -->
-  <link rel="preload" as="image" href="assets/images/tythas_control_center_hero.svg" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/projects/tythas/hero-cover.webp" fetchpriority="high">
   
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -138,32 +138,30 @@
 
           <!-- META LIST as <dl> -->
           <dl class="cs-hero-meta">
-            
-              <div class="cs-meta-item">
-                <dt class="cs-meta-label">Scope</dt>
-                <dd class="cs-meta-value">Product Architecture · Design System · Edge API</dd>
-              </div>
-            
-              <div class="cs-meta-item">
-                <dt class="cs-meta-label">Role</dt>
-                <dd class="cs-meta-value">Lead Product Designer & Design Engineer</dd>
-              </div>
-            
-              <div class="cs-meta-item">
-                <dt class="cs-meta-label">Client/Context</dt>
-                <dd class="cs-meta-value">Tythas Digital (Agency Platform)</dd>
-              </div>
-            
-              <div class="cs-meta-item">
-                <dt class="cs-meta-label">Year</dt>
-                <dd class="cs-meta-value">2026</dd>
-              </div>
-            
-              <div class="cs-meta-item">
-                <dt class="cs-meta-label">Status</dt>
-                <dd class="cs-meta-value">Shipped</dd>
-              </div>
-            
+            <div class="cs-meta-item">
+              <dt class="cs-meta-label">Role</dt>
+              <dd class="cs-meta-value">Lead Product Designer &amp; Design Engineer</dd>
+            </div>
+            <div class="cs-meta-item">
+              <dt class="cs-meta-label">Team</dt>
+              <dd class="cs-meta-value">Solo — design, front-end and integration</dd>
+            </div>
+            <div class="cs-meta-item">
+              <dt class="cs-meta-label">Context</dt>
+              <dd class="cs-meta-value">Self-initiated product, designed and built solo</dd>
+            </div>
+            <div class="cs-meta-item">
+              <dt class="cs-meta-label">Timeline</dt>
+              <dd class="cs-meta-value">2026</dd>
+            </div>
+            <div class="cs-meta-item">
+              <dt class="cs-meta-label">Platform</dt>
+              <dd class="cs-meta-value">B2B SaaS (Multi-tenant web platform)</dd>
+            </div>
+            <div class="cs-meta-item">
+              <dt class="cs-meta-label">Status</dt>
+              <dd class="cs-meta-value">Live for 6 client websites; production migration in progress</dd>
+            </div>
           </dl>
         </div>
 
@@ -201,7 +199,7 @@
             <!-- The Problem Prose -->
             <div class="cs-prose">
               <h3 class="cs-section-subtitle">The problem</h3>
-              <p>Tythas is the digital agency I run. The moment a client site shipped, it became its own disconnected island — a separate WordPress admin, a different hosting cPanel, sometimes an ad-hoc script I'd written once and never documented.</p><p>There was no single place to see which sites needed attention, no consistent way to publish a page across different tech stacks, and nothing watching for SEO gaps, lead capture failures, or server uptime.</p><p>A five-minute copy change became an urgent developer ticket for me personally, and more than once I learned about a broken form or expired SSL certificate directly from the client — not from an automated system.</p>
+              <p>The moment a client site shipped, it became its own disconnected island — a separate WordPress admin, a different hosting cPanel, sometimes an ad-hoc script written once and never documented.</p><p>There was no single place to see which sites needed attention, no consistent way to publish a page across different tech stacks, and nothing watching for SEO gaps, lead capture failures, or server uptime.</p><p>A five-minute copy change became an urgent developer ticket for me personally, and more than once I learned about a broken form or expired SSL certificate directly from the client — not from an automated system.</p>
               
                 <blockquote class="cs-pull-quote">
                   <p>"A five-minute content change often became an urgent ticket for me personally, and more than once I heard about an expired SSL directly from the client."</p>
@@ -754,11 +752,11 @@
           loading="lazy"
           data-screen-index="0"
           data-lightbox-src="assets/images/tythas_screen_dashboard.svg"
-          data-caption="Multi-tenant dashboard overview showing connected agency sites, uptime status, and lead volume."
+          data-caption="Multi-tenant dashboard overview showing connected client sites, uptime status, and lead volume."
         >
       </div>
       <figcaption class="cs-figure-caption">
-        <span class="cs-caption-index">01.</span> Multi-tenant dashboard overview showing connected agency sites, uptime status, and lead volume.
+        <span class="cs-caption-index">01.</span> Multi-tenant dashboard overview showing connected client sites, uptime status, and lead volume.
       </figcaption>
     </figure>
   
@@ -849,27 +847,38 @@
             <div class="cs-outcome-stats-rule">
               <div class="cs-stats-editorial-grid">
                 
-                  <div class="cs-stat-editorial-item">
-                    <span class="cs-stat-editorial-number">6→1</span>
-                    <span class="cs-stat-editorial-label">Workflows consolidated into one central dashboard</span>
-                  </div>
-                
-                  <div class="cs-stat-editorial-item">
-                    <span class="cs-stat-editorial-number">0</span>
-                    <span class="cs-stat-editorial-label">Developer tickets required for routine client copy updates</span>
-                  </div>
-                
-                  <div class="cs-stat-editorial-item">
-                    <span class="cs-stat-editorial-number">100%</span>
-                    <span class="cs-stat-editorial-label">Verified write protection with zero ghost publishing errors</span>
-                  </div>
-                
-                  <div class="cs-stat-editorial-item">
-                    <span class="cs-stat-editorial-number">0.8s</span>
-                    <span class="cs-stat-editorial-label">Average Largest Contentful Paint across managed sites</span>
-                  </div>
+                <div class="cs-stat-editorial-item">
+                  <span class="cs-stat-editorial-number">6 → 1</span>
+                  <span class="cs-stat-editorial-label">Six client websites managed from one dashboard instead of separate admins</span>
+                </div>
+              
+                <div class="cs-stat-editorial-item">
+                  <span class="cs-stat-editorial-number">0</span>
+                  <span class="cs-stat-editorial-label">No developer needed for routine copy updates since launch</span>
+                </div>
+              
+                <div class="cs-stat-editorial-item">
+                  <span class="cs-stat-editorial-number">4-state</span>
+                  <span class="cs-stat-editorial-label">Connection check before any publish (Disconnected → Audit only → Analyzing → Connected)</span>
+                </div>
+              
+                <div class="cs-stat-editorial-item">
+                  <span class="cs-stat-editorial-number">0.8s</span>
+                  <span class="cs-stat-editorial-label">Average Largest Contentful Paint across the managed sites (measured with PageSpeed Insights)</span>
+                </div>
                 
               </div>
+
+              <!-- How I measured this note -->
+              <p class="cs-outcome-note">
+                <span class="cs-outcome-note-label">How I measured this:</span> Measured on the 6 client sites running on the platform, comparing before and after the move to Control Center.
+              </p>
+            </div>
+
+            <!-- What I Learned -->
+            <div class="cs-prose cs-learned-editorial">
+              <h3 class="cs-section-subtitle">What I learned</h3>
+              <p>Testing beat my assumptions. I built a Notion-style block editor because it felt modern, but clients wanted a simple writing box. Switching early saved the product. I also learned that designing the states between screens (not connected, analyzing, error) matters as much as the screens themselves.</p>
             </div>
 
             <!-- What I'd Do Next (3 bullets) -->
@@ -900,17 +909,17 @@
                 <div class="cs-artefacts-drawer">
                   
                     <div class="cs-artefact-section">
-                      <h4 class="cs-artefact-title">User Personas & Needs Hierarchy (Agency Owner vs Content Manager)</h4>
+                      <h4 class="cs-artefact-title">User Personas &amp; Needs Hierarchy (Platform Admin vs Content Manager)</h4>
                       
         <div class="cs-artefact-grid">
           <div class="cs-artefact-card">
-            <h4>Agency Owner (Digambar)</h4>
-            <p><strong>Primary Role:</strong> Principal &amp; Solo Founder running client operations.</p>
+            <h4>Platform Admin (Digambar)</h4>
+            <p><strong>Primary Role:</strong> Solo designer &amp; developer running multi-tenant client sites.</p>
             <p><strong>Needs Hierarchy:</strong> Foundational uptime &gt; Safety (no destructive actions without backend verification) &gt; Belonging (all clients conform to one mental model) &gt; Growth (scale without adding headcount).</p>
           </div>
           <div class="cs-artefact-card">
             <h4>Content Manager</h4>
-            <p><strong>Primary Role:</strong> Marketing operator / agency collaborator.</p>
+            <p><strong>Primary Role:</strong> Marketing operator / client collaborator.</p>
             <p><strong>Core Requirement:</strong> Draft articles and review leads on assigned websites without wrestling with complex multi-block builders.</p>
           </div>
         </div>

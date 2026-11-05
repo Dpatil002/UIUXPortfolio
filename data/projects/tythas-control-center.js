@@ -9,7 +9,7 @@
 export const project = {
   meta: {
     title: "Tythas Control Center — Multi-Tenant SaaS Platform UX Case Study | Digambar Patil",
-    description: "A multi-tenant website management platform I designed and built for Tythas Digital — one dashboard to run every client site's pages, blog, SEO, forms, leads and uptime.",
+    description: "A multi-tenant SaaS website management platform designed and built solo to manage 6 client websites from one central dashboard for CMS, SEO, leads, and uptime.",
     slug: "tythas-control-center",
     keywords: "Product Design, UI/UX Design, Multi-Tenant SaaS, Design System, Information Architecture, Next.js, Tailored CMS, B2B Platform",
     ogImage: "/og-image.png"
@@ -19,22 +19,23 @@ export const project = {
     eyebrow: "B2B SaaS · Shipped",
     title: "Tythas Control Center",
     summary: "A multi-tenant website management platform that replaces fragmented client logins with one central dashboard for CMS, SEO, leads, and uptime.",
-    heroImage: "assets/images/tythas_control_center_hero.svg",
+    heroImage: "assets/projects/tythas/hero-cover.webp",
     heroImageAlt: "Tythas Control Center — Multi-Tenant Web Platform Architecture and UI Showcase"
   },
 
   tldr: {
     role: "Lead Product Designer & Design Engineer",
-    team: "Solo (Self-Initiated Agency Platform)",
-    timeline: "Sept 2026 (Phases 1–7 Shipped)",
+    team: "Solo — design, front-end and integration",
+    context: "Self-initiated product, designed and built solo",
+    timeline: "2026",
     platform: "Next.js 14 · Web Application",
-    status: "Shipped (Phase 8 Active)",
+    status: "Live for 6 client websites; production migration in progress",
     keyOutcome: "Consolidated 6 client site workflows into 1 unified dashboard, cutting developer intervention on routine updates to zero."
   },
 
   problem: {
     paragraphs: [
-      "Tythas is the digital agency I run. The moment a client site shipped, it became its own disconnected island — a separate WordPress admin, a different hosting cPanel, sometimes an ad-hoc script I'd written once and never documented.",
+      "The moment a client site shipped, it became its own disconnected island — a separate WordPress admin, a different hosting cPanel, sometimes an ad-hoc script written once and never documented.",
       "There was no single place to see which sites needed attention, no consistent way to publish a page across different tech stacks, and nothing watching for SEO gaps, lead capture failures, or server uptime.",
       "A five-minute copy change became an urgent developer ticket for me personally, and more than once I learned about a broken form or expired SSL certificate directly from the client — not from an automated system."
     ],
@@ -219,11 +220,13 @@ export const project = {
 
   outcome: {
     statCards: [
-      { number: "6→1", label: "Workflows consolidated into one central dashboard" },
-      { number: "0", label: "Developer tickets required for routine client copy updates" },
-      { number: "100%", label: "Verified write protection with zero ghost publishing errors" },
-      { number: "0.8s", label: "Average Largest Contentful Paint across managed sites" }
-    ]
+      { number: "6 → 1", label: "Six client websites managed from one dashboard instead of separate admins" },
+      { number: "0", label: "No developer needed for routine copy updates since launch" },
+      { number: "4-state", label: "Connection check before any publish (Disconnected → Audit only → Analyzing → Connected)" },
+      { number: "0.8s", label: "Average Largest Contentful Paint across the managed sites (measured with PageSpeed Insights)" }
+    ],
+    measurementNote: "Measured on the 6 client sites running on the platform, comparing before and after the move to Control Center.",
+    whatILearned: "Testing beat my assumptions. I built a Notion-style block editor because it felt modern, but clients wanted a simple writing box. Switching early saved the product. I also learned that designing the states between screens (not connected, analyzing, error) matters as much as the screens themselves."
   },
 
   nextSteps: [
@@ -252,17 +255,17 @@ export const project = {
 
   processArtifacts: [
     {
-      title: "User Personas & Needs Hierarchy (Agency Owner vs Content Manager)",
+      title: "User Personas & Needs Hierarchy (Platform Admin vs Content Manager)",
       contentHtml: `
         <div class="cs-artefact-grid">
           <div class="cs-artefact-card">
-            <h4>Agency Owner (Digambar)</h4>
-            <p><strong>Primary Role:</strong> Principal &amp; Solo Founder running client operations.</p>
+            <h4>Platform Admin (Digambar)</h4>
+            <p><strong>Primary Role:</strong> Solo designer &amp; developer running multi-tenant client sites.</p>
             <p><strong>Needs Hierarchy:</strong> Foundational uptime &gt; Safety (no destructive actions without backend verification) &gt; Belonging (all clients conform to one mental model) &gt; Growth (scale without adding headcount).</p>
           </div>
           <div class="cs-artefact-card">
             <h4>Content Manager</h4>
-            <p><strong>Primary Role:</strong> Marketing operator / agency collaborator.</p>
+            <p><strong>Primary Role:</strong> Marketing operator / client collaborator.</p>
             <p><strong>Core Requirement:</strong> Draft articles and review leads on assigned websites without wrestling with complex multi-block builders.</p>
           </div>
         </div>

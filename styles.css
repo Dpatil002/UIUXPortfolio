@@ -1004,6 +1004,11 @@ body.nav-menu-open {
   color: var(--text-main);
   margin-bottom: clamp(2rem, 3.2vw, 2.75rem);
   max-width: 950px;
+  text-align: left;
+}
+
+.hero-headline-line {
+  display: block;
 }
 
 .hero-headline .accent-pune {
@@ -9511,9 +9516,9 @@ small,
 
 @media (min-width: 1024px) {
   .case-study .cs-hero-meta {
-    grid-template-columns: repeat(5, auto);
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     justify-content: space-between;
-    gap: var(--s-6);
+    gap: var(--s-5);
     padding-top: var(--s-5);
     margin-bottom: var(--s-7);
   }
@@ -10092,15 +10097,16 @@ small,
 .case-study .cs-stat-editorial-number {
   font-family: 'Newsreader', serif;
   font-weight: 300;
-  font-size: 48px;
+  font-size: clamp(2rem, 4.5vw, 48px);
   line-height: 1;
   color: var(--cs-text);
   letter-spacing: -0.02em;
+  white-space: nowrap;
 }
 
 @media (min-width: 1024px) {
   .case-study .cs-stat-editorial-number {
-    font-size: 64px;
+    font-size: clamp(2.5rem, 4.5vw, 64px);
   }
 }
 
@@ -10109,6 +10115,27 @@ small,
   line-height: 1.4;
   color: var(--cs-text-3);
   font-weight: 400;
+}
+
+.case-study .cs-outcome-note {
+  margin-top: var(--s-5);
+  padding-top: var(--s-4);
+  border-top: 1px solid var(--cs-line);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--cs-text-3);
+}
+
+.case-study .cs-outcome-note-label {
+  font-weight: 600;
+  color: var(--cs-text);
+  letter-spacing: -0.01em;
+}
+
+.case-study .cs-learned-editorial {
+  margin-top: var(--s-6);
+  padding-top: var(--s-5);
+  border-top: 1px solid var(--cs-line);
 }
 
 .case-study .cs-next-steps-editorial {
