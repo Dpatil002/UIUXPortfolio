@@ -1869,13 +1869,13 @@ function initFeaturedProjectShowcase() {
 
   const featuredProjects = [
     {
-      title: "Elixir Helps",
-      href: "elixir-helps.html",
-      tags: ["Healthcare", "Multi-role web platform"],
-      image: "assets/images/showcase/elixir_laptop_1600.webp",
-      mobileImage: "assets/images/showcase/elixir_laptop_640.webp",
-      deviceType: "laptop",
-      alt: "Elixir Helps healthcare management portal displaying patient records and care coordinator dashboard"
+      title: "Before Two",
+      href: "before-two.html",
+      tags: ["Operations", "Mobile app"],
+      image: "assets/images/grid/before-two-1200.webp",
+      mobileImage: "assets/images/grid/before-two-768.webp",
+      deviceType: "poster",
+      alt: "Before Two hospitality housekeeping and villa turnover operations mobile app"
     },
     {
       title: "Tythas Control Center",
